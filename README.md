@@ -18,7 +18,7 @@ Tu viens de ChatGPT ? Il rapatrie ce que ChatGPT sait de toi.
 3. Colle cette phrase et envoie :
 
 ```
-Installe le kit Claude qui est ici : __KIT_URL__
+Installe le kit Claude qui est ici : https://github.com/MrDreamax/kit-claude
 ```
 
 Claude fait tout le reste. Il te demandera ton accord avant de lancer l'installation (clique « Autoriser »), puis te pose 5 questions pour s'adapter à toi.
@@ -52,7 +52,7 @@ Tu installes ce kit pour la personne qui t'a collé ce lien. Fais tout toi-même
 
 1. **Télécharge et lance l'installateur** (Mac, Linux, ou Windows avec Git Bash) :
    ```bash
-   KIT_URL="__KIT_URL__"
+   KIT_URL="https://github.com/MrDreamax/kit-claude"
    rm -rf "$HOME/.claude/kit-tmp" && mkdir -p "$HOME/.claude/kit-tmp" && cd "$HOME/.claude/kit-tmp" \
      && curl -fsSL "$KIT_URL/archive/refs/heads/main.tar.gz" | tar xz \
      && KIT_URL="$KIT_URL" bash */install.sh
