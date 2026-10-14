@@ -1,0 +1,252 @@
+# Sources: Paul Graham
+
+246 sources with notes: 231 essays from paulgraham.com (568,179 words, 1998 to 2026) and 15 talk or interview transcripts (95,488 words, YouTube auto-captions). Total 663,667 words. One transcript (David Perell's How I Write episode about PG) was dropped at extraction because PG is not the speaker. Essay dates are the publish month on paulgraham.com. Transcript dates are YouTube upload dates, which can trail the talk by years: S008 is the 2014 Stanford CS183B lecture, S011 a 2014 Bloomberg interview, S009 a Startup School conversation; S001 and S012 are recent (they discuss AI).
+
+Format: id | title | url | date | file (relative to projects/founder-council/corpus/paul-graham/)
+
+- S001 | Paul Graham On Startups, Ambition, and Great Founders | https://www.youtube.com/watch?v=5bxp78i96S8 | 2026-09-03 | transcripts/02-paul-graham-on-startups-ambition-and-great-founders.md
+- S002 | Keynote: Paul Graham, YCombinator | https://www.youtube.com/watch?v=R9ITLdmfdLI | 2012-03-11 | transcripts/03-keynote-paul-graham-ycombinator.md
+- S003 | Paul Graham, Founder of Y Combinator, Live from Stockholm | https://www.youtube.com/watch?v=QHJkUw31YX8 | 2026-05-13 | transcripts/04-paul-graham-founder-of-y-combinator-live-from-stockholm.md
+- S004 | Paul Graham at Startup School 08 | https://www.youtube.com/watch?v=q7K0vRUKXKc | 2009-01-30 | transcripts/05-paul-graham-at-startup-school-08.md
+- S005 | Office Hours at Startup School 2013 with Paul Graham and Sam Altman | https://www.youtube.com/watch?v=syoqjYLDs48 | 2013-10-26 | transcripts/06-office-hours-at-startup-school-2013-with-paul-graham-and-sam.md
+- S006 | paul graham + charlie rose: how to judge startup founders | https://www.youtube.com/watch?v=asYPbPfKd7w | 2014-09-21 | transcripts/07-paul-graham-charlie-rose-how-to-judge-startup-founders.md
+- S007 | Paul Graham Keynote Speech At OPT412 | https://www.youtube.com/watch?v=CpfdtgW6_oI | 2016-04-11 | transcripts/08-paul-graham-keynote-speech-at-opt412.md
+- S008 | Before the Startup with Paul Graham (How to Start a Startup 2014: Lecture 3) | https://www.youtube.com/watch?v=f4_14pZlJBs | 2017-03-18 | transcripts/17-before-the-startup-with-paul-graham-how-to-start-a-startup-2.md
+- S009 | A Conversation with Paul Graham - Moderated by Geoff Ralston | https://www.youtube.com/watch?v=4WO5kJChg3w | 2018-09-01 | transcripts/21-a-conversation-with-paul-graham-moderated-by-geoff-ralston.md
+- S010 | Y Combinator's Paul Graham sits down with Jason at LAUNCH Festival 2014 | https://www.youtube.com/watch?v=YMqgiXLjvRs | 2014-03-11 | transcripts/23-y-combinator-s-paul-graham-sits-down-with-jason-at-launch-fe.md
+- S011 | From the Archives: Y Combinator Founders Paul Graham and Jessica Livingston on Studio 1.0 (2014) | https://www.youtube.com/watch?v=SuoPiiUBcOk | 2023-08-18 | transcripts/24-from-the-archives-y-combinator-founders-paul-graham-and-jess.md
+- S012 | Paul Graham, Founder, Y Combinator | https://www.youtube.com/watch?v=2Q2uh1BlqKA | 2026-03-19 | transcripts/25-paul-graham-founder-y-combinator.md
+- S013 | Paul Graham on Ambition, Art, and Evaluating Talent / Conversations with Tyler | https://www.youtube.com/watch?v=cma-CXWT1F8 | 2023-11-21 | transcripts/27-paul-graham-on-ambition-art-and-evaluating-talent-conversati.md
+- S014 | Paul Graham & Jessica Livingston of Y Combinator: Part 1 | https://www.youtube.com/watch?v=JHlj3xKyChg | 2008-12-02 | transcripts/38-paul-graham-jessica-livingston-of-y-combinator-part-1.md
+- S015 | Paul Graham & Jessica Livingston of Y Combinator: Part 2 | https://www.youtube.com/watch?v=E0ufZdhDPhw | 2008-12-02 | transcripts/39-paul-graham-jessica-livingston-of-y-combinator-part-2.md
+- S016 | How to Do Great Work | https://paulgraham.com/greatwork.html | 2023-07 | writing/001-how-to-do-great-work.md
+- S017 | Having Kids | https://paulgraham.com/kids.html | 2019-12 | writing/002-having-kids.md
+- S018 | How to Lose Time and Money | https://paulgraham.com/selfindulgence.html | 2010-07 | writing/003-how-to-lose-time-and-money.md
+- S019 | Making Startups Powerful | https://paulgraham.com/powerful.html | 2026-09 | writing/004-making-startups-powerful.md
+- S020 | How Universities Should Prepare Founders | https://paulgraham.com/prepare.html | 2026-08 | writing/005-how-universities-should-prepare-founders.md
+- S021 | How to Earn a Billion Dollars | https://paulgraham.com/earn.html | 2026-06 | writing/006-how-to-earn-a-billion-dollars.md
+- S022 | How to Convert Between Wealth and Income Tax | https://paulgraham.com/winc.html | 2026-05 | writing/007-how-to-convert-between-wealth-and-income-tax.md
+- S023 | The Brand Age | https://paulgraham.com/brandage.html | 2026-03 | writing/008-the-brand-age.md
+- S024 | The Shape of the Essay Field | https://paulgraham.com/field.html | 2025-06 | writing/009-the-shape-of-the-essay-field.md
+- S025 | Good Writing | https://paulgraham.com/goodwriting.html | 2025-05 | writing/010-good-writing.md
+- S026 | What to Do | https://paulgraham.com/do.html | 2025-03 | writing/011-what-to-do.md
+- S027 | The Origins of Wokeness | https://paulgraham.com/woke.html | 2025-01 | writing/012-the-origins-of-wokeness.md
+- S028 | Writes and Write-Nots | https://paulgraham.com/writes.html | 2024-10 | writing/013-writes-and-write-nots.md
+- S029 | When To Do What You Love | https://paulgraham.com/when.html | 2024-09 | writing/014-when-to-do-what-you-love.md
+- S030 | Founder Mode | https://paulgraham.com/foundermode.html | 2024-09 | writing/015-founder-mode.md
+- S031 | The Right Kind of Stubborn | https://paulgraham.com/persistence.html | 2024-07 | writing/016-the-right-kind-of-stubborn.md
+- S032 | The Reddits | https://paulgraham.com/reddits.html | 2024-03 | writing/017-the-reddits.md
+- S033 | How to Start Google | https://paulgraham.com/google.html | 2024-03 | writing/018-how-to-start-google.md
+- S034 | The Best Essay | https://paulgraham.com/best.html | 2024-03 | writing/019-the-best-essay.md
+- S035 | Superlinear Returns | https://paulgraham.com/superlinear.html | 2023-10 | writing/020-superlinear-returns.md
+- S036 | The Need to Read | https://paulgraham.com/read.html | 2022-11 | writing/021-the-need-to-read.md
+- S037 | What You (Want to)* Want | https://paulgraham.com/want.html | 2022-11 | writing/022-what-you-want-to-want.md
+- S038 | Alien Truth | https://paulgraham.com/alien.html | 2022-10 | writing/023-alien-truth.md
+- S039 | What I've Learned from Users | https://paulgraham.com/users.html | 2022-09 | writing/024-what-i-ve-learned-from-users.md
+- S040 | Heresy | https://paulgraham.com/heresy.html | 2022-04 | writing/025-heresy.md
+- S041 | Putting Ideas into Words | https://paulgraham.com/words.html | 2022-02 | writing/026-putting-ideas-into-words.md
+- S042 | Is There Such a Thing as Good Taste? | https://paulgraham.com/goodtaste.html | 2021-11 | writing/027-is-there-such-a-thing-as-good-taste.md
+- S043 | Beyond Smart | https://paulgraham.com/smart.html | 2021-10 | writing/028-beyond-smart.md
+- S044 | Weird Languages | https://paulgraham.com/weird.html | 2021-08 | writing/029-weird-languages.md
+- S045 | How to Work Hard | https://paulgraham.com/hwh.html | 2021-06 | writing/030-how-to-work-hard.md
+- S046 | A Project of One's Own | https://paulgraham.com/own.html | 2021-06 | writing/031-a-project-of-one-s-own.md
+- S047 | Fierce Nerds | https://paulgraham.com/fn.html | 2021-05 | writing/032-fierce-nerds.md
+- S048 | Crazy New Ideas | https://paulgraham.com/newideas.html | 2021-05 | writing/033-crazy-new-ideas.md
+- S049 | An NFT That Saves Lives | https://paulgraham.com/nft.html | 2021-05 | writing/034-an-nft-that-saves-lives.md
+- S050 | The Real Reason to End the Death Penalty | https://paulgraham.com/real.html | 2021-04 | writing/035-the-real-reason-to-end-the-death-penalty.md
+- S051 | How People Get Rich Now | https://paulgraham.com/richnow.html | 2021-04 | writing/036-how-people-get-rich-now.md
+- S052 | Write Simply | https://paulgraham.com/simply.html | 2021-03 | writing/037-write-simply.md
+- S053 | Donate Unrestricted | https://paulgraham.com/donate.html | 2021-03 | writing/038-donate-unrestricted.md
+- S054 | What I Worked On | https://paulgraham.com/worked.html | 2021-02 | writing/039-what-i-worked-on.md
+- S055 | Earnestness | https://paulgraham.com/earnest.html | 2020-12 | writing/040-earnestness.md
+- S056 | Billionaires Build | https://paulgraham.com/ace.html | 2020-12 | writing/041-billionaires-build.md
+- S057 | The Airbnbs | https://paulgraham.com/airbnbs.html | 2020-12 | writing/042-the-airbnbs.md
+- S058 | How to Think for Yourself | https://paulgraham.com/think.html | 2020-11 | writing/043-how-to-think-for-yourself.md
+- S059 | Early Work | https://paulgraham.com/early.html | 2020-10 | writing/044-early-work.md
+- S060 | Modeling a Wealth Tax | https://paulgraham.com/wtax.html | 2020-08 | writing/045-modeling-a-wealth-tax.md
+- S061 | The Four Quadrants of Conformism | https://paulgraham.com/conformism.html | 2020-07 | writing/046-the-four-quadrants-of-conformism.md
+- S062 | Orthodox Privilege | https://paulgraham.com/orth.html | 2020-07 | writing/047-orthodox-privilege.md
+- S063 | Coronavirus and Credibility | https://paulgraham.com/cred.html | 2020-04 | writing/048-coronavirus-and-credibility.md
+- S064 | How to Write Usefully | https://paulgraham.com/useful.html | 2020-02 | writing/049-how-to-write-usefully.md
+- S065 | Being a Noob | https://paulgraham.com/noob.html | 2020-01 | writing/050-being-a-noob.md
+- S066 | Haters | https://paulgraham.com/fh.html | 2020-01 | writing/051-haters.md
+- S067 | The Two Kinds of Moderate | https://paulgraham.com/mod.html | 2019-12 | writing/052-the-two-kinds-of-moderate.md
+- S068 | The Lesson to Unlearn | https://paulgraham.com/lesson.html | 2019-12 | writing/053-the-lesson-to-unlearn.md
+- S069 | Novelty and Heresy | https://paulgraham.com/nov.html | 2019-11 | writing/054-novelty-and-heresy.md
+- S070 | The Bus Ticket Theory of Genius | https://paulgraham.com/genius.html | 2019-11 | writing/055-the-bus-ticket-theory-of-genius.md
+- S071 | General and Surprising | https://paulgraham.com/sun.html | 2017-09 | writing/056-general-and-surprising.md
+- S072 | The Risk of Discovery | https://paulgraham.com/disc.html | 2017-01 | writing/057-the-risk-of-discovery.md
+- S073 | How to Make Pittsburgh a Startup Hub | https://paulgraham.com/pgh.html | 2016-04 | writing/058-how-to-make-pittsburgh-a-startup-hub.md
+- S074 | Life is Short | https://paulgraham.com/vb.html | 2016-01 | writing/059-life-is-short.md
+- S075 | Economic Inequality | https://paulgraham.com/ineq.html | 2016-01 | writing/060-economic-inequality.md
+- S076 | The Refragmentation | https://paulgraham.com/re.html | 2016-01 | writing/061-the-refragmentation.md
+- S077 | Jessica Livingston | https://paulgraham.com/jessica.html | 2015-11 | writing/062-jessica-livingston.md
+- S078 | A Way to Detect Bias | https://paulgraham.com/bias.html | 2015-10 | writing/063-a-way-to-detect-bias.md
+- S079 | Write Like You Talk | https://paulgraham.com/talk.html | 2015-10 | writing/064-write-like-you-talk.md
+- S080 | Default Alive or Default Dead? | https://paulgraham.com/aord.html | 2015-10 | writing/065-default-alive-or-default-dead.md
+- S081 | Why It's Safe for Founders to Be Nice | https://paulgraham.com/safe.html | 2015-08 | writing/066-why-it-s-safe-for-founders-to-be-nice.md
+- S082 | Change Your Name | https://paulgraham.com/name.html | 2015-08 | writing/067-change-your-name.md
+- S083 | What Microsoft Is this the Altair Basic of? | https://paulgraham.com/altair.html | 2015-02 | writing/068-what-microsoft-is-this-the-altair-basic-of.md
+- S084 | The Ronco Principle | https://paulgraham.com/ronco.html | 2015-01 | writing/069-the-ronco-principle.md
+- S085 | What Doesn't Seem Like Work? | https://paulgraham.com/work.html | 2015-01 | writing/070-what-doesn-t-seem-like-work.md
+- S086 | Don't Talk to Corp Dev | https://paulgraham.com/corpdev.html | 2015-01 | writing/071-don-t-talk-to-corp-dev.md
+- S087 | Let the Other 95% of Great Programmers In | https://paulgraham.com/95.html | 2014-12 | writing/072-let-the-other-95-of-great-programmers-in.md
+- S088 | How to Be an Expert in a Changing World | https://paulgraham.com/ecw.html | 2014-12 | writing/073-how-to-be-an-expert-in-a-changing-world.md
+- S089 | How You Know | https://paulgraham.com/know.html | 2014-12 | writing/074-how-you-know.md
+- S090 | The Fatal Pinch | https://paulgraham.com/pinch.html | 2014-12 | writing/075-the-fatal-pinch.md
+- S091 | Mean People Fail | https://paulgraham.com/mean.html | 2014-11 | writing/076-mean-people-fail.md
+- S092 | Before the Startup | https://paulgraham.com/before.html | 2014-10 | writing/077-before-the-startup.md
+- S093 | How to Raise Money | https://paulgraham.com/fr.html | 2013-09 | writing/078-how-to-raise-money.md
+- S094 | Investor Herd Dynamics | https://paulgraham.com/herd.html | 2013-08 | writing/079-investor-herd-dynamics.md
+- S095 | How to Convince Investors | https://paulgraham.com/convince.html | 2013-08 | writing/080-how-to-convince-investors.md
+- S096 | Do Things that Don't Scale | https://paulgraham.com/ds.html | 2013-07 | writing/081-do-things-that-don-t-scale.md
+- S097 | Startup Investing Trends | https://paulgraham.com/invtrend.html | 2013-06 | writing/082-startup-investing-trends.md
+- S098 | How to Get Startup Ideas | https://paulgraham.com/startupideas.html | 2012-11 | writing/083-how-to-get-startup-ideas.md
+- S099 | The Hardware Renaissance | https://paulgraham.com/hw.html | 2012-10 | writing/084-the-hardware-renaissance.md
+- S100 | Startup = Growth | https://paulgraham.com/growth.html | 2012-09 | writing/085-startup-growth.md
+- S101 | Black Swan Farming | https://paulgraham.com/swan.html | 2012-09 | writing/086-black-swan-farming.md
+- S102 | The Top of My Todo List | https://paulgraham.com/todo.html | 2012-04 | writing/087-the-top-of-my-todo-list.md
+- S103 | Writing and Speaking | https://paulgraham.com/speak.html | 2012-03 | writing/088-writing-and-speaking.md
+- S104 | How Y Combinator Started | https://paulgraham.com/ycstart.html | 2012-03 | writing/089-how-y-combinator-started.md
+- S105 | Defining Property | https://paulgraham.com/property.html | 2012-03 | writing/090-defining-property.md
+- S106 | Frighteningly Ambitious Startup Ideas | https://paulgraham.com/ambitious.html | 2012-03 | writing/091-frighteningly-ambitious-startup-ideas.md
+- S107 | A Word to the Resourceful | https://paulgraham.com/word.html | 2012-01 | writing/092-a-word-to-the-resourceful.md
+- S108 | Schlep Blindness | https://paulgraham.com/schlep.html | 2012-01 | writing/093-schlep-blindness.md
+- S109 | Snapshot: Viaweb, June 1998 | https://paulgraham.com/vw.html | 1998-06 | writing/094-snapshot-viaweb-june-1998.md
+- S110 | Why Startup Hubs Work | https://paulgraham.com/hubs.html | 2011-10 | writing/095-why-startup-hubs-work.md
+- S111 | The Patent Pledge | https://paulgraham.com/patentpledge.html | 2011-08 | writing/096-the-patent-pledge.md
+- S112 | Subject: Airbnb | https://paulgraham.com/airbnb.html | 2011-03 | writing/097-subject-airbnb.md
+- S113 | Founder Control | https://paulgraham.com/control.html | 2010-12 | writing/098-founder-control.md
+- S114 | Tablets | https://paulgraham.com/tablets.html | 2010-12 | writing/099-tablets.md
+- S115 | What We Look for in Founders | https://paulgraham.com/founders.html | 2010-10 | writing/100-what-we-look-for-in-founders.md
+- S116 | The New Funding Landscape | https://paulgraham.com/superangels.html | 2010-10 | writing/101-the-new-funding-landscape.md
+- S117 | Where to See Silicon Valley | https://paulgraham.com/seesv.html | 2010-10 | writing/102-where-to-see-silicon-valley.md
+- S118 | High Resolution Fundraising | https://paulgraham.com/hiresfund.html | 2010-09 | writing/103-high-resolution-fundraising.md
+- S119 | What Happened to Yahoo | https://paulgraham.com/yahoo.html | 2010-08 | writing/104-what-happened-to-yahoo.md
+- S120 | The Future of Startup Funding | https://paulgraham.com/future.html | 2010-08 | writing/105-the-future-of-startup-funding.md
+- S121 | The Acceleration of Addictiveness | https://paulgraham.com/addiction.html | 2010-07 | writing/106-the-acceleration-of-addictiveness.md
+- S122 | The Top Idea in Your Mind | https://paulgraham.com/top.html | 2010-07 | writing/107-the-top-idea-in-your-mind.md
+- S123 | Organic Startup Ideas | https://paulgraham.com/organic.html | 2010-04 | writing/108-organic-startup-ideas.md
+- S124 | Apple's Mistake | https://paulgraham.com/apple.html | 2009-11 | writing/109-apple-s-mistake.md
+- S125 | What Startups Are Really Like | https://paulgraham.com/really.html | 2009-10 | writing/110-what-startups-are-really-like.md
+- S126 | Persuade xor Discover | https://paulgraham.com/discover.html | 2009-09 | writing/111-persuade-xor-discover.md
+- S127 | Post-Medium Publishing | https://paulgraham.com/publishing.html | 2009-09 | writing/112-post-medium-publishing.md
+- S128 | The List of N Things | https://paulgraham.com/nthings.html | 2009-09 | writing/113-the-list-of-n-things.md
+- S129 | The Anatomy of Determination | https://paulgraham.com/determination.html | 2009-09 | writing/114-the-anatomy-of-determination.md
+- S130 | What Kate Saw in Silicon Valley | https://paulgraham.com/kate.html | 2009-08 | writing/115-what-kate-saw-in-silicon-valley.md
+- S131 | The Trouble with the Segway | https://paulgraham.com/segway.html | 2009-07 | writing/116-the-trouble-with-the-segway.md
+- S132 | Ramen Profitable | https://paulgraham.com/ramenprofitable.html | 2009-07 | writing/117-ramen-profitable.md
+- S133 | Maker's Schedule, Manager's Schedule | https://paulgraham.com/makersschedule.html | 2009-07 | writing/118-maker-s-schedule-manager-s-schedule.md
+- S134 | A Local Revolution? | https://paulgraham.com/revolution.html | 2009-04 | writing/119-a-local-revolution.md
+- S135 | The Founder Visa | https://paulgraham.com/foundervisa.html | 2009-04 | writing/120-the-founder-visa.md
+- S136 | Five Founders | https://paulgraham.com/5founders.html | 2009-04 | writing/121-five-founders.md
+- S137 | Relentlessly Resourceful | https://paulgraham.com/relres.html | 2009-03 | writing/122-relentlessly-resourceful.md
+- S138 | How to Be an Angel Investor | https://paulgraham.com/angelinvesting.html | 2009-03 | writing/123-how-to-be-an-angel-investor.md
+- S139 | Why TV Lost | https://paulgraham.com/convergence.html | 2009-03 | writing/124-why-tv-lost.md
+- S140 | Can You Buy a Silicon Valley?  Maybe. | https://paulgraham.com/maybe.html | 2009-02 | writing/125-can-you-buy-a-silicon-valley-maybe.md
+- S141 | What I've Learned from Hacker News | https://paulgraham.com/hackernews.html | 2009-02 | writing/126-what-i-ve-learned-from-hacker-news.md
+- S142 | Startups in 13 Sentences | https://paulgraham.com/13sentences.html | 2009-02 | writing/127-startups-in-13-sentences.md
+- S143 | Keep Your Identity Small | https://paulgraham.com/identity.html | 2009-02 | writing/128-keep-your-identity-small.md
+- S144 | After Credentials | https://paulgraham.com/credentials.html | 2008-12 | writing/129-after-credentials.md
+- S145 | Could VC be a Casualty of the Recession? | https://paulgraham.com/divergence.html | 2008-12 | writing/130-could-vc-be-a-casualty-of-the-recession.md
+- S146 | The High-Res Society | https://paulgraham.com/highres.html | 2008-12 | writing/131-the-high-res-society.md
+- S147 | The Other Half of 'Artists Ship' | https://paulgraham.com/artistsship.html | 2008-11 | writing/132-the-other-half-of-artists-ship.md
+- S148 | Why to Start a Startup in a Bad Economy | https://paulgraham.com/badeconomy.html | 2008-10 | writing/133-why-to-start-a-startup-in-a-bad-economy.md
+- S149 | A Fundraising Survival Guide | https://paulgraham.com/fundraising.html | 2008-08 | writing/134-a-fundraising-survival-guide.md
+- S150 | The Pooled-Risk Company Management Company | https://paulgraham.com/prcmc.html | 2008-07 | writing/135-the-pooled-risk-company-management-company.md
+- S151 | Cities and Ambition | https://paulgraham.com/cities.html | 2008-05 | writing/136-cities-and-ambition.md
+- S152 | Disconnecting Distraction | https://paulgraham.com/distraction.html | 2008-05 | writing/137-disconnecting-distraction.md
+- S153 | Lies We Tell Kids | https://paulgraham.com/lies.html | 2008-05 | writing/138-lies-we-tell-kids.md
+- S154 | Be Good | https://paulgraham.com/good.html | 2008-04 | writing/139-be-good.md
+- S155 | Why There Aren't More Googles | https://paulgraham.com/googles.html | 2008-04 | writing/140-why-there-aren-t-more-googles.md
+- S156 | Some Heroes | https://paulgraham.com/heroes.html | 2008-04 | writing/141-some-heroes.md
+- S157 | How to Disagree | https://paulgraham.com/disagree.html | 2008-03 | writing/142-how-to-disagree.md
+- S158 | You Weren't Meant to Have a Boss | https://paulgraham.com/boss.html | 2008-03 | writing/143-you-weren-t-meant-to-have-a-boss.md
+- S159 | A New Venture Animal | https://paulgraham.com/ycombinator.html | 2008-03 | writing/144-a-new-venture-animal.md
+- S160 | Trolls | https://paulgraham.com/trolls.html | 2008-02 | writing/145-trolls.md
+- S161 | Six Principles for Making New Things | https://paulgraham.com/newthings.html | 2008-02 | writing/146-six-principles-for-making-new-things.md
+- S162 | Why to Move to a Startup Hub | https://paulgraham.com/startuphubs.html | 2007-10 | writing/147-why-to-move-to-a-startup-hub.md
+- S163 | The Future of Web Startups | https://paulgraham.com/webstartups.html | 2007-10 | writing/148-the-future-of-web-startups.md
+- S164 | How to Do Philosophy | https://paulgraham.com/philosophy.html | 2007-09 | writing/149-how-to-do-philosophy.md
+- S165 | News from the Front | https://paulgraham.com/colleges.html | 2007-09 | writing/150-news-from-the-front.md
+- S166 | How Not to Die | https://paulgraham.com/die.html | 2007-08 | writing/151-how-not-to-die.md
+- S167 | Holding a Program in One's Head | https://paulgraham.com/head.html | 2007-08 | writing/152-holding-a-program-in-one-s-head.md
+- S168 | Stuff | https://paulgraham.com/stuff.html | 2007-07 | writing/153-stuff.md
+- S169 | The Equity Equation | https://paulgraham.com/equity.html | 2007-07 | writing/154-the-equity-equation.md
+- S170 | An Alternative Theory of Unions | https://paulgraham.com/unions.html | 2007-05 | writing/155-an-alternative-theory-of-unions.md
+- S171 | The Hacker's Guide to Investors | https://paulgraham.com/guidetoinvestors.html | 2007-04 | writing/156-the-hacker-s-guide-to-investors.md
+- S172 | Two Kinds of Judgement | https://paulgraham.com/judgement.html | 2007-04 | writing/157-two-kinds-of-judgement.md
+- S173 | Microsoft is Dead | https://paulgraham.com/microsoft.html | 2007-04 | writing/158-microsoft-is-dead.md
+- S174 | Why to Not Not Start a Startup | https://paulgraham.com/notnot.html | 2007-03 | writing/159-why-to-not-not-start-a-startup.md
+- S175 | Is It Worth Being Wise? | https://paulgraham.com/wisdom.html | 2007-02 | writing/160-is-it-worth-being-wise.md
+- S176 | Learning from Founders | https://paulgraham.com/foundersatwork.html | 2007-01 | writing/161-learning-from-founders.md
+- S177 | How Art Can Be Good | https://paulgraham.com/goodart.html | 2006-12 | writing/162-how-art-can-be-good.md
+- S178 | The 18 Mistakes That Kill Startups | https://paulgraham.com/startupmistakes.html | 2006-10 | writing/163-the-18-mistakes-that-kill-startups.md
+- S179 | A Student's Guide to Startups | https://paulgraham.com/mit.html | 2006-10 | writing/164-a-student-s-guide-to-startups.md
+- S180 | How to Present to Investors | https://paulgraham.com/investors.html | 2006-08 | writing/165-how-to-present-to-investors.md
+- S181 | Copy What You Like | https://paulgraham.com/copy.html | 2006-07 | writing/166-copy-what-you-like.md
+- S182 | The Island Test | https://paulgraham.com/island.html | 2006-07 | writing/167-the-island-test.md
+- S183 | The Power of the Marginal | https://paulgraham.com/marginal.html | 2006-06 | writing/168-the-power-of-the-marginal.md
+- S184 | Why Startups Condense in America | https://paulgraham.com/america.html | 2006-05 | writing/169-why-startups-condense-in-america.md
+- S185 | How to Be Silicon Valley | https://paulgraham.com/siliconvalley.html | 2006-05 | writing/170-how-to-be-silicon-valley.md
+- S186 | The Hardest Lessons for Startups to Learn | https://paulgraham.com/startuplessons.html | 2006-04 | writing/171-the-hardest-lessons-for-startups-to-learn.md
+- S187 | See Randomness | https://paulgraham.com/randomness.html | 2006-04 | writing/172-see-randomness.md
+- S188 | Are Software Patents Evil? | https://paulgraham.com/softwarepatents.html | 2006-03 | writing/173-are-software-patents-evil.md
+- S189 | 6,631,372 | https://paulgraham.com/6631327.html | 2006-03 | writing/174-6-631-372.md
+- S190 | Why YC | https://paulgraham.com/whyyc.html | 2006-03 | writing/175-why-yc.md
+- S191 | How to Do What You Love | https://paulgraham.com/love.html | 2006-01 | writing/176-how-to-do-what-you-love.md
+- S192 | Good and Bad Procrastination | https://paulgraham.com/procrastination.html | 2005-12 | writing/177-good-and-bad-procrastination.md
+- S193 | Web 2.0 | https://paulgraham.com/web20.html | 2005-11 | writing/178-web-2-0.md
+- S194 | How to Fund a Startup | https://paulgraham.com/startupfunding.html | 2005-11 | writing/179-how-to-fund-a-startup.md
+- S195 | The Venture Capital Squeeze | https://paulgraham.com/vcsqueeze.html | 2005-11 | writing/180-the-venture-capital-squeeze.md
+- S196 | Ideas for Startups | https://paulgraham.com/ideas.html | 2005-10 | writing/181-ideas-for-startups.md
+- S197 | What I Did this Summer | https://paulgraham.com/sfp.html | 2005-10 | writing/182-what-i-did-this-summer.md
+- S198 | Inequality and Risk | https://paulgraham.com/inequality.html | 2005-08 | writing/183-inequality-and-risk.md
+- S199 | After the Ladder | https://paulgraham.com/ladder.html | 2005-08 | writing/184-after-the-ladder.md
+- S200 | What Business Can Learn from Open Source | https://paulgraham.com/opensource.html | 2005-08 | writing/185-what-business-can-learn-from-open-source.md
+- S201 | Hiring is Obsolete | https://paulgraham.com/hiring.html | 2005-05 | writing/186-hiring-is-obsolete.md
+- S202 | The Submarine | https://paulgraham.com/submarine.html | 2005-04 | writing/187-the-submarine.md
+- S203 | Why Smart People Have Bad Ideas | https://paulgraham.com/bronze.html | 2005-04 | writing/188-why-smart-people-have-bad-ideas.md
+- S204 | Return of the Mac | https://paulgraham.com/mac.html | 2005-03 | writing/189-return-of-the-mac.md
+- S205 | Writing,  Briefly | https://paulgraham.com/writing44.html | 2005-03 | writing/190-writing-briefly.md
+- S206 | Undergraduation | https://paulgraham.com/college.html | 2005-03 | writing/191-undergraduation.md
+- S207 | A Unified Theory of VC Suckage | https://paulgraham.com/venturecapital.html | 2005-03 | writing/192-a-unified-theory-of-vc-suckage.md
+- S208 | How to Start a Startup | https://paulgraham.com/start.html | 2005-03 | writing/193-how-to-start-a-startup.md
+- S209 | What You'll Wish You'd Known | https://paulgraham.com/hs.html | 2005-01 | writing/194-what-you-ll-wish-you-d-known.md
+- S210 | Made in USA | https://paulgraham.com/usa.html | 2004-11 | writing/195-made-in-usa.md
+- S211 | It's Charisma, Stupid | https://paulgraham.com/charisma.html | 2004-11 | writing/196-it-s-charisma-stupid.md
+- S212 | Bradley's Ghost | https://paulgraham.com/polls.html | 2004-11 | writing/197-bradley-s-ghost.md
+- S213 | A Version 1.0 | https://paulgraham.com/laundry.html | 2004-10 | writing/198-a-version-1-0.md
+- S214 | What the Bubble Got Right | https://paulgraham.com/bubble.html | 2004-09 | writing/199-what-the-bubble-got-right.md
+- S215 | The Age of the Essay | https://paulgraham.com/essay.html | 2004-09 | writing/200-the-age-of-the-essay.md
+- S216 | The Python Paradox | https://paulgraham.com/pypar.html | 2004-08 | writing/201-the-python-paradox.md
+- S217 | Great Hackers | https://paulgraham.com/gh.html | 2004-07 | writing/202-great-hackers.md
+- S218 | Mind the Gap | https://paulgraham.com/gap.html | 2004-05 | writing/203-mind-the-gap.md
+- S219 | How to Make Wealth | https://paulgraham.com/wealth.html | 2004-05 | writing/204-how-to-make-wealth.md
+- S220 | The Word 'Hacker' | https://paulgraham.com/gba.html | 2004-04 | writing/205-the-word-hacker.md
+- S221 | What You Can't Say | https://paulgraham.com/say.html | 2004-01 | writing/206-what-you-can-t-say.md
+- S222 | Filters that Fight Back | https://paulgraham.com/ffb.html | 2003-08 | writing/207-filters-that-fight-back.md
+- S223 | Hackers and Painters | https://paulgraham.com/hp.html | 2003-05 | writing/208-hackers-and-painters.md
+- S224 | If Lisp is So Great | https://paulgraham.com/iflisp.html | 2003-05 | writing/209-if-lisp-is-so-great.md
+- S225 | The Hundred-Year Language | https://paulgraham.com/hundred.html | 2003-04 | writing/210-the-hundred-year-language.md
+- S226 | Why Nerds are Unpopular | https://paulgraham.com/nerds.html | 2003-02 | writing/211-why-nerds-are-unpopular.md
+- S227 | Better Bayesian Filtering | https://paulgraham.com/better.html | 2003-01 | writing/212-better-bayesian-filtering.md
+- S228 | Design and Research | https://paulgraham.com/desres.html | 2003-01 | writing/213-design-and-research.md
+- S229 | A Plan for Spam | https://paulgraham.com/spam.html | 2002-08 | writing/214-a-plan-for-spam.md
+- S230 | Revenge of the Nerds | https://paulgraham.com/icad.html | 2002-05 | writing/215-revenge-of-the-nerds.md
+- S231 | Succinctness is Power | https://paulgraham.com/power.html | 2002-05 | writing/216-succinctness-is-power.md
+- S232 | What Languages Fix | https://paulgraham.com/fix.html |  | writing/217-what-languages-fix.md
+- S233 | Taste for Makers | https://paulgraham.com/taste.html | 2002-02 | writing/218-taste-for-makers.md
+- S234 | Why Arc Isn't Especially Object-Oriented | https://paulgraham.com/noop.html |  | writing/219-why-arc-isn-t-especially-object-oriented.md
+- S235 | What Made Lisp Different | https://paulgraham.com/diff.html | 2001-12 | writing/220-what-made-lisp-different.md
+- S236 | The Other Road Ahead | https://paulgraham.com/road.html | 2001-09 | writing/221-the-other-road-ahead.md
+- S237 | The Roots of Lisp | https://paulgraham.com/rootsoflisp.html |  | writing/222-the-roots-of-lisp.md
+- S238 | Five Questions about Language Design | https://paulgraham.com/langdes.html |  | writing/223-five-questions-about-language-design.md
+- S239 | Being Popular | https://paulgraham.com/popular.html | 2001-05 | writing/224-being-popular.md
+- S240 | Java's Cover | https://paulgraham.com/javacover.html | 2001-04 | writing/225-java-s-cover.md
+- S241 | Beating the Averages | https://paulgraham.com/avg.html | 2001-04 | writing/226-beating-the-averages.md
+- S242 | Programming Bottom-Up | https://paulgraham.com/progbot.html |  | writing/227-programming-bottom-up.md
+- S243 | How to Get New Ideas | https://paulgraham.com/getideas.html | 2023-01 | writing/228-how-to-get-new-ideas.md
+- S244 | Fashionable Problems | https://paulgraham.com/fp.html | 2019-12 | writing/229-fashionable-problems.md
+- S245 | Charisma / Power | https://paulgraham.com/pow.html | 2017-01 | writing/230-charisma-power.md
+- S246 | Why Twitter is a Big Deal | https://paulgraham.com/twitter.html | 2009-04 | writing/231-why-twitter-is-a-big-deal.md

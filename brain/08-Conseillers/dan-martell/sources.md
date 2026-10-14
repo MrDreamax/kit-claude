@@ -1,0 +1,134 @@
+# Dan Martell: sources
+
+128 sources with notes (109 video transcripts: 93 from @danmartell, 16 keynotes and long interviews where he is the main guest; 19 posts from danmartell.com), 601,891 words. Video dates 2015-07 to 2026-09; web posts undated in the corpus. Built 2026-10-09. Raw files live in projects/founder-council/corpus/dan-martell/ (not committed).
+
+Format: id | title | url | date | file
+
+- S001 | 40 Brutal Truths I Wish I Knew in My 20s | https://www.youtube.com/watch?v=wTJrzGeMJPI | 2024-09-24 | transcripts/01-40-brutal-truths-i-wish-i-knew-in-my-20s.md
+- S002 | Stop Wasting Your Life - 7 Things I Quit to Go From Broke to Millionaire | https://www.youtube.com/watch?v=bbaf3eAfyd4 | 2024-11-13 | transcripts/02-stop-wasting-your-life-7-things-i-quit-to-go-from-broke-to-m.md
+- S003 | These 5 AI Businesses Will Make You $1M (With Zero Employees) | https://www.youtube.com/watch?v=RJGo6K3-gHg | 2025-10-03 | transcripts/03-these-5-ai-businesses-will-make-you-1m-with-zero-employees.md
+- S004 | How to Be So Productive it Feels ILLEGAL | https://www.youtube.com/watch?v=hSGt_rhu49U | 2025-05-30 | transcripts/04-how-to-be-so-productive-it-feels-illegal.md
+- S005 | These Rules Made Me So Rich I Questioned the Meaning of Money | https://www.youtube.com/watch?v=yntwf1JYnFA | 2024-05-31 | transcripts/05-these-rules-made-me-so-rich-i-questioned-the-meaning-of-mone.md
+- S006 | If I Wanted to Go From $0 to $1M in 12 Months, Here’s What I’d Do | https://www.youtube.com/watch?v=DW8mACQOfGo | 2024-08-21 | transcripts/06-if-i-wanted-to-go-from-0-to-1m-in-12-months-here-s-what-i-d.md
+- S007 | The 21 Principles of the Top 0.01% | https://www.youtube.com/watch?v=Uv4B-Pml2zY | 2024-07-19 | transcripts/07-the-21-principles-of-the-top-0-01.md
+- S008 | If you’re ambitious but lazy, please watch this… | https://www.youtube.com/watch?v=mnKyg3K1O1g | 2025-04-25 | transcripts/08-if-you-re-ambitious-but-lazy-please-watch-this.md
+- S009 | 7 High Income Skills of the Top 1% | https://www.youtube.com/watch?v=w6Auee6kGWk | 2024-12-18 | transcripts/09-7-high-income-skills-of-the-top-1.md
+- S010 | I'm 44. If You're 20 or 30, Watch This | https://www.youtube.com/watch?v=EURFO3RzvuU | 2025-01-14 | transcripts/10-i-m-44-if-you-re-20-or-30-watch-this.md
+- S011 | “Stop Wasting Time!” The Brutal Truth About Money That EVERYONE Needs To Know / Dan Martell | https://www.youtube.com/watch?v=EFYNu0v7snM | 2025-11-26 | transcripts/100-stop-wasting-time-the-brutal-truth-about-money-that-everyone.md
+- S012 | Give Me 96 Minutes & I'll Delete Your Fear of Failure / Dan Martell | https://www.youtube.com/watch?v=u5z3BqECYB4 | 2026-04-15 | transcripts/101-give-me-96-minutes-i-ll-delete-your-fear-of-failure-dan-mart.md
+- S013 | Reducing Burnout Through Better Hiring: Dan Martell on Building Healthy, Scalable Companies | https://www.youtube.com/watch?v=PutUWrsLgzM | 2025-07-08 | transcripts/102-reducing-burnout-through-better-hiring-dan-martell-on-buildi.md
+- S014 | How To Buy Back Your Time - Dan Martell | https://www.youtube.com/watch?v=C0utf64dGsc | 2024-01-24 | transcripts/103-how-to-buy-back-your-time-dan-martell.md
+- S015 | Buy Back Your Time! Dan Martell on All The Hacks | https://www.youtube.com/watch?v=rWuB_Ut12LI | 2023-04-04 | transcripts/104-buy-back-your-time-dan-martell-on-all-the-hacks.md
+- S016 | Buying back your time with Dan Martell | https://www.youtube.com/watch?v=AMxiiu-tTLA | 2025-05-27 | transcripts/105-buying-back-your-time-with-dan-martell.md
+- S017 | Dan Martell AI Blueprint to Build a $100M Company / Vault Conference 2026 | https://www.youtube.com/watch?v=YQPHdAIj-J0 | 2026-09-30 | transcripts/106-dan-martell-ai-blueprint-to-build-a-100m-company-vault-confe.md
+- S018 | How To Buy Back Your Time - With Dan Martell | https://www.youtube.com/watch?v=ISCG4NzY9vA | 2023-01-17 | transcripts/107-how-to-buy-back-your-time-with-dan-martell.md
+- S019 | How To Buy Back Your Time With Dan Martell | https://www.youtube.com/watch?v=idJYX2M9qvg | 2023-10-09 | transcripts/108-how-to-buy-back-your-time-with-dan-martell.md
+- S020 | Episode 644 / Buying Back Your Time with Dan Martell | https://www.youtube.com/watch?v=BdMHQeqlmLs | 2023-01-17 | transcripts/109-episode-644-buying-back-your-time-with-dan-martell.md
+- S021 | How to Build a $10M Solo AI Business (Zero Code) | https://www.youtube.com/watch?v=w-XPlC3a2oI | 2026-03-12 | transcripts/11-how-to-build-a-10m-solo-ai-business-zero-code.md
+- S022 | Dan Martell: The AI Cheat Codes Every Founder Needs in 2026 | https://www.youtube.com/watch?v=_24HzGNv-3A | 2026-03-31 | transcripts/110-dan-martell-the-ai-cheat-codes-every-founder-needs-in-2026.md
+- S023 | I’m 45. If I Was 20 Again, Here’s What I’d Do | https://www.youtube.com/watch?v=Y9slL6yLLSg | 2025-04-18 | transcripts/12-i-m-45-if-i-was-20-again-here-s-what-i-d-do.md
+- S024 | If I Started Over With $0, Here’s My Exact Plan to get to $1M | https://www.youtube.com/watch?v=dyrr4eAdnhg | 2026-04-06 | transcripts/13-if-i-started-over-with-0-here-s-my-exact-plan-to-get-to-1m.md
+- S025 | Spare me 10 minutes, and I’ll save you 15 years of your life | https://www.youtube.com/watch?v=tinKv_mSw8E | 2025-03-18 | transcripts/14-spare-me-10-minutes-and-i-ll-save-you-15-years-of-your-life.md
+- S026 | Stop Wasting Life - 8 Productivity Rules of The Top 1% | https://www.youtube.com/watch?v=0hOrbnA_1JI | 2024-12-24 | transcripts/15-stop-wasting-life-8-productivity-rules-of-the-top-1.md
+- S027 | These 13 Books Made Me a Multi-Millionaire CEO | https://www.youtube.com/watch?v=_1XhDHwRg0I | 2025-03-05 | transcripts/16-these-13-books-made-me-a-multi-millionaire-ceo.md
+- S028 | Day in the Life of a CEO | https://www.youtube.com/watch?v=Q7krwT34-yI | 2023-08-14 | transcripts/17-day-in-the-life-of-a-ceo.md
+- S029 | Why being FAST makes you more successful (just copy me) | https://www.youtube.com/watch?v=C3BbuKNccZc | 2025-06-03 | transcripts/18-why-being-fast-makes-you-more-successful-just-copy-me.md
+- S030 | 30 Brutal Business Truths I Wish I Knew in My 20s | https://www.youtube.com/watch?v=Cwrw05MLVSY | 2024-12-15 | transcripts/19-30-brutal-business-truths-i-wish-i-knew-in-my-20s.md
+- S031 | The only 4 skills you need to build a $1B company… | https://www.youtube.com/watch?v=r9eRlVVMsFY | 2024-01-12 | transcripts/20-the-only-4-skills-you-need-to-build-a-1b-company.md
+- S032 | Everything I Learned From Being Around the Top 0.01% | https://www.youtube.com/watch?v=gNNFsyRIgZA | 2026-03-23 | transcripts/21-everything-i-learned-from-being-around-the-top-0-01.md
+- S033 | Millionaire CEO Explains: 8 Steps to Get Your Sh*t Together | https://www.youtube.com/watch?v=03sa2Ezxuiw | 2024-09-03 | transcripts/22-millionaire-ceo-explains-8-steps-to-get-your-sh-t-together.md
+- S034 | If I Wanted to Make My First $100K/Month, I’d Do This | https://www.youtube.com/watch?v=xj5gZq159lM | 2026-07-22 | transcripts/23-if-i-wanted-to-make-my-first-100k-month-i-d-do-this.md
+- S035 | It Took Me 40+ Years to Realize What I’ll Tell You In 9 Minutes | https://www.youtube.com/watch?v=qZJS1yOaw_U | 2026-06-22 | transcripts/24-it-took-me-40-years-to-realize-what-i-ll-tell-you-in-9-minut.md
+- S036 | Business is Hard Until You Build These Systems | https://www.youtube.com/watch?v=eY9gpdaXW7w | 2025-11-12 | transcripts/25-business-is-hard-until-you-build-these-systems.md
+- S037 | Build a Business that Runs itself / Buy Back Your Time Book Summary | https://www.youtube.com/watch?v=pzdU6AdF9AU | 2025-04-15 | transcripts/26-build-a-business-that-runs-itself-buy-back-your-time-book-su.md
+- S038 | The only skill you need to become a millionaire [Buy Back Your Time] | https://www.youtube.com/watch?v=nNXSX4vPfcg | 2024-09-20 | transcripts/27-the-only-skill-you-need-to-become-a-millionaire-buy-back-you.md
+- S039 | How to Make Time For Everything (Seriously, everything) | https://www.youtube.com/watch?v=9w0INwjTYdU | 2026-04-20 | transcripts/28-how-to-make-time-for-everything-seriously-everything.md
+- S040 | 6 Things That Are No Longer Worth Your Time | https://www.youtube.com/watch?v=xD8-rAvdSzY | 2026-03-02 | transcripts/29-6-things-that-are-no-longer-worth-your-time.md
+- S041 | Give me 25 minutes, and you’ll get more done than 97% of people | https://www.youtube.com/watch?v=iQX_Cc0aHhg | 2026-02-03 | transcripts/30-give-me-25-minutes-and-you-ll-get-more-done-than-97-of-peopl.md
+- S042 | How to Build Systems (with AI) to ACTUALLY Achieve Your Goals | https://www.youtube.com/watch?v=y5jL8KsUwaI | 2025-11-15 | transcripts/31-how-to-build-systems-with-ai-to-actually-achieve-your-goals.md
+- S043 | What it’s Like to Live Like a $100M CEO (Day in the life of Dan Martell) | https://www.youtube.com/watch?v=pLTBGuZ2KkY | 2025-07-01 | transcripts/32-what-it-s-like-to-live-like-a-100m-ceo-day-in-the-life-of-da.md
+- S044 | Multi-Millionaire Explains: 3 Rules to Manage Your Time | https://www.youtube.com/watch?v=rrok0PPfQ2A | 2025-02-26 | transcripts/33-multi-millionaire-explains-3-rules-to-manage-your-time.md
+- S045 | How CEOs Get Sh*t Done - 5 Productivity Rules to Do More in Less Time | https://www.youtube.com/watch?v=IW9pvH0oH14 | 2024-12-04 | transcripts/34-how-ceos-get-sh-t-done-5-productivity-rules-to-do-more-in-le.md
+- S046 | Millionaire CEO Explains: 5 Steps to Get Sh*t Done | https://www.youtube.com/watch?v=OfH2i01uaAY | 2024-11-16 | transcripts/35-millionaire-ceo-explains-5-steps-to-get-sh-t-done.md
+- S047 | How to Get More Done Than 99% of People | https://www.youtube.com/watch?v=W8_fLDSnVSw | 2024-08-24 | transcripts/36-how-to-get-more-done-than-99-of-people.md
+- S048 | How to Start a SaaS Business From Scratch | https://www.youtube.com/watch?v=lxpaSlImFHk | 2024-07-14 | transcripts/37-how-to-start-a-saas-business-from-scratch.md
+- S049 | How CEOs Manage Their Inbox | https://www.youtube.com/watch?v=6q9AT_A2ydA | 2023-12-01 | transcripts/38-how-ceos-manage-their-inbox.md
+- S050 | How to Plan Your Week Like a CEO | https://www.youtube.com/watch?v=gJ5Sr5pIBSU | 2023-11-10 | transcripts/39-how-to-plan-your-week-like-a-ceo.md
+- S051 | How CEOs Schedule Their Day | https://www.youtube.com/watch?v=CHqG5Ca4BRQ | 2023-10-23 | transcripts/40-how-ceos-schedule-their-day.md
+- S052 | How CEOs Buy Back Their Time | https://www.youtube.com/watch?v=Xti_eL61RYo | 2023-08-07 | transcripts/41-how-ceos-buy-back-their-time.md
+- S053 | What to Pay Your Employees | https://www.youtube.com/watch?v=V9ApkBClgr8 | 2023-07-03 | transcripts/42-what-to-pay-your-employees.md
+- S054 | 12 Hacks To Work With Your Assistant | https://www.youtube.com/watch?v=yWbTenvjvro | 2023-05-15 | transcripts/43-12-hacks-to-work-with-your-assistant.md
+- S055 | Why Rich People Hire This Person | https://www.youtube.com/watch?v=rCQHsBeZglw | 2023-05-01 | transcripts/44-why-rich-people-hire-this-person.md
+- S056 | 5 SaaS Pricing Strategies That Will Boost Your Revenue in 2026 | https://www.youtube.com/watch?v=z3HlojsS5sI | 2023-01-16 | transcripts/45-5-saas-pricing-strategies-that-will-boost-your-revenue-in-20.md
+- S057 | 3 Steps to Overcome Overwhelm and Thrive in Your Business | https://www.youtube.com/watch?v=HmO6KFsJawY | 2022-12-26 | transcripts/46-3-steps-to-overcome-overwhelm-and-thrive-in-your-business.md
+- S058 | 4 Steps to Building a High-Performance Team | https://www.youtube.com/watch?v=P9_PYTvMOXc | 2022-12-19 | transcripts/47-4-steps-to-building-a-high-performance-team.md
+- S059 | 5 Time-Wasting Habits That Are Holding You Back | https://www.youtube.com/watch?v=n6EGDlmRgGU | 2022-11-21 | transcripts/48-5-time-wasting-habits-that-are-holding-you-back.md
+- S060 | How to Hire the Right Employees | https://www.youtube.com/watch?v=MbN4aWxEncY | 2022-11-14 | transcripts/49-how-to-hire-the-right-employees.md
+- S061 | How to Deploy Time in Your Business | https://www.youtube.com/watch?v=-KOIPgAur_E | 2022-10-17 | transcripts/50-how-to-deploy-time-in-your-business.md
+- S062 | I Wrote a Best-Selling Book While Buying Back my Time | https://www.youtube.com/watch?v=b4Cv_0T8KQo | 2022-09-05 | transcripts/51-i-wrote-a-best-selling-book-while-buying-back-my-time.md
+- S063 | Scale Your SaaS Company Beyond 10k MRR | https://www.youtube.com/watch?v=z3GPmslfQYA | 2022-07-25 | transcripts/52-scale-your-saas-company-beyond-10k-mrr.md
+- S064 | How to Build a Sales Team | https://www.youtube.com/watch?v=AZvNcHtjeDk | 2022-07-11 | transcripts/53-how-to-build-a-sales-team.md
+- S065 | Advice For First Time Founders (How Not to Fail) | https://www.youtube.com/watch?v=yjv5p--x8JA | 2022-05-23 | transcripts/54-advice-for-first-time-founders-how-not-to-fail.md
+- S066 | How To Manage A Tech Company As a Non-Technical Founder | https://www.youtube.com/watch?v=gLPLyTolFpo | 2022-05-16 | transcripts/55-how-to-manage-a-tech-company-as-a-non-technical-founder.md
+- S067 | Why I Shut Down A $1.8M Coaching Business & Started Over | https://www.youtube.com/watch?v=YGtZ2xcw1Is | 2022-03-21 | transcripts/56-why-i-shut-down-a-1-8m-coaching-business-started-over.md
+- S068 | How To Build A Successful SaaS: 5 Business Functions To Master | https://www.youtube.com/watch?v=o776oMSb5rI | 2022-02-21 | transcripts/57-how-to-build-a-successful-saas-5-business-functions-to-maste.md
+- S069 | From Dr*gs & Prison To Self Actualizing Entrepreneur: My Story | https://www.youtube.com/watch?v=s7ec41exXn0 | 2022-01-17 | transcripts/58-from-dr-gs-prison-to-self-actualizing-entrepreneur-my-story.md
+- S070 | How To Scale Your Team (The Right Way) | https://www.youtube.com/watch?v=nhOXRG4NwpM | 2021-12-06 | transcripts/59-how-to-scale-your-team-the-right-way.md
+- S071 | 5 SaaS Growth Strategies I’ve Learned From Non-SaaS Businesses | https://www.youtube.com/watch?v=dCh1fKcUcds | 2021-11-15 | transcripts/61-5-saas-growth-strategies-i-ve-learned-from-non-saas-business.md
+- S072 | How To Hire & Retain High Performers For Your Startup | https://www.youtube.com/watch?v=wKw37vPuL7Q | 2021-11-08 | transcripts/62-how-to-hire-retain-high-performers-for-your-startup.md
+- S073 | How To Buy Back Your Time & Increase Profit | https://www.youtube.com/watch?v=0n77p5b-Wu4 | 2021-06-28 | transcripts/63-how-to-buy-back-your-time-increase-profit.md
+- S074 | How To Find Customers & Employees Who Will Fuel Your Business Growth (& Won't Churn After 6 Months) | https://www.youtube.com/watch?v=tGshJiD2lCM | 2021-05-24 | transcripts/64-how-to-find-customers-employees-who-will-fuel-your-business.md
+- S075 | SaaS Organization & Example SaaS Org Charts (NEW Scalable Model) | https://www.youtube.com/watch?v=dgpOZwMgi0M | 2020-11-23 | transcripts/65-saas-organization-example-saas-org-charts-new-scalable-model.md
+- S076 | Who Should You Hire Next | https://www.youtube.com/watch?v=RDXi6wNrV1Q | 2020-04-27 | transcripts/66-who-should-you-hire-next.md
+- S077 | 5 Ways to Successfully Onboard New Hires | https://www.youtube.com/watch?v=lWPblLc6RhI | 2020-01-13 | transcripts/67-5-ways-to-successfully-onboard-new-hires.md
+- S078 | 5 Team Meetings You Need To Grow Your Business | https://www.youtube.com/watch?v=tiAzDlDnnv4 | 2019-12-16 | transcripts/68-5-team-meetings-you-need-to-grow-your-business.md
+- S079 | How to Conduct a 1 on 1 Meeting With Your Direct Reports | https://www.youtube.com/watch?v=yqwBPWjmCzM | 2019-11-25 | transcripts/69-how-to-conduct-a-1-on-1-meeting-with-your-direct-reports.md
+- S080 | How To Hire a Sales Rep | https://www.youtube.com/watch?v=7jO8uCzohR8 | 2019-09-09 | transcripts/70-how-to-hire-a-sales-rep.md
+- S081 | How To Lead Your Team to Scale Your Business | https://www.youtube.com/watch?v=Vrbl77IZhQs | 2019-09-02 | transcripts/71-how-to-lead-your-team-to-scale-your-business.md
+- S082 | Should You Give Employees Equity? | https://www.youtube.com/watch?v=KD3ap-WN1Hs | 2019-07-22 | transcripts/72-should-you-give-employees-equity.md
+- S083 | How To Fire Someone (Fire an Employee Gracefully) | https://www.youtube.com/watch?v=ZNtqvdsRr7w | 2019-02-04 | transcripts/73-how-to-fire-someone-fire-an-employee-gracefully.md
+- S084 | How To Upgrade Your Team's Talent Using a Simple Monthly Meeting | https://www.youtube.com/watch?v=AH0_6n4Aa-Q | 2019-01-21 | transcripts/74-how-to-upgrade-your-team-s-talent-using-a-simple-monthly-mee.md
+- S085 | How To Tell If You Have a Toxic Culture in Your Startup | https://www.youtube.com/watch?v=P3rr0euTIJo | 2019-02-25 | transcripts/75-how-to-tell-if-you-have-a-toxic-culture-in-your-startup.md
+- S086 | How To Avoid Entrepreneurial Burnout Using These Four Tools | https://www.youtube.com/watch?v=kOj9Ev1YP6U | 2018-09-17 | transcripts/76-how-to-avoid-entrepreneurial-burnout-using-these-four-tools.md
+- S087 | How To Create a Successful Scorecard For Your SaaS Startup | https://www.youtube.com/watch?v=tNHM97e43lY | 2018-09-10 | transcripts/77-how-to-create-a-successful-scorecard-for-your-saas-startup.md
+- S088 | 6 Core Business Functions of a SaaS Company And The Metrics To Measure | https://www.youtube.com/watch?v=zea369NEtaU | 2018-08-13 | transcripts/78-6-core-business-functions-of-a-saas-company-and-the-metrics.md
+- S089 | How To Perfect Your SaaS Pricing Using The 10-5-20 Rule | https://www.youtube.com/watch?v=LKh9VY_XooQ | 2018-06-11 | transcripts/79-how-to-perfect-your-saas-pricing-using-the-10-5-20-rule.md
+- S090 | 5 Reasons Why Most SaaS Startups Fail | https://www.youtube.com/watch?v=TbvXL9HVnYM | 2018-03-12 | transcripts/80-5-reasons-why-most-saas-startups-fail.md
+- S091 | How To Create a Business Playbook™: How To Make SOPs | https://www.youtube.com/watch?v=cfsH5rjcaW8 | 2017-06-19 | transcripts/81-how-to-create-a-business-playbook-how-to-make-sops.md
+- S092 | How To Delegate To a Virtual Assistant | https://www.youtube.com/watch?v=Gxc_w8FmKFw | 2017-06-05 | transcripts/82-how-to-delegate-to-a-virtual-assistant.md
+- S093 | Time Management 101: Stop Managing Time | https://www.youtube.com/watch?v=S9b9X4sRe5k | 2017-04-24 | transcripts/83-time-management-101-stop-managing-time.md
+- S094 | How to Build Your Startup Team Full of A Players | https://www.youtube.com/watch?v=pZwYhZIQOYY | 2017-02-27 | transcripts/84-how-to-build-your-startup-team-full-of-a-players.md
+- S095 | How To Manage A Startup Team | https://www.youtube.com/watch?v=F72Nn5tnoiw | 2016-02-08 | transcripts/85-how-to-manage-a-startup-team.md
+- S096 | How To Be A CEO: What Should the CEO's Day Look Like? | https://www.youtube.com/watch?v=y45d6VVv1Y8 | 2015-09-21 | transcripts/86-how-to-be-a-ceo-what-should-the-ceo-s-day-look-like.md
+- S097 | How To Manage An Assistant | https://www.youtube.com/watch?v=nG7BOEIGRzI | 2015-09-28 | transcripts/87-how-to-manage-an-assistant.md
+- S098 | Finding a Co-Founder / How to Find The Perfect Partner & Split Equity Fairly | https://www.youtube.com/watch?v=o_N3WQqT3bw | 2020-12-14 | transcripts/88-finding-a-co-founder-how-to-find-the-perfect-partner-split-e.md
+- S099 | The Top 7 Mistakes First Time Software Founders Make | https://www.youtube.com/watch?v=EW46yLR3wA4 | 2016-07-18 | transcripts/89-the-top-7-mistakes-first-time-software-founders-make.md
+- S100 | How to Raise Money for Your SaaS | https://www.youtube.com/watch?v=8pCgRRgcWNs | 2020-05-25 | transcripts/90-how-to-raise-money-for-your-saas.md
+- S101 | How To Hire C-Level Talent using The Ikea Effect | https://www.youtube.com/watch?v=PsmTF7vlVSk | 2018-01-08 | transcripts/91-how-to-hire-c-level-talent-using-the-ikea-effect.md
+- S102 | The Founders Operating System | https://www.youtube.com/watch?v=zFhJ0BcN_tU | 2015-08-24 | transcripts/92-the-founders-operating-system.md
+- S103 | The 3 Biggest Mistakes I’ve Ever Made As a Founder | https://www.youtube.com/watch?v=wdMLHikZ_J4 | 2015-10-26 | transcripts/93-the-3-biggest-mistakes-i-ve-ever-made-as-a-founder.md
+- S104 | Startup Advice: When To Shut It Down? / Dan Martell | https://www.youtube.com/watch?v=xsehpqXk7LI | 2015-07-20 | transcripts/94-startup-advice-when-to-shut-it-down-dan-martell.md
+- S105 | Why You'll Never Achieve Your Goals [Dan Martell FULL Keynote] | https://www.youtube.com/watch?v=YNyBIOTrHyU | 2024-05-17 | transcripts/95-why-you-ll-never-achieve-your-goals-dan-martell-full-keynote.md
+- S106 | You Can Only Keep What You Give Away - Dan Martell Talk | https://www.youtube.com/watch?v=IwDYkGa9XJ0 | 2019-06-24 | transcripts/96-you-can-only-keep-what-you-give-away-dan-martell-talk.md
+- S107 | STOP Living Life On Autopilot and BUILD The Life Of Your Dreams With THIS! Feat. Dan Martell | https://www.youtube.com/watch?v=YVOmQ5KBc8c | 2024-10-15 | transcripts/97-stop-living-life-on-autopilot-and-build-the-life-of-your-dre.md
+- S108 | How To Create A Life Of Freedom - Dan Martell | https://www.youtube.com/watch?v=eZF_7_tjepU | 2024-08-29 | transcripts/98-how-to-create-a-life-of-freedom-dan-martell.md
+- S109 | $100M CEO: Start Doing LESS– Get Millions Without Burning Out  / Dan Martell | https://www.youtube.com/watch?v=Rq7Stf3H8lg | 2025-08-12 | transcripts/99-100m-ceo-start-doing-less-get-millions-without-burning-out-d.md
+- S110 | The Perfect Week: How to Protect Your Time, Stack Your Wins, and Finally Get Ahead / Dan Martell | https://www.danmartell.com/the-perfect-week-how-to-protect-your-time-stack-your-wins-and-finally-get-ahead/ |  | writing/001-the-perfect-week-how-to-protect-your-time-stack-your-wins-an.md
+- S111 | Trading Money For Time And The Things I Buy / Dan Martell | https://www.danmartell.com/trading-money-for-time-and-the-things-i-buy/ |  | writing/003-trading-money-for-time-and-the-things-i-buy-dan-martell.md
+- S112 | The Assistant is Dead. Long Live The AI Architect. / Dan Martell | https://www.danmartell.com/the-assistant-is-dead-long-live-the-ai-architect/ |  | writing/004-the-assistant-is-dead-long-live-the-ai-architect-dan-martell.md
+- S113 | 5 Rules That Separate Leaders Worth Following From Bosses Nobody Respects / Dan Martell | https://www.danmartell.com/5-rules-that-separate-leaders-worth-following-from-bosses-nobody-respects/ |  | writing/005-5-rules-that-separate-leaders-worth-following-from-bosses-no.md
+- S114 | How to 10x the Value of Your Business Without Adding a Single Customer | https://www.danmartell.com/10x-the-value-of-your-business-without-adding-a-single-customer/ |  | writing/006-how-to-10x-the-value-of-your-business-without-adding-a-singl.md
+- S115 | Inside 1st Phorm HQ: 5 Culture Secrets of a $1B Brand / Dan Martell | https://www.danmartell.com/inside-1st-phorm-hq-5-culture-secrets-1b-brand/ |  | writing/007-inside-1st-phorm-hq-5-culture-secrets-of-a-1b-brand-dan-mart.md
+- S116 | 5 Productivity Rules CEOs Use to Win Time | https://www.danmartell.com/ceo-productivity-rules/ |  | writing/013-5-productivity-rules-ceos-use-to-win-time.md
+- S117 | B2B SaaS: How To Build Your Organization / Precision Blog | https://www.danmartell.com/saas-organization/ |  | writing/020-b2b-saas-how-to-build-your-organization-precision-blog.md
+- S118 | 5 Tips To Increase Your Productivity 10X / Dan Martell | https://www.danmartell.com/10x-your-productivity/ |  | writing/024-5-tips-to-increase-your-productivity-10x-dan-martell.md
+- S119 | SaaS Marketing Team Structure for Growth | https://www.danmartell.com/how-to-build-the-strongest-marketing-team-for-saas/ |  | writing/025-saas-marketing-team-structure-for-growth.md
+- S120 | Is AI Going to Kill My Business? How to Build for an Unpredictable Future | https://www.danmartell.com/is-ai-going-to-kill-my-business/ |  | writing/027-is-ai-going-to-kill-my-business-how-to-build-for-an-unpredic.md
+- S121 | Boss vs Leader: 12 Leadership Rules That Separate the Top 1% | https://www.danmartell.com/boss-vs-leader-12-leadership-rules-that-separate-the-top-1/ |  | writing/029-boss-vs-leader-12-leadership-rules-that-separate-the-top-1.md
+- S122 | How to Scale Your Business: The Six Phase System to Build Empire Builders | https://www.danmartell.com/how-to-scale-your-business-the-six-phase-system-to-build-empire-builders/ |  | writing/030-how-to-scale-your-business-the-six-phase-system-to-build-emp.md
+- S123 | The 8 Levels of Entrepreneurial Success and How to Break Through Each One | https://www.danmartell.com/levels-of-entrepreneurial-success-and-how-to-break-through-each-one/ |  | writing/031-the-8-levels-of-entrepreneurial-success-and-how-to-break-thr.md
+- S124 | How to Keep Customers Without Lowering Prices / 7-Step Retention System | https://www.danmartell.com/how-to-keep-customers-without-lowering-your-prices-a-7-step-retention-system/ |  | writing/032-how-to-keep-customers-without-lowering-prices-7-step-retenti.md
+- S125 | 4 AI Automations Behind Million Dollar Businesses With No New Hires | https://www.danmartell.com/4-ai-automations-behind-million-dollar-businesses-with-no-new-hires/ |  | writing/033-4-ai-automations-behind-million-dollar-businesses-with-no-ne.md
+- S126 | 5 Productivity Systems That Separate Winners | https://www.danmartell.com/the-5-productivity-systems-that-separate-winners-from-everyone-else/ |  | writing/034-5-productivity-systems-that-separate-winners.md
+- S127 | Popular AI Advice You Should Never Follow (And What to Do) | https://www.danmartell.com/popular-ai-advice-you-should-never-follow-and-what-to-do-instead/ |  | writing/035-popular-ai-advice-you-should-never-follow-and-what-to-do.md
+- S128 | How to Make 2026 Your Best Year / A Founder’s System for Execution and Leverage | https://www.danmartell.com/how-to-make-2026-your-best-year-through-direction-systems-and-leverage/ |  | writing/036-how-to-make-2026-your-best-year-a-founder-s-system-for-execu.md

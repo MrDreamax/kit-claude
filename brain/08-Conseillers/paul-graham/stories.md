@@ -1,0 +1,22 @@
+# Stories: Paul Graham
+
+18 stories and cases he reuses, with the lesson he draws. Source ids in parentheses.
+
+1. **Viaweb built stores by hand.** Merchants wouldn't use the store builder, so Viaweb built their stores for them, fixing the software mid-job whenever it got in the way. Lesson: doing it manually teaches you what to build (S009, S054, S096).
+2. **Airbnb's cereal and New York.** YC thought the idea was bad but funded the founders, who had paid their way selling Obama and McCain cereal. They then went door to door in New York, photographing listings themselves. Lesson: back earnest, resourceful founders and win the hottest market by hand (S056, S057, S096, S112, S115).
+3. **Airbnb waited four months to hire.** After raising at the end of YC, the founders stayed overworked rather than hiring, and spent the time evolving the product. Lesson: fix the product, not the headcount (S080).
+4. **Stripe's Collison installation.** The Collisons took users' laptops and set Stripe up on the spot, and manually opened merchant accounts behind "instant" signup. Lesson: even an urgent product needs aggressive manual acquisition (S096).
+5. **Stripe and payments as a schlep.** For a decade programmers knew payments were painful and built recipe sites instead. Lesson: the valuable idea was hidden by aversion to banks, fraud, and regulation (S098, S108).
+6. **Facebook at Harvard.** It launched only for Harvard students, then school by school. Lesson: a small, intense starting market can reach critical mass and expand (S096, S098, S106).
+7. **Microsoft and the Altair.** Gates and Allen wrote a Basic interpreter for a machine with a few thousand owners who wanted it badly. Lesson: a narrow deep well with a path out beats a broad shallow idea; ask what Microsoft a lame idea is the Altair Basic of (S083, S095, S098).
+8. **The Reddit founders' train pivot.** PG rejected their original idea, called them on the train home, and they got off and came back to start Reddit. Lesson: back founders over ideas, and great founders act at once (S032).
+9. **Dropbox rejected in Boston.** Boston investors saw "Yet another backup and syncing thing" and none closed; Sequoia led weeks later. Lesson: rejection is weak evidence, and the hub's opinion moves everyone else's (S095, S003).
+10. **Dropbox's minimum price.** Drew Houston told YC's application the least he would sell for was a million dollars. Lesson: even great founders would sell early, and outcomes can't be predicted at the start (S011, S010).
+11. **Segway raised money too easily.** Funding let it build in secret instead of iterating with users who would have told it what was wrong. Lesson: easy money can remove the feedback that saves you (S131).
+12. **Yahoo's ad Ponzi loop.** Investors funded startups, startups bought Yahoo ads, and Yahoo's growth excited investors. PG saw it and shouted "Sell!" in his cubicle. Lesson: revenue fed by investor money is fragile and hides the truth (S119).
+13. **Brian Chesky and founder mode.** Following advice to hire good people and give them room went badly at Airbnb, so Chesky studied how Jobs ran Apple and did better. Lesson: scaling advice built for managers can hurt founders (S030).
+14. **Jobs's retreat for the 100.** Jobs held an annual retreat for the 100 people he thought mattered most, not the top of the org chart. Lesson: founder mode can mean structures that bypass the org chart (S030).
+15. **The competitor who raised $20 million.** A Viaweb rival raised more than Viaweb was worth; PG was delighted, because it locked them into a high valuation. Viaweb, having spent about $2 million, sold to Yahoo for about $50 million. Lesson: modest capital keeps your exits open (S207).
+16. **Julian Weber's 10%.** Julian gave $10,000, legal setup, and calm advice for 10% of Viaweb, which became the model for the YC deal. Lesson: an investor who adds real help can be worth the equity (S054, S104).
+17. **How YC started.** On a walk home in March 2005 PG and Jessica Livingston decided to fund startups; batches happened by accident because they wanted to learn angel investing fast. Lesson: run cheap experiments and keep what works (S104, S001).
+18. **The Fred Wilson email.** PG tried and failed to get Fred Wilson to invest in Airbnb in 2009, arguing the founders and a huge marketplace outweighed the odd idea. Lesson: great winners can look unfundable, so don't let investor opinion drive your judgment (S101, S112).

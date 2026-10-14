@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ton Claude, mode d'emploi</title>
+<style>
+  :root {
+    --bg: #ffffff; --ink: #0b0f1a; --muted: #5b6475; --line: #e6e8ee;
+    --card: #f6f7fa; --blue: #1f4fd8; --blue-soft: #e9efff; --ok: #137a4b; --stop: #b42318;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0b0f1a; --ink: #f2f4f8; --muted: #9aa3b5; --line: #232a3a;
+            --card: #131a2a; --blue: #7aa2ff; --blue-soft: #18233f; --ok: #4ccf8f; --stop: #ff7a6b; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 48px 20px 80px; }
+  .kicker { color: var(--blue); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+  h1 { font-size: clamp(34px, 6vw, 54px); line-height: 1.05; margin: 10px 0 14px; letter-spacing: -.02em; }
+  h1 em { font-style: normal; color: var(--blue); }
+  .lead { font-size: 20px; color: var(--muted); max-width: 620px; margin: 0; }
+  h2 { font-size: 26px; margin: 56px 0 6px; letter-spacing: -.01em; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+  .card .n { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+             background: var(--blue); color: var(--bg); font-weight: 800; margin-bottom: 10px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  .phrases { display: grid; gap: 10px; }
+  .phrase { display: flex; align-items: center; gap: 12px; justify-content: space-between;
+            border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+  .phrase b { display: block; }
+  .phrase span { color: var(--muted); font-size: 15px; }
+  button.copy { flex: none; border: 0; border-radius: 10px; padding: 9px 14px; font: inherit; font-size: 14px;
+                font-weight: 700; background: var(--blue-soft); color: var(--blue); cursor: pointer; }
+  button.copy:active { transform: scale(.97); }
+  .rules { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .rules ul { margin: 8px 0 0; padding-left: 20px; }
+  .rules li { margin: 4px 0; }
+  .yes h3 { color: var(--ok); } .no h3 { color: var(--stop); }
+  .bonus li { margin: 8px 0; }
+  a { color: var(--blue); }
+  code { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font-size: .9em; }
+  .update { margin-top: 56px; background: var(--blue-soft); border-radius: 16px; padding: 20px 22px; }
+  .update p { margin: 0; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13.5px; }
+  @media (max-width: 520px) {
+    main { padding: 32px 16px 60px; }
+    .phrase { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="kicker">Mode d'emploi · 1 minute</div>
+  <h1>Ton Claude est <em>prêt</em>.</h1>
+  <p class="lead">Il te connaît, il s'appuie sur des experts, et il a une équipe. Tu n'as rien à configurer : parle-lui comme à un assistant.</p>
+
+  <h2>Comment ça marche</h2>
+  <p class="sub">3 pièces, installées une fois pour toutes.</p>
+  <div class="grid">
+    <div class="card"><div class="n">1</div><h3>Ses règles</h3>
+      <p>Il te parle court et simple, te pose des questions à boutons, vérifie avant de dire « c'est fait », et apprend de chaque correction.</p></div>
+    <div class="card"><div class="n">2</div><h3>Son cerveau</h3>
+      <p>Le dossier <code>Documents/Brain</code> : ton profil, tes projets, tes décisions, et ~100 fiches d'experts et de livres. Il le lit et l'écrit pour toi.</p></div>
+    <div class="card"><div class="n">3</div><h3>Son équipe</h3>
+      <p>13 conseillers qui débattent de tes grosses décisions (bon sens, avocat du diable, argent, stratégie...) + Le Limier qui va chercher les bons experts sur Internet.</p></div>
+  </div>
+
+  <h2>5 phrases à essayer</h2>
+  <p class="sub">Copie, colle dans Claude, remplace les « ... ».</p>
+  <div class="phrases">
+    <div class="phrase"><div><b>Mets la team sur mon idée : ...</b><span>13 conseillers débattent, verdict GO / NO-GO.</span></div><button class="copy">Copier</button></div>
+    <div class="phrase"><div><b>Trouve-moi les meilleurs experts sur ...</b><span>Des praticiens avec des preuves, pas des blogs.</span></div><button class="copy">Copier</button></div>
+    <div class="phrase"><div><b>Écris-moi un livre sur ...</b><span>Les meilleurs livres et vidéos d'un sujet, condensés pour 2 soirées.</span></div><button class="copy">Copier</button></div>
+    <div class="phrase"><div><b>Fais-moi une fiche de cette vidéo YouTube : ...</b><span>L'actionnable, adapté à toi. Marche aussi sur une chaîne entière.</span></div><button class="copy">Copier</button></div>
+    <div class="phrase"><div><b>Challenge-moi</b><span>Ce que tu dis vouloir vs ce que tu fais vraiment. Sans filtre.</span></div><button class="copy">Copier</button></div>
+  </div>
+
+  <h2>Ce qu'il fait seul, ce qu'il te demande</h2>
+  <p class="sub">Tu restes le patron.</p>
+  <div class="rules">
+    <div class="card yes"><h3>Il fait seul</h3><ul>
+      <li>Chercher, lire, résumer, comparer</li>
+      <li>Écrire des documents, des plans, des brouillons</li>
+      <li>Retenir ce que tu lui apprends</li>
+      <li>Ranger ton second cerveau</li></ul></div>
+    <div class="card no"><h3>Il te demande d'abord</h3><ul>
+      <li>Supprimer ou remplacer un de tes fichiers</li>
+      <li>Envoyer un message à quelqu'un (il prépare, tu envoies)</li>
+      <li>Payer, créer un compte, se connecter</li>
+      <li>Tout ce qui ne se défait pas</li></ul></div>
+  </div>
+
+  <h2>Bonus en 1 clic</h2>
+  <p class="sub">Facultatif. Chacun te fait gagner des heures.</p>
+  <ul class="bonus">
+    <li><b>Tu viens de ChatGPT ?</b> Écris à Claude : <code>importe ChatGPT</code>. Il récupère ce que ChatGPT sait de toi.</li>
+    <li><b>Les logiciels gratuits :</b> écris <code>installe les logiciels</code>. Obsidian (ton cerveau en wiki), Wispr Flow (tu parles, il écrit), Chrome + Claude in Chrome, Fathom (tes visios résumées), Canva.</li>
+    <li><b>Tes mails, ton agenda, ton Drive :</b> sur <a href="https://claude.ai">claude.ai</a> → Customize → Connectors → Gmail, Google Calendar, Google Drive.</li>
+    <li><b>Qu'il utilise ton navigateur :</b> l'extension <a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn">Claude in Chrome</a> (éditeur : Anthropic).</li>
+    <li><b>Chaque dimanche :</b> écris <code>audit</code>. Une page te montre tout ce qu'il croit sur toi, tu coches vrai ou faux, il corrige.</li>
+  </ul>
+
+  <div class="update"><p><b>Mettre à jour :</b> écris <code>mets à jour mon kit</code>. Les fiches d'experts et l'équipe se mettent à jour. Ton profil et tes fichiers perso ne bougent pas.</p></div>
+
+  <footer>Les 7 conseillers (Hormozi, Buffett, Bezos, Martell, Wickman, Gary Vee, Paul Graham) viennent du projet Roast Room (licence MIT) : ce sont des simulations sourcées, pas les vraies personnes.</footer>
+</main>
+<script>
+  document.querySelectorAll('button.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.parentElement.querySelector('b').textContent;
+      var done = function () { b.textContent = 'Copié ✓'; setTimeout(function () { b.textContent = 'Copier'; }, 1500); };
+      if (navigator.clipboard) { navigator.clipboard.writeText(t).then(done, done); } else { done(); }
+    });
+  });
+</script>
+</body>
+</html>
