@@ -1,0 +1,52 @@
+{
+  "project": "_demo",
+  "_description": "Test fixture with hand-computed expected ratios (tests/test_ledger.py). Underscore prefix keeps it out of _global.json. Do not extend without updating the tests.",
+  "_total_rows": 10,
+  "rows": [
+    {"id": "_demo-0001", "ts": "2026-06-10T09:00:00Z", "model": "seedance_2_0",
+     "mode": "std", "resolution": "1080p", "aspect": "21:9", "duration_s": 15,
+     "internal_cuts": 3, "shot_tags": ["dialogue-cu", "two-char"],
+     "scene_ref": "S01-P1", "draft_tier": false, "outcome": "kept",
+     "credits": 160, "supersedes": null},
+
+    {"id": "_demo-0002", "ts": "2026-06-10T09:20:00Z", "model": "seedance_2_0",
+     "shot_tags": ["dialogue-cu"], "draft_tier": false, "outcome": "rejected",
+     "reject_reason": "extra-cuts", "credits": 160, "supersedes": null},
+
+    {"id": "_demo-0003", "ts": "2026-06-10T09:40:00Z", "model": "seedance_2_0",
+     "shot_tags": ["dialogue-cu"], "draft_tier": false, "outcome": "rejected",
+     "reject_reason": "performance", "credits": 160, "supersedes": null},
+
+    {"id": "_demo-0004", "ts": "2026-06-10T10:00:00Z", "model": "kling3_0",
+     "shot_tags": ["dialogue-cu", "two-char"], "draft_tier": false,
+     "outcome": "rejected", "reject_reason": "camera-wrong",
+     "credits": 120, "supersedes": null},
+
+    {"id": "_demo-0005", "ts": "2026-06-10T10:30:00Z", "model": "kling3_0",
+     "shot_tags": ["dialogue-cu", "two-char"], "draft_tier": false,
+     "outcome": "kept", "credits": 120,
+     "notes": "amend: take usable after re-watch", "supersedes": "_demo-0004"},
+
+    {"id": "_demo-0006", "ts": "2026-06-10T11:00:00Z", "model": "veo3_1_lite",
+     "shot_tags": ["dialogue-cu"], "draft_tier": false, "outcome": "kept",
+     "credits": 40, "supersedes": null},
+
+    {"id": "_demo-0007", "ts": "2026-06-10T11:30:00Z", "model": "seedance_2_0",
+     "resolution": "480p", "shot_tags": ["establishing"], "draft_tier": true,
+     "outcome": "rejected", "reject_reason": "composition",
+     "credits": 20, "supersedes": null},
+
+    {"id": "_demo-0008", "ts": "2026-06-11T09:00:00Z", "model": "kling3_0",
+     "shot_tags": ["establishing", "environment-only"], "draft_tier": false,
+     "outcome": "kept", "credits": 120, "supersedes": null},
+
+    {"id": "_demo-0009", "ts": "2026-06-11T09:30:00Z", "model": "seedance_2_0",
+     "shot_tags": ["vfx-event"], "draft_tier": false, "outcome": "flagged",
+     "notes": "lint bridge: filter FAIL", "supersedes": null},
+
+    {"id": "_demo-0010", "ts": "2026-06-11T10:00:00Z", "model": "seedance_2_0",
+     "shot_tags": ["two-char", "dialogue-multi"], "draft_tier": false,
+     "outcome": "rejected", "reject_reason": "identity-drift",
+     "credits": 160, "supersedes": null}
+  ]
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>%%TITLE%%</title>
+%%FONTS%%
+<style>
+  /* Les couleurs et polices viennent de marque.json (bloc ajouté en bas du style par build.py). */
+  :root { --blue:#2563EB; --navy:#111827; --ink:#1F2937; --mute:#6B7280; --line:#E5E7EB; --tint:#EFF4FF; --ok:#1B8A5A; --mid:#D98E04; --ko:#C0392B; }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: var(--police-texte), sans-serif; color: var(--ink); background:#fff; font-size: 11pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 16mm 18mm 20mm; position: relative; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .foot { position:absolute; bottom: 9mm; left: 18mm; right: 18mm; display:flex; justify-content:space-between; font-size: 8pt; color: var(--mute); border-top: 1px solid var(--line); padding-top: 3mm; letter-spacing: .08em; text-transform: uppercase; }
+  .foot b { color: var(--navy); }
+  h1, h2 { font-family: var(--police-titre), sans-serif; color: var(--navy); margin: 0; }
+  h1 { font-size: 24pt; font-weight: 800; line-height: 1.1; letter-spacing: -.02em; }
+  h1 span, h2 span { color: var(--blue); }
+  h2 { font-size: 15pt; font-weight: 800; margin: 0 0 3mm; }
+  .kicker { font-family: var(--police-titre), sans-serif; font-weight: 700; font-size: 9pt; letter-spacing: .25em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.5mm; }
+  .toplogo { height: 10mm; margin-bottom: 4mm; display:block; }
+  .head { display:flex; justify-content:space-between; align-items:center; gap: 8mm; margin-bottom: 5mm; }
+  .score { text-align:center; background: var(--navy); color:#fff; border-radius: 4mm; padding: 4mm 8mm; min-width: 42mm; }
+  .score b { display:block; font-family: var(--police-titre), sans-serif; font-size: 34pt; font-weight: 800; line-height: 1; }
+  .score b i { font-style: normal; font-size: 14pt; opacity: .7; }
+  .score small { font-size: 8pt; letter-spacing: .2em; text-transform: uppercase; opacity: .75; }
+  .resume { font-size: 11.5pt; color: var(--mute); margin: 2mm 0 0; }
+
+  table { width:100%; border-collapse: collapse; font-size: 9pt; }
+  th { text-align:left; font-family: var(--police-titre), sans-serif; font-size: 7.5pt; letter-spacing:.15em; text-transform:uppercase; color:#fff; background: var(--navy); padding: 2mm 2.5mm; }
+  td { padding: 1.7mm 2.5mm; border-bottom: 1px solid var(--line); vertical-align: middle; line-height: 1.3; }
+  td.c { font-weight: 700; color: var(--navy); width: 34mm; }
+  td.c small { display:block; font-weight: 400; color: var(--mute); font-size: 7.5pt; }
+  td.b { width: 34mm; }
+  .bar { height: 3.2mm; background: var(--line); border-radius: 2mm; overflow: hidden; }
+  .bar i { display:block; height: 100%; border-radius: 2mm; }
+  .ok { background: var(--ok); } .mid { background: var(--mid); } .ko { background: var(--ko); }
+  td.p { width: 14mm; font-family: var(--police-titre), sans-serif; font-weight: 800; color: var(--navy); white-space: nowrap; }
+  td.p span { color: var(--mute); font-weight: 600; }
+
+  .cols { display:grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-bottom: 5mm; }
+  .card { border: 1px solid var(--line); border-radius: 3mm; padding: 2.8mm 4mm; margin-bottom: 2.5mm; font-size: 9.5pt; line-height: 1.35; }
+  .card b.m { font-family: var(--police-titre), sans-serif; font-size: 13pt; font-weight: 800; margin-right: 2mm; }
+  .card.top b.m { color: var(--ok); } .card.flop b.m { color: var(--ko); }
+  .card .t { font-weight: 700; color: var(--navy); }
+  .card .w { color: var(--mute); display:block; margin-top: .8mm; }
+  .lev { display:grid; grid-template-columns: 10mm 1fr; gap: 0 4mm; margin-bottom: 3.5mm; }
+  .lev .n { width: 9mm; height: 9mm; border-radius: 50%; background: var(--blue); color:#fff; font-family: var(--police-titre), sans-serif; font-weight: 800; display:flex; align-items:center; justify-content:center; }
+  .lev .t { font-family: var(--police-titre), sans-serif; font-weight: 800; color: var(--navy); font-size: 11.5pt; }
+  .lev p { margin: .6mm 0 0; font-size: 9.5pt; line-height: 1.35; }
+  .lev p b { color: var(--blue); font-size: 7.5pt; letter-spacing: .12em; text-transform: uppercase; }
+  .note { background: var(--tint); border-left: 4px solid var(--blue); border-radius: 0 2mm 2mm 0; padding: 2.5mm 4mm; font-size: 9.5pt; margin-bottom: 4mm; }
+  .src { position:absolute; bottom: 17mm; left: 18mm; right: 18mm; font-size: 7.5pt; color: var(--mute); line-height: 1.35; }
+</style>
+%%MARQUE%%
+</head>
+<body>
+%%PAGES%%
+<script>
+/* Contrôle de débordement : marque les pages dont le contenu passe sous les sources ou le pied (lu par build.py via --dump-dom). */
+window.addEventListener('load', () => {
+  const r = [];
+  document.querySelectorAll('.page').forEach((p, i) => {
+    const lim = (p.querySelector('.src') || p.querySelector('.foot')).getBoundingClientRect().top;
+    let b = 0;
+    [...p.children].forEach(c => { if (getComputedStyle(c).position !== 'absolute') b = Math.max(b, c.getBoundingClientRect().bottom); });
+    if (b > lim - 4) r.push(i + 1);
+  });
+  document.body.setAttribute('data-overflow', r.join(','));
+});
+</script>
+</body>
+</html>

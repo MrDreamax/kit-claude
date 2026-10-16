@@ -69,7 +69,7 @@ Erreur type du vendeur moyen: Situation, Problem, puis tout de suite la solution
 Principe: chaque reel prend UNE objection ou croyance et pose les bonnes questions de SPIN a ton audience, au lieu de plaider. Tu fais dire le probleme et son cout par le spectateur dans sa tete.
 
 Structure type de reel (application):
-1. Hook = Problem question qui pique. 2. Implication en 2 phrases (ce que ca coute). 3. Need-payoff (ce que ca change si c'est regle). 4. "Commente STRAT".
+1. Hook = Problem question qui pique. 2. Implication en 2 phrases (ce que ca coute). 3. Need-payoff (ce que ca change si c'est regle). 4. "Commente [MOT-CLÉ]".
 
 Mapping objections:
 - "J'ai pas assez d'audience": question Implication: combien de clients tu as signe sur tes derniers 1000 vues? Le probleme n'est pas le volume, c'est la conversion.
@@ -86,7 +86,7 @@ Mapping objections:
 
 ## 4. Pour le DM et le call
 
-### Sequence DM setter apres "Commente STRAT" (application)
+### Sequence DM setter apres "Commente [MOT-CLÉ]" (application)
 But du DM: 2 a 3 questions Situation/Problem, pas de pitch, pas de lien VSL avant d'avoir un probleme verbalise. Ca ameliore aussi la qualification (moins de disqualifies en call).
 1. "Hey [prenom], merci pour ton commentaire. Tu fais quoi comme accompagnement aujourd'hui?" (Situation)
 2. "Et ton contenu, il te ramene des clients en ce moment, ou c'est surtout de la visibilite?" (Problem)

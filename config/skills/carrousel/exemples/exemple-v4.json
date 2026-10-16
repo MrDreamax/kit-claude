@@ -1,0 +1,23 @@
+{
+ "name": "EXEMPLE FICTIF : quand tous les cabinets se ressemblent",
+ "out": "~/Documents/Contenu/carrousels/2026-01-01-exemple-cabinets",
+ "titre_style": "gras",
+ "photos": {
+  "p1": {"src": "~/Documents/Contenu/medias/photos/TA-PHOTO-COUVERTURE.jpg", "fx": 0.5, "fy": 0.5, "zoom": 1.0, "grad": 0.62},
+  "p2": {"src": "~/Documents/Contenu/medias/photos/TA-PHOTO-2.jpg", "fx": 0.5, "fy": 0.45},
+  "p3": {"src": "~/Documents/Contenu/medias/photos/TA-PHOTO-3.jpg", "fx": 0.5, "fy": 0.45},
+  "p4": {"src": "~/Documents/Contenu/medias/photos/TA-PHOTO-4.jpg", "fx": 0.5, "fy": 0.5}
+ },
+ "slides": [
+  {"type": "cover", "photo": "p1", "word": "Pareils.", "caps": "Quand tous les cabinets<br>se ressemblent…"},
+  {"type": "art", "art": "apples_grid", "title": "Même site. Mêmes mots.", "body": "Ton patient ne voit plus la différence…"},
+  {"type": "photo", "photo": "p2", "title": "Même si tu es très bon…", "body": "personne ne le voit si tu parles comme les autres."},
+  {"type": "art", "art": "copies", "title": "L’erreur n°1 : copier le cabinet d’à côté.", "body": "Tu deviens une copie de plus."},
+  {"type": "photo", "photo": "p3", "title": "Copie le format.<br>Jamais la posture.", "body": "Le format se copie. Ta posture, c’est toi."},
+  {"type": "art", "art": "stairs", "title": "Par où commencer", "steps": ["Ta spécialité : c’est ta preuve.", "Un format qui marche.", "Ta voix, pas celle des autres."]},
+  {"type": "photo", "photo": "p4", "title": "[TA PREUVE VRAIE]<br>[chiffre ou année]", "body": "[Ce que cette preuve change pour ton client.]"},
+  {"type": "art", "art": "apples_grid", "args": {"red_at": [1, 2]}, "title": "On retient celui qui est différent.", "title_size": 80, "cta": "GUIDE", "cta_line": "Je t’envoie mon guide."}
+ ],
+ "caption": "EXEMPLE FICTIF. Quand tous les cabinets ont le même site et les mêmes mots, le patient ne voit plus la différence.\n\nCopie un format qui marche. Jamais la posture : elle, c’est toi.\n\n[Ta preuve vraie, sans nom de client.]\n\nCommente GUIDE et je t’envoie mon guide.",
+ "hashtags": ["kine", "positionnement", "personalbranding", "instagram"]
+}

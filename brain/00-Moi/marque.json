@@ -1,0 +1,16 @@
+{
+  "nom": "",
+  "pseudo": "",
+  "logo": "",
+  "couleurs": {
+    "principale": "#2563EB",
+    "foncee": "#111827",
+    "texte": "#1F2937",
+    "doux": "#6B7280",
+    "ligne": "#E5E7EB",
+    "teinte": "#EFF4FF",
+    "clair": "#FFFFFF"
+  },
+  "polices": {"titre": "Archivo", "texte": "Inter"},
+  "_aide": "Rempli par le skill ma-marque (ou directeur-artistique). nom = pied de page des PDF. pseudo = @ affiché seulement si rempli. logo = chemin d'un PNG. Polices = Google Fonts."
+}

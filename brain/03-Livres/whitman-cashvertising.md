@@ -45,14 +45,14 @@ Corps
 - Pas d'interprétation : une idée, une phrase simple.
 
 CTA
-- Facile et urgent : un seul mot (STRAT), plus une raison de le faire maintenant ("je ferme les places cette semaine", seulement si c'est vrai).
+- Facile et urgent : un seul mot-clé, plus une raison de le faire maintenant ("je ferme les places cette semaine", seulement si c'est vrai).
 
 Exemples de hooks (application, à tester)
 1. "Coach : en 30 secondes de vidéo par jour, tu peux avoir tes premiers clients à 3 000 euros. Voilà comment."
 2. "Les coachs qui te passent devant n'ont pas plus de talent. Ils savent dire une seule chose que toi tu ne dis pas."  (supériorité)
 3. "Tu as peur de passer pour un vendeur ? Voilà comment signer sans en avoir l'air."  (approbation sociale, peur)
 4. "Regarde l'agenda de cette thérapeute il y a 30 jours. Et maintenant."  (preuve visuelle, si le cas existe)
-5. "Commente STRAT et je t'envoie la vidéo gratuite. Elle disparaît dimanche."  (urgence, seulement si elle est vraie)
+5. "Commente [MOT-CLÉ] et je t'envoie la vidéo gratuite. Elle disparaît dimanche."  (urgence, seulement si elle est vraie)
 
 ## 4. Source, couverture, achat
 - Sources : 3 vidéos de l'auteur (environ 19 minutes au total). Non utilisé : l'aperçu Google Play du livre audio (pas de sous-titres, non transcrit). Aucun PDF utilisé (beaucoup circulent, non officiels).

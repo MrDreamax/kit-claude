@@ -1,0 +1,40 @@
+{
+  "nom": "Audit-exemple",
+  "titre": "Audit Instagram (EXEMPLE FICTIF)",
+  "compte": "@exemple.photographe",
+  "date": "01/01/2027",
+  "resume": "EXEMPLE FICTIF. Du contenu régulier, mais le profil ne dit pas à qui il s'adresse : les vues ne deviennent pas des messages.",
+  "marque": "",
+  "criteres": [
+    {"nom": "Bio, 1re ligne", "pts": 14, "note": 6, "pourquoi": "Dit « photographe » mais pas pour qui, ni ce que ça change pour le client.", "source": "[P 24]"},
+    {"nom": "Champ Nom", "pts": 12, "note": 3, "pourquoi": "Seulement le prénom : aucun mot que la cible tape dans la recherche.", "source": "[P 26]"},
+    {"nom": "3 posts épinglés", "pts": 12, "note": 4, "pourquoi": "2 épinglés sur 3, aucun ne mène vers un message ou un appel.", "source": "[P 27]"},
+    {"nom": "Activité récente", "pts": 11, "note": 8, "pourquoi": "Un post tous les 3 jours, mais les commentaires restent sans réponse.", "source": "experts-volume-frequence (hypothèse)"},
+    {"nom": "Reste de la bio", "pts": 8, "note": 4, "pourquoi": "Une preuve (nombre de séances), mais 2 emojis décoratifs et une citation.", "source": "[P 25]"},
+    {"nom": "Chemin vers le DM", "pts": 8, "note": 2, "pourquoi": "Lien vers le site, aucun mot-clé en commentaire pour recevoir une ressource.", "source": "[P 28]"},
+    {"nom": "Preuves clients visibles", "pts": 8, "note": 2, "pourquoi": "Aucun résultat chiffré visible, les avis sont cachés dans un highlight.", "source": "[P 29, 33]"},
+    {"nom": "Pseudo et compte pro", "pts": 8, "note": 6, "pourquoi": "Pseudo lisible, compte pro, catégorie correcte.", "source": "hypothèse"},
+    {"nom": "Highlights", "pts": 6, "note": 2, "pourquoi": "9 highlights nommés avec des emojis, aucun ne répond à une question d'acheteur.", "source": "hypothèse [P 34]"},
+    {"nom": "Photo de profil", "pts": 5, "note": 4, "pourquoi": "Gros plan lumineux, fond un peu chargé.", "source": "[P 23]"},
+    {"nom": "Grille lisible", "pts": 4, "note": 3, "pourquoi": "Couvertures cohérentes, textes lisibles en miniature.", "source": "[P 20]"},
+    {"nom": "Stories", "pts": 4, "note": 1, "pourquoi": "Une story par semaine, sans mot-clé ni appel à répondre.", "source": "[P 18, 36]"}
+  ],
+  "mediane": "1 250 vues",
+  "top": [
+    {"titre": "Les 3 erreurs d'un premier message", "multiple": "4,2x", "pourquoi": "Hook sur une erreur précise, 22 s, répond à une question vue en commentaire."},
+    {"titre": "Avant / après d'un portrait retouché", "multiple": "3,1x", "pourquoi": "Le résultat est visible dans la 1re seconde, durée sous 15 s."},
+    {"titre": "Pourquoi je refuse certains clients", "multiple": "2,8x", "pourquoi": "Prise de position claire, 40 s, suscite des commentaires."}
+  ],
+  "flop": [
+    {"titre": "Ma journée de tournage", "multiple": "0,3x", "pourquoi": "Aucun hook, décor avant le sujet, 55 s."},
+    {"titre": "Merci pour 5 000 abonnés", "multiple": "0,4x", "pourquoi": "Parle de lui, pas du spectateur."},
+    {"titre": "Les coulisses du studio", "multiple": "0,5x", "pourquoi": "Sujet intéressant pour lui seul, aucune promesse."}
+  ],
+  "diagnostic": "Des vues mais peu d'abonnés ni de messages : le problème vient du profil (partie 1), pas du hook. Les meilleurs posts ont un vrai hook, le profil ne transforme pas ces vues.",
+  "leviers": [
+    {"titre": "Réécrire la 1re ligne de la bio et le champ Nom", "constat": "17 points sur 26 perdus sur ces deux critères.", "pourquoi": "Un visiteur ne comprend pas en 3 secondes pour qui tu travailles [P 24, 26].", "gain": "Plus de visiteurs qui s'abonnent ou écrivent après un reel qui a marché."},
+    {"titre": "Ajouter un chemin vers le DM", "constat": "Aucun mot-clé en commentaire, 2 points sur 8.", "pourquoi": "Sans action simple, un spectateur intéressé n'a nulle part où aller [P 28].", "gain": "Des conversations qui démarrent à partir des posts qui marchent déjà."},
+    {"titre": "Épingler une preuve et un post « commence ici »", "constat": "Un seul post épinglé utile sur 3.", "pourquoi": "Les preuves visibles d'un coup d'œil rassurent avant le premier message [P 27, 29].", "gain": "Un profil qui vend même quand le reel du jour est moyen."}
+  ],
+  "sources": "EXEMPLE FICTIF : toutes les données sont inventées pour montrer le format. Grille : 02-Formations/experts-carrousels-profil-stories.md [P n°], experts-algo-instagram.md [A n°]."
+}

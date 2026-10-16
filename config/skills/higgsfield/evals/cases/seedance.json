@@ -1,0 +1,314 @@
+{
+  "skill": "higgsfield-seedance",
+  "cases": [
+    {
+      "id": "seedance-six-slot",
+      "description": "Minimum viable prompt hits all six slots and passes the filter lint",
+      "model": "seedance_2_0",
+      "request": "Lone figure in an alley, make it pass the filter",
+      "response": "Routing to higgsfield-seedance (six-slot formula).\n\n**Model**: Seedance 2.0\n**Aspect ratio**: 16:9  **Duration**: 6s  **Style**: Cinematic\n**Resolution**: 720p  **Mode**: std\n\nSlow dolly-in on a figure in a dark overcoat standing alone at the end of a rain-slick alley. Cold teal shadows, single practical streetlamp, shallow depth of field.\n\n**Camera**: Slow dolly-in",
+      "assertions": [
+        {
+          "type": "lint_verdict",
+          "max": "WARN"
+        },
+        {
+          "type": "enum_legal"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "^Routing to higgsfield-seedance"
+        },
+        {
+          "type": "antislop_absent"
+        }
+      ]
+    },
+    {
+      "id": "seedance-age-blind-rewrite",
+      "description": "Age markers rewritten to role + clothing + action",
+      "model": "seedance_2_0",
+      "request": "A young boy rides a bike down a hill",
+      "response": "Routing to higgsfield-seedance (age-blind character rule — ENGINE-RULES.md rule 1).\n\n**Model**: Seedance 2.0\n**Aspect ratio**: 16:9  **Duration**: 8s  **Style**: Cinematic\n\nA small rider in a red windbreaker coasts a bicycle down a long suburban hill, jacket rippling, cards clattering in the spokes. Late-afternoon backlight, long shadows across the asphalt.\n\n**Camera**: Tracking alongside, slightly low",
+      "assertions": [
+        {
+          "type": "lint_verdict",
+          "max": "WARN"
+        },
+        {
+          "type": "regex_absent",
+          "pattern": "(?i)\\b(boy|child|kid|young)\\b"
+        },
+        {
+          "type": "enum_legal"
+        }
+      ]
+    },
+    {
+      "id": "seedance-violence-rewrite",
+      "description": "Violence verbs rewritten as force and direction",
+      "model": "seedance_2_0",
+      "request": "Two fighters, one punches the other into a car",
+      "response": "Routing to higgsfield-seedance (force-and-direction rewrite — ENGINE-RULES.md rules 2-3).\n\n**Model**: Seedance 2.0\n**Aspect ratio**: 16:9  **Duration**: 8s  **Style**: Cinematic\n\nTwo figures square off in a parking structure; one is driven backward into a sedan door, metal buckling, the panel light flickering. Handheld energy, sodium-lamp orange against concrete.\n\n**Camera**: Handheld medium, shudder on impact",
+      "assertions": [
+        {
+          "type": "lint_verdict",
+          "max": "WARN"
+        },
+        {
+          "type": "regex_absent",
+          "pattern": "(?i)\\bpunch(es|ed)?\\b"
+        },
+        {
+          "type": "enum_legal"
+        }
+      ]
+    },
+    {
+      "id": "seedance-reflection-mitigation",
+      "description": "Reflection hero-image request gets the documented workaround, not silent rule-breaking",
+      "request": "My hero image is the character seen in a mirror — build the scene around it",
+      "response": "Routing to higgsfield-seedance (high-risk shot type: reflections — ENGINE-RULES.md rule 8).\n\nSeedance breaks scene geography rendering reflector + reflected together, so we flag this rather than prompt it directly. Workaround: shoot the reflection **as** the scene — pin your mirror image as the start frame of its own dedicated reflection-frame composition, then cut (double-contrast) to the physical subject in a separate beat. Never show the mirror and the subject in one continuous beat.",
+      "assertions": [
+        {
+          "type": "regex_present",
+          "pattern": "ENGINE-RULES\\.md"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)breaks scene geography"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)start frame"
+        },
+        {
+          "type": "antislop_absent"
+        }
+      ]
+    },
+    {
+      "id": "seedance-crowd-as-environment",
+      "description": "Crowd scenes described as environment, ≤3 tracked characters",
+      "model": "seedance_2_0",
+      "request": "Two leads meet in a packed festival crowd",
+      "response": "Routing to higgsfield-seedance (≤3 tracked characters — crowd-as-environment pattern).\n\n**Model**: Seedance 2.0\n**Aspect ratio**: 16:9  **Duration**: 10s  **Style**: Cinematic\n\nThe crowd surges as a single mass under festival lights; two figures — one in a white linen jacket, one in a denim vest — push toward each other against the flow and stop face to face. Lantern glow, drifting confetti.\n\n**Camera**: Stabilized tracking through the mass",
+      "assertions": [
+        {
+          "type": "lint_verdict",
+          "max": "WARN"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)single mass"
+        },
+        {
+          "type": "enum_legal"
+        }
+      ]
+    },
+    {
+      "id": "seedance-exit-frame-rule",
+      "description": "Exit-frame = implicit cut respected in multi-beat prompts",
+      "request": "Character walks out of frame then comes back",
+      "response": "Routing to higgsfield-seedance (exit-frame = implicit cut — ENGINE-RULES.md rule 6).\n\nA character who leaves frame is gone for the remainder of that continuous beat — exit + re-entry in one beat is unpromptable. Structure it as two beats instead: beat one ends on the exit; beat two re-anchors position and facing direction after a double-contrast cut.",
+      "assertions": [
+        {
+          "type": "regex_present",
+          "pattern": "(?i)exit.+implicit cut|implicit cut"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)re-anchor"
+        },
+        {
+          "type": "antislop_absent"
+        }
+      ]
+    },
+    {
+      "id": "seedance-zh-budget",
+      "description": "ZH house-format guidance quotes the 1,800-char cap",
+      "request": "我要一个中文的 Seedance 提示词，注意长度限制",
+      "response": "Routing to higgsfield-seedance (ZH-house profile — ENGINE-RULES.md core applies).\n\n中文提示词硬上限 **1,800 字符**。超限时按以下顺序裁剪：叙事概要 → 静态描述 → 风格与氛围（至少保留一句）→ 动态描述（永不整段删除）。六要素结构不变：镜头 + 主体 + 动作 + 场景 + 风格 + 光线。",
+      "assertions": [
+        {
+          "type": "regex_present",
+          "pattern": "1,?800"
+        },
+        {
+          "type": "antislop_absent"
+        }
+      ]
+    },
+    {
+      "id": "seedance-preflight-instruction",
+      "description": "Delivered prompts come with the preflight command",
+      "model": "seedance_2_0",
+      "request": "Final check before I spend credits?",
+      "response": "Routing to higgsfield-seedance (pre-flight linter).\n\nRun the full preflight before generating:\n\npython3 scripts/seedance_lint.py --preflight --model seedance_2_0 \"<your prompt>\"\n\nIt chains the filter lint, the structural lint (shot counts, beat sums, enum legality from specs/model-specs.json), and a learning-memory recall into one PASS/WARN/FAIL report. Treat FAIL as do-not-generate.",
+      "assertions": [
+        {
+          "type": "regex_present",
+          "pattern": "seedance_lint\\.py --preflight"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)treat fail as do-not-generate"
+        },
+        {
+          "type": "antislop_absent"
+        }
+      ]
+    },
+    {
+      "id": "seedance-draft-transfer",
+      "description": "Draft-tier answer names what persists vs what re-rolls",
+      "request": "My 480p draft was perfect — will the 1080p version look the same?",
+      "response": "Routing to higgsfield-seedance (§ Drafts Validate the Prompt, Not the Take).\n\nNot the same take — no seed parameter means the 1080p run is a fresh roll. What carries over is everything prompt-driven: shot count, blocking, identity, dialogue placement, filter pass. What re-rolls: the performance, camera micro-trajectory, beat timing. Pin the draft's best frame as a start/end reference (Hero Frame) to carry the look, and re-check fine detail at final resolution.",
+      "assertions": [
+        {
+          "type": "regex_present",
+          "pattern": "(?i)fresh roll"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)hero frame"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)final resolution"
+        },
+        {
+          "type": "antislop_absent"
+        }
+      ]
+    },
+    {
+      "id": "trap-seedance-mode-typo",
+      "description": "STALE-SPEC TRAP — a mode outside the enum (turbo) must be flagged",
+      "model": "seedance_2_0",
+      "request": "(trap) header with an invented mode name",
+      "response": "**Model**: Seedance 2.0\n**Aspect ratio**: 16:9  **Duration**: 8s\n**Resolution**: 720p  **Mode**: turbo\n\nA kettle reaches boil on a gas stove, steam pulsing against morning window light. Static close-up.",
+      "assertions": [
+        {
+          "type": "enum_legal",
+          "expect": "illegal"
+        }
+      ]
+    },
+    {
+      "id": "seedance-extension-continuation",
+      "description": "Extend-a-clip request uses the extension prompting pattern (v3.19.0)",
+      "model": "seedance_2_0",
+      "request": "I have a 10s 1080p Seedance clip of a woman running down a hallway. Extend it — what happens next?",
+      "response": "Routing to higgsfield-seedance (§ Extension Prompting) + higgsfield-pipeline (§ Continuation & Extension Handoff).\n\n**Model**: Seedance 2.0\n**Aspect ratio**: 16:9  **Duration**: 10s  **Resolution**: 1080p (mode=std) — match the source clip's resolution AND duration, or the model starts inventing.\n\nAttach the existing clip as a video reference (`video_references` role), then open the prompt with:\n\n```\nThe scene continues. The woman bursts through the door at the end of the hallway into a stairwell, takes the stairs two at a time, one continuous handheld shot following behind her. The scene is continuous, no scene cuts. No music.\n```\n\nIf an identity detail was hidden at the source's end (face turned away), add her character image as a second reference and bind it: \"The woman's identity is @Image1.\" Keep extension chains short — quality drifts by the ~4th–5th chained generation; cap seamless chains at 2 and re-anchor from the ORIGINAL references [FIELD]. Ending on a camera-angle change makes the join read as intentional coverage [EMPIRICAL].",
+      "assertions": [
+        {
+          "type": "regex_present",
+          "pattern": "The scene continues\\."
+        },
+        {
+          "type": "regex_present",
+          "pattern": "match the source"
+        },
+        {
+          "type": "enum_legal",
+          "expect": "legal"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "@Image1"
+        }
+      ]
+    },
+    {
+      "id": "seedance-staging-reference-not-a-blocking-lock",
+      "description": "A staging diagram is sold as what one incomplete-record run found — no bleed, not a blocking lock — attached last, never in the first-frame role, backed by prose blocking (house-rulings P2-11)",
+      "request": "Can I attach a diagram to lock where my three characters stand in a Seedance shot?",
+      "response": "Routing to higgsfield-seedance (§ Spatial Layout Block) + templates/seedance/staging-reference.md.\n\nYou can attach one, but not to lock positions. A staging reference — thin, muted outline figures drawn front-on from the camera's side, no fills, no letters — was tested here once, in a run whose record is incomplete — so read it as a direction, not a rate: it did not reliably move the blocking (renders tracked the map's orientation 6/12, which is chance), and it showed no bleed (0/18) with all three anti-bleed layers in place.\n\nHow to use it:\n\n1. Attach the location and character references first and the staging reference last, as a position reference only.\n2. Never give it the first-frame role — a drawing there becomes frame one.\n3. Never name the map's graphic style in the video prompt, not even negated.\n4. Put the positions that must hold into a written Spatial Layout Block — screen position, depth layer, orientation, contact points for all three — because the prose is what carries the blocking.",
+      "assertions": [
+        {
+          "type": "regex_present",
+          "pattern": "^Routing to higgsfield-seedance"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)(does not|doesn't|did not|didn't|won't) reliably (move|hold|pin)"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)\\blast\\b"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)\\b(never|don't|do not)\\b[^.\\n]{0,40}\\bfirst[- ]frame\\b"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)(record (is |was )?incomplete|incomplete record|direction, not a rate)"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)spatial layout block"
+        },
+        {
+          "type": "regex_absent",
+          "pattern": "(?i)\\b(pins|locks|guarantees|fixes|holds)\\s+(the\\s+|their\\s+|your\\s+)?(positions|blocking|placement)\\b"
+        },
+        {
+          "type": "regex_absent",
+          "pattern": "(?i)(?<!never )(?<!not )(?<!n't )\\b(use|attach|set|give|put|load|place|assign)\\s+(it|the (map|diagram|drawing|staging reference))\\s+((as|in|into|to)\\s+)?(the\\s+|a\\s+|an\\s+)?(first|start(ing)?)[- ]frame"
+        },
+        {
+          "type": "regex_absent",
+          "pattern": "(?i)top[- ]down[^.\\n]{0,40}\\battach"
+        },
+        {
+          "type": "regex_absent",
+          "pattern": "(?i)(?<!not )(?<!n't )\\breliably (sets?|moves?|holds?|pins?|locks?|fixes?)\\s+(the\\s+|their\\s+|your\\s+)?(blocking|positions|placement)\\b"
+        },
+        {
+          "type": "regex_absent",
+          "pattern": "(?i)\\bmeasured (as )?safe\\b"
+        }
+      ]
+    },
+    {
+      "id": "seedance-audio-reference-total-cap",
+      "description": "Three individually-legal 6 s audio references exceed the measured ≤15.2 s TOTAL cap on Seedance 2.0 — and the answer states the measurement is third-party / unverified on Higgsfield",
+      "request": "I want to attach three 6-second MP3 clips as audio references to one Seedance 2.0 generation. Each is under the 15-second limit, so that's fine, right?",
+      "response": "Routing to higgsfield-audio (§ Audio by Model → Seedance 2.0) + higgsfield-seedance.\n\nProbably not. Each clip is legal on its own (per-clip bounds 1.8–15.2 s), but the total across all attached audio clips was measured capped at ≤15.2 s — three 6 s clips come to 18 s, and in that measurement they were rejected with a 400. It is a third-party measurement on the China Ark lane; Higgsfield's own enforcement is unverified, so if the attach fails, the total cap is the first suspect.\n\nKeep the total at or under 15.2 s: trim to three 5 s clips (15 s), or drop one clip. MP3 only — WAV and AAC fail silently.",
+      "assertions": [
+        {
+          "type": "regex_present",
+          "pattern": "15\\.2\\s*s"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?im)^(No|Probably not|Not)\\b"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)\\btotal\\b"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)(unverified|third[- ]party)"
+        },
+        {
+          "type": "regex_present",
+          "pattern": "(?i)\\b18\\s*-?\\s*s(ec(ond)?s)?\\b"
+        },
+        {
+          "type": "regex_absent",
+          "pattern": "(?i)^(yes|sure|that'?s fine|that works|it works|you'?re fine|fine|ok(ay)?)\\b"
+        },
+        {
+          "type": "regex_absent",
+          "pattern": "(?i)\\b(three|3)\\s*(×|x)?\\s*6\\s*-?\\s*s(ec(ond)?s?)?\\b(?:[^.\\n]|\\.(?=\\d)){0,90}\\b(fine|ok|okay|legal|works|will work)\\b"
+        }
+      ]
+    }
+  ]
+}

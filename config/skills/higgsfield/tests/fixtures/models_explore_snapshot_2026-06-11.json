@@ -1,0 +1,291 @@
+{
+  "items": [
+    {
+      "id": "seedance_2_0",
+      "name": "Seedance 2.0",
+      "provider_name": "Bytedance",
+      "description": "Reference-driven video with image/video/audio reference inputs, consistent identity, multi-SKU; no generate_audio param",
+      "output_type": "video",
+      "parameters": [
+        {
+          "name": "resolution",
+          "required": "optional",
+          "type": "string",
+          "description": "Output resolution",
+          "default": "720p",
+          "options": [
+            "480p",
+            "720p",
+            "1080p"
+          ]
+        },
+        {
+          "name": "mode",
+          "required": "optional",
+          "type": "string",
+          "description": "'std' = higher quality, 'fast' = cheaper and faster (requires lower plan tier; does not support 1080p)",
+          "default": "std",
+          "options": [
+            "std",
+            "fast"
+          ]
+        },
+        {
+          "name": "genre",
+          "required": "optional",
+          "type": "string",
+          "description": "Cinematic genre hint",
+          "default": "auto",
+          "options": [
+            "auto",
+            "action",
+            "horror",
+            "comedy",
+            "noir",
+            "drama",
+            "epic"
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "name": "medias",
+          "type": "image",
+          "roles": [
+            "image",
+            "start_image",
+            "end_image",
+            "video",
+            "audio"
+          ]
+        }
+      ],
+      "aspect_ratios": [
+        "auto",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "tags": [
+        "reference",
+        "identity",
+        "consistent",
+        "product",
+        "multi-sku",
+        "e-commerce",
+        "audio-reference",
+        "video-reference",
+        "start-frame",
+        "end-frame"
+      ],
+      "duration_range": {
+        "min": 4,
+        "max": 15
+      }
+    },
+    {
+      "id": "kling3_0",
+      "name": "Kling 3.0",
+      "provider_name": "Kling",
+      "description": "Multi-shot, audio sync, motion transfer",
+      "output_type": "video",
+      "parameters": [
+        {
+          "name": "mode",
+          "required": "optional",
+          "type": "string",
+          "description": "Generation mode: std, pro, or 4k",
+          "default": "std",
+          "options": [
+            "std",
+            "pro",
+            "4k"
+          ]
+        },
+        {
+          "name": "sound",
+          "required": "optional",
+          "type": "string",
+          "description": "Generate audio. Use 'off' for silent video and lower credits.",
+          "default": "on",
+          "options": [
+            "on",
+            "off"
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "name": "medias",
+          "type": "image",
+          "roles": [
+            "start_image",
+            "end_image"
+          ],
+          "description": "roles: start_image, end_image"
+        }
+      ],
+      "aspect_ratios": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "tags": [
+        "multi-shot",
+        "audio",
+        "motion-transfer",
+        "cinematic",
+        "advanced"
+      ],
+      "duration_range": {
+        "min": 3,
+        "max": 15
+      }
+    },
+    {
+      "id": "veo3_1_lite",
+      "name": "Veo 3.1 Lite",
+      "provider_name": "Google",
+      "description": "Fast, affordable, budget batch clips",
+      "output_type": "video",
+      "parameters": [
+        {
+          "name": "resolution",
+          "required": "optional",
+          "type": "string",
+          "description": "Output resolution. 1080p requires duration=8.",
+          "default": "720p",
+          "options": [
+            "720p",
+            "1080p"
+          ]
+        },
+        {
+          "name": "generate_audio",
+          "required": "optional",
+          "type": "bool",
+          "description": "Generate audio for the video. Enabling it increases credit cost.",
+          "default": false
+        }
+      ],
+      "medias": [
+        {
+          "name": "medias",
+          "type": "image",
+          "roles": [
+            "start_image",
+            "end_image"
+          ],
+          "description": "roles: start_image, end_image"
+        }
+      ],
+      "aspect_ratios": [
+        "16:9",
+        "9:16",
+        "auto"
+      ],
+      "tags": [
+        "fast",
+        "budget",
+        "affordable",
+        "batch",
+        "lite"
+      ],
+      "durations": [
+        4,
+        6,
+        8
+      ]
+    },
+    {
+      "id": "video_standard",
+      "name": "Seedance 2.0",
+      "provider_name": "Bytedance",
+      "description": "Reference-driven video with image/video/audio reference inputs, consistent identity, multi-SKU; no generate_audio param",
+      "output_type": "video",
+      "parameters": [
+        {
+          "name": "resolution",
+          "required": "optional",
+          "type": "string",
+          "description": "Output resolution",
+          "default": "720p",
+          "options": [
+            "480p",
+            "720p",
+            "1080p"
+          ]
+        },
+        {
+          "name": "mode",
+          "required": "optional",
+          "type": "string",
+          "description": "'std' = higher quality, 'fast' = cheaper and faster (requires lower plan tier; does not support 1080p)",
+          "default": "std",
+          "options": [
+            "std",
+            "fast"
+          ]
+        },
+        {
+          "name": "genre",
+          "required": "optional",
+          "type": "string",
+          "description": "Cinematic genre hint",
+          "default": "auto",
+          "options": [
+            "auto",
+            "action",
+            "horror",
+            "comedy",
+            "noir",
+            "drama",
+            "epic"
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "name": "medias",
+          "type": "image",
+          "roles": [
+            "image",
+            "start_image",
+            "end_image",
+            "video",
+            "audio"
+          ]
+        }
+      ],
+      "aspect_ratios": [
+        "auto",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "tags": [
+        "reference",
+        "identity",
+        "consistent",
+        "product",
+        "multi-sku",
+        "e-commerce",
+        "audio-reference",
+        "video-reference",
+        "start-frame",
+        "end-frame"
+      ],
+      "duration_range": {
+        "min": 4,
+        "max": 15
+      }
+    }
+  ],
+  "has_more": false
+}

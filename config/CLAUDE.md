@@ -61,5 +61,21 @@
 - `logiciels` : installer ou régler Obsidian, Wispr Flow (dictée), Chrome + Claude in Chrome, Fathom, Canva.
 - Mode d'emploi illustré : `~/Documents/Brain/MODE-EMPLOI.html`.
 
+### Les skills contenu (réglés sur ma voix, ma cible et mes couleurs)
+- `ma-marque` : « ma marque » → 10 minutes de questions, et tous les skills contenu parlent comme moi, à ma cible, à mes couleurs. À lancer avant le 1er script si `00-Moi/voix-contenu.md` contient « À REMPLIR ».
+- `scripteur` : « écris-moi le lot de la semaine » → scripts de reels (et de YouTube long) à tourner en impro, en PDF.
+- `supermonteur` : « monte cette vidéo » → reel 9:16 prêt à poster (sous-titres, musique, B-rolls, zones mortes Instagram).
+- `carrousel` : « fais-moi un carrousel sur ... » → 8 slides Instagram + légende.
+- `slides` : « fais-moi des slides pour ma vidéo / mon webinaire ».
+- `publieur` : « programme mes reels » → fiches de publication + programmation (jamais sans mon OK).
+- `veille-reels` : « fais ma veille » → les vidéos qui cartonnent dans ma niche (US, Espagne, France), à reproduire.
+- `audit-insta` : « audite mon compte / ce compte » → note sur 100 et les 3 leviers.
+- `calls-vers-contenu` : « idées depuis mes calls » → les mots exacts de mes clients, transformés en hooks.
+- `usine-pubs` : « fais-moi des pubs » → angles, hooks et scripts de pubs Meta (ne lance jamais de campagne).
+- `directeur-artistique` : « ma DA », « comment m'habiller », « où tourner ».
+- `anti-ia` : « enlève le ton IA » → le texte sonne humain, comme moi.
+- `higgsfield` : prompts pour les vidéos et images IA (compte Higgsfield).
+- Mes fichiers de travail (rushes, B-rolls, photos, PDF, montages) : `~/Documents/Contenu/`.
+
 ## Mise à jour du kit
 - Si je dis « mets à jour mon kit » : refais l'installation depuis le lien indiqué dans `~/.claude/kit-claude.txt` (même procédure que la première fois). Elle ne touche jamais à « Qui je suis », ni à mes fichiers perso du Brain (00-Moi, 01-Projets, hot, log, décisions, audits).

@@ -109,7 +109,7 @@ Pourquoi ca marche pour les coachs/therapeutes sans clients: Belfort dit que l'o
 2. Reconnaitre ("je comprends, c'est normal")
 3. Isoler ("la vraie question n'est pas X, c'est Y")
 4. Baisser le risque ou monter la douleur honnetement (cout de continuer comme avant)
-5. Invitation douce ("Commente STRAT et on regarde ton cas")
+5. Invitation douce ("Commente [MOT-CLÉ] et on regarde ton cas")
 
 ### 3.3 Trois hooks (application)
 - (application) "Tu as du contenu, des vues, des likes, mais zero client. Ton probleme n'est pas ton audience."
@@ -121,7 +121,7 @@ Pourquoi ca marche pour les coachs/therapeutes sans clients: Belfort dit que l'o
 
 ## 4. Pour le DM et le call
 
-### 4.1 Sequence DM setter apres "Commente STRAT" (application)
+### 4.1 Sequence DM setter apres "Commente [MOT-CLÉ]" (application)
 But: qualifier AVANT le call (83 disqualifies en call = mal qualifies en amont), garder le controle, rester honnete.
 1. Ouverture courte, ton leger (application): "Hello [Prenom], merci d'avoir commente. Je te pose 3 questions rapides pour voir si je peux t'aider, ok ?"
 2. Situation: "Tu fais quoi exactement comme accompagnement ?"

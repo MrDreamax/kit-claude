@@ -34,7 +34,7 @@ Source : conférence de Schwartz lui-même chez Rodale (enregistrement vidéo, 1
 Hook
 - Un titre qui ne cherche pas à vendre, juste à faire écouter la phrase suivante.
 - Ta phrase doit nommer un état précis que le coach vit déjà (mots des commentaires et DM). "Tu postes tous les jours et personne ne t'écrit."
-- Mécanisme nommé : STRAT n'est pas "plus de contenu", c'est une façon précise de [verbe]. Dans un marché saturé de promesses ("obtiens des clients avec Instagram"), seul le mécanisme se détache.
+- Mécanisme nommé : ta méthode n'est pas "plus de contenu", c'est une façon précise de [verbe]. Dans un marché saturé de promesses ("obtiens des clients avec Instagram"), seul le mécanisme se détache.
 
 Corps
 - Une phrase = un travail : amener la suivante. Coupe tout ce qui ne le fait pas.
@@ -43,7 +43,7 @@ Corps
 - Pas de "beaux mots". Mots du quotidien du coach.
 
 CTA
-- "Commente STRAT et essaie" (essayer, pas acheter). La suite est dans la VSL et le call.
+- "Commente [MOT-CLÉ] et essaie" (essayer, pas acheter). La suite est dans la VSL et le call.
 
 Exemples de hooks (application, à tester)
 1. "Tu postes tous les jours. Ton agenda est vide. Ce n'est pas une question de volume."

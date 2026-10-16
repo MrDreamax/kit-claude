@@ -6,7 +6,7 @@ sujets: [pub-meta, contenu]
 ---
 # Russell Brunson, Traffic Secrets (fiche)
 
-Statut : fiche de notes, paraphrases + source (URL + [mm:ss]). Pas de texte du livre. Transcriptions brutes dans /private/tmp/claude-501/books/brunson/.
+Statut : fiche de notes, paraphrases + source (URL + [mm:ss]). Pas de texte du livre. Transcriptions brutes non incluses.
 Complète : experts-persuasion-livres.md (1.1 Hook/Story/Offer, 1.5 Dream 100 en bref).
 
 ## 1. En 3 lignes
@@ -53,20 +53,20 @@ Source : https://www.youtube.com/watch?v=jq2tr80jdvM (lancement du livre, chaîn
 - Les gens achètent quand ils ont mal : exemple d'un marché (rencontres) où un confrère envoie beaucoup d'emails pour être le premier lu quand le client a un coup dur. À prendre comme anecdote. [07:08-08:00]
 
 ## 3. Pour écrire un reel (application)
-Cible : coachs, thérapeutes, experts francophones avec du contenu sans clients. CTA : Commente STRAT.
+Cible : coachs, thérapeutes, experts francophones avec du contenu sans clients. CTA : Commente [MOT-CLÉ].
 
 | Framework | Rôle | Comment |
 |---|---|---|
 | Congregation (Secret #2) | Sujet / format | Parle comme dans un groupe où le coach traîne déjà : groupes Facebook de coachs, comptes de formateurs. Reprends leurs mots. |
-| Hooks en rafale | Production | 10 reels/jour = 10 hooks sur une même histoire. Garde ceux qui font des commentaires STRAT. |
+| Hooks en rafale | Production | 10 reels/jour = 10 hooks sur une même histoire. Garde ceux qui font des commentaires [MOT-CLÉ]. |
 | Dream 100 | Distribution | Liste 100 comptes/chaînes/podcasts qui parlent déjà aux coachs sans clients. Commente, réagis, invite. |
-| Funnels de suivi | Après le STRAT | Retargeter ceux qui ont vu le reel mais n'ont pas commenté (pub), DM pour ceux qui commentent. |
+| Funnels de suivi | Après le [MOT-CLÉ] | Retargeter ceux qui ont vu le reel mais n'ont pas commenté (pub), DM pour ceux qui commentent. |
 
 Hooks en français (application, à tester) :
 1. "Si tu cherches des clients, ne cherche pas des clients. Cherche où ils sont déjà rassemblés." (congregation)
 2. "100 comptes parlent déjà à tes futurs clients. Voilà comment t'y faire une place sans leur demander un service." (Dream 100)
 3. "Personne ne te répond quand tu écris 'on collabore ?'. Voilà ce qui fait que les gros comptes répondent." (dig your well)
-4. "Ce reel n'a fait que 2 000 vues. 14 coachs m'ont écrit. Voilà ce qui compte." (compter les STRAT, pas les vues)
+4. "Ce reel n'a fait que 2 000 vues. 14 coachs m'ont écrit. Voilà ce qui compte." (compter les [MOT-CLÉ], pas les vues)
 5. "Tu as 1 reel qui marche. Voilà les 9 autres hooks à tester sur la même histoire." (hooks en rafale)
 
 ## 4. Pour la VSL / le call

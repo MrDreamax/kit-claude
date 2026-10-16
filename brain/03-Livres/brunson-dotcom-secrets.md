@@ -6,7 +6,7 @@ sujets: [offre]
 ---
 # Russell Brunson, DotCom Secrets (fiche)
 
-Statut : fiche de notes, paraphrases + source (URL + [mm:ss]). Pas de texte du livre. Transcriptions brutes dans /private/tmp/claude-501/books/brunson/.
+Statut : fiche de notes, paraphrases + source (URL + [mm:ss]). Pas de texte du livre. Transcriptions brutes non incluses.
 Lien avec l'autre fichier : experts-persuasion-livres.md (02-Formations) couvre Hook/Story/Offer, Epiphany Bridge, Dream 100 en bref. Ici on va plus loin.
 
 ## 1. En 3 lignes
@@ -69,14 +69,14 @@ Source : https://www.youtube.com/watch?v=s94o3CNjuOA (Ignite 09 The Scripts, ré
 - Inception : faire en sorte que l'idée vienne de la personne. [https://www.youtube.com/watch?v=bIk1DFGzulA 00:00-03:31]
 
 ## 3. Pour écrire un reel (application)
-Cible : coachs, thérapeutes, experts francophones avec du contenu et sans clients. CTA : Commente STRAT.
+Cible : coachs, thérapeutes, experts francophones avec du contenu et sans clients. CTA : Commente [MOT-CLÉ].
 
 | Framework | Rôle dans le reel | Comment |
 |---|---|---|
 | Secret Formula | Choisir le sujet | 1 reel = 1 type de coach (thérapeute, coach business, naturo...) + où il traîne + le résultat. Pas de reel "pour tout le monde". |
 | Hook | Hook | National Enquirer : 3 à 8 mots, un chiffre ou un conflit. |
 | Story | Corps | Point de tension d'abord, puis retour en arrière, puis le mur, puis le déclic. |
-| Offer | CTA | Un seul pas : "Commente STRAT, je t'envoie la vidéo". |
+| Offer | CTA | Un seul pas : "Commente [MOT-CLÉ], je t'envoie la vidéo". |
 | Value Ladder | Choix du CTA | Le reel vend le petit pas (la VSL), pas l'accompagnement à 3 k. |
 | Attractive Character | Ton | Héros réticent ou Reporter. Défaut montré, polarité claire. |
 
@@ -87,7 +87,7 @@ Hooks en français (application, à tester, pas des citations) :
 4. "Arrête de vendre ce dont ton client a besoin. Vends ce qu'il veut." (voulu vs besoin [_H5dIf40IwU 43:33-44:34])
 5. "Tu n'as pas besoin d'être le meilleur thérapeute. Juste un chapitre devant." (superpuissance [nJKDIm4QvlI 29:13-30:30])
 
-Structure d'un reel de 45 s (inspirée Star-Story-Solution, mon adaptation) : 0-3 s hook ; 3-12 s question de désir + "ce n'est pas la première fois que tu essaies" ; 12-35 s mini-histoire à haute tension puis déclic ; 35-45 s une seule promesse + CTA STRAT.
+Structure d'un reel de 45 s (inspirée Star-Story-Solution, mon adaptation) : 0-3 s hook ; 3-12 s question de désir + "ce n'est pas la première fois que tu essaies" ; 12-35 s mini-histoire à haute tension puis déclic ; 35-45 s une seule promesse + CTA [MOT-CLÉ].
 
 ## 4. Pour la VSL / le call
 - VSL = Star-Story-Solution complet (section 2.6), avec stack de l'offre à la fin (voir fiche Expert Secrets).

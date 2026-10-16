@@ -28,7 +28,7 @@ Pre-Suasion (voir Brain, source S6 : https://www.youtube.com/watch?v=xAqdsnUXbgs
 ## 3. Pour écrire un reel (cible : coach/thérapeute/expert avec du contenu, sans clients)
 **Hook** : un seul interrupteur par reel. Hook = preuve sociale, perte ou autorité, avec chiffre. Pas de blabla.
 **Corps** : 1 technique concrète (réciprocité : tu donnes d'abord). Une étude ou un exemple vrai (autorité).
-**CTA "Commente STRAT"** : c'est un petit engagement public (cohérence). Dis-le avec un "oui" facile ("Commente STRAT et je te l'envoie"), puis fais une pause comme à l'étude du restaurant : écris le CTA à l'écran 2 secondes.
+**CTA "Commente [MOT-CLÉ]"** : c'est un petit engagement public (cohérence). Dis-le avec un "oui" facile ("Commente [MOT-CLÉ] et je te l'envoie"), puis fais une pause comme à l'étude du restaurant : écris le CTA à l'écran 2 secondes.
 Marque d'application = idée à tester, pas une promesse.
 
 Exemples de hooks (application) :

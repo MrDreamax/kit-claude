@@ -88,7 +88,7 @@ Recette en 4 temps (30 a 45s):
 1. Hook = consequence ou question qui pique, ton calme.
 2. Repeter le mot qu'il dit ("tu postes. Et rien ne rentre ?").
 3. Une question "depuis combien de temps / ca t'a coute quoi ?".
-4. CTA: "Commente STRAT". Aucun pitch de l'offre.
+4. CTA: "Commente [MOT-CLÉ]". Aucun pitch de l'offre.
 
 Objections a casser (une question par reel, jamais une reponse):
 - "J'ai pas assez d'audience": "Tu as 800 abonnes. Combien de DM de clients t'ont ecrit le mois dernier ? C'est l'audience le probleme ou ce que tu leur dis ?"
@@ -107,7 +107,7 @@ Regle de ton pour l'acteur: voix basse, lente, inquiete, jamais agressive. Pause
 
 ## 4. Pour le DM et le call
 
-### 4.1 Sequence DM setter apres "Commente STRAT" (application)
+### 4.1 Sequence DM setter apres "Commente [MOT-CLÉ]" (application)
 Principe: courtes questions, ton curieux, pas de lien ni de pitch tant qu'il n'a pas decrit sa douleur. Une question par message. Adapter le "tu"/"vous".
 1. Connexion: "Salut [prenom], merci pour ton commentaire. Tu fais quoi dans la vie exactement ?"
 2. Situation: "Et ton contenu, tu le postes ou ? Depuis quand ?"

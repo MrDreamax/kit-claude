@@ -1,0 +1,225 @@
+#!/usr/bin/env python3
+"""
+build_index.py
+==============
+Generate INDEX.md from every SKILL.md's headings, and verify the QUICK FACTS
+contract. Stdlib only.
+
+Why: HARD RULES demand full reads of routed sub-skills, but the largest ones
+run 1,000+ lines and partial reads happen in practice. Two mitigations:
+  * INDEX.md — a generated heading index so grep-routing lands on anchors
+    instead of archaeology.
+  * QUICK FACTS — a 15-25 line block at the top of each large sub-skill with
+    the enums/caps/gotchas an agent most needs, every line anchor-linked into
+    the full section so the facts can't silently detach from their source.
+
+This script is the single authority for both:
+  python3 scripts/build_index.py            # regenerate INDEX.md (also runs checks)
+  python3 scripts/build_index.py --check    # verify only; write nothing (CI / validate.py)
+
+Checks enforced (both modes):
+  * every SKILL.md longer than QUICK_FACTS_THRESHOLD lines has a
+    `## QUICK FACTS` block
+  * every in-file anchor link inside a QUICK FACTS block resolves to a real
+    heading in that file
+  * (--check) INDEX.md byte-matches regeneration
+
+Exit codes: 0 ok, 1 check failure.
+"""
+
+from __future__ import annotations
+
+import argparse
+import re
+import sys
+import unicodedata
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent  # scripts/ → repo root
+INDEX = ROOT / "INDEX.md"
+QUICK_FACTS_THRESHOLD = 400  # lines; matches the "large sub-skill" cutoff
+
+HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*#*\s*$")
+INDEX_MAX_LEVEL = 3  # INDEX.md lists h1-h3; anchor validation covers all levels
+FENCE_RE = re.compile(r"^\s*(```|~~~)")
+
+
+def anchor(heading: str) -> str:
+    """GitHub's heading slug (github-slugger), exactly:
+
+      1. lowercase;
+      2. drop the Unicode categories github-slugger's script/generate-regex.js
+         strips — Other_Number, Open/Close/Initial/Final/Other/Dash
+         punctuation (except `-`), every Symbol, Control, Private_Use,
+         Format, Unassigned, and every Separator except ASCII space — minus
+         Alphabetic code points. What survives: letters, marks, Nd/Nl digits,
+         connector punctuation (`_`), `-` and ` `. So `—`, `.`, `@`, `(`,
+         backticks, `*` emphasis markers and `²` all vanish;
+      3. replace EACH space with `-` — no collapsing, no trimming.
+
+    So "Audio — Seedance 2.0" → "audio--seedance-20". The pre-v3.37 version
+    collapsed `\\s+` into one hyphen ("audio-seedance-20"): internally
+    consistent, so validate certified it, but ~303/932 INDEX anchors and
+    103/234 QUICK FACTS links did not resolve on GitHub.
+    (ponytail: `str.isalpha()` stands in for the Alphabetic property, so an
+    Other_Alphabetic symbol such as a circled letter is dropped where GitHub
+    keeps it — none occur in any heading; swap in a real property table if
+    one ever does.)"""
+    out = []
+    for ch in heading.strip().lower():
+        cat = unicodedata.category(ch)
+        if ch in " -" or cat[0] in "LM" or cat in ("Nd", "Nl", "Pc") or ch.isalpha():
+            out.append(ch)
+    return "".join(out).replace(" ", "-")
+
+
+def anchors_for(heads: list[tuple[int, str]]) -> list[str]:
+    """Per-file anchor list with GitHub's duplicate-heading suffixes.
+
+    github-slugger's occurrence rule: the first use of a slug is bare; a
+    repeat gets `-1`, `-2`, … and every emitted slug is itself reserved, so a
+    literal heading "foo-1" after two "foo" headings becomes "foo-1-1".
+    Generation and verification both use this, or duplicate headings produce
+    links that all land on the first occurrence."""
+    occurrences: dict[str, int] = {}
+    out = []
+    for _, text in heads:
+        slug = original = anchor(text)
+        while slug in occurrences:
+            occurrences[original] += 1
+            slug = f"{original}-{occurrences[original]}"
+        occurrences[slug] = 0
+        out.append(slug)
+    return out
+
+
+def headings(text: str) -> list[tuple[int, str]]:
+    """(level, text) for every markdown heading outside code fences."""
+    out, in_fence = [], False
+    for line in text.splitlines():
+        if FENCE_RE.match(line):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        m = HEADING_RE.match(line)
+        if m:
+            out.append((len(m.group(1)), m.group(2)))
+    return out
+
+
+def skill_files() -> list[Path]:
+    """This checkout's SKILL.md files — never those of an agent worktree under
+    `.claude/worktrees/` or any nested checkout (scripts/repo_walk.py)."""
+    from repo_walk import walk_files
+    return walk_files(ROOT, "SKILL.md")
+
+
+def quick_facts_problems(path: Path) -> list[str]:
+    """Contract violations for one SKILL.md (empty list = clean)."""
+    text = path.read_text(encoding="utf-8")
+    rel = path.relative_to(ROOT)
+    heads = headings(text)
+    line_count = text.count("\n") + 1
+    has_block = any(t.strip().upper() == "QUICK FACTS" for _, t in heads)
+
+    problems = []
+    if line_count > QUICK_FACTS_THRESHOLD and not has_block:
+        problems.append(f"{rel}: {line_count} lines but no '## QUICK FACTS' block")
+    if not has_block:
+        return problems
+
+    # Slice the QUICK FACTS section: from its heading to the next same-or-
+    # higher-level heading.
+    lines = text.splitlines()
+    start = end = None
+    in_fence = False
+    for i, line in enumerate(lines):
+        if FENCE_RE.match(line):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        m = HEADING_RE.match(line)
+        if not m:
+            continue
+        if start is None and m.group(2).strip().upper() == "QUICK FACTS":
+            start = i
+            level = len(m.group(1))
+        elif start is not None and len(m.group(1)) <= level:
+            end = i
+            break
+    block = "\n".join(lines[start:end])
+
+    valid_anchors = set(anchors_for(heads))
+    for link in re.findall(r"\]\(#([^)]+)\)", block):
+        if link not in valid_anchors:
+            problems.append(f"{rel}: QUICK FACTS anchor '#{link}' matches no heading")
+    if not re.search(r"\]\(#", block):
+        problems.append(f"{rel}: QUICK FACTS block has no anchor links into the body")
+    return problems
+
+
+def build_index_text() -> str:
+    lines = [
+        "# Heading Index (generated)",
+        "",
+        "<!-- GENERATED by scripts/build_index.py — DO NOT HAND-EDIT. -->",
+        "<!-- Regenerate: python3 scripts/build_index.py   Verify: python3 scripts/build_index.py --check -->",
+        "",
+        "Anchor index of every `SKILL.md` heading, so grep-routing lands on",
+        "anchors instead of archaeology. Link format: `path#anchor`.",
+        "",
+    ]
+    for path in skill_files():
+        rel = path.relative_to(ROOT).as_posix()
+        lines.append(f"## {rel}")
+        lines.append("")
+        heads = headings(path.read_text(encoding="utf-8"))
+        slugs = anchors_for(heads)
+        for (level, text), slug in zip(heads, slugs):
+            if level > INDEX_MAX_LEVEL:
+                continue
+            indent = "  " * (level - 1)
+            lines.append(f"{indent}- [{text}]({rel}#{slug})")
+        lines.append("")
+    return "\n".join(lines) + "\n"
+
+
+def run_checks() -> list[str]:
+    problems = []
+    for path in skill_files():
+        problems.extend(quick_facts_problems(path))
+    return problems
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[2])
+    parser.add_argument("--check", action="store_true",
+                        help="verify INDEX.md + QUICK FACTS contract; write nothing")
+    args = parser.parse_args()
+
+    problems = run_checks()
+    text = build_index_text()
+
+    if args.check:
+        if not INDEX.exists() or INDEX.read_text(encoding="utf-8") != text:
+            problems.append("INDEX.md stale — rerun: python3 scripts/build_index.py")
+        for p in problems:
+            print(f"FAIL: {p}", file=sys.stderr)
+        if not problems:
+            print(f"INDEX.md in sync; QUICK FACTS contract holds "
+                  f"({len(skill_files())} SKILL.md files)")
+        return 1 if problems else 0
+
+    for p in problems:
+        print(f"FAIL: {p}", file=sys.stderr)
+    if problems:
+        return 1
+    INDEX.write_text(text, encoding="utf-8")
+    print(f"wrote INDEX.md ({len(skill_files())} SKILL.md files)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{TITRE}}</title>
+{{FONTLINK}}
+<style>
+{{FONTFACES}}
+/* Couleurs et polices : bloc écrit par slides.py depuis marque.json (valeurs de secours ci-dessous). */
+:root{--bleu:#2563EB;--marine:#111827;--clair:#FFFFFF;--gris:#6B7280;--gris2:#9CA3AF;--ciel:#93B4F5;--ligne:#E5E7EB;--bouton:#FFD43B;--bouton-ombre:#E0B400;--bouton-texte:#111827;--ftitre:'Archivo';--ftexte:'Inter';--faccent:'Instrument Serif'}
+{{VARS}}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#0d0d0f;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+.slide{position:absolute;left:0;top:0;width:1920px;height:1080px;background:var(--clair);color:var(--marine);overflow:hidden;display:none;--k:1;font-family:var(--ft),sans-serif}
+.slide.on{display:block}
+body.print{overflow:visible;background:var(--clair)}
+body.print #stage{position:static;transform:none}
+body.print .slide{position:relative;display:block;break-after:page;page-break-after:always}
+@page{size:1920px 1080px;margin:0}
+
+/* thèmes */
+.yt{--fa:var(--ftitre);--fa-w:800;--fa-tt:uppercase;--fa-ls:.04em;--fb:var(--faccent);--fb-st:italic;--fb-w:400;--ft:var(--ftitre);--sa:96px;--sb:160px}
+.web{--fa:var(--ftitre);--fa-w:900;--fa-tt:none;--fa-ls:-.01em;--fb:var(--ftitre);--fb-st:normal;--fb-w:900;--ft:var(--ftexte);--sa:120px;--sb:120px}
+
+/* communs */
+.kick{position:absolute;left:150px;top:120px}
+.yt .kick{font-family:var(--ftitre),sans-serif;font-weight:700;font-size:24px;letter-spacing:.32em;text-transform:uppercase;color:var(--bleu)}
+.web .kick{font-family:var(--ftexte),sans-serif;font-weight:600;font-size:28px;color:var(--gris)}
+.yt .phrase .kick,.yt .correction .kick,.yt .section .kick,.yt .attente .kick{left:0;right:0;text-align:center}
+.inner{position:absolute;left:150px;right:150px;top:200px;bottom:110px}
+.inner.center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.ab .a{font-family:var(--fa),sans-serif;font-weight:var(--fa-w);text-transform:var(--fa-tt);letter-spacing:var(--fa-ls);font-size:calc(var(--k)*var(--sa));line-height:1.05}
+.ab .b{font-family:var(--fb),sans-serif;font-style:var(--fb-st);font-weight:var(--fb-w);color:var(--bleu);font-size:calc(var(--k)*var(--sb));line-height:1.02;margin-top:calc(var(--k)*12px)}
+.ab .c{font-family:var(--ft),sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--doux-fonce);font-size:calc(var(--k)*44px);margin-top:calc(var(--k)*24px)}
+.web .ab .c{text-transform:none;letter-spacing:0;font-weight:600}
+
+/* section : changement de partie, fond marine */
+.slide.section{background:var(--marine);color:var(--clair)}
+.section .kick,.section .ab .b{color:var(--ciel)}
+.section .ab .c{color:rgba(255,255,255,.7)}
+
+/* correction : avant barré, après en grand */
+.avant{font-family:var(--ft),sans-serif;font-weight:500;font-size:calc(var(--k)*46px);color:var(--gris2)}
+.avant span{position:relative}
+.avant span:after{content:"";position:absolute;left:-12px;right:-12px;top:52%;height:3px;background:var(--bleu)}
+.fleche{margin:calc(var(--k)*34px) 0 calc(var(--k)*40px);height:calc(var(--k)*100px)}
+.fleche path{fill:none;stroke:var(--bleu);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* liste révélée : l'ancien est grisé, le suivant pas encore là */
+.liste .inner{display:flex;flex-direction:column;justify-content:center}
+.ltitre{font-family:var(--ft),sans-serif;font-weight:600;font-size:calc(var(--k)*34px);color:var(--gris);margin-bottom:calc(var(--k)*34px)}
+.liste ol{list-style:none}
+.liste li{display:flex;align-items:center;gap:calc(var(--k)*40px);margin:calc(var(--k)*24px) 0;font-family:var(--fa),sans-serif;font-weight:700;font-size:calc(var(--k)*66px);line-height:1.1;text-transform:var(--fa-tt);letter-spacing:var(--fa-ls)}
+.web .liste li{font-weight:800;font-size:calc(var(--k)*72px)}
+.liste .num{flex:none;width:calc(var(--k)*88px);height:calc(var(--k)*88px);border-radius:50%;background:var(--bleu);color:var(--clair);display:flex;align-items:center;justify-content:center;font-size:calc(var(--k)*42px);letter-spacing:0}
+.liste li.done{opacity:.28}
+.liste li.done .num{background:var(--gris)}
+.liste li.todo{visibility:hidden}
+
+/* méthode : fini = petit et coché, en cours = géant, suivant = estompé */
+.inner.row{display:flex;align-items:center;justify-content:space-between;gap:calc(var(--k)*36px)}
+.step .n{font-family:var(--fa),sans-serif;font-weight:700;font-size:calc(var(--k)*30px);color:var(--gris);margin-bottom:calc(var(--k)*14px)}
+.step.done .t{font-family:var(--fa),sans-serif;font-weight:700;font-size:calc(var(--k)*46px);color:var(--gris);display:flex;align-items:center;gap:18px;white-space:nowrap}
+.ok{width:calc(var(--k)*52px);height:calc(var(--k)*52px);border-radius:50%;background:var(--bleu);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.ok svg{width:50%;height:50%}
+.ok path{fill:none;stroke:var(--clair);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.step.cur .n{color:var(--bleu);font-size:calc(var(--k)*36px)}
+.step.cur .t{font-family:var(--fa),sans-serif;font-weight:var(--fa-w);text-transform:uppercase;font-size:calc(var(--k)*176px);line-height:.92;letter-spacing:-.02em;white-space:nowrap}
+.yt .step.cur .t{font-size:calc(var(--k)*150px);letter-spacing:.02em}
+.step.cur .bar{height:16px;background:var(--bleu);border-radius:8px;margin-top:calc(var(--k)*26px)}
+.step.next{opacity:.22}
+.step.next .t{font-family:var(--fa),sans-serif;font-weight:700;font-size:calc(var(--k)*46px);white-space:nowrap}
+.line{flex:none;width:calc(var(--k)*80px);height:4px;background:var(--ligne);border-radius:2px}
+
+/* capture : vraie capture + cercle à la main */
+.inner.capt{display:flex;align-items:center;justify-content:space-between;top:150px}
+.capt .ab .a{font-size:calc(var(--k)*96px)}
+.capt .ab .b{font-size:calc(var(--k)*var(--sb) * 1.05)}
+.web .capt .ab .a,.web .capt .ab .b{font-size:calc(var(--k)*96px)}
+.cardwrap{position:relative;flex:none}
+.card{position:relative;border-radius:30px;overflow:hidden;border:1px solid var(--bord);box-shadow:0 30px 70px var(--ombre)}
+.card img{display:block;width:100%;height:100%}
+.card .ink{position:absolute;left:0;top:0;width:100%;height:100%}
+.note{font-family:var(--faccent),sans-serif;font-style:italic}
+.web .note{font-family:var(--ftitre),sans-serif;font-weight:800;font-style:normal}
+.src{margin-top:18px;text-align:right;font-family:var(--ft),sans-serif;font-size:20px;color:var(--gris)}
+
+/* clôture : valeur empilée, compte à rebours, un seul bouton */
+.inner.clo{display:flex;justify-content:space-between;align-items:flex-start;top:220px}
+.stack{width:900px}
+.it{display:flex;justify-content:space-between;align-items:baseline;padding:calc(var(--k)*26px) 0;border-bottom:2px solid var(--ligne);font-size:calc(var(--k)*36px);font-weight:500}
+.it b{font-family:var(--fa),sans-serif;font-weight:700;color:var(--gris);white-space:nowrap;margin-left:30px}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:calc(var(--k)*40px)}
+.tot .l{font-family:var(--fa),sans-serif;font-weight:800;font-size:calc(var(--k)*44px)}
+.tot .v{font-family:var(--fa),sans-serif;font-weight:900;font-size:calc(var(--k)*84px)}
+.prix{margin-top:calc(var(--k)*22px);display:flex;justify-content:space-between;align-items:baseline;font-size:calc(var(--k)*36px);font-weight:600;color:var(--bleu)}
+.prix span:last-child{font-family:var(--fa),sans-serif;font-weight:800;font-size:calc(var(--k)*56px)}
+.right{width:620px;display:flex;flex-direction:column}
+.cd{background:var(--marine);border-radius:28px;padding:44px 40px 50px;text-align:center;color:var(--clair)}
+.cd .l{font-weight:600;font-size:30px;opacity:.75}
+.cd .t{font-family:var(--fa),sans-serif;font-weight:900;font-size:176px;line-height:1;margin-top:14px;font-variant-numeric:tabular-nums}
+.cd .u{display:flex;justify-content:center;gap:250px;font-size:22px;opacity:.6;margin-top:6px}
+.btn{margin-top:40px;background:var(--bouton);color:var(--bouton-texte);border-radius:22px;padding:40px 30px;text-align:center;font-family:var(--fa),sans-serif;font-weight:800;font-size:42px;white-space:nowrap;box-shadow:0 14px 0 var(--bouton-ombre)}
+.link{margin-top:34px;text-align:center;font-size:34px;font-weight:600;color:var(--bleu);text-decoration:underline;text-underline-offset:8px}
+</style></head>
+<body class="{{THEME}}"><div id="stage">
+{{SLIDES}}
+</div>
+<script>
+const P=new URLSearchParams(location.search), S=[...document.querySelectorAll('.slide')];
+function over(sl){
+  const R=sl.getBoundingClientRect(), m=R.width/1920;
+  for(const el of sl.querySelectorAll('.inner *')){
+    if(el.closest('svg')) continue;
+    const r=el.getBoundingClientRect(); if(!r.width) continue;
+    if(r.left<R.left+50*m||r.right>R.right-50*m||r.top<R.top+40*m||r.bottom>R.bottom-30*m) return true;
+  }
+  const i=sl.querySelector('.inner');
+  return !!i&&(i.scrollHeight>i.clientHeight+2||i.scrollWidth>i.clientWidth+2);
+}
+// réduit tout le texte d'une slide jusqu'à ce qu'il tienne (et le signale)
+function fit(sl){let k=1;sl.style.setProperty('--k',1);while(k>0.56&&over(sl)){k-=0.03;sl.style.setProperty('--k',k)}return {k:+k.toFixed(2),over:over(sl)}}
+window.show=i=>{S.forEach((s,j)=>s.classList.toggle('on',j===i-1));const r=fit(S[i-1]);if(!P.has('shot'))location.replace('#'+i);return r};
+window.fitAll=()=>S.map((s,j)=>({n:j+1,...fit(s)}));
+const st=document.getElementById('stage');
+// Les slides cachées ne chargent aucune police : on les charge à la main AVANT de mesurer (sinon les mesures se font sur la police de secours).
+const cs0=getComputedStyle(document.documentElement);
+const FAMS=[...new Set(['--ftitre','--ftexte','--faccent'].map(v=>cs0.getPropertyValue(v).replace(/['"]/g,'').trim()))];
+const pret=()=>Promise.all(FAMS.flatMap(f=>['normal','italic'].flatMap(st=>['400','500','600','700','800','900'].map(w=>document.fonts.load(st+' '+w+' 40px "'+f+'"').catch(()=>0))))).then(()=>document.fonts.ready);
+// police chargée ? (une police absente donne la même largeur que la police de secours demandée à sa place)
+function chargee(f){const c=document.createElement('canvas').getContext('2d');
+  const w=(fb)=>{c.font='800 48px "'+f+'",'+fb;return c.measureText('mmmmmmWWWiii 123').width};
+  return w('monospace')===w('serif')}
+if(P.has('print')){document.body.classList.add('print');pret().then(()=>fitAll())}
+else if(P.has('report')){pret().then(()=>{ // pour Chrome --dump-dom : une mesure par slide + polices manquantes
+  const out=S.map((s,j)=>{S.forEach((x,k)=>x.classList.toggle('on',k===j));return {n:j+1,...fit(s)}});
+  const cs=getComputedStyle(document.documentElement), yt=document.body.classList.contains('yt');
+  const fam=[...new Set((yt?['--ftitre','--faccent']:['--ftitre','--ftexte']).map(v=>cs.getPropertyValue(v).replace(/['"]/g,'').trim()))];
+  const pre=document.createElement('pre');pre.id='rapport';
+  pre.textContent=JSON.stringify({slides:out,polices_manquantes:fam.filter(f=>!chargee(f))});document.body.appendChild(pre)})}
+else if(P.has('shot')){pret().then(()=>show(+P.get('s')||1))}
+else{
+  let cur=Math.min(Math.max(+location.hash.slice(1)||1,1),S.length);
+  const size=()=>{const k=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`translate(${(innerWidth-1920*k)/2}px,${(innerHeight-1080*k)/2}px) scale(${k})`};
+  const go=i=>{cur=Math.min(Math.max(i,1),S.length);show(cur)};
+  addEventListener('resize',()=>{size();show(cur)});
+  addEventListener('keydown',e=>{
+    if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(cur+1)}
+    else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(cur-1)}
+    else if(e.key==='Home')go(1);else if(e.key==='End')go(S.length);
+    else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+  });
+  addEventListener('click',()=>go(cur+1));
+  size();pret().then(()=>go(cur));
+}
+</script></body></html>

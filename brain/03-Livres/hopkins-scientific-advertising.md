@@ -45,15 +45,15 @@ Corps
 - Montre le résultat désiré, pas le malheur (ch.18) : agenda plein, appels réservés. La douleur en une phrase, la récompense en détail.
 
 CTA
-- Offre un service avant de demander (ch.3, 13) : "Commente STRAT, je t'envoie la vidéo qui montre comment". C'est l'échantillon de Hopkins. Un petit pas qui donne le contact (ch.13).
+- Offre un service avant de demander (ch.3, 13) : "Commente [MOT-CLÉ], je t'envoie la vidéo qui montre comment". C'est l'échantillon de Hopkins. Un petit pas qui donne le contact (ch.13).
 - Limite l'offre à un groupe (ch.6) : "Si tu es coach avec plus de 2 000 abonnés et 0 client".
 
 Exemples de hooks (application, à tester)
 1. "Coach avec 3 000 abonnés et 0 client ? Ce reel est pour toi, et seulement pour toi."
 2. "J'ai rempli l'agenda d'une thérapeute en 11 jours. Voilà les 3 actions précises."
 3. "Ton contenu n'est pas le problème. Il te manque une seule phrase à la fin de chaque reel."  (mécanisme + curiosité, à illustrer avec un vrai chiffre de ton compte)
-4. "[Nombre réel] commentaires STRAT en [X] jours avec un seul reel. Voilà exactement ce que j'ai dit dans les 5 premières secondes."  (remplace par tes vrais chiffres, jamais de chiffre inventé)
-5. "Veux-tu voir comment une experte a signé ses clients sans cold DM ? Commente STRAT, je te l'envoie gratuitement."
+4. "[Nombre réel] commentaires [MOT-CLÉ] en [X] jours avec un seul reel. Voilà exactement ce que j'ai dit dans les 5 premières secondes."  (remplace par tes vrais chiffres, jamais de chiffre inventé)
+5. "Veux-tu voir comment une experte a signé ses clients sans cold DM ? Commente [MOT-CLÉ], je te l'envoie gratuitement."
 
 Tension à connaître : Hopkins déconseille de parler du malheur (ch.18). Halbert et Schwartz partent au contraire de la douleur déjà ressentie. Règle de synthèse : nommer la douleur en une phrase (elle est déjà là), puis passer tout de suite au résultat.
 

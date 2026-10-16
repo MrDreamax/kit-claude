@@ -71,7 +71,7 @@ Légende : [ID mm:ss]. Exemple [HxEQCHpZzHk 23:05] = youtube.com/watch?v=HxEQCHp
 
 **J. Étude de cas filmée en écran.** Son premier gros succès de lead magnet : remplacer un webinaire par une vidéo "Étude de cas gratuite : comment on a ajouté 213 membres et 112 000 $ à une salle de sport". Le lendemain l'agenda de Leila était plein. [Mst4hreQYl0 03:50 à 04:35]
 
-**K. Message de DM : ACA.** Acknowledge (reconnaître), Compliment (complimenter), Ask (demander, en lien avec le compliment, vers le service). Puis demander "tu connais quelqu'un qui cherche X ?". [w7g08dVTwaE 02:17 à 03:23] Utile pour la suite du "Commente STRAT".
+**K. Message de DM : ACA.** Acknowledge (reconnaître), Compliment (complimenter), Ask (demander, en lien avec le compliment, vers le service). Puis demander "tu connais quelqu'un qui cherche X ?". [w7g08dVTwaE 02:17 à 03:23] Utile pour la suite du "Commente [MOT-CLÉ]".
 
 **L. Le "ask" intermittent.** Sur les plateformes courtes, mettre l'offre sur 1 contenu sur 11, pas dans chaque contenu. [K4Pcbu2er0k 00:20 à 00:37]
 

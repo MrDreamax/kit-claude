@@ -35,3 +35,15 @@ Un carnet par agent. Chaque correction que tu fais devient une règle définitiv
 | veille-youtube.md | L'Éclaireur | skill veille-youtube |
 | drift.md | Le Miroir | skill drift |
 | audit-croyances.md | Le Psy | skill audit-croyances |
+| scripteur.md | Le Scripteur | skill scripteur : scripts de reels et de YouTube |
+| supermonteur.md | Le Monteur | skill supermonteur : montage des reels |
+| carrousel.md | Le Carrousel | skill carrousel |
+| slides.md | Le Projectionniste | skill slides |
+| publieur.md | Le Publieur | skill publieur : programmation des posts |
+| directeur-artistique.md | Le Directeur artistique | skill directeur-artistique |
+| anti-ia.md | Le Gommeur | skill anti-ia : retire le ton IA |
+| calls-vers-contenu.md | L'Extracteur | skill calls-vers-contenu |
+| usine-pubs.md | L'Usine à pubs | skill usine-pubs |
+| audit-insta.md | L'Auditeur Insta | skill audit-insta |
+| veille-reels.md | La Vigie | skill veille-reels |
+| ma-marque.md | Ma marque | skill ma-marque : voix, cible, DA |

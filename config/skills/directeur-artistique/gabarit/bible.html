@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Ma bible DA</title>
+%%FONTS%%
+<style>
+  /* Les couleurs et polices viennent de marque.json (bloc ajouté ci-dessous par da.py). */
+  :root { --principale:#2563EB; --foncee:#111827; --texte:#1F2937; --doux:#6B7280; --ligne:#E5E7EB; --teinte:#EFF4FF; --clair:#FFFFFF; --accent:#93B4F5; --police-titre:'Archivo'; --police-texte:'Inter'; }
+</style>
+%%MARQUE%%
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: var(--police-texte), sans-serif; color: var(--texte); background: var(--clair); font-size: 11.5pt; line-height: 1.5; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 20mm 20mm 24mm; position: relative; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .page.sombre { background: var(--foncee); color: #fff; }
+  .foot { position:absolute; bottom: 10mm; left: 20mm; right: 20mm; display:flex; justify-content:space-between; font-size: 8pt; color: var(--doux); border-top: 1px solid var(--ligne); padding-top: 3mm; letter-spacing: .08em; text-transform: uppercase; }
+  .sombre .foot { color: rgba(255,255,255,.6); border-color: rgba(255,255,255,.2); }
+  h1, h2, h3 { font-family: var(--police-titre), sans-serif; color: var(--foncee); margin: 0; }
+  .sombre h1, .sombre h2, .sombre h3 { color: #fff; }
+  h1 { font-size: 34pt; font-weight: 800; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 5mm; }
+  h2 { font-size: 21pt; font-weight: 800; line-height: 1.12; margin-bottom: 4mm; }
+  h3 { font-size: 12pt; font-weight: 700; margin: 5mm 0 1.5mm; }
+  h1 span, h2 span { color: var(--principale); } .sombre h1 span, .sombre h2 span { color: var(--accent); }
+  .kicker { font-family: var(--police-titre), sans-serif; font-weight: 700; font-size: 9.5pt; letter-spacing: .25em; text-transform: uppercase; color: var(--principale); margin-bottom: 2mm; }
+  .sombre .kicker { color: var(--accent); }
+  .lead { font-size: 13pt; color: var(--doux); margin: 0 0 6mm; } .sombre .lead { color: rgba(255,255,255,.75); }
+  .toplogo { height: 12mm; margin-bottom: 8mm; display:block; }
+  .swatches { display:flex; gap: 3mm; margin: 4mm 0 6mm; }
+  .sw { flex:1; } .sw .chip { height: 24mm; border-radius: 3mm; border: 1px solid var(--ligne); }
+  .sw b { display:block; font-size: 9pt; margin-top: 1.5mm; color: var(--foncee); } .sw span { font-size: 8pt; color: var(--doux); }
+  .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .grid3 { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+  .box { background: var(--teinte); border-radius: 3mm; padding: 4mm 5mm; } .box b { color: var(--foncee); }
+  .box.non { background: #FDECEC; } .box.oui { background: #E8F6EE; }
+  img.photo { width: 100%; border-radius: 3mm; display:block; }
+  ul { margin: 0; padding-left: 5mm; } li { margin-bottom: 1.5mm; }
+  table { width:100%; border-collapse: collapse; font-size: 10pt; }
+  th { text-align:left; font-family: var(--police-titre), sans-serif; font-size: 8pt; letter-spacing:.15em; text-transform:uppercase; color:#fff; background: var(--foncee); padding: 2.4mm 3mm; }
+  td { padding: 2mm 3mm; border-bottom: 1px solid var(--ligne); }
+</style>
+</head>
+<body>
+%%PAGES%%
+</body>
+</html>

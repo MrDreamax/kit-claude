@@ -1,6 +1,6 @@
 ---
 name: logiciels
-description: Installe en un clic les logiciels gratuits du système (Obsidian pour voir le second cerveau, Wispr Flow pour dicter au lieu de taper, Chrome + Claude in Chrome, yt-dlp pour lire YouTube, et en bonus Fathom et Canva), puis les règle. Use from the bienvenue skill, or when "installe les logiciels", "installe Obsidian", "installe Wispr", "dictée vocale", "quels logiciels", "ouvre mon cerveau dans Obsidian".
+description: Installe en un clic les logiciels gratuits du système (Obsidian pour voir le second cerveau, Wispr Flow pour dicter au lieu de taper, Chrome + Claude in Chrome, yt-dlp pour lire YouTube, le pack contenu pour les scripts, montages, carrousels et slides, et en bonus Fathom et Canva), puis les règle. Use from the bienvenue skill, or when "installe les logiciels", "installe Obsidian", "installe Wispr", "dictée vocale", "quels logiciels", "ouvre mon cerveau dans Obsidian", "installe le pack contenu", ou quand un skill contenu dit qu'il manque ffmpeg, Chrome ou un module Python.
 ---
 
 # Logiciels : le système complet, en un clic
@@ -18,6 +18,10 @@ Ne propose pas ce qui est déjà installé.
 - **Wispr Flow (Recommandé)** : tu parles au lieu de taper, dans toutes les apps. Gratuit jusqu'à 2 000 mots/semaine. Compte à créer.
 - **Chrome + Claude in Chrome** : je peux utiliser ton navigateur pour toi (remplir, chercher, cliquer). Gratuit (l'extension demande un forfait Claude payant).
 - **Outil YouTube (yt-dlp)** : invisible, il me permet de lire les vidéos YouTube pour les skills. Gratuit, 37 Mo.
+
+**« Tu crées du contenu ? »** (seulement si « Créer du contenu » est coché dans le profil, ou si un skill contenu le demande)
+- **Pack contenu (Recommandé)** : invisible, il fait tourner le Scripteur, le Monteur, le Carrousel, les Slides et le Publieur (PDF, montage, sous-titres). Gratuit, environ 1 Go (ffmpeg + modules Python + modèles de transcription téléchargés au 1er montage).
+- **Pas maintenant**
 
 **« Des bonus ? »**
 - **Fathom** : enregistre, transcrit et résume tes visios (Zoom, Meet, Teams). Gratuit et illimité. Compte à créer (avec une adresse Gmail ou Outlook perso, il faut une visio prévue dans les 7 jours).
@@ -49,6 +53,13 @@ Le choix vaut accord pour télécharger ces logiciels depuis leurs sites officie
 
 **Windows** : `winget install --id <ID> -e`. winget demande d'accepter les conditions des logiciels : montre-le à la personne et demande son accord une fois pour toutes avant d'ajouter `--accept-package-agreements --accept-source-agreements`. Sans winget : ouvre le lien officiel.
 
+**Pack contenu** (Mac ; Windows : mêmes modules avec `py -m pip`, ffmpeg par `winget install --id Gyan.FFmpeg -e`) :
+- Chrome (voir plus haut) : obligatoire, les moteurs s'en servent pour fabriquer les PDF et les images.
+- ffmpeg : `brew install ffmpeg`. Sans Homebrew : télécharge le binaire statique officiel (liens sur ffmpeg.org/download.html, section macOS), place `ffmpeg` et `ffprobe` dans `~/.local/bin`, `chmod +x`, puis `~/.local/bin/ffmpeg -version`.
+- Python 3 : `python3 --version`. Absent sur Mac : `xcode-select --install` (la personne clique « Installer », 5 min).
+- Modules : `python3 -m pip install --user pymupdf pillow numpy onnxruntime faster-whisper` puis les modules listés dans `~/.claude/skills/supermonteur/requirements.txt` s'il existe (`python3 -m pip install --user -r ...`). Teste : `python3 -c "import fitz, PIL, numpy, faster_whisper"`.
+- Comptes payants, facultatifs (ne rien acheter, juste le dire en 1 ligne si la personne demande) : Higgsfield (B-rolls et images IA), Epidemic Sound (musique), Metricool (programmation, gratuit limité), Apify (veille automatique). Chaque skill marche sans, en mode plus manuel.
+
 Un échec ? Trouve la cause (réseau, place disque, droits), corrige, réessaie une fois. Sinon ouvre la page officielle et donne l'action en une ligne.
 
 ## 4. Régler (après chaque installation)
@@ -58,6 +69,7 @@ Un échec ? Trouve la cause (réseau, place disque, droits), corrige, réessaie 
 - **yt-dlp** : rien à faire. Teste `yt-dlp --version` (ou `~/.local/bin/yt-dlp --version`).
 - **Fathom** : ouvre `https://fathom.video`. Action : « Crée ton compte et connecte ton agenda : il rejoindra tes visios tout seul. »
 - **Canva** : ouvre l'app. Action : « Connecte-toi ou crée ton compte. »
+- **Pack contenu** : rien à régler. Preuve : `python3 ~/.claude/skills/scripteur/scripts/build.py ~/.claude/skills/scripteur/exemples/echantillon-lot.json ~/Documents/Contenu/scripts/test/` sort un PDF, et `ffmpeg -version` répond.
 
 ## 5. Vérifier, puis dire
 Vérifie chaque app (`ls /Applications/<App>.app` ou `winget list`). Note dans `~/Documents/Brain/00-Moi/profil.md`, section « Mes outils », la liste installée avec la date.

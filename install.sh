@@ -7,8 +7,9 @@
 #
 # Ce que le script ne touche JAMAIS une fois installé :
 #   - la partie « Qui je suis » du CLAUDE.md (entre les balises PROFIL)
-#   - les fichiers perso du Brain : 00-Moi, 01-Projets, 04-Audits, 05-Decisions,
+#   - les fichiers perso du Brain : 00-Moi, 01-Projets, 04-Audits, 05-Decisions, 06-Contenu,
 #     hot.md, log.md, index.md
+#   - le dossier ~/Documents/Contenu (tes vidéos, photos, scripts, montages)
 # Tout fichier remplacé est d'abord sauvegardé dans ~/.claude/backups/kit-<date>/.
 set -euo pipefail
 
@@ -79,13 +80,17 @@ for f in README.md MODE-EMPLOI.html; do cp "$SRC/brain/$f" "$BR/$f"; done
 # Fichiers perso : copiés seulement s'ils n'existent pas encore.
 (
   cd "$SRC/brain"
-  for p in 00-Moi 01-Projets 04-Audits 05-Decisions hot.md log.md index.md; do
+  for p in 00-Moi 01-Projets 04-Audits 05-Decisions 06-Contenu hot.md log.md index.md; do
     [[ -e "$p" ]] || continue
     find "$p" -type f | while read -r f; do
       if [[ ! -e "$BR/$f" ]]; then mkdir -p "$BR/$(dirname "$f")"; cp "$f" "$BR/$f"; fi
     done
   done
 )
+# Dossier de travail du contenu (créé vide, jamais touché ensuite)
+CT="$(dirname "$BR")/Contenu"
+mkdir -p "$CT/medias/rushes" "$CT/medias/brolls" "$CT/medias/photos" "$CT/medias/musique" "$CT/marque"
+NOTES+=("Dossier contenu prêt : $CT (mets tes rushes, B-rolls et photos dans medias/).")
 NOTES+=("Brain prêt dans $BR ($(find "$BR" -name '*.md' | wc -l | tr -d ' ') fiches).")
 
 # ---------- 4. Mémo d'installation ----------

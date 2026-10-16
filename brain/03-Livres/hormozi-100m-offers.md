@@ -80,9 +80,9 @@ Cites comme liste dans https://www.youtube.com/watch?v=5MHQr-Z17Hc [00:00] et [0
 - Ces points viennent surtout du livre "$100M Leads", pas de "$100M Offers" : a garder en reserve.
 - Checklist en 7 etapes : probleme et pour qui / comment le resoudre (evaluation, essai...) / format de livraison / packaging et nom (teste) / facile a consommer / vraiment bon / CTA clair. (https://www.youtube.com/watch?v=7NMH1oAkgLY [07:42] a [11:31])
 
-## 3. Transformer chaque framework en reel (cible : coachs/therapeutes/experts FR avec du contenu mais sans clients, offre ~3k, CTA "Commente STRAT")
+## 3. Transformer chaque framework en reel (cible : coachs/therapeutes/experts FR avec du contenu mais sans clients, offre ~3k, CTA "Commente [MOT-CLÉ]")
 
-Regle commune : hook = un probleme ou un chiffre precis. Corps = 1 seule idee du framework + 1 exemple. CTA = "Commente STRAT" (1 reel sur 10, pas sur chaque).
+Regle commune : hook = un probleme ou un chiffre precis. Corps = 1 seule idee du framework + 1 exemple. CTA = "Commente [MOT-CLÉ]" (1 reel sur 10, pas sur chaque).
 
 ### Hooks (application, pas des citations)
 
@@ -122,17 +122,17 @@ Regle commune : hook = un probleme ou un chiffre precis. Corps = 1 seule idee du
 **Structure A : l'equation (45 a 60 s)**
 - Hook : "Pourquoi on te dit non a 3 000 euros ?"
 - Corps : 4 leviers en 4 phrases courtes (resultat, preuve, vitesse, effort). Un exemple de coach/therapeute a chaque levier. "Tu travailles lequel ?"
-- CTA : "Commente STRAT et je te dis lequel de tes 4 leviers est le plus faible."
+- CTA : "Commente [MOT-CLÉ] et je te dis lequel de tes 4 leviers est le plus faible."
 
 **Structure B : meme travail, offre differente (30 a 45 s)**
 - Hook : "Meme audience, meme contenu. Un signe, l'autre non."
 - Corps : cas de l'agence (de "1000 + 1000/mois" a "tu paies quand ils se presentent"). Traduction pour un coach : paiement lie a un jalon, ou garantie simple. "L'offre a change, rien d'autre."
-- CTA : "Commente STRAT pour recevoir la structure d'offre qu'on utilise."
+- CTA : "Commente [MOT-CLÉ] pour recevoir la structure d'offre qu'on utilise."
 
 **Structure C : garantie (30 a 45 s)**
 - Hook : "Ta garantie fait fuir. Voici celle qui fait signer."
 - Corps : 1) Pourquoi 'satisfait ou rembourse' vague ne marche pas. 2) Garantie en langage simple avec 2 conditions maximum. 3) Le calcul : plus de ventes que de remboursements.
-- CTA : "Commente STRAT pour qu'on regarde ta garantie."
+- CTA : "Commente [MOT-CLÉ] pour qu'on regarde ta garantie."
 
 **Idee de script YouTube hebdo** : "Comment creer une offre a 3 000 euros que personne ne compare" : marche, prix, equation, trim and stack, garantie, nom. (suit l'ordre des sections 2.2 a 2.6)
 

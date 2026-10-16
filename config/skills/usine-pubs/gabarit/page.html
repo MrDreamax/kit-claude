@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>%%TITLE%%</title>
+%%FONTS%%
+<style>
+  /* Les couleurs et polices viennent de marque.json (bloc ajouté en bas du style par build.py). */
+  :root { --blue:#2563EB; --navy:#111827; --ink:#1F2937; --mute:#6B7280; --line:#E5E7EB; --tint:#EFF4FF; }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: var(--police-texte), sans-serif; color: var(--ink); background:#fff; font-size: 12pt; line-height: 1.5; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 20mm 20mm 22mm; position: relative; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .foot { position:absolute; bottom: 10mm; left: 20mm; right: 20mm; display:flex; justify-content:space-between; font-size: 8pt; color: var(--mute); border-top: 1px solid var(--line); padding-top: 3mm; letter-spacing: .08em; text-transform: uppercase; }
+  .foot b { color: var(--navy); }
+  h1 { font-family: var(--police-titre), sans-serif; color: var(--navy); margin: 0 0 4mm; font-size: 28pt; font-weight: 800; line-height: 1.08; letter-spacing: -.02em; }
+  h1 span { color: var(--blue); }
+  .kicker { font-family: var(--police-titre), sans-serif; font-weight: 700; font-size: 9.5pt; letter-spacing: .25em; text-transform: uppercase; color: var(--blue); margin-bottom: 2mm; }
+  .lead { font-size: 12pt; color: var(--mute); margin: 0 0 6mm; }
+  .toplogo { height: 12mm; margin-bottom: 6mm; }
+
+  table { width:100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 6mm; }
+  th { text-align:left; font-family: var(--police-titre), sans-serif; font-size: 8pt; letter-spacing:.15em; text-transform:uppercase; color:#fff; background: var(--navy); padding: 2.6mm 3mm; }
+  td { padding: 2.2mm 2.5mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.n { font-family: var(--police-titre), sans-serif; font-weight: 800; color: var(--blue); width: 8mm; }
+  .risk { font-size: 8pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .6mm 2mm; border-radius: 2mm; background: var(--tint); color: var(--blue); white-space: nowrap; }
+  .risk.moyen { background: #FFF1CC; color: #7A5600; }
+  .risk.haut { background: #FDE2E2; color: #9B1C1C; }
+  .check { list-style: none; padding: 0; margin: 0; }
+  .check li { padding: 2.4mm 0 2.4mm 10mm; position: relative; border-bottom: 1px solid var(--line); font-size: 11pt; }
+  .check li::before { content:""; position:absolute; left:0; top: 3.2mm; width: 5mm; height: 5mm; border: 2px solid var(--blue); border-radius: 1mm; }
+
+  /* une pub */
+  .meta { display:flex; flex-wrap: wrap; gap: 2.5mm; margin: 0 0 5mm; }
+  .tag { background: var(--tint); color: var(--navy); font-weight: 600; font-size: 9.5pt; padding: 1.2mm 3.5mm; border-radius: 10mm; }
+  .screen { background: var(--navy); color:#fff; font-family: var(--police-titre), sans-serif; font-weight: 800; font-size: 19pt; text-align:center; border-radius: 3mm; padding: 6mm; margin-bottom: 5mm; line-height: 1.2; }
+  .screen small, .hookline small { display:block; font-family: var(--police-texte), sans-serif; font-weight: 500; font-size: 8.5pt; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 1.5mm; }
+  .screen small { color:rgba(255,255,255,.72); }
+  .hookline { font-family: var(--police-titre), sans-serif; font-weight: 700; color: var(--navy); font-size: 14.5pt; line-height: 1.35; margin-bottom: 3mm; }
+  .hookline small { font-weight: 600; color: var(--blue); }
+  .voir { font-size: 10.5pt; color: var(--mute); margin: 0 0 5mm; }
+  .voir b { color: var(--navy); }
+  .pts { counter-reset: p; list-style: none; padding: 0; margin: 0 0 2mm; }
+  .pts li { counter-increment: p; position: relative; padding: 0 0 0 11mm; margin-bottom: 3.5mm; font-size: 12pt; }
+  .pts li::before { content: counter(p); position:absolute; left:0; top: 0; width: 7mm; height: 7mm; border-radius: 50%; background: var(--blue); color:#fff; font-family: var(--police-titre), sans-serif; font-weight: 800; font-size: 10pt; display:flex; align-items:center; justify-content:center; }
+  .preuve { border-top: 2px solid var(--blue); padding-top: 3mm; margin-top: 4mm; font-family: var(--police-titre), sans-serif; font-weight: 800; font-size: 13pt; color: var(--navy); line-height: 1.3; }
+  .preuve span { color: var(--blue); }
+  .cta { background: var(--tint); border-radius: 3mm; padding: 3.5mm 6mm; font-size: 12pt; margin-top: 4mm; }
+  .cta b, .meta2 b.l { color: var(--blue); font-family: var(--police-titre), sans-serif; letter-spacing: .12em; font-size: 8.5pt; text-transform: uppercase; display:block; margin-bottom: 1mm; }
+  .meta2 { margin-top: 4mm; border: 1px solid var(--line); border-radius: 3mm; padding: 3mm 5mm; font-size: 10pt; line-height: 1.4; }
+  .meta2 p { margin: 0 0 1.6mm; } .meta2 p:last-child { margin: 0; }
+  .meta2 .n { color: var(--mute); font-size: 8.5pt; }
+  .meta2 .cut { background: #FFF6D9; }
+  .warn { margin-top: 3mm; font-size: 10pt; background:#FFF6D9; border-radius: 2mm; padding: 2.5mm 5mm; }
+  .src { position:absolute; bottom: 19mm; left: 20mm; right: 20mm; font-size: 8.5pt; color: var(--mute); line-height: 1.4; }
+</style>
+%%MARQUE%%
+</head>
+<body>
+%%PAGES%%
+<script>
+/* Contrôle de débordement : marque les pages dont le texte passe sous les sources ou le pied (lu par build.py via --dump-dom). */
+window.addEventListener('load', () => {
+  const r = [];
+  document.querySelectorAll('.page').forEach((p, i) => {
+    const lim = (p.querySelector('.src') || p.querySelector('.foot')).getBoundingClientRect().top;
+    let b = 0;
+    [...p.children].forEach(c => { if (getComputedStyle(c).position !== 'absolute') b = Math.max(b, c.getBoundingClientRect().bottom); });
+    if (b > lim - 4) r.push(i + 1);
+  });
+  document.body.setAttribute('data-overflow', r.join(','));
+});
+</script>
+</body>
+</html>

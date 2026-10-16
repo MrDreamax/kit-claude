@@ -25,8 +25,8 @@ Fiche de notes (paraphrases). Pas encore dans le Brain avant cette fiche.
 
 ## 3. Pour écrire un reel (cible : coach/thérapeute/expert avec du contenu, sans clients)
 **Hook** : monnaie sociale (le coach se sent malin de renvoyer) ou émotion forte (colère juste, soulagement). Déclencheur : lie ton sujet à un moment récurrent (dimanche soir, début de mois, "après chaque séance").
-**Corps** : valeur pratique en liste (3 étapes). Un détail qu'on ne peut pas raconter sans citer la méthode (cheval de Troie : l'idée STRAT reste dans l'histoire).
-**CTA** : "Envoie ce reel à un coach qui poste sans vendre" (public + partage) puis "Commente STRAT". Un partage = un nouveau coach, sans pub.
+**Corps** : valeur pratique en liste (3 étapes). Un détail qu'on ne peut pas raconter sans citer la méthode (cheval de Troie : l'idée de ta méthode reste dans l'histoire).
+**CTA** : "Envoie ce reel à un coach qui poste sans vendre" (public + partage) puis "Commente [MOT-CLÉ]". Un partage = un nouveau coach, sans pub.
 Limite : les études portent sur contenu viral. Ton but est des appels, pas des vues. Teste.
 
 Exemples de hooks (application) :

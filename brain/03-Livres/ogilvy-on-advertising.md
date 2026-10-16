@@ -52,8 +52,8 @@ Corps
 - Pour l'YouTube hebdo : longue copie, car le message est complexe. Là, plus de 2 000 mots sont normaux.
 
 CTA
-- Le nom et l'action restent clairs : "Commente STRAT". Ne cache pas ta marque.
-- Teste : un reel sur dix porte le CTA. Compare les retours (commentaires STRAT) pour chaque type de titre.
+- Le nom et l'action restent clairs : "Commente [MOT-CLÉ]". Ne cache pas ta marque.
+- Teste : un reel sur dix porte le CTA. Compare les retours (commentaires [MOT-CLÉ]) pour chaque type de titre.
 
 Exemples de hooks (application, à tester)
 1. "Un thérapeute a signé 3 clients à 3 000 euros avec un seul reel de 38 secondes."  (à remplacer par un vrai cas)

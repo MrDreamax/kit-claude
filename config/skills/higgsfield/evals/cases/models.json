@@ -1,0 +1,117 @@
+{
+  "skill": "higgsfield-models",
+  "cases": [
+    {
+      "id": "models-seedance-duration",
+      "description": "Seedance 2.0 duration quoted from the specs layer (4-15s, not 10s)",
+      "model": "seedance_2_0",
+      "request": "How long can a Seedance 2.0 clip be?",
+      "response": "Routing to higgsfield-models (duration question — verified against specs/model-specs.yaml).\n\nSeedance 2.0 supports **4–15 second** clips (snapshot 2026-09-26). Resolutions: 480p / 720p / 1080p / 4k; modes: std / fast — note `fast` caps at 480p/720p (no 1080p or 4k).",
+      "assertions": [
+        {"type": "regex_present", "pattern": "4–15"},
+        {"type": "regex_present", "pattern": "\\b4k\\b"},
+        {"type": "regex_absent", "pattern": "(?<![–\\d])10s clips"},
+        {"type": "regex_present", "pattern": "specs/model-specs\\.yaml"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "models-kling-aspect-enum",
+      "description": "Kling 3.0 aspect ratios quoted correctly — no 21:9",
+      "model": "kling3_0",
+      "request": "Can Kling 3.0 do ultrawide 21:9?",
+      "response": "Routing to higgsfield-models (aspect-ratio enum — verified against specs/model-specs.yaml).\n\nNo. Kling 3.0's aspect-ratio enum is **16:9 / 9:16 / 1:1** — there is no native 21:9. For native 21:9 output use Seedance 2.0 or Marketing Studio; for a 21:9 *look* on Kling, treat anamorphic framing as style-register vocabulary in the Look line and crop in post.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "16:9 / 9:16 / 1:1"},
+        {"type": "regex_present", "pattern": "no native 21:9"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "models-kling-modes",
+      "description": "Kling 3.0 mode enum is std/pro/4k",
+      "model": "kling3_0",
+      "request": "What quality modes does Kling 3.0 have?",
+      "response": "Routing to higgsfield-models.\n\nKling 3.0 exposes three generation modes: **std**, **pro**, and **4k** (specs/model-specs.yaml, snapshot 2026-09-26). Sound is a separate on/off parameter — turning it off lowers credit cost.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "\\bstd\\b.*\\bpro\\b.*\\b4k\\b"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "models-fast-mode-tradeoff",
+      "description": "Seedance fast-mode limitation stated when recommending draft workflows",
+      "model": "seedance_2_0",
+      "request": "Cheapest way to iterate Seedance drafts?",
+      "response": "Routing to higgsfield-models + higgsfield-seedance (draft economics).\n\nIterate at **480p in `fast` mode** — but two caveats from the specs layer: `fast` cannot output 1080p or 4k (your final render in std is a different pipeline), and Seedance has **no seed parameter**, so drafts validate the prompt, not the take.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "(?i)`?fast`? cannot output 1080p"},
+        {"type": "regex_present", "pattern": "(?i)no seed parameter"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "models-recommendation-legal-header",
+      "description": "A model recommendation with a paste-ready header carries only legal values",
+      "model": "veo3_1",
+      "request": "Recommend settings for a short nature clip on Veo 3.1",
+      "response": "Routing to higgsfield-models (Veo 3.1 settings).\n\n**Model**: Google Veo 3.1\n**Aspect ratio**: 16:9  **Duration**: 8s  **Style**: Cinematic\n\nVeo 3.1 durations are 4/6/8s; aspect ratios 16:9 or 9:16 (specs snapshot 2026-09-26).",
+      "assertions": [
+        {"type": "enum_legal"},
+        {"type": "regex_present", "pattern": "4/6/8"}
+      ]
+    },
+    {
+      "id": "models-minimax-durations",
+      "description": "Minimax Hailuo durations come from the snapshot (6/10s)",
+      "model": "minimax_hailuo",
+      "request": "How long can Hailuo clips run?",
+      "response": "Routing to higgsfield-models.\n\nMinimax Hailuo generates **6 or 10 second** clips (specs snapshot 2026-09-26); variant selection (minimax / minimax-fast / minimax-2.3 / minimax-2.3-fast) is a `model` parameter, and resolutions are 512 / 768 / 1080.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "6 or 10 second"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "models-wan-duration-range",
+      "description": "Wan 2.7 duration range from snapshot (2-15s)",
+      "model": "wan2_7",
+      "request": "Wan 2.7 clip length?",
+      "response": "Routing to higgsfield-models.\n\nWan 2.7 supports **2–15 second** clips with synchronized audio (start_image / end_image / audio reference roles), resolutions 720p / 1080p (specs snapshot 2026-09-26).",
+      "assertions": [
+        {"type": "regex_present", "pattern": "2–15 second"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "trap-kling-21-9-illegal",
+      "description": "STALE-SPEC TRAP — the checker must flag a Kling 21:9 header",
+      "model": "kling3_0",
+      "request": "(trap) Kling prompt with an ultrawide header",
+      "response": "**Model**: Kling 3.0\n**Aspect ratio**: 21:9  **Duration**: 8s  **Style**: Cinematic\n\nA lighthouse on a cliff at dawn, waves rolling in slow sets below. Static wide, warm backlight.",
+      "assertions": [
+        {"type": "enum_legal", "expect": "illegal"}
+      ]
+    },
+    {
+      "id": "trap-seedance-fast-1080p-illegal",
+      "description": "STALE-SPEC TRAP — the checker must flag fast+1080p on Seedance",
+      "model": "seedance_2_0",
+      "request": "(trap) Seedance draft header that silently breaks the mode constraint",
+      "response": "**Model**: Seedance 2.0\n**Aspect ratio**: 16:9  **Duration**: 8s\n**Resolution**: 1080p  **Mode**: fast\n\nA paper boat drifts down a rain gutter stream, streetlight glitter on the water. Slow tracking alongside.",
+      "assertions": [
+        {"type": "enum_legal", "expect": "illegal"}
+      ]
+    },
+    {
+      "id": "trap-seedance-overlong-duration",
+      "description": "STALE-SPEC TRAP — duration beyond the snapshot envelope must be flagged",
+      "model": "seedance_2_0",
+      "request": "(trap) 20-second single Seedance clip",
+      "response": "**Model**: Seedance 2.0\n**Aspect ratio**: 16:9  **Duration**: 20s  **Style**: Cinematic\n\nA tide pool at dusk, hermit crabs trading shells under a macro lens. Static macro, warm rim light.",
+      "assertions": [
+        {"type": "enum_legal", "expect": "illegal"}
+      ]
+    }
+  ]
+}

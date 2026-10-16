@@ -1,0 +1,16 @@
+{
+  "format": "youtube",
+  "titre": "EXEMPLE FICTIF : audit d'une bio",
+  "out": "~/Documents/Contenu/slides/2026-01-01-exemple-youtube",
+  "slides": [
+    {"type": "phrase", "kicker": "Audit en direct", "a": "Ton profil a 3 secondes", "b": "pour convaincre."},
+    {"type": "capture", "kicker": "Audit · la bio", "a": "Ta bio\nne dit pas", "b": "qui tu aides.",
+     "image": "~/.claude/skills/slides/exemples/capture-exemple-fictive.png", "recadrage": [0, 100, 1080, 760],
+     "cercle": [40, 488, 556, 44], "note": "pour qui ?", "encre": "clair", "source": "Compte fictif · capture d'exemple"},
+    {"type": "correction", "kicker": "La bio · réécrite", "avant": "Je transforme ton contenu en clients",
+     "a": "J'aide les coachs", "b": "à signer des clients", "c": "avec Instagram"},
+    {"type": "liste", "kicker": "Une bio qui vend", "items": ["Pour qui", "Quel résultat", "Ta preuve", "Quoi faire maintenant"]},
+    {"type": "methode", "kicker": "L'audit", "etapes": ["Ta bio", "Tes posts", "Ton offre"], "actuelle": 2},
+    {"type": "section", "kicker": "Partie 2", "a": "Tes 30 derniers posts", "b": "ce qui marche vraiment."}
+  ]
+}

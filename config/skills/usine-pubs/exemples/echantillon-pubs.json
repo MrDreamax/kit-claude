@@ -1,0 +1,77 @@
+{
+  "nom": "Pubs-exemple",
+  "titre": "Pubs à tourner (EXEMPLE FICTIF)",
+  "kicker": "Pubs Meta · exemple fictif",
+  "h1": "3 pubs. <span>1 session.</span>",
+  "lead": "EXEMPLE FICTIF pour montrer le format : une photographe qui apprend à des indépendants à trouver des clients. Plan de test : même corps, 3 hooks, 7 jours, à budget égal.",
+  "avant": ["Confirmer le bouton et la promesse de la page (CTA)", "Obtenir l'accord écrit du client cité dans la pub 2", "Relire la checklist Meta de regles-pub-meta.md"],
+  "marque": "",
+  "pubs": [
+    {
+      "angle": "Objection : pas le temps",
+      "niveau": "connaît le problème",
+      "sujet": "Trouver des clients en 20 minutes par jour",
+      "screen": "20 minutes par jour",
+      "hook": "Tu n'as pas le temps de chercher des clients ? Moi non plus, et ça ne m'a pas empêchée d'en signer chaque mois.",
+      "voir": "Face caméra, plan poitrine, un carnet ouvert sur le bureau",
+      "points": [
+        "Je bloque 20 minutes le matin, pas plus. Une liste de 5 personnes à contacter, un message court par personne.",
+        "Le message tient en deux phrases : ce que je fais, et une question simple. Mais il doit être écrit pour une personne précise, pas copié-collé.",
+        "Le soir, je note qui a répondu. Au bout d'un mois, j'ai la liste de ce qui marche et je la répète."
+      ],
+      "preuve": "Un mois de ce rythme, <span>c'est 100 messages envoyés.</span>",
+      "cta": "Je t'envoie ma trame de message gratuite : clique sur « En savoir plus ».",
+      "texte": "Pas le temps de chercher des clients ? 20 minutes par jour suffisent si tu sais quoi écrire. Voici la méthode que j'utilise, et la trame de message que je te donne gratuitement.",
+      "titre": "20 minutes par jour",
+      "description": "La trame gratuite",
+      "risque": "aucun",
+      "risque_note": "",
+      "client_cite": false,
+      "src": "EXEMPLE FICTIF. Objection tirée d'un verbatim [à remplacer par le fichier et l'horodatage du vrai call]. Hook : promesse + preuve (experts-hooks-retention.md §1)."
+    },
+    {
+      "angle": "Preuve client",
+      "niveau": "compare les solutions",
+      "sujet": "Un client passe de 0 à 4 appels par semaine",
+      "screen": "De 0 à 4 appels",
+      "hook": "Un client m'a dit : « je n'avais aucun appel de prospect depuis trois mois ». Trois semaines plus tard, il en avait quatre dans la même semaine.",
+      "voir": "Face caméra, puis capture du message du client (floutée)",
+      "points": [
+        "Il envoyait des messages trop longs, sans question. On les a réduits à deux phrases.",
+        "Il s'adressait à tout le monde. On a choisi une seule cible : les mariés qui cherchent un photographe.",
+        "Il a gardé son rythme : 5 messages par jour, rien de plus."
+      ],
+      "preuve": "Résultat réel, daté de [mois], <span>résultats non garantis, non typiques.</span>",
+      "cta": "Si tu veux voir comment on a fait, réserve un appel de 20 minutes avec moi.",
+      "texte": "Zéro appel de prospect pendant trois mois, puis quatre en une semaine. Voici ce qu'on a changé dans ses messages, pas dans son offre. Résultats non garantis, non typiques.",
+      "titre": "Ce qu'on a changé",
+      "description": "Réserve un appel",
+      "risque": "moyen",
+      "risque_note": "Un résultat client est cité : date réelle obligatoire et mention « résultats non garantis, non typiques » dans le texte.",
+      "client_cite": true,
+      "src": "EXEMPLE FICTIF. Résultat client à remplacer par un vrai (fiche experts-resultats-clients-temoignages.md), accord écrit requis. Meta : regles-pub-meta.md, résultats clients."
+    },
+    {
+      "angle": "Croyance contraire",
+      "niveau": "ne voit pas encore le problème",
+      "sujet": "Un beau portfolio ne ramène pas de clients",
+      "screen": "Ton portfolio ne vend pas",
+      "hook": "Ton portfolio peut être magnifique et ne te rapporter aucun client. Il lui manque une porte d'entrée.",
+      "voir": "Face caméra, un ordinateur ouvert sur un site de portfolio",
+      "points": [
+        "Un visiteur arrive sur ton site et ne sait pas quoi faire après avoir vu tes photos. Il ferme l'onglet.",
+        "Ajoute une seule action claire sous tes plus belles photos : un bouton qui dit exactement ce qui se passe quand on clique.",
+        "Mais ça ne marche que si la personne arrive jusque-là, donc commence par lui écrire en premier."
+      ],
+      "preuve": "Un portfolio est une vitrine. <span>Il lui faut une porte.</span>",
+      "cta": "Je t'explique la porte à ajouter dans mon guide gratuit : clique sur « En savoir plus ».",
+      "texte": "Un portfolio magnifique ne ramène pas de clients tout seul. Il lui manque une porte d'entrée claire. Le guide gratuit te montre où la mettre.",
+      "titre": "La porte qui manque",
+      "description": "Guide gratuit",
+      "risque": "aucun",
+      "risque_note": "",
+      "client_cite": false,
+      "src": "EXEMPLE FICTIF. Croyance contraire (angle 'idée reçue'), à remplacer par un vrai verbatim. Hook : experts-hooks-retention.md §1."
+    }
+  ]
+}

@@ -7,6 +7,8 @@ Tu installes ce kit en 1 phrase. Ensuite, Claude :
 - **a une équipe** : 13 conseillers qui débattent de tes grosses décisions et rendent un verdict GO / NO-GO ;
 - **ne fait jamais rien d'irréversible sans toi** : pas de message envoyé, pas de fichier supprimé, pas de paiement.
 
+Tu crées du contenu ? Il écrit tes scripts, monte tes reels, fait tes carrousels, tes slides et ta veille, à ta voix et à tes couleurs.
+
 Tu viens de ChatGPT ? Il rapatrie ce que ChatGPT sait de toi.
 
 ---
@@ -32,7 +34,9 @@ Claude fait tout le reste. Il te demandera ton accord avant de lancer l'installa
 | Le master prompt | `~/.claude/CLAUDE.md` | La façon dont Claude te parle et travaille, dans chaque chat |
 | Le second cerveau | `Documents/Brain/` | Ton profil, tes projets, et la bibliothèque d'experts. Claude le lit et l'écrit pour toi |
 | 14 agents | `~/.claude/agents/` | Le board (13 conseillers) + Le Limier qui trouve les bons experts sur Internet |
-| 8 skills | `~/.claude/skills/` | team, livre, veille-youtube, audit-croyances, drift, bienvenue, import-chatgpt, logiciels |
+| 9 skills de base | `~/.claude/skills/` | team, livre, veille-youtube, audit-croyances, drift, bienvenue, import-chatgpt, logiciels, ma-marque |
+| 12 skills contenu | `~/.claude/skills/` | scripteur, supermonteur (montage), carrousel, slides, publieur, veille-reels, audit-insta, calls-vers-contenu, usine-pubs, directeur-artistique, anti-ia, higgsfield |
+| Ton dossier contenu | `Documents/Contenu/` | Tes rushes, B-rolls, photos, et tout ce que Claude fabrique (PDF, montages, carrousels) |
 | Logiciels gratuits (au choix) | ton ordinateur | Obsidian (voir ton cerveau), Wispr Flow (dicter au lieu de taper), Chrome + Claude in Chrome, yt-dlp ; bonus Fathom et Canva |
 
 Phrases à essayer :
@@ -41,6 +45,10 @@ Phrases à essayer :
 - « Écris-moi un livre sur ... » (un sujet appris en 2 soirées)
 - « Fais-moi une fiche de cette vidéo YouTube : ... »
 - « Challenge-moi » (ce que tu dis vouloir vs ce que tu fais)
+- « Écris-moi le lot de la semaine » (tes scripts de reels à tourner)
+- « Monte cette vidéo » (reel prêt à poster)
+- « Fais-moi un carrousel sur ... »
+- « Fais ma veille » (les vidéos qui cartonnent dans ta niche)
 
 Mettre à jour plus tard : dis à Claude « mets à jour mon kit ». Ton profil et tes fichiers perso ne sont jamais touchés.
 
@@ -57,15 +65,17 @@ Tu installes ce kit pour la personne qui t'a collé ce lien. Fais tout toi-même
      && curl -fsSL "$KIT_URL/archive/refs/heads/main.tar.gz" | tar xz \
      && KIT_URL="$KIT_URL" bash */install.sh
    ```
-   Lis `install.sh` avant de le lancer si tu veux vérifier ce qu'il fait : il copie le master prompt, les agents et les skills dans `~/.claude/`, et le Brain dans `~/Documents/Brain/`. Il sauvegarde tout fichier existant avant de le remplacer et ne touche jamais aux fichiers perso.
+   Lis `install.sh` avant de le lancer si tu veux vérifier ce qu'il fait : il copie le master prompt, les agents et les skills dans `~/.claude/`, le Brain dans `~/Documents/Brain/` et crée `~/Documents/Contenu/`. Il sauvegarde tout fichier existant avant de le remplacer et ne touche jamais aux fichiers perso.
    **Windows sans bash** (PowerShell seul) : télécharge `$KIT_URL/archive/refs/heads/main.zip`, dézippe-le, puis reproduis à la main ce que fait `install.sh` (mêmes règles : sauvegarde avant de remplacer, ne jamais écraser les fichiers perso du Brain, garder le bloc PROFIL du CLAUDE.md existant). Le Brain va dans `%USERPROFILE%\Documents\Brain`.
-2. **Vérifie** : `~/.claude/CLAUDE.md` existe, `~/.claude/agents/` contient 14 fichiers, `~/.claude/skills/` contient bienvenue, team, livre, veille-youtube, audit-croyances, drift, import-chatgpt, logiciels, et `~/Documents/Brain/index.md` existe. Si un point manque : trouve la cause, corrige, revérifie.
+2. **Vérifie** : `~/.claude/CLAUDE.md` existe, `~/.claude/agents/` contient 14 fichiers, `~/.claude/skills/` contient les 21 skills (bienvenue, team, livre, veille-youtube, audit-croyances, drift, import-chatgpt, logiciels, ma-marque, scripteur, supermonteur, carrousel, slides, publieur, veille-reels, audit-insta, calls-vers-contenu, usine-pubs, directeur-artistique, anti-ia, higgsfield), `~/Documents/Brain/index.md` et `~/Documents/Brain/_outils/marque.py` existent. Si un point manque : trouve la cause, corrige, revérifie.
 3. **Nettoie** : supprime `~/.claude/kit-tmp`.
-4. **Accueil** : lis `~/.claude/skills/bienvenue/SKILL.md` et suis-le maintenant, dans ce même chat (questionnaire, profil, import ChatGPT, logiciels gratuits, routine du dimanche, mode d'emploi).
+4. **Accueil** : lis `~/.claude/skills/bienvenue/SKILL.md` et suis-le maintenant, dans ce même chat (questionnaire, profil, import ChatGPT, réglage de sa marque s'il crée du contenu, logiciels gratuits, routine du dimanche, mode d'emploi).
 5. À la fin, dis à la personne d'ouvrir un **nouveau chat** : le master prompt, les agents et les skills y seront tous actifs.
 
 ---
 
 ## Crédits
+- Le skill `higgsfield` vient du projet [higgsfield-ai-prompt-skill](https://github.com/OSideMedia/higgsfield-ai-prompt-skill) d'O-Side Media (licence MIT, voir `config/skills/higgsfield/LICENSE`).
+- Les pages Cut Notes et Style Lab du skill `supermonteur` (retours image par image, choix du style de montage) sont adaptées des modèles gratuits de Shaan Johari ([@viashaan](https://instagram.com/viashaan)). Crédit en bas de chaque page.
 - Les 7 cerveaux de conseillers (`Brain/08-Conseillers`) viennent du projet [Roast Room](https://github.com/nateherkai/roast-room) (licence MIT, voir `brain/08-Conseillers/LICENSE-roast-room.txt`). Ce sont des simulations compilées depuis le travail public de chaque expert, pas les vraies personnes.
 - Les fiches experts et les fiches livres sont des synthèses sourcées (vidéos, livres, docs officielles), avec la source de chaque idée. Les textes intégraux inclus sont du domaine public (Claude Hopkins).

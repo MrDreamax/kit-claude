@@ -1,0 +1,12 @@
+{"titre": "EXEMPLE FICTIF : 3 erreurs qui vident ton agenda",
+ "video": "/chemin/vers/final.mp4", "duree": 42,
+ "date": "2027-01-04T20:00:00", "heure_provisoire": true, "note_heure": "Heure provisoire : pas encore assez de stats Metricool sur ton compte.",
+ "plateformes": ["instagram", "facebook", "youtube", "tiktok"],
+ "mot_cle": "agenda vide", "dit_a_voix": true, "sur_cover": true, "cta": "GUIDE",
+ "cover": {"source": "broll", "retouche": "aucune", "photo": "/chemin/vers/ton-broll.jpg", "titre": "AGENDA VIDE", "sous_titre": "3 erreurs"},
+ "instagram": {"type": "REEL",
+  "legende": "Agenda vide : les 3 erreurs que je vois partout.\nChacune se corrige en moins d'une semaine, et la première prend 10 minutes.\nCommente GUIDE et je t'envoie la checklist.\n#agenda #coach",
+  "premier_commentaire": "Laquelle de ces 3 erreurs te parle le plus ?",
+  "alt": "Une coach face caméra devant un bureau lumineux, elle compte trois erreurs sur ses doigts."},
+ "youtube": {"titre": "Agenda vide : 3 erreurs à corriger cette semaine", "description": "Les 3 erreurs qui vident un agenda et comment les corriger.\nÉcris GUIDE en commentaire pour recevoir la checklist."},
+ "tiktok": {"legende": "Agenda vide ? Voilà les 3 erreurs. Laquelle te parle le plus ? #agenda #coach #conseils"}}

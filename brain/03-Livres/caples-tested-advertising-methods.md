@@ -22,12 +22,12 @@ Fiche courte. Aucune source primaire légale et gratuite trouvée. À acheter po
 ## 3. Pour écrire un reel
 Rien de nouveau n'est prouvé ici. Seul ce qui est vérifié à la source s'applique :
 - Le titre de 1926 combine une situation de moquerie, un revers de situation ("mais quand j'ai commencé à jouer") et un bénéfice (savoir jouer). Application : une structure "avant / après" en une phrase.
-- Principe de test (aussi chez Hopkins et Ogilvy) : trois hooks différents pour le même reel, garde celui qui fait le plus de commentaires STRAT.
+- Principe de test (aussi chez Hopkins et Ogilvy) : trois hooks différents pour le même reel, garde celui qui fait le plus de commentaires [MOT-CLÉ].
 
 Exemples de hooks (application, à tester)
 1. "Mes collègues coachs se moquaient de mon petit compte. Puis un seul reel a rempli mon agenda."  (à n'utiliser qu'avec une vraie histoire)
 2. "Ils riaient de mes 400 abonnés. Puis mes 3 premiers clients ont payé 2 900 euros."  (remplacer par ton vrai cas)
-3. "Même reel, trois hooks différents. Le troisième a eu 5 fois plus de STRAT. Voilà lequel."  (à faire pour de vrai, puis publier)
+3. "Même reel, trois hooks différents. Le troisième a eu 5 fois plus de [MOT-CLÉ]. Voilà lequel."  (à faire pour de vrai, puis publier)
 
 ## 4. Source, couverture, achat
 - Sources : Wikipédia (faits) + la vidéo d'Ogilvy. Non utilisés : copies sur archive.org (prêt numérique d'éditions sous droits, statut non établi) et des dizaines de PDF "gratuits" qui ne sont pas officiels.

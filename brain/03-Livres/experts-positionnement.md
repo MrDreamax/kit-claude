@@ -6,7 +6,7 @@ sujets: [offre]
 ---
 # Experts du positionnement (pour l'agent Positionnement)
 
-Date : 2026-10-11. But : améliorer `livrables/agents-ia/01-agent-positionnement.txt` (qui utilise déjà Hormozi, Brunson, Miller).
+Date : 2026-10-11. But : améliorer un agent IA de positionnement (qui utilise déjà Hormozi, Brunson, Miller).
 Règle : chaque idée a une source. Légende des sources :
 - [PRIMAIRE] = l'auteur parle lui-même (son site, son podcast, sa vidéo).
 - [SECONDAIRE] = quelqu'un d'autre résume l'auteur. À traiter comme "hypothèse à vérifier dans le livre".

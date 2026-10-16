@@ -1,0 +1,113 @@
+{
+  "skill": "higgsfield-cinema",
+  "cases": [
+    {
+      "id": "cinema-settings-strip",
+      "description": "CS3.5 delivery leads with the canonical settings strip",
+      "request": "Set up a noir interrogation scene in Cinema Studio 3.5",
+      "response": "Routing to higgsfield-cinema (Cinema Studio 3.5 settings + prompt split).\n\nGenre: Noir · AR: 16:9 · Quality: 1080p · Duration: 12s · Shots: 2 · Sound: On · Camera: Fine Film / Clinical Sharp / 50mm / f/4 · Style: Classic B&W, Overhead Fall, Classic Static\n\nPrompt box: A suspect sits at a steel table under a single overhead lamp; the interviewer leans into the cone of light, sliding a folder across. Smoke hangs in the beam.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "^Routing to higgsfield-cinema"},
+        {"type": "regex_present", "pattern": "Genre: .+ · AR: .+ · Quality: .+ · Duration: .+ · Shots: .+ · Sound: .+ · Camera: .+ · Style: "},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "cinema-genre-names",
+      "description": "Only confirmed CS3.5 genres are offered — never invented ones",
+      "request": "What genres can I pick in Cinema Studio 3.5?",
+      "response": "Routing to higgsfield-cinema (CS3.5 Genre pill).\n\nConfirmed genres: **General · Action · Horror · Comedy · Noir · Drama · Epic** (7, from the UI). The picker scrolls — more exist but are unconfirmed by name, so check the live UI rather than have me guess one.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "General · Action · Horror · Comedy · Noir · Drama · Epic"},
+        {"type": "regex_present", "pattern": "(?i)check the live UI"}
+      ]
+    },
+    {
+      "id": "cinema-camera-vocab-35",
+      "description": "3.5 camera vocabulary used when the selected model is 3.5",
+      "request": "Camera settings for an intimate drama scene in CS3.5",
+      "response": "Routing to higgsfield-cinema (Camera Settings — four-axis panel, 3.5 vocabulary).\n\nIntimate Drama stack: **Fine Film / Warm Halation / 50mm / f/1.4**, paired with Naturalistic Clean palette + Soft Cross lighting + Intimate Observer moveset. Vocabulary follows the selected model — these are 3.5 panel names, not the 2.5 body names.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "Fine Film / Warm Halation / 50mm / f/1\\.4"},
+        {"type": "regex_present", "pattern": "(?i)vocabulary follows the selected model"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "cinema-manual-style-block",
+      "description": "Manual Style block carries laws, not per-shot description",
+      "request": "Write me a saved Manual Style block for a cold thriller series",
+      "response": "Routing to higgsfield-cinema (Manual Style authoring guide).\n\nSaved block (≤2,000 chars — laws, not descriptions):\n\nCold procedural thriller. Grade: desaturated cool, steel-blue shadows, blacks held above crush. Lighting law: every source practical or motivated — fluorescents, monitors, headlights; no beauty fill. Texture: clean digital, faint sensor noise in low light, no halation. Performance register: contained — small eye movements over gestures.\n\nPer-shot light sources and blocking go in the prompt body, never in this block.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "(?i)laws, not descriptions"},
+        {"type": "regex_present", "pattern": "(?i)lighting law"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "cinema-draft-tier-honesty",
+      "description": "480p draft guidance states the no-seed limitation",
+      "request": "Can I approve takes at 480p and re-render the good one at 1080p?",
+      "response": "Routing to higgsfield-cinema (§ Drafts validate the prompt, not the take).\n\nNo — there is no seed parameter, so a 1080p re-run is a **fresh roll**, not a re-render. Drafts validate prompt-driven properties (shot count, blocking, identity contamination, dialogue placement, filter pass/fail); performance and camera micro-trajectory re-roll every generation. To carry a look forward, pin a **Hero Frame** as start/end frame.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "(?i)no seed parameter"},
+        {"type": "regex_present", "pattern": "(?i)fresh roll"},
+        {"type": "regex_present", "pattern": "(?i)hero frame"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "cinema-physics-matrix-native",
+      "description": "Native delivery: fast motion masters at 720p",
+      "request": "What resolution for a crowd stampede scene posted straight to social?",
+      "response": "Routing to higgsfield-cinema (Physics Rendering — Resolution Decision Matrix, native-delivery column).\n\nFast/chaotic motion delivered natively → **720p**: fewer pixels per frame means smoother flow and less shimmer on rapid change. If this were a 4K-finish pipeline the answer flips — master at the model's max res in std mode.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "720p"},
+        {"type": "regex_present", "pattern": "(?i)4K-finish pipeline the answer flips"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "cinema-physics-matrix-upscale",
+      "description": "Upscale-finish delivery context overrides the 720p recommendation",
+      "request": "Same stampede scene but we finish in 4K for a festival screen",
+      "response": "Routing to higgsfield-cinema (Physics Rendering matrix — upscale-finish column).\n\nMaster at the **model's maximum resolution in std mode**. A 720p master into a 4K finish forces a 3× upscale that costs more than the shimmer it avoids; never master below half the delivery resolution. Per-shot 720p only as a logged exception.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "(?i)maximum resolution in `?std`? mode"},
+        {"type": "regex_present", "pattern": "(?i)half the delivery resolution"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "cinema-shot-counter-cap",
+      "description": "Shot-count promises stay within the UI shot counter",
+      "request": "Give me a 6-shot single-generation sequence in CS3.5",
+      "response": "Routing to higgsfield-cinema (Per-Shot Settings Strip — shot counter cap).\n\nThe UI shot counter caps internal cuts (observed cap: 4 per generation, unconfirmed in platform docs — verify in the live UI). A prompt declaring \"strictly 6 shots\" beyond the counter makes the engine improvise which cuts to drop. Split this into two generations of 3 shots and bridge with a start-frame pin.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "(?i)shot counter caps internal cuts"},
+        {"type": "regex_present", "pattern": "(?i)verify in the live UI"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "cinema-512-char-cap",
+      "description": "Cinema Studio prompt budget — 512 hard cap surfaced",
+      "request": "Why did Cinema Studio truncate my long prompt?",
+      "response": "Routing to higgsfield-cinema (Prompt Character Limit).\n\nCinema Studio enforces a hard **512-character** prompt cap, and in 2.5 each @ Element chip consumes roughly 80–100 hidden characters of that budget. Tighten the prompt body and move invariants into Elements / Manual Style.",
+      "assertions": [
+        {"type": "regex_present", "pattern": "512-character"},
+        {"type": "antislop_absent"}
+      ]
+    },
+    {
+      "id": "trap-cs-quality-enum",
+      "description": "STALE-SPEC TRAP — Seedance 2.0 4K is legal only in std mode; a 4K claim under fast mode must be flagged",
+      "model": "seedance_2_0",
+      "request": "(trap) header claiming 4K under Seedance fast mode, which caps at 480p/720p",
+      "response": "**Model**: Seedance 2.0\n**Aspect ratio**: 16:9  **Duration**: 8s\n**Resolution**: 4k  **Mode**: fast\n\nDust motes drift through a projector beam in an empty cinema. Static medium.",
+      "assertions": [
+        {"type": "enum_legal", "expect": "illegal"}
+      ]
+    }
+  ]
+}

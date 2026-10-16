@@ -1,0 +1,19 @@
+{
+  "format": "webinaire",
+  "titre": "EXEMPLE FICTIF : webinaire",
+  "duree_min": 60,
+  "out": "~/Documents/Contenu/slides/2026-01-01-exemple-webinaire",
+  "slides": [
+    {"type": "attente", "kicker": "Bienvenue", "a": "On commence à 20 h 00", "c": "Prépare de quoi noter"},
+    {"type": "phrase", "a": "Tes vidéos font des vues.", "b": "Pas des clients."},
+    {"type": "phrase", "a": "Ceci est une phrase beaucoup trop longue pour une slide de webinaire et le moteur doit la signaler tout de suite"},
+    {"type": "methode", "etapes": ["Positionnement", "Contenu", "Vente"], "actuelle": 2},
+    {"type": "liste", "kicker": "Les 3 erreurs", "items": ["Parler à tout le monde", "Poster sans offre", "Aucune preuve"]},
+    {"type": "section", "kicker": "Partie 3", "a": "La vente", "b": "sans forcer."},
+    {"type": "capture", "kicker": "Preuve", "image": "~/.claude/skills/slides/exemples/capture-exemple-fictive.png",
+     "recadrage": [0, 100, 1080, 760], "cercle": [560, 192, 120, 54], "note": "ta preuve", "encre": "clair", "source": "Compte fictif · capture d'exemple"},
+    {"type": "cloture", "kicker": "L'atelier d'exemple", "demo": true, "devise": "€",
+     "items": [["Atelier de positionnement (EXEMPLE)", 600], ["Plan d'action sur 30 jours (EXEMPLE)", 500], ["1 mois de suivi (EXEMPLE)", 400], ["Modèles à copier (EXEMPLE)", 200]],
+     "prix": 900, "compte_a_rebours": "14:59", "bouton": "Je réserve ma place →", "lien": "exemple.com/atelier"}
+  ]
+}

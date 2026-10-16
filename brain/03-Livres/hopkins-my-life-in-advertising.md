@@ -31,8 +31,8 @@ Corps
 - Évite le malheur en détail. Un coup de projecteur sur la douleur, puis la récompense.
 
 CTA
-- "Gratuit" fonctionne pour un outil ou une vidéo concrète. Sur un sujet sérieux (accompagnement 3 000 euros), n'en fais pas l'argument principal. Dis plutôt : "Commente STRAT, je te montre comment on a fait pour [coach]".
-- Mesure : un mot-clé de commentaire par type de reel, pour savoir lequel déclenche les STRAT.
+- "Gratuit" fonctionne pour un outil ou une vidéo concrète. Sur un sujet sérieux (accompagnement 3 000 euros), n'en fais pas l'argument principal. Dis plutôt : "Commente [MOT-CLÉ], je te montre comment on a fait pour [coach]".
+- Mesure : un mot-clé de commentaire par type de reel, pour savoir lequel déclenche les [MOT-CLÉ].
 
 Exemples de hooks (application, à tester)
 1. "Un thérapeute m'a dit une phrase en appel. C'est elle qui a rempli son agenda."

@@ -1,6 +1,6 @@
 ---
 name: bienvenue
-description: Accueil du kit Claude. Questionnaire de départ (questions cliquables, 3 minutes) qui remplit la partie « Qui je suis » du master prompt et le profil du Brain, propose de rapatrier ce que ChatGPT sait de la personne, puis montre en 5 lignes ce que le kit sait faire. Use right after installing the kit, when « Qui je suis » still says À REMPLIR, or when the user says "bienvenue", "refais mon profil", "présente-toi", "tu sais faire quoi".
+description: Accueil du kit Claude. Questionnaire de départ (questions cliquables, 3 minutes) qui remplit la partie « Qui je suis » du master prompt et le profil du Brain, propose de rapatrier ce que ChatGPT sait de la personne, règle les skills contenu sur sa marque s'il crée du contenu, puis montre en 5 lignes ce que le kit sait faire. Use right after installing the kit, when « Qui je suis » still says À REMPLIR, or when the user says "bienvenue", "refais mon profil", "présente-toi", "tu sais faire quoi".
 ---
 
 # Bienvenue : 3 minutes pour que Claude te connaisse
@@ -44,15 +44,20 @@ e) Enregistre aussi l'essentiel dans ta mémoire.
 - Réponse « Oui, rapatrie » : lance le skill `import-chatgpt` maintenant (lis `~/.claude/skills/import-chatgpt/SKILL.md` et suis-le).
 - « Plus tard » : dis en une ligne « Quand tu veux, écris : importe ChatGPT. »
 
-## 5. Les logiciels gratuits
+## 5. Ton contenu (si « Créer du contenu » est coché, ou s'il dit qu'il fait des vidéos)
+Dis en 1 ligne : « Tu crées du contenu : je règle tes skills contenu sur ta voix, ta cible et tes couleurs (10 minutes). Maintenant ou plus tard ? » (bouton : Maintenant (Recommandé) · Plus tard).
+- Maintenant : lance le skill `ma-marque` (lis `~/.claude/skills/ma-marque/SKILL.md` et suis-le), puis reviens à l'étape 6.
+- Plus tard : « Quand tu veux, écris : ma marque. »
+
+## 6. Les logiciels gratuits
 Lance le skill `logiciels` (lis `~/.claude/skills/logiciels/SKILL.md` et suis-le) : il propose en un clic Obsidian, Wispr Flow, Chrome + Claude in Chrome, et installe les outils invisibles dont les skills ont besoin.
 
-## 6. La routine du dimanche
+## 7. La routine du dimanche
 Si l'outil de tâches planifiées de l'app est disponible (`create_scheduled_task`) : crée la tâche `audit-du-dimanche`, chaque dimanche à 10h (heure locale), avec ce prompt :
 « Lance le skill audit-croyances (~/.claude/skills/audit-croyances/SKILL.md) et suis-le : génère la page d'audit du jour dans ~/Documents/Brain/04-Audits/, ouvre-la, puis dis en une ligne : "Ton audit du dimanche est prêt. Coche tout, clique sur Copier, colle-le dans un chat et écris go." »
 Dis en une ligne qu'elle tourne seulement si l'app Claude est ouverte. Outil absent : dis-lui juste « Le dimanche, écris audit ».
 
-## 7. Ce que je sais faire (le message final, court)
+## 8. Ce que je sais faire (le message final, court)
 Ouvre le mode d'emploi illustré : `open ~/Documents/Brain/MODE-EMPLOI.html` (Mac) ou `start "" "%USERPROFILE%\Documents\Brain\MODE-EMPLOI.html"` (Windows). Puis écris :
 
 ```
@@ -68,7 +73,7 @@ Bonus en 1 clic (facultatif) :
 
 Ouvre un nouveau chat : tout est actif.
 ```
-Adapte les 5 exemples aux usages cochés à l'étape 2 (ex. études : « Écris-moi un livre sur la macroéconomie »). Ne dépasse pas 15 lignes.
+Adapte les 5 exemples aux usages cochés à l'étape 2 (ex. études : « Écris-moi un livre sur la macroéconomie » ; contenu : « Écris-moi le lot de la semaine », « Monte cette vidéo », « Fais-moi un carrousel sur ... », « Fais ma veille », « Programme mes reels »). Ne dépasse pas 15 lignes.
 
 ## Relancer
 Si la personne relance `bienvenue` plus tard : montre-lui son profil actuel en 5 lignes et demande ce qu'elle veut changer (QCM), au lieu de tout reposer.

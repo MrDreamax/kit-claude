@@ -1,0 +1,547 @@
+<title>Cut Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  /* One deliberate look: a dark, warm edit suite. Video review happens in the dark. */
+  :root {
+    color-scheme: dark;
+    --ground: #15100c;
+    --panel: #1e1611;
+    --raised: #281e17;
+    --line: #3a2c22;
+    --bone: #efe9df;
+    --ash: #9e958a;
+    --gold: #f7ce4a;
+    --ember: #f2641e;
+    --done: #8fbf8a;
+    --display: "Fraunces", Georgia, "Times New Roman", serif;
+    --ui: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--ground); color: var(--bone);
+    font: 15px/1.5 var(--ui); padding-inline: 16px; padding-block: 16px 24px;
+  }
+  button, select, textarea { font: inherit; color: var(--bone); }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .app { max-width: 1280px; margin: 0 auto; display: grid; gap: 16px; }
+
+  header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+  .mark { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .mark h1 { margin: 0; font: 600 28px/1 var(--display); letter-spacing: -0.01em; }
+  .mark p { margin: 0; color: var(--ash); font-size: 13px; }
+  .head-controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  label.fps { display: flex; align-items: center; gap: 6px; color: var(--ash); font-size: 13px; }
+  select { background: var(--raised); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
+  .pill { font: 500 12px/1 var(--mono); color: var(--ash); border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; white-space: nowrap; }
+  .pill.live { color: var(--done); border-color: color-mix(in srgb, var(--done) 45%, var(--line)); }
+
+  .btn { background: var(--raised); border: 1px solid var(--line); border-radius: 6px; padding: 7px 12px; cursor: pointer; white-space: nowrap; }
+  .btn:hover { border-color: var(--ash); }
+  .btn:disabled { opacity: .5; cursor: default; }
+  .btn.primary { background: var(--gold); color: #1a1208; border-color: var(--gold); font-weight: 600; }
+  .btn.primary:hover { filter: brightness(1.05); }
+  .btn.quiet { background: transparent; border-color: transparent; color: var(--ash); padding-inline: 8px; }
+  .btn.quiet:hover { color: var(--bone); border-color: var(--line); }
+
+  main { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 16px; align-items: start; }
+  @media (max-width: 900px) { main { grid-template-columns: minmax(0, 1fr); } }
+
+  .stage { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: grid; }
+  .screen { position: relative; background: #000; display: grid; place-items: center; min-height: 240px; max-height: 62vh; aspect-ratio: 16 / 9; max-width: 100%; }
+  .screen.portrait { aspect-ratio: 9 / 16; }
+  video { width: 100%; height: 100%; max-height: 62vh; display: block; object-fit: contain; background: #000; }
+  .drop { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 24px; gap: 10px; border: 2px dashed transparent; transition: border-color .15s; }
+  .drop.over { border-color: var(--gold); background: rgba(247, 206, 74, .06); }
+  .drop strong { display: block; font: 600 22px/1.2 var(--display); }
+  .drop span { color: var(--ash); font-size: 14px; max-width: 36ch; display: block; margin-inline: auto; }
+
+  .transport { display: grid; gap: 10px; padding: 12px 14px; border-top: 1px solid var(--line); }
+  .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .tc { font: 500 15px/1 var(--mono); font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+  .tc .now { color: var(--gold); }
+  .tc .dur { color: var(--ash); }
+  .spacer { flex: 1; }
+
+  .scrub { position: relative; height: 22px; }
+  .scrub input { position: absolute; inset: 0; width: 100%; margin: 0; accent-color: var(--ember); background: transparent; }
+  .marks { position: absolute; left: 8px; right: 8px; top: 0; bottom: 0; pointer-events: none; }
+  .marks i { position: absolute; top: 1px; width: 2px; height: 7px; margin-left: -1px; background: var(--gold); border-radius: 1px; }
+  .marks i.closed { background: var(--done); opacity: .7; }
+
+  .composer { display: grid; gap: 6px; padding: 12px 14px 14px; border-top: 1px solid var(--line); background: var(--raised); }
+  .composer .at { font-size: 13px; color: var(--ash); }
+  .composer .at b { font: 500 13px var(--mono); color: var(--gold); }
+  textarea#noteInput { width: 100%; min-height: 44px; resize: vertical; background: var(--ground); border: 1px solid var(--line); border-radius: 6px; padding: 9px 10px; line-height: 1.4; }
+  textarea#noteInput::placeholder { color: var(--ash); }
+  .keys { font-size: 12px; color: var(--ash); display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  kbd { font: 500 11px var(--mono); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; color: var(--bone); background: var(--ground); }
+
+  aside { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; max-height: calc(62vh + 190px); min-height: 320px; }
+  .notes-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .notes-head h2 { margin: 0; font: 600 16px/1 var(--ui); letter-spacing: .01em; }
+  .notes-head .count { color: var(--ash); font-size: 13px; font-weight: 400; margin-left: 6px; }
+  .banner { margin: 10px 14px 0; font-size: 13px; color: var(--ash); border: 1px dashed var(--line); border-radius: 6px; padding: 7px 10px; }
+  .banner.good { color: var(--done); border-style: solid; border-color: color-mix(in srgb, var(--done) 40%, var(--line)); }
+  ol.notes { list-style: none; margin: 0; padding: 8px; overflow-y: auto; display: grid; gap: 6px; align-content: start; }
+  .note { border: 1px solid transparent; border-radius: 8px; padding: 9px 10px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 10px; }
+  .note:hover { background: var(--raised); border-color: var(--line); }
+  .note.active { border-color: var(--gold); }
+  .note.closed .text { color: var(--ash); text-decoration: line-through; text-decoration-color: var(--line); }
+  .chip { font: 500 12px/1 var(--mono); font-variant-numeric: tabular-nums; color: var(--gold); background: transparent; border: 1px solid var(--line); border-radius: 5px; padding: 5px 6px; cursor: pointer; align-self: start; }
+  .note.closed .chip { color: var(--done); }
+  .chip:hover { border-color: var(--gold); }
+  .text { white-space: pre-wrap; overflow-wrap: anywhere; }
+  .reply { grid-column: 2; font-size: 13px; color: var(--ash); border-left: 2px solid var(--done); padding-left: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .reply b { color: var(--done); font-weight: 600; }
+  .note-actions { grid-column: 2; display: flex; gap: 2px; flex-wrap: wrap; margin-left: -8px; }
+  .note-actions .btn { font-size: 12px; padding: 2px 8px; }
+  .confirm { grid-column: 2; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ash); flex-wrap: wrap; }
+  .edit-box { grid-column: 2; width: 100%; min-height: 60px; background: var(--ground); border: 1px solid var(--gold); border-radius: 6px; padding: 7px 8px; }
+  .empty { color: var(--ash); padding: 18px 14px; font-size: 14px; }
+  .notes-foot { border-top: 1px solid var(--line); padding: 12px 14px; display: grid; gap: 8px; }
+  .notes-foot p { margin: 0; font-size: 13px; color: var(--ash); }
+
+  .sheet-wrap { position: fixed; inset: 0; background: rgba(10, 7, 5, .72); display: grid; place-items: center; padding: 16px; z-index: 10; }
+  .sheet { width: min(720px, 100%); background: var(--panel); border: 1px solid var(--line); border-radius: 12px; display: grid; gap: 12px; padding: 16px; max-height: calc(100% - 32px); grid-template-rows: auto auto minmax(0, 1fr) auto; }
+  .sheet h3 { margin: 0; font: 600 20px/1.2 var(--display); }
+  .sheet p { margin: 0; color: var(--ash); font-size: 14px; max-width: 62ch; }
+  .sheet textarea { width: 100%; min-height: 240px; height: 100%; resize: vertical; background: var(--ground); border: 1px solid var(--line); border-radius: 6px; padding: 10px; font: 500 13px/1.55 var(--mono); }
+  .sheet .row { justify-content: space-between; }
+  .toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ash); }
+  .toast { color: var(--done); font-size: 13px; }
+
+  footer { color: var(--ash); font-size: 12px; text-align: center; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="app">
+  <header>
+    <div class="mark">
+      <h1>Cut Notes</h1>
+      <p>Pin notes to exact frames. Claude picks them up.</p>
+    </div>
+    <div class="head-controls">
+      <span class="pill" id="modePill">Notes saved in this browser</span>
+      <label class="fps" for="fps">Frame rate
+        <select id="fps">
+          <option value="23.976">23.976</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="29.97">29.97</option>
+          <option value="30" selected>30</option>
+          <option value="50">50</option>
+          <option value="59.94">59.94</option>
+          <option value="60">60</option>
+        </select>
+      </label>
+      <button class="btn" id="loadBtn" type="button">Load video</button>
+      <input id="file" type="file" accept="video/*" hidden>
+    </div>
+  </header>
+
+  <main>
+    <section class="stage" aria-label="Player">
+      <div class="screen" id="screen">
+        <video id="video" playsinline preload="metadata" hidden></video>
+        <div class="drop" id="drop">
+          <div>
+            <strong id="dropTitle">Drop your render here</strong>
+            <span id="dropText">Or use Load video. It plays from your computer and is never uploaded anywhere.</span>
+          </div>
+        </div>
+      </div>
+      <div class="transport">
+        <div class="scrub">
+          <input id="scrub" type="range" min="0" max="1" step="any" value="0" aria-label="Position" disabled>
+          <div class="marks" id="marks"></div>
+        </div>
+        <div class="row">
+          <button class="btn" id="back1" type="button" aria-label="Back one frame" disabled>◀︎ 1f</button>
+          <button class="btn" id="play" type="button" disabled>Play</button>
+          <button class="btn" id="fwd1" type="button" aria-label="Forward one frame" disabled>1f ▶︎</button>
+          <div class="tc"><span class="now" id="now">00:00:00:00</span> <span class="dur">/ <span id="dur">00:00:00:00</span></span></div>
+          <div class="spacer"></div>
+          <span class="tc dur" id="frameNo">frame 0</span>
+        </div>
+      </div>
+      <div class="composer">
+        <div class="at">New note at <b id="noteAt">00:00:00:00</b></div>
+        <textarea id="noteInput" rows="2" placeholder="Just start typing. The note pins to this frame, so there's no need to write the time. Enter saves." disabled></textarea>
+        <div class="row"><button class="btn primary" id="saveNote" type="button" disabled>Envoyer la note</button><span class="toast" id="noteSaved" hidden>Note envoyée</span></div>
+        <div class="keys">
+          <span><kbd>Space</kbd> play / pause</span>
+          <span><kbd>←</kbd> <kbd>→</kbd> one frame</span>
+          <span><kbd>Shift</kbd>+<kbd>←</kbd> <kbd>→</kbd> one second</span>
+          <span><kbd>N</kbd> or just type: new note</span>
+          <span><kbd>Enter</kbd> save, <kbd>Shift</kbd>+<kbd>Enter</kbd> new line, <kbd>Esc</kbd> cancel</span>
+        </div>
+      </div>
+    </section>
+
+    <aside aria-label="Notes">
+      <div class="notes-head">
+        <h2>Notes<span class="count" id="count"></span></h2>
+        <div class="row" id="headBtns">
+          <button class="btn quiet" id="clearBtn" type="button">Clear all</button>
+          <button class="btn" id="copyBtn" type="button">Copy for Claude</button>
+        </div>
+      </div>
+      <div class="banner" id="banner">These are example notes. Load a video and they're replaced with yours.</div>
+      <ol class="notes" id="list"></ol>
+      <div class="notes-foot" id="doneFoot" hidden>
+        <button class="btn primary" id="doneBtn" type="button">I'm done reviewing</button>
+        <p id="doneText">When you're done, click this, then say "done" to Claude in your session.</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer id="foot">Notes are saved in this browser, per video file. Nothing leaves your computer until you copy it. Template de Shaan Johari · <a href="https://instagram.com/viashaan">@viashaan</a></footer>
+</div>
+
+<div class="sheet-wrap" id="sheetWrap" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <h3 id="sheetTitle">Your notes for Claude</h3>
+    <p>Paste this into the Claude Code session where you're editing. Claude goes through each note, makes the change, and tells you what it did.</p>
+    <textarea id="out" readonly aria-label="Notes for Claude"></textarea>
+    <div class="row">
+      <label class="toggle" for="incDone"><input type="checkbox" id="incDone"> Include resolved notes</label>
+      <div class="row">
+        <span class="toast" id="toast" hidden>Copied</span>
+        <button class="btn" id="closeSheet" type="button">Close</button>
+        <button class="btn primary" id="copyNow" type="button">Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  /*
+   * Two ways to run:
+   *  - Local: video from the viewer's computer, notes in this browser, "Copy for Claude".
+   *  - In a Claude session: Claude publishes this page with the db capability, loads the
+   *    render into review/current, and reads the notes collection back. Notes, round and
+   *    Claude's replies sync through the artifact's database.
+   */
+  const $ = (id) => document.getElementById(id);
+  const video = $("video"), drop = $("drop"), screen = $("screen"), scrub = $("scrub"), marks = $("marks");
+  const input = $("noteInput"), list = $("list"), fpsSel = $("fps");
+
+  const EXAMPLES = [
+    { id: "e1", t: 3.4, text: "Cut his first sentence. Start on \"we nearly lost the company\".", status: "open" },
+    { id: "e2", t: 41.233, text: "Music is fighting his voice here. Drop it about 6dB until the line ends.", status: "open" },
+    { id: "e3", t: 78.667, text: "Hold on her face two more seconds after the answer. Don't cut on the full stop.", status: "fixed", reply: "Held 2s longer after her answer, cut on the next breath." },
+  ];
+
+  let fps = 30, fileKey = null, fileName = "", notes = EXAMPLES.slice(), examples = true;
+  let pendingT = null, editing = null, confirming = null, rafId = 0;
+  let db = null, round = 1, remoteSrc = "", allNotes = [];
+  const isClosed = (n) => n.status === "fixed" || n.status === "resolved" || n.done === true;
+
+  // ---- local storage (per viewer, per file; optional) ----
+  const store = {
+    get(k) { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+  };
+  const saveLocal = () => { if (!db && fileKey && !examples) store.set(fileKey, { fps, notes }); };
+
+  // ---- timecode ----
+  const frameOf = (t) => Math.floor(t * fps + 1e-4);
+  const tc = (t) => {
+    const nominal = Math.round(fps); // 29.97 shows as non-drop 30-frame timecode
+    const f = frameOf(t), ff = f % nominal, totalS = Math.floor(f / nominal);
+    const s = totalS % 60, m = Math.floor(totalS / 60) % 60, h = Math.floor(totalS / 3600);
+    const p = (n) => String(n).padStart(2, "0");
+    return `${p(h)}:${p(m)}:${p(s)}:${p(ff)}`;
+  };
+
+  // ---- video ----
+  function enablePlayer() {
+    examples = false;
+    video.hidden = false; drop.hidden = true;
+    [scrub, $("play"), $("back1"), $("fwd1"), input, $("saveNote")].forEach((el) => el.disabled = false);
+    updateBanner();
+  }
+  function loadFile(file) {
+    if (!file || !file.type.startsWith("video/")) { flagDrop("That file isn't a video. Try an MP4 or MOV export."); return; }
+    if (video.src && video.src.startsWith("blob:")) URL.revokeObjectURL(video.src);
+    video.src = URL.createObjectURL(file);
+    fileName = file.name;
+    if (!db) {
+      fileKey = `cutnotes:${file.name}:${file.size}`;
+      const saved = store.get(fileKey);
+      notes = saved && Array.isArray(saved.notes) ? saved.notes : [];
+      if (saved && saved.fps) { fps = saved.fps; fpsSel.value = String(saved.fps); }
+    }
+    enablePlayer(); render();
+  }
+  function loadRemote(src, name) {
+    if (!src || src === remoteSrc) return;
+    remoteSrc = src; fileName = name || fileName || "render";
+    video.src = src;
+    enablePlayer(); render();
+  }
+  function flagDrop(msg) { drop.hidden = false; $("dropText").textContent = msg; }
+  $("loadBtn").addEventListener("click", () => $("file").click());
+  $("file").addEventListener("change", (e) => loadFile(e.target.files[0]));
+  ["dragenter", "dragover"].forEach((ev) => screen.addEventListener(ev, (e) => { e.preventDefault(); drop.hidden = false; drop.classList.add("over"); }));
+  ["dragleave", "drop"].forEach((ev) => screen.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("over"); if (video.src) drop.hidden = true; }));
+  screen.addEventListener("drop", (e) => loadFile(e.dataTransfer.files[0]));
+
+  video.addEventListener("loadedmetadata", () => {
+    scrub.max = video.duration || 1;
+    screen.classList.toggle("portrait", video.videoHeight > video.videoWidth);
+    $("dur").textContent = tc(video.duration || 0);
+    tick(); render();
+  });
+  video.addEventListener("error", () => { video.hidden = true; flagDrop("This browser can't play that file. Export an H.264 MP4 and try again."); });
+
+  // ---- transport ----
+  function tick() {
+    const t = video.currentTime || 0;
+    $("now").textContent = tc(t);
+    $("frameNo").textContent = `frame ${frameOf(t)}`;
+    if (pendingT === null) $("noteAt").textContent = tc(t);
+    if (!scrub.matches(":active")) scrub.value = t;
+  }
+  function loop() { tick(); rafId = video.paused ? 0 : requestAnimationFrame(loop); }
+  video.addEventListener("play", () => { $("play").textContent = "Pause"; if (!rafId) loop(); });
+  video.addEventListener("pause", () => { $("play").textContent = "Play"; tick(); });
+  video.addEventListener("seeked", tick);
+  video.addEventListener("timeupdate", () => { if (video.paused) tick(); });
+  const togglePlay = () => { if (!video.src) return; video.paused ? video.play().catch(() => {}) : video.pause(); };
+  const stepFrames = (n) => {
+    if (!video.src) return;
+    video.pause();
+    const f = Math.max(0, frameOf(video.currentTime) + n);
+    video.currentTime = Math.min(video.duration || 0, (f + 0.5) / fps);
+  };
+  const stepSeconds = (s) => { if (!video.src) return; video.currentTime = Math.max(0, Math.min(video.duration || 0, video.currentTime + s)); };
+  $("play").addEventListener("click", togglePlay);
+  $("back1").addEventListener("click", () => stepFrames(-1));
+  $("fwd1").addEventListener("click", () => stepFrames(1));
+  scrub.addEventListener("input", () => { video.currentTime = parseFloat(scrub.value); });
+  fpsSel.addEventListener("change", () => { fps = parseFloat(fpsSel.value); tick(); render(); saveLocal(); });
+
+  // ---- composing: the note pins to the frame on screen the moment you start writing ----
+  const pin = () => { if (pendingT !== null) return; video.pause(); pendingT = video.currentTime || 0; $("noteAt").textContent = tc(pendingT); };
+  input.addEventListener("focus", pin);
+  input.addEventListener("input", pin);
+  // Les notes tapées ou dictées sans Entrée, puis « I'm done », se perdaient. Une note tapée est enregistrée
+  // dès qu'on quitte le champ, avec le bouton « Envoyer la note », et avant « I'm done ».
+  input.addEventListener("blur", () => { if (input.value.trim()) addNote(); else pendingT = null; });
+  $("saveNote").addEventListener("mousedown", (e) => e.preventDefault());
+  $("saveNote").addEventListener("click", () => addNote());
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); addNote(); }
+    if (e.key === "Escape") { input.value = ""; pendingT = null; input.blur(); }
+  });
+
+  // ---- note operations: local array, or the artifact database when Claude set this up ----
+  async function addNote() {
+    const text = input.value.trim();
+    if (!text || examples) return;
+    const t = pendingT !== null ? pendingT : (video.currentTime || 0);
+    input.value = ""; pendingT = null;
+    const body = { t, tc: tc(t), frame: frameOf(t), fps, text, status: "open", round, created: new Date().toISOString() };
+    if (db) {
+      try { await db.collection("notes").add(body); const ok = $("noteSaved"); ok.hidden = false; setTimeout(() => ok.hidden = true, 1800); }
+      catch (e) { input.value = text; showProblem(e); }
+      return;
+    }
+    notes.push({ id: String(Date.now()), ...body });
+    saveLocal(); render();
+  }
+  async function patchNote(n, fields) {
+    if (db) { try { await db.collection("notes").doc(n.id).update(fields); } catch (e) { showProblem(e); } return; }
+    Object.assign(n, fields); saveLocal(); render();
+  }
+  async function removeNote(n) {
+    if (db) { try { await db.collection("notes").doc(n.id).delete(); } catch (e) { showProblem(e); } return; }
+    notes = notes.filter((x) => x.id !== n.id); saveLocal(); render();
+  }
+  function showProblem(e) {
+    const b = $("banner"); b.hidden = false; b.className = "banner";
+    b.textContent = e && e.code === "quota_exceeded" ? "This review is full. Delete some old notes and try again." : "That note didn't save. Check your connection and try again.";
+  }
+
+  document.addEventListener("keydown", (e) => {
+    const tag = (e.target.tagName || "").toLowerCase();
+    if (tag === "textarea" || tag === "select" || (tag === "input" && e.target.type !== "range")) return;
+    if (!$("sheetWrap").hidden) { if (e.key === "Escape") closeSheet(); return; }
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === " " || e.key === "k") { e.preventDefault(); togglePlay(); return; }
+    if (e.key === "ArrowLeft") { e.preventDefault(); e.shiftKey ? stepSeconds(-1) : stepFrames(-1); return; }
+    if (e.key === "ArrowRight") { e.preventDefault(); e.shiftKey ? stepSeconds(1) : stepFrames(1); return; }
+    if (!video.src || input.disabled) return;
+    if (e.key === "n" || e.key === "N") { e.preventDefault(); input.focus(); return; }
+    if (e.key.length === 1) input.focus(); // just start typing; the key lands in the note
+  });
+
+  // ---- notes list ----
+  function visible() { return db && !examples ? allNotes.filter((n) => (n.round || 1) === round) : notes; }
+  function render() {
+    const shown = visible().slice().sort((a, b) => a.t - b.t);
+    const open = shown.filter((n) => !isClosed(n)).length;
+    $("count").textContent = shown.length ? `${open} open of ${shown.length}` : "";
+    list.innerHTML = "";
+    if (!shown.length) {
+      const li = document.createElement("li");
+      li.className = "empty";
+      li.textContent = video.src ? "No notes yet. Pause anywhere and start typing." : "Load a video to start.";
+      list.appendChild(li);
+    }
+    const now = video.currentTime || 0;
+    shown.forEach((n) => {
+      const li = document.createElement("li");
+      li.className = "note" + (isClosed(n) ? " closed" : "") + (Math.abs(n.t - now) < 0.5 / fps ? " active" : "");
+      const chip = document.createElement("button");
+      chip.className = "chip"; chip.type = "button"; chip.textContent = tc(n.t);
+      chip.title = "Jump to this frame";
+      chip.addEventListener("click", () => { if (!video.src) return; video.pause(); video.currentTime = n.t + 0.5 / fps; });
+      li.appendChild(chip);
+
+      if (editing === n.id) {
+        const box = document.createElement("textarea");
+        box.className = "edit-box"; box.value = n.text; box.id = "edit-" + n.id; box.setAttribute("aria-label", "Edit note");
+        box.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); const v = box.value.trim(); editing = null; if (v && v !== n.text) patchNote(n, { text: v }); else render(); }
+          if (e.key === "Escape") { editing = null; render(); }
+        });
+        li.appendChild(box);
+        setTimeout(() => box.focus(), 0);
+      } else {
+        const text = document.createElement("div");
+        text.className = "text"; text.textContent = n.text;
+        li.appendChild(text);
+      }
+      if (n.reply) {
+        const r = document.createElement("div");
+        r.className = "reply";
+        const who = document.createElement("b"); who.textContent = n.status === "fixed" ? "Fixed: " : "Claude: ";
+        r.append(who, document.createTextNode(n.reply));
+        li.appendChild(r);
+      }
+
+      if (confirming === n.id) {
+        const c = document.createElement("div");
+        c.className = "confirm";
+        c.append("Delete this note?", mk("Delete", () => { confirming = null; removeNote(n); }), mk("Keep", () => { confirming = null; render(); }));
+        li.appendChild(c);
+      } else if (!examples) {
+        const a = document.createElement("div");
+        a.className = "note-actions";
+        a.append(
+          mk(isClosed(n) ? "Reopen" : "Resolve", () => patchNote(n, { status: isClosed(n) ? "open" : "resolved", done: false })),
+          mk("Edit", () => { editing = n.id; render(); }),
+          mk("Delete", () => { confirming = n.id; render(); }),
+        );
+        li.appendChild(a);
+      }
+      list.appendChild(li);
+    });
+    marks.innerHTML = "";
+    const d = video.duration || (examples ? 90 : 0);
+    if (d) shown.forEach((n) => { const i = document.createElement("i"); i.style.left = (n.t / d * 100) + "%"; if (isClosed(n)) i.className = "closed"; marks.appendChild(i); });
+  }
+  function mk(label, fn) { const b = document.createElement("button"); b.type = "button"; b.className = "btn quiet"; b.textContent = label; b.addEventListener("click", fn); return b; }
+  function updateBanner() {
+    const b = $("banner");
+    if (examples) { b.hidden = false; b.className = "banner"; b.textContent = db ? "Claude hasn't loaded a render yet. You can also drop the file in yourself." : "These are example notes. Load a video and they're replaced with yours."; return; }
+    b.hidden = true;
+  }
+
+  // ---- clear (current round / this video) ----
+  $("clearBtn").addEventListener("click", () => {
+    const shown = visible();
+    if (examples || !shown.length) return;
+    const head = $("headBtns");
+    if (head.dataset.confirm) return;
+    head.dataset.confirm = "1";
+    const keep = [...head.children]; keep.forEach((el) => el.hidden = true);
+    const msg = document.createElement("span"); msg.className = "toggle"; msg.textContent = "Delete every note here?";
+    const yes = mk("Delete all", async () => { done(); for (const n of shown.slice()) await removeNote(n); render(); });
+    const no = mk("Keep", done);
+    head.append(msg, yes, no);
+    function done() { [msg, yes, no].forEach((el) => el.remove()); keep.forEach((el) => el.hidden = false); delete head.dataset.confirm; }
+  });
+
+  // ---- "I'm done" (only when Claude set this up with a database) ----
+  $("doneBtn").addEventListener("click", async () => {
+    if (!db) return;
+    if (input.value.trim()) await addNote();
+    const shown = visible();
+    try {
+      await db.doc("review/status").set({ state: "done", round, open: shown.filter((n) => !isClosed(n)).length, at: new Date().toISOString() });
+      $("doneText").textContent = `Round ${round} is marked done. Now say "done" to Claude in your session and it'll work through your notes.`;
+    } catch (e) { showProblem(e); }
+  });
+
+  // ---- export for Claude (works in both modes) ----
+  function exportText() {
+    const inc = $("incDone").checked;
+    const rows = visible().slice().sort((a, b) => a.t - b.t).filter((n) => inc || !isClosed(n));
+    const name = examples ? "example-render.mp4" : fileName;
+    const dur = video.duration ? tc(video.duration) : "unknown";
+    return [
+      `# Review notes: ${name}`,
+      `${fps} fps · length ${dur} · ${rows.length} note${rows.length === 1 ? "" : "s"}`,
+      "",
+      `Go through these one at a time and make each change in the edit of ${name}. Each note is pinned to a frame: timecodes are HH:MM:SS:FF at ${fps} fps, with seconds in brackets. Keep everything I haven't mentioned exactly as it is. When you're done, list what you changed for each note, and anything you couldn't do and why.`,
+      "",
+      ...rows.map((n, i) => `${i + 1}. ${tc(n.t)} (${n.t.toFixed(2)}s)${isClosed(n) ? " [already resolved]" : ""}: ${n.text.replace(/\n+/g, " ")}`),
+    ].join("\n");
+  }
+  function openSheet() { $("out").value = exportText(); $("toast").hidden = true; $("sheetWrap").hidden = false; $("copyNow").focus(); }
+  function closeSheet() { $("sheetWrap").hidden = true; $("copyBtn").focus(); }
+  $("copyBtn").addEventListener("click", openSheet);
+  $("closeSheet").addEventListener("click", closeSheet);
+  $("incDone").addEventListener("change", () => { $("out").value = exportText(); });
+  $("sheetWrap").addEventListener("click", (e) => { if (e.target === $("sheetWrap")) closeSheet(); });
+  $("copyNow").addEventListener("click", () => {
+    const text = $("out").value;
+    const fallback = () => { $("out").focus(); $("out").select(); $("toast").textContent = "Selected. Press Cmd+C (Ctrl+C on Windows) to copy."; $("toast").hidden = false; };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => { $("toast").textContent = "Copied. Paste it into your Claude session."; $("toast").hidden = false; }).catch(fallback);
+    } else fallback();
+  });
+
+  // ---- light up the Claude-session mode when this copy was published with a database ----
+  async function connect() {
+    if (!window.claude || typeof window.claude.use !== "function") return;
+    let d = null;
+    try { d = await window.claude.use("db"); } catch { d = null; }
+    if (!d) return;
+    db = d;
+    notes = []; allNotes = [];
+    $("modePill").textContent = "Notes go straight to Claude"; $("modePill").classList.add("live");
+    $("foot").textContent = "Notes are saved for Claude in this review. Your video only plays here.";
+    $("dropTitle").textContent = "Waiting for Claude's render";
+    $("dropText").textContent = "Claude loads the video here when it shares this review. You can also drop the file in yourself.";
+    $("doneFoot").hidden = false;
+    updateBanner();
+    db.doc("review/current").onSnapshot((snap) => {
+      const c = snap.exists ? snap.data() : null;
+      if (!c) return;
+      if (typeof c.round === "number" && c.round !== round) { round = c.round; $("doneText").textContent = `When you're done, click this, then say "done" to Claude in your session.`; }
+      if (c.fps && Number(c.fps) !== fps) { fps = Number(c.fps); fpsSel.value = String(c.fps); }
+      if (c.name) fileName = String(c.name);
+      $("modePill").textContent = `Round ${round} · notes go straight to Claude`;
+      if (c.src) loadRemote(String(c.src), c.name); else render();
+    }, () => {});
+    db.collection("notes").onSnapshot((snap) => {
+      allNotes = snap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      if (allNotes.length && examples) { examples = false; updateBanner(); [scrub, $("play"), $("back1"), $("fwd1"), input].forEach((el) => el.disabled = !video.src); }
+      render();
+    }, () => {});
+  }
+
+  render();
+  connect();
+})();
+</script>

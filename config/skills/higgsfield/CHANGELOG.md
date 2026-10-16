@@ -1,0 +1,1446 @@
+# Changelog
+
+## v3.40.0 — 2026-09-26
+
+**Model-catalog drift: every recommended model name checked against the live catalog.** On
+2026-09-26 every model name the skill recommends was checked against `higgsfield model list`
+(94 models) and `higgsfield workflow list` (22 workflows) from CLI 1.1.23. Both were re-run and
+matched the earlier dump exactly. Names were also checked against each model's name history in
+every committed `models_explore` snapshot (2026-06-11 → 2026-09-26). The policy is **annotate,
+don't retire**: none of these models has a shutdown notice, and some are probably still in
+Higgsfield's web UI but not in its API catalog, which is where Sora 2 stood before its shutdown.
+Each absent model now carries the July-era wording ("not in the API catalog as of the 2026-09-26
+snapshot; may be UI-only — verify in the live UI before recommending"). Where it shared a
+recommendation, the catalog model now comes first. Where it was the only pick, a catalog
+alternative from the repo's own doctrine or specs now sits beside it. No entry was deleted, and
+no new quality claim was written.
+
+### Changed
+
+- **Not in the API catalog, annotated with a catalog alternative:**
+  - **Wan 2.5**. Stylized, surreal, painterly and fantasy work goes to **Wan 2.6** (its own row:
+    "artistic, stylized"; the decision tree's existing "Wan 2.5 / 2.6" pick), and native audio to
+    **Wan 2.7**. Updated in the camera and motion-preset tables, recipes 4/5/9, troubleshoot,
+    `negative-constraints.md`, style (VHS, Abstract), assist and templates 03/05/07. The two
+    `prompt-examples.md` Wan 2.5 examples keep their prompts and are labelled to rerun on Wan 2.7:
+    they are 8s and one leans on audio, and Wan 2.6 takes only 5 / 10 / 15s.
+  - **Soul Cinema Preview** (no catalog model by that name) → **Soul Cinema** (`soul_cinematic`;
+    § Routing by Asset Class: "most cinematic frames"). The two are *not* treated as one model:
+    `higgsfield-soul` documents the Cinema Studio "Soul Cinema" as distinct from the standalone
+    Preview, and nothing proves `soul_cinematic` is the Preview's release. The USER-GUIDE row now
+    reads Soul Cinema.
+  - **Kling 2.5 Turbo** → **Kling 3.0 Turbo** (`kling3_0_turbo`: "Fast text-to-video and single
+    start-frame animation"; its row already says "budget Kling 3.0").
+  - **Kling O1 Video** → start/end frame on **Kling 3.0** (`start_image` + `end_image`), many
+    references on **Seedance 2.0 / 2.5**.
+  - **Kling 3.0 Omni** (O3 generation; only its edit model `kling_video_edit` is in the catalog)
+    → per-shot storyboards on **Kling 3.0**, per the V3/O3 multi-shot storyboard format.
+  - **Higgsfield DoP** → animate a still on **Kling 3.0** (`start_image`, its Dolly In / 360
+    Orbit pick), and budget video on Kling 3.0 Turbo.
+  - **Kling Avatars 2.0** → a talking head on **Seedance 1.5 Pro** (start image plus native
+    audio; the repo's best-lip-sync pick).
+  - Image models: **Kling Image 3.0** → Nano Banana Pro for native 4K. **Kling Image 3.0 Omni** →
+    Nano Banana 2 for edits. **Wan 2.2** → Seedream 5.0 Pro. **Multi Reference** → Nano Banana
+    Pro (14 references). **Higgsfield Soul** → Soul 2.0.
+  - **GPT Image 1.5** → GPT Image 2. The retired catalog id `gpt_image` was named *GPT Image 1.5*
+    in its only snapshot (2026-06-22). v3.19.0 had attributed that exit to the original
+    "GPT Image" and told users to prefer 1.5, which is now corrected.
+- **Not in the API catalog, annotated only (no justified alternative):** Wan 2.5 Fast, Reve,
+  Seedream 4.0, Kling 3.0 Omni's performance cloning (likeness + voice), Kling Image 3.0's Image
+  Series Mode, and the Elemental preset row. No repo line routes elemental presets to any model
+  but Wan 2.5, so that row keeps it alone. Where a 4K pick replaces a Kling Image one, its credit
+  cell now says the listed price is for 1K.
+- **Minimax Hailuo 02 / 02 Fast: unconfirmed, not absent.** `minimax_hailuo` offers `minimax`,
+  `minimax-fast`, `minimax-2.3` (default) and `minimax-2.3-fast`, and nothing says the
+  unversioned pair is 02. The rows are annotated, and "dance, sports" now routes to Minimax
+  Hailuo 2.3 (the Dance / Motion glow preset pick).
+- **Renamed to the catalog's name:** Grok Imagine Video → **Grok Video** (`grok_video`, renamed
+  in the 2026-07-05 snapshot). Grok Imagine 1.5 → **Grok Video 1.5**, whose row now matches the
+  specs: image and audio references, and 480p / 720p / 1080p. Kling O1 (image) → **Kling O1
+  Image** (`kling_omni_image`). Flux Kontext Max: the API id `flux_kontext` carried that name on
+  2026-06-22 and has been **Flux Kontext** since 2026-07-05. The Max entry and its UI price stay,
+  annotated, because a separate UI Max tier is unverified. Nano Banana Flash in
+  `production-benchmarks.md` is glossed as Nano Banana 2.
+- **Present, now labelled:** Veo 3.1 Fast and Veo 3 Fast are the `veo-3-1-fast` / `veo-3-fast`
+  variants of `veo3_1` / `veo3`, and both are the catalog **defaults**.
+- `model-guide.md` gains a one-paragraph catalog check under the video table, root `SKILL.md`
+  gains a short catalog note inside its existing platform paragraph (the dispatcher stays under
+  the 400-line QUICK FACTS threshold), and `image-models.md` gains a catalog-check preamble. **Kling 3.0 Motion
+  Control** was confirmed as the CLI **workflow** `kling3_0_motion_control`. No line claimed it
+  was absent or called it a model id.
+- Version bumps: `higgsfield-models` 3.3.3 (+ `MODELS-DEEP-REFERENCE.md` 3.3.2),
+  `higgsfield-recipes` 3.1.2, `higgsfield-troubleshoot` 3.3.1, `higgsfield-style` 3.1.3,
+  `higgsfield-assist` 3.1.3, `higgsfield-cinema` 3.5.3, `higgsfield-audio` 3.9.1 (the Grok
+  heading is renamed; INDEX.md is rebuilt), `higgsfield-pipeline` 3.6.2 and `higgsfield-prompt`
+  3.7.2. The USER-GUIDE model table now reads Kling 3.0 Turbo, Minimax Hailuo 2.3 and Soul
+  Cinema. It is a one-line summary, so it names the catalog pick outright; the absent model and
+  its annotation live in `model-guide.md`.
+- `scripts/validate.py`: the `grokimaginevideo` guide-name override was dropped. The row is now
+  "Grok Video" and resolves by name, and the duration cross-check now also covers Grok Video 1.5.
+
+### Not changed
+
+- `specs/` (generated), CHANGELOG history, `db/`, `docs/archive/` and `tests/` fixtures. No
+  `evals/cases/` response names an affected model as a recommendation. `model-lanes.json` already
+  asserts "grok imagine video" and "→ Kling O1 Video Edit" are absent from its answer, and
+  `evals/spec-claims.json` has no entry for these names.
+- UI tools and apps that are not model names (Lipsync Studio, Popcorn, Recast, Photodump, Face /
+  Character Swap) are out of scope.
+
+## v3.39.0 — 2026-09-26
+
+**Sora 2 retired from the recommendations.** OpenAI's deprecations page ("2026-03-24: Sora 2
+video generation models and Videos API") records that developers were notified on 2026-03-24 and
+that the Videos API, `sora-2`, `sora-2-pro` and their dated snapshots were removed from the API on
+**2026-09-24**, with no recommended replacement. OpenAI's video-generation guide now opens: "The
+Sora 2 models and Videos API were shut down on September 24, 2026 and are no longer available."
+Higgsfield never exposed Sora 2 in its API/MCP catalog (UI-only, confirmed in the UI 2026-07-06).
+On 2026-09-26 it was still absent from `higgsfield model list --video` (CLI 1.1.23, 37 video
+models), `higgsfield workflow list`, and the MCP `models_explore`, `apps_search` and
+`get_presets`. **Whether Sora 2 still works in Higgsfield's web UI after 09-24 is unconfirmed**:
+higgsfield.ai/sora-2 was still up with no shutdown notice. The skill therefore stops steering users to it
+everywhere and keeps the history, marked retired, instead of deleting it.
+
+### Changed
+
+- **Replacements come from the repo's own doctrine.** Where Sora 2 shared a row, it was dropped
+  and the other picks kept. Where it was the only pick, the row now names the fallback already
+  written for that shot type: the catalog-verified scale / physics fallbacks **Seedance 2.0,
+  Minimax Hailuo 2.3** (`model-guide.md` § Model + Camera Control Compatibility), Veo 3.1 for
+  vehicle chases (the `higgsfield-pipeline` car/vehicle row), Seedance 2.0 for the fight example
+  (the deep reference's "Complex fight" row), and Minimax Hailuo 2.3 for concert crowds (template
+  10's own crowd rule). Every named model is in today's `higgsfield model list --video`
+  (Hailuo 2.3 is `minimax_hailuo`'s default `minimax-2.3` variant).
+- `model-guide.md`: the Sora 2 row became a retired entry (old variant lineup kept as reference);
+  decision tree, camera-control table (Crane Up / Super Dolly Out → Seedance 2.0, Minimax Hailuo
+  2.3; FPV Drone and Hyperlapse keep their other picks), motion-preset table (Elemental, Explosion,
+  Bullet Time keep their other picks) and the credit table updated. Both † footnotes now record the
+  retirement.
+- Root `SKILL.md`: Sora 2 left the trigger description's model list and the platform list, and a
+  one-paragraph retirement note points to the fallbacks.
+- `higgsfield-models` 3.3.2 (+ `MODELS-DEEP-REFERENCE.md` 3.3.1): the comparison row and the deep
+  entry are now "retired" entries, the old entry kept under a *reference only* banner; the
+  flowchart and quick-decision rows drop the "UI-only — verify" caveat for a retirement pointer.
+- `higgsfield-pipeline` 3.6.1: the Stage 3 stunt and epic rows → Seedance 2.0 / Minimax Hailuo 2.3,
+  the vehicle row keeps Veo 3.1, and QUICK FACTS and the chain diagram follow. The Scene 3 example keeps
+  its prompt and is labelled as written for Sora 2, with the model to rerun it on. The "Sora 2 Upscale"
+  tip now says not to plan around it.
+- `higgsfield-recipes` 3.1.1, `higgsfield-apps` 3.0.2, `higgsfield-cinema` 3.5.2,
+  `higgsfield-style` 3.1.2, `higgsfield-vibe-motion` 3.0.2, `higgsfield-assist` 3.1.2 (its garbled
+  "UI / live UI" caveat replaced) and `higgsfield-stack` 1.3.1 (preflight model lists): Sora 2
+  dropped or replaced as above.
+- **`higgsfield-workspaces` 1.3.0**: "fast short-form or viral-style content" now routes to the
+  **Viral Hub presets**, a new section citing the MCP tool schema (`get_presets`,
+  `source: 'viral'` lists the Viral Hub chain presets; browsing never runs `execute_preset`). The
+  **Sora 2 Trends** section is kept under a banner: built on Sora 2, likely affected by the
+  shutdown, unconfirmed in the UI.
+- Templates 01, 05, 07 and 10 recommend the fallbacks. Template 05's example and the two
+  `prompt-examples.md` Sora examples (Rooftop Fight, Zero Gravity Breach) keep their prompt text.
+  Their `Model:` lines are marked RETIRED and name the model to rerun on, not rewritten as if they
+  had been written for another model.
+- README (feature list, preflight line, workspaces tree, the example model question) and the
+  USER-GUIDE generator's model table ("Epic scale, big environments" → Seedance 2.0 / Minimax
+  Hailuo 2.3).
+
+### Not changed
+
+- CHANGELOG history, `db/` (memory and ledger history), `docs/archive/` and the `tests/` fixture
+  that uses "Sora 2" as sample text. Sora 2 never appeared in a `models_explore` snapshot, so
+  `specs/retired-model-ids.json` (generated from snapshot history) has no entry for it. No eval
+  case or `evals/spec-claims.json` entry named Sora.
+
+## v3.38.0 — 2026-09-26
+
+**The reconciliation pass.** Twelve releases of harvested doctrine (v3.24–v3.35) had been
+merged without an adversarial read, and different files had come to give opposite answers to
+the same question. A 2026-09-26 audit of that delta found two wrong-answer contradictions and
+fourteen more. The repo's own law is that a real tension is **recorded, not silently
+resolved** — so each was classified: a *scope* conflict (both rules right in different regimes)
+is resolved by stating the scope in both places, each citing the other; a *genuinely unmeasured*
+conflict is recorded **OPEN** with both sides, their provenance, and a default only where one
+side is clearly the cheaper failure; a *plain error* is just fixed.
+
+### Added
+
+- **`skills/shared/house-rulings.md`** — the index of every contested question (P1-1, P1-2,
+  P2-1…14, P3-1…6): the question, the ruling or OPEN, the scope, both sides with file and
+  provenance, and the probe that would settle it.
+- **`skills/shared/provenance.md`** — one repo-wide label legend: what `[OFFICIAL]`, `[DEMO]`,
+  `[FIELD]`, `[EMPIRICAL]`, `[HOUSE]` and `[MEASURED]` mean and the evidence each requires
+  (MEASURED needs route, model / mode / resolution, n and date); third-party skill material is
+  EMPIRICAL — judged sound, not measured on our routes. Linked from root `SKILL.md`.
+- **The Stop-Rule Ladder** (`higgsfield-troubleshoot` § Stop-Rule Ladder) — six stop numbers,
+  ordered: 2 same-flaw re-rolls → rewrite · the half-budget tripwire (rung 2b) · 3 paid attempts
+  with no declared budget → named options · 4 v2v batches → a prompt/source fault · 10–15
+  surgical iterations inside a declared budget → simplify the shot · 65–100 generations per kept
+  shot is a project benchmark, never a stop rule. Most rungs count different things; two points
+  where they count the same thing are recorded **OPEN** — rung 1 vs rung 3 in v2v (default: the
+  earliest stop, the cheaper failure) and "different flaws → batch-and-cull" vs the Retry Ladder's
+  "second failure = over-packed → split" (no default and no tie-break: the agent names both moves
+  with their costs and the user picks; at five or more logged rows the ledger's fork verdict
+  decides). Cited
+  from Hell Grind, VFX-PIPELINE, production-benchmarks and the Seedance failure loop.
+- A root dispatcher row and Load Map row for `FAILURE-MODES.md` (which doubled to 15 entries
+  and was barely routed), and a technique row for `templates/seedance/staging-reference.md`
+  (unreachable from the dispatcher).
+- 7 eval cases (stop-ladder ×2, routing to acting and scene-engine, NO BGM outside 2.5's `()`
+  music bracket, the staging reference is not a blocking lock, Seedance 2.0's 15.2 s
+  audio-reference total cap). The independent review found wrong answers passing five of them
+  (and the older catchlight case); a second reader then found 16 more wrong answers passing
+  across 8 cases. After both rounds, all 47 recorded wrong-answer mutants fail and every golden
+  passes.
+
+### Changed — scope-resolved
+
+- **Character description volume (P1-1).** On an I2V start frame the prompt carries motion +
+  camera only; with no reference, the full descriptor goes in verbatim every time. With a
+  character reference attached, the two Higgsfield sources disagree — **OPEN**, no default on
+  volume; both agree the wording is fixed and never contradicts the reference.
+- States vs chained actions (pick by the shot's job), voice on 2.0 vs 2.5, second passes (the
+  identity base never takes a second full pass; a derived look frame may — OPEN whether one Nano
+  Banana 2 pass softens a sheet, default: mask the fix back onto the base), scale (the size-ref
+  image is scoped to ratios no true, visible landmark can express; Hell Grind's 30 m giant — about
+  16× a human — is stated as its brief states it, which does not say whether a size-ref image was
+  also attached), negation
+  exceptions (a test plus seven legitimate bans in `negative-constraints.md`), Style Prefix
+  "moving" vs the first-second wide (a `[HOUSE]` reading, narrowed to what the brief withholds —
+  a scripted action beat and a camera move), handles as sentence subjects (2.5 names the
+  character, 2.0 leads with the tag — stated in acting rule 6 too), tag versioning, the movement lock vs per-scene rewrite, and a
+  scene-engine ↔ acting term map.
+- **Sheet laws** restated five to six times with drifting shades and mechanisms: `templates/
+  ad-asset-prep.md` is now the single canonical home for the grey background and the
+  one-readable-face law; every sheet surface now cites it (soul incl. its split panel, VFX-PIPELINE,
+  character-design, Hell Grind, 2.5, gpt-image-2's reference-sheet workflow, cinema's sheet types).
+
+### Recorded OPEN (with named settling probes)
+
+- P1-1 (description volume with a reference attached — `higgsfield-troubleshoot`'s identity fix
+  now deletes contradicting text first in every regime and "delete ALL appearance text" only on a
+  start frame / I2V), P2-2 (what "describe the voice once" means on 2.5 — **no default**:
+  re-stating the voice may fight the sheet, leaving it out may leave a later shot unprotected;
+  settled either way: the voice goes in the role sentence, verbatim from the voice bible), P2-4 (film grain on a reference plate — **no default**: baked
+  grain and an AI-uniform grain-free plate are both inherited by every shot), P2-7 (`NO BGM` vs the
+  field-proven `No music.` — both legal; lead with the positive diegetic list; `(no music)` inside
+  2.5's `()` bracket reads as a music cue is a labelled `[HOUSE]` inference; `higgsfield-audio`
+  3.9.0's section relabelled EMPIRICAL and its "short form" made actually short), **P2-6** (the
+  anamorphic bake rule is one studio's `[FIELD]` report; whether a Style Prefix — pasted into every
+  scene prompt — keeps the lens words over location plates that carry the look is **no default**:
+  Hell Grind `[OFFICIAL]` keeps the look in both the locations and the video prompts), P3-2
+  (clothing edit vs from-scratch sheets — no default; a per-character comparison across 2–3 models
+  decides), P3-6 (whether the sync budget is a per-clip total or a rate — no default; the
+  filler-babble run was transcript-graded, from an outside product's registry, and is not
+  lip-sync evidence; scripting the silence or cutting the shot to the line works under either).
+
+### Fixed — plain errors
+
+- The staging template shipped Midjourney syntax (`--ar … --stylize … --no photorealism, …`) — on
+  a Higgsfield model the `--no` list ships as positive tokens; removed.
+- The shotlist glossary attached a top-down map, against the top-down-map template's own law —
+  now a front-on staging reference. `FAILURE-MODES` used the staging map as frame one — it is
+  attached last.
+- The walking fix told a prompt to match "the camera speed of shot 9", which it cannot see — the
+  same absolute speed now goes into both prompts.
+- Provenance normalised: the labels for third-party skill material collapsed to EMPIRICAL
+  everywhere (incl. the seedance-2.0 repo v6.6.0 community material in audio, seedance and
+  pipeline); the legend reads HYPOTHESIS / INFERENCE / heuristic tags as HOUSE; SD25-PE
+  (OFFICIAL → EMPIRICAL — no authorship record) added to the 2.5 Provenance table; "every
+  template here is [OFFICIAL]" and acting's file-wide header corrected; filler-babble's
+  `[MEASURED]` marked *record incomplete* and its citation of an outside product dropped; the
+  staging reference is "measured safe in one incomplete-record run", not flatly "measured safe".
+- Hell Grind residue (references are not "assets only"; the removed `@TAG` age form; 3,000–4,000
+  words is above the register ladder, not its top; parameters are not prompt text), catchlight
+  residue, an anatomically impossible example, three dangling § references, QUICK FACTS pointers
+  for sections that lacked them, README / root counts (19 template files, 15 failure modes, 10
+  Seedance templates, scene-engine listed), Seedream 4.0 → 5.0 in the platform list.
+- **Age-blind examples.** `templates/ad-asset-prep.md`'s related-character example named a
+  13–14-year-old; the technique (derive the relative from the same source face) is kept as "his
+  sister, a woman of slighter build", per the age-blind engine rule — the content filter
+  tightens on any minor. A repo-wide sweep (completed in a second round after a reader found nine
+  places the first missed) removed age words and trigger tokens from character descriptions in
+  every example, template, format card and eval golden, incl. a v2v golden that said "young man",
+  now guarded by a `regex_absent` on an English + Chinese age list. Two recorded quotes (a GPT
+  Image 2 corpus example and a Dreamina dialogue example) were altered and are marked *adapted*;
+  the stored filter-memory record that suggests an "age range" is left as data and overridden in
+  `higgsfield-recall` (engine rule 1 wins). Rule statements that list the words, eval requests that
+  test the rule, quoted vendor demo prompts, titles and voice-design settings were left as they are.
+- `s25-v2v-routes-to-omni-reference` now asserts Duration equals the stated source length;
+  `trap-s25-four-batch-rule` now also rejects "run another four batches".
+
+### Corrections to earlier entries
+
+- v3.33.0's "describe everything, every time" was recorded as settled; it is scope-bound (P1-1).
+- v3.34.0 called the bake case "measured"; it is one studio's field report (P2-6).
+- v3.35.0's scale limitation cited two field reports; there are three (Hell Grind's giant, ~16×).
+
+### Independent review (fixed before release)
+
+A fresh Opus reader of the raw diff found 1 wrong-answer defect and 8 real ones; all fixed before
+release and reflected above. The wrong-answer one: `higgsfield-troubleshoot`'s Quick Diagnostic
+still told every reference-attached shot to "delete ALL physical descriptions" (P1-1's contested
+side) — and `higgsfield-prompt` (3.7.1) had the same over-extension of the I2V rule. Also: the
+Style Prefix template still carried
+`[16:9]` and `8K`; acting rule 6 had no 2.5 scope; shotlist's staging entry used a slot-1
+filename; `@video1` is the upload-order form, not a named tag; Draw-to-Video was unscoped
+against the first-frame rule; house-rulings paths did not resolve from `skills/shared/`.
+
+A second reader of that fix pass then found one more wrong-answer defect and eight real ones, all
+fixed: the first pass had relabelled P2-6 SCOPE although Hell Grind `[OFFICIAL]` argues the other
+side (now OPEN, no default); P2-2, P3-2, P3-6 and the P1-2 different-flaws case had defaults or
+tie-breaks without the cheaper-failure test (withdrawn); the age sweep had missed nine places;
+two recorded quotes had been altered without a mark; QUICK FACTS stated both sides of an OPEN as
+settled; and 16 wrong answers still passed the new evals.
+
+## v3.37.0 — 2026-09-26
+
+**The gates.** The v3.36.0 refresh showed how the platform had moved unseen: the drift
+tripwire could not see a new parameter at all and had been failing on auth for ten weeks with
+the wrong diagnosis, and nothing tied a doctrine sentence like "2.5 caps at 720p" to the specs
+it restates. This release makes each of those failures loud, and every fix carries a test that
+was run red against the pre-fix code.
+
+### Fixed
+
+- **The tripwire was blind to new parameters.** `refresh_specs.py` walked only the baseline's
+  own params and kept only enum + default, so a new param, a type or `required` change,
+  or a new media role exited 0 "Fresh" — 8 existing models gained params after 2026-08-07 and
+  none were reported. It now diffs both sides (min/max are compared too, but CLI 1.1.23's `model get` reports no bounds — no baseline param carries min/max — so a range change is not yet visible), reports media-role changes as such, and files
+  CLI shape surprises as exit 4 (fix the parser) instead of exit 1 (re-auth). Baseline
+  re-captured in the new format, with a 3D section.
+- **The weekly spec-drift job gave the wrong diagnosis.** Since 2026-08-31 the CLI has said
+  "No workspace selected.", not "Session expired". The job now classifies the CLI's own
+  stderr (auth / workspace / not-found / missing CLI / no baseline / other), names the matching
+  remedy, quotes the CLI line only after an allowlist redaction, handles every exit code (unknown codes used to go green), opens a "tripwire BLIND
+  since <date>" issue on a blind run and closes it on the next sighted one, runs the auth-free
+  snapshot-age gate first, and can select a workspace from an optional
+  `HIGGSFIELD_WORKSPACE_ID` secret. GitHub disables scheduled workflows in a public repo after
+  60 days without activity (confirmed in GitHub's docs); `validate.yml` now warns on each push
+  if spec-drift is not active.
+- `validate.yml`'s lint self-checks accepted any non-zero exit (a crash counted as the expected
+  FAIL); they now require exit 1 and the named rule.
+- `validate.py` regenerated only video specs, and from the snapshot the JSON named itself —
+  image / audio hand-edits passed. All four types are now checked against their newest
+  snapshot; `--strict` fails on a stale committed memory summary or global ledger instead of
+  regenerating it silently; the fpdf2 skip test now runs everywhere.
+- `sync_specs.py` accepted a paginated partial dump; it refuses `has_more: true`, gains a `3d`
+  type (`specs/3d-model-specs.*`, `3D-MODEL-SPECS.md`), carries `nullable`, and encodes Wan
+  3.0's smart duration as `{min: 2, max: 30, smart: -1}` — the old `min: -1` let 0 s and 1 s
+  headers through the linter and printed "-1–30s". The Wan rows in `model-guide.md` are checked
+  again ("2–30s or −1 smart").
+- The generation ledger rejected every image and audio model id; it now accepts ids from all
+  spec types plus `specs/retired-model-ids.json` (append-only tombstones), so a model leaving the
+  catalog does not turn history red. The memory CLI exits non-zero on errors and refuses to write
+  an entry missing required fields (`higgsfield-troubleshoot` 3.2.1 lists `failure_type`).
+- **INDEX and QUICK FACTS anchors now use GitHub's slug algorithm** — the old slugger was
+  self-consistent, so validate certified ~300 INDEX anchors and ~110 QUICK FACTS links that did
+  not resolve on GitHub. Links were remapped heading-by-heading; INDEX regenerated.
+- `validate.py` and `build_index.py` walked Claude Code's `.claude/worktrees/` (now skipped via
+  `scripts/repo_walk.py`, and git-ignored).
+- `seedance_lint.py`: hyphenated modes (`text-to-video`) were truncated and a block label
+  `FORMAT MODE:` was read as the model mode; ambiguous display names resolved silently (now an
+  error listing the candidates); smart duration handled.
+- `evals/run_evals.py`: a mistyped `expect`, a case with no assertions, `enum_legal` on a
+  response with no settings, and a bound-less `word_count` all passed silently — each is now a
+  harness ERROR. An eval flipped by a spec refresh is reported as such, not as a checker
+  regression.
+- The USER-GUIDE generator had not changed since v3.23.0, so 12 releases shipped a PDF with no
+  new content. It now derives What's New, template and failure-mode counts and the model tables
+  from disk (`scripts/user_guide_content.py`), and `validate_user_guide.py` fails when the root
+  version is newer than the content it reflects; `--write-manifest` refuses an unchanged text
+  under a new version.
+- `/validate` said "release-ready" from the non-strict run; `/release` contradicted CLAUDE.md
+  (it tagged the local commit on a protected main). Both fixed.
+
+### Added
+
+- **`scripts/preflight.py`** — a free platform-constraint preflight for any model: enums, ranges,
+  media roles and the catalog's CEL rules, through a small safe evaluator (no `eval`). A rule it
+  cannot read is reported UNCHECKED and fails `--strict` — never a silent pass. All 133 live
+  rules (90 models, incl. 3D) parse; the Seedance 2.5 frame rules have truth-table tests. `seedance_lint.py` uses it for
+  the new `**References**:` / `**Start frame**:` / `**End frame**:` header lines.
+- **`scripts/claims_lint.py` + `evals/spec-claims.json`** — 21 registry entries binding doctrine
+  phrasings ("2.5 caps at 720p", "no start_image role", "Grok Image is not on Higgsfield",
+  "longest clip 15s", "LLM text" as a utility…) to the spec fact each restates. Run by
+  `validate.py --strict`. Plant proof in the same commit: the v3.35.0 doctrine fails today's
+  specs on ≥5 distinct Seedance 2.5 lines and passes the 2026-08-07 specs.
+- **`scripts/snapshot_crosscheck.py` + `specs/crosscheck_allowlist.json`** — the two-way
+  snapshot ↔ CLI check used for v3.36.0, productized; every known CLI↔MCP difference is an
+  allowlist entry with model, field, date and exact detail, and fails again if the detail moves.
+- **`/refresh-specs`** — the Tier-2 refresh as one guided command; `sync_specs.py --changed`
+  lists the models that moved and the eval cases that name them.
+- Eval traps `trap-wan3-1s` (red on v3.36.0's specs) and `wan3-smart-duration-legal`.
+
+### Independent review (fixed before release)
+
+A fresh Opus reader (with two forked sub-readers) went through the raw diff, ran mutants and
+swapped in the v3.36.0 files: no spend path and no evaluator escape, but three gates could still
+report green on an unchecked subject. Fixed, each with a test shown red first (two test-only
+gaps were shown red on a mutant instead):
+
+- `preflight.py` passed any value on a model with no spec entry (every 3D model — the 3d spec
+  file was not loaded) and ran `--check-rules` green on 0/0 rules; a model with no spec entry or
+  no rules on record is now UNCHECKED (fails `--strict`), media on a model that accepts none
+  fails, MCP `image` and CLI `image_references` are one slot, integer types are enforced.
+- `snapshot_crosscheck.py` said "agree" with zero shared models and never failed on catalog
+  membership; zero shared / no snapshot is UNCHECKED, and a model in only one source fails unless
+  allowlisted with a reason (23 membership entries, each checked live); list-hidden studio models
+  are compared through `model get` (25 more entries); a STALE allowlist entry fails.
+- `seedance_lint.py` regressed on plain-text `- Mode: fast` headers (read again; FORMAT MODE etc.
+  still excluded, and so are qualified labels after another `Label:` — `Tip: extension mode:`);
+  undeclared mode is evaluated with the platform default; only the leading duration value counts;
+  a reference count is the max of the stated count, the handles and the highest handle index.
+- `refresh_specs.py --update-baseline` accepted an empty pull; a default appearing or vanishing
+  was invisible; a crash shared exit 1 with "pull failed" (now exit 5); capture dates are per
+  type; the CLI's own line reaches public surfaces only through an allowlist redaction (quoted
+  strings and any token with a digit, `_`, `=` or a `:`-value become `[redacted]`), and the step
+  summary and issue body carry only the catalog report plus kind and remedy; CI installs
+  the CLI pinned and checksum-verified instead of `curl | sh`.
+- A hand-added tombstone whitelisted any id in the ledger — a tombstone must now be proven by a
+  well-formed dump in the committed snapshot history (shape, not provenance — the trust boundary
+  is the reviewed snapshot set), and `log-gen` refuses new rows for a retired id (an amendment must
+  supersede a row of the same model). The validator cannot tell a history row from a hand-appended
+  one; that ceiling is marked in the code.
+- `claims_lint.py` skipped non-UTF-8 files and passed an empty root; both are errors now.
+- The two CLI-only utility models that appeared on 2026-09-26 (`depth_anything_video`,
+  `fps_boost`) are accepted into the baseline and allowlisted as CLI-only.
+- `preflight.py` ignored the CLI baseline's params and enums whenever a spec entry existed
+  (`gpt_image_2 background=bogus` passed); a param unknown to both sources or a value outside a CLI
+  enum now fails, and a value legal in only one source passes with a disagreement note.
+- A second reader of this fix pass found six more real defects (the `supersedes` bypass, the
+  fake-snapshot tombstone proof, redaction gaps, the qualified-label regression, STALE entries
+  passing, the CLI enums above); all fixed with red-first tests. The live comparison of list-hidden
+  models also found that `nano_banana_2` names Nano Banana Pro on the CLI (see `image-models.md`).
+
+### For the maintainer
+
+- The spec-drift job needs a fresh `HIGGSFIELD_CREDENTIALS` secret, and `HIGGSFIELD_WORKSPACE_ID`
+  if "No workspace selected." persists.
+
+## v3.36.0 — 2026-09-26
+
+**The catalog refresh.** The specs were 50–56 days stale and the weekly drift tripwire had
+been failing on auth for ten weeks, so the platform moved underneath the doctrine unseen.
+This release re-snapshots the live catalog, corrects what the move falsified, and gives every
+new model and tool a route. Nothing here is field-tested — the account had 0 credits — so every
+new model carries "Not yet field-rated" and no stars; `docs/field-test-queue.md` is the plan
+for the day it can be tested.
+
+### Specs
+
+- **Tier-2 refresh to the 2026-09-26 `models_explore` snapshot** — video (41 models), image
+  (35), audio (6), and the **first 3D snapshot** (17 models, committed as source; `sync_specs.py`
+  has no 3d type yet). The snapshots were transcribed from the live MCP output and verified
+  three ways: every field that changed against the previous snapshot was re-checked against a
+  fresh `models_explore get`; a two-way structural cross-check against raw `higgsfield model get`
+  found no disagreement on 35 video and 28 image models; and that cross-check was shown to go
+  red on the stale 2026-08-07 file. Known CLI↔MCP disagreements are recorded, not resolved
+  (`gpt_image_2` defaults / aspect ratios / mask; `soul_cinematic.soul_id`; `image` vs
+  `image_references` role naming).
+- New since 2026-08-07: video `ad_multiplier`, `flux_3_video_edit`, `gemini_omni_flash_1_1`,
+  `hf_mult_motion_control` + `hf_mult_replace_object` (Genjutsu), `kling_video_edit` (the API id
+  of Kling 3.0 Omni Edit), `minimax_h3_max`, `wan3_0`, `wan3_0_prime`; image `gpt_image_2_5`,
+  `grok_image_2_0`, `seedream_5_0_flash`, `flux_2_pro_outpaint`. Gone: `llm_text`. New params on
+  existing models: `seedance_2_5` 1080p + `start_image`/`end_image` + `bitrate_mode`;
+  `minimax_h3` duration floor 5 → 4; inpaint/`mask` on `nano_banana_2` and `nano_banana_2_lite`;
+  `is_inpaint` / `remove_bg` / width / height on `seedream_v5_pro`; `remove_bg` on
+  `bytedance_image_upscale`; `qwen_audio_tts` `batch_size` 1–4.
+
+### Fixed
+
+- **Seedance 2.5 is 1080p and takes platform start/end frames** — in `omni_reference` only,
+  with new CLI rules (t2v takes zero references; image refs + start + end ≤ 30; all + start +
+  end ≤ 50; omni_reference needs ≥ 1). About 25 lines said "720p cap, no start/end-frame role",
+  including the dispatcher's 2.0-vs-2.5 row, which sent 1080p and start-frame jobs to the wrong
+  model. Corrected across `higgsfield-seedance-2-5` (1.4.0 → 1.5.0) and its MODE-PLAYBOOKS /
+  VFX-PIPELINE, `higgsfield-seedance` (1.14.0 → 1.15.0), `higgsfield-seedance-vfx` (1.0.0 →
+  1.1.0 — also the bump it missed in v3.26), `templates/seedance/omni-reference-2-5.md`, README,
+  `model-guide.md`, and the root dispatcher. Only 4K, `mode=fast` and `genre` now discriminate
+  2.0 from 2.5. The in-prompt first-frame declaration stays as the alternative route; which of
+  the two holds the boundary better is recorded as **unmeasured**.
+- Evals that certified the stale surface: `trap-s25-1080p` → `trap-s25-4k` (4K stays illegal);
+  new `s25-1080p-legal`; `s25-routes-4k-back-to-2-0`'s golden and regex no longer require the
+  false "caps at 720p" text; `trap-s25-four-batch-rule`'s golden no longer says 2.5 has no
+  start_image role.
+- The dispatcher's "extend a clip" row sent every extension to 2.0 while the 2.5 row claimed
+  forward/backward extension — split between 2.5 `video_extension`, 2.0 continuation, and
+  cross-generation chaining.
+- `skills/higgsfield-models/` (3.2.0 → 3.3.0, incl. MODELS-DEEP-REFERENCE) had no Seedance 2.5
+  at all and still said Seedance 2.0 was "Coming soon", that Grok Image is "NOT available on
+  Higgsfield" (`grok_image` is live), and that Kling 3.0 has the platform's longest clip (15s).
+  Brought into line with `model-guide.md` and the catalog; the Unique Feature Matrix rows for
+  editing, start/end frames, extension, motion transfer, native audio, transparent background
+  and masked inpaint rebuilt.
+- `model-guide.md` answered "edit existing footage?" twice with different models — replaced by
+  one **Edit-Lane Chooser**. "Seedance Pro" (a legacy UI label with no API id) replaced by
+  Seedance 2.0 Fast in `templates/08-comedy-social-media.md` and `higgsfield-pipeline`
+  (3.5.0 → 3.5.1).
+- `higgsfield-cinema` pushed its Physics Rendering matrix past line 2,000 — beyond a default
+  read, while two QUICK FACTS lines pointed at it. The 2.5/3.0 per-mode output templates and
+  the reference-sheet specs moved verbatim to `references/`; the file is 1,723 lines.
+
+### Added
+
+- `model-guide.md` — rows for every new model (no stars, "Not yet field-rated"), an
+  **Edit-Lane Chooser** (Seedance 2.5 / Cinema Studio 4.0 `video_edit`, Kling 3.0 Omni Edit,
+  Kling O1 Edit, FLUX 3 Video Edit, Gemini Omni Flash 1.1 `edit`, Genjutsu, Ad Multiplier — each
+  with billing basis, source-length limit and what it preserves, as far as the platform states
+  it), a **Long-Take Chooser** for clips over 15s (Seedance 2.5, Wan 3.0 / Prime incl. smart
+  duration only on explicit request, FLUX 3 Video, Cinema Studio 4.0), and a **Motion Transfer**
+  table (Genjutsu vs Kling 3.0 Motion Control).
+- `image-models.md` + `higgsfield-gpt-image-2` (1.2.0 → 1.3.0) — **GPT Image 2.5** (Flare /
+  Sunburst, quality to `max`, the catalog's first `background: transparent` route — alpha in the
+  downloaded file unverified), Grok Image 2.0, Seedream 5.0 Flash, FLUX.2 Pro Outpaint, the
+  inpaint / mask / `remove_bg` parameter table, `nano_banana_2_relight` (CLI-only). Vendor
+  prompting guidance only where the vendor documents it (OpenAI for GPT Image 2.5, Alibaba
+  Model Studio for Wan 3.0); everything else is surface + routing.
+- `higgsfield-moodboard` (3.0.0 → 3.1.0) — Soul 2.0's `style_id` and image references are
+  mutually exclusive on the platform (UI mapping unverified).
+- **NEW `higgsfield-3d`** — the 17 3D models (image / multi-view / text → GLB, rigging and the
+  678-clip animation library, remesh, retexture, 3D Body), 3D Jutsu scene projects, the
+  source-image law ("edit the image first"), `get_cost` preflight, and two film uses marked
+  unmeasured: a mesh turnaround as a multi-angle reference and a front-on 3D blockout feeding
+  `templates/seedance/staging-reference.md`.
+- **NEW `higgsfield-repurpose`** — Shorts Studio, Clipify, Virality Predictor, Video Analysis,
+  with the paid / free split (Shorts Studio is paid but has a free cost estimate; the other two
+  state no cost and are not called free).
+- `higgsfield-cinema` (3.4.0 → 3.5.0) — **Cinema Studio 4.0** (`cinematic_studio_video_4_0`):
+  the Seedance-2.5 four-mode surface plus camera body / lens / aperture / era / genre / pacing
+  ids and light / palette controls, diffed field-by-field against 3.5. Its `*_id` values and
+  duration bounds are unpublished in the CLI schema — stated as unknowns.
+- `higgsfield-stack` (1.2.1 → 1.3.0) — Higgsfield's bundled skills are at 0.12.0 (eight skill
+  folders, not three), and the connector now ships its own workflow catalog; a coexistence
+  table says what this library adds vs hands off for each one.
+- `higgsfield-audio` (3.7.0 → 3.8.0) — `voice_change` and `create_voice`; catalog restamped.
+- `higgsfield-marketing-studio` (1.0.0 → 1.1.0) — § 14 Ad Multiplier and Genjutsu.
+- `docs/field-test-queue.md` — the cheapest config that answers each open question, with
+  per-model credit estimates from `higgsfield generate cost` (verified to create no job).
+- 29 eval cases across `model-lanes.json`, `gpt-image-2.json`, `3d.json`, `repurpose.json`,
+  `cinema-4-0.json`, `voice.json`, `stack-workflows.json`, `ad-multiplier.json` and
+  `seedance-2-5.json`; each new case was run against a deliberately wrong golden and failed.
+
+### Independent review (fixed before release)
+
+A fresh Opus reader went through the raw diff against the snapshots, the CLI dumps and live
+free `model get` / `workflow get` calls: no wrong-answer defects; fixed here —
+
+- `generate cost workflow cinematic_studio_video_4_0` and `… workflow voice_change` were taught
+  as preflights; both are rejected ("Unknown workflow", checked 2026-09-26). Cinema Studio 4.0
+  is estimated by model id with its source clip attached (`--video_references`, which moves the
+  price); `voice_change` by model id with the clip, the voice and its `--voice_type` attached (it
+  takes no `duration`). Only a prompt-only 480p `t2v` estimate is verified; the forms with media
+  attached are not. A second reader of this fix found the first rewrite still omitted the clip and
+  the voice type, and that two eval assertions could not go red — fixed and proven on mutants.
+- `higgsfield-stack` said this library "never loads `get_workflow_instructions`" while quoting
+  the connector rule that requires it — the agent follows the connector's routing and loads the
+  workflow; this library supplies the inputs.
+- One object swapped in one clip had two primary answers. Tie-break: a reference image of the
+  new object → Genjutsu `hf_mult_replace_object`; a change described in words only → Seedance
+  2.5 `video_edit`. Stated in the dispatcher, § Edit-Lane Chooser and marketing-studio § 14;
+  both goldens aligned.
+- Smaller: repurpose list/status calls no longer called free (their schemas are silent); Seedream
+  5.0 Pro is `is_inpaint` without a `mask` role; the smart-duration rule is stated as an extension
+  of the Fast Path Seedance exception; Alibaba citations point at their URLs; the 2.5 catalog
+  caps are the 30-image and 50-item ones only; a duplicate 4K trap removed; a public eval regex no
+  longer names a private product; the README lists the new sub-skills and Cinema Studio 4.0.
+
+### Recorded, not resolved
+
+- The MCP `generate_3d` schema says only `sam_3_3d` takes a prompt; CLI `model get` marks
+  `prompt` required on the text→3D models. 3D Jutsu's importer takes catalog assets only, so a
+  generated GLB has no documented way into a scene.
+- The MCP `generate_audio` description calls itself speech-only; this library documents Seed
+  Audio music + SFX in one pass.
+- `shorts_studio_status` points callers at a `job_status` tool the connector doesn't expose.
+
+## v3.35.0 — 2026-08-22
+
+**The reconciliation pass on five picks deferred from v3.34.0.** Each of these overlapped
+a section the repo already had, so none of them is an append — every one was integrated
+into the existing text, and two of them turned out to be **mostly already held**, which is
+recorded here rather than quietly re-shipped.
+
+### Changed
+
+- `skills/higgsfield-seedance/SKILL.md` § Tag naming (1.13.0 → 1.14.0) `[FIELD — ONEIRIC]`.
+  The section already said what a tag *line* contains and how handles are assigned; it said
+  nothing about **constructing the name**, and "user-specified tags verbatim" left the
+  convention undefined. Adds the `@loc_` / `@char_` / `@prop_` form with project, scene and
+  version segments, under the rule that motivates it — **one element, one name**, because
+  without it a project grows duplicates and nobody can tell which reference is real. The
+  identity half of the state rule is **not** restated here: it lives in `higgsfield-soul`
+  § The Untouched Base and this section points at it.
+- `skills/higgsfield-acting/SKILL.md` § Voice — fixed identity (1.1.0 → 1.2.0) `[FIELD —
+  ONEIRIC]`. **Mostly already held** — the section already required the voice prompt to be
+  pasted verbatim and never modified. What it lacked was the failure mode: "verbatim" gets
+  broken by a writer *improving* the wording between shots and believing the meaning is
+  preserved. It is not — swapping *warm* for *rich* moves the generated voice. Adds the
+  not-even-a-synonym clause and the voice-bible artifact (one place, decided once, pasted
+  from rather than retyped).
+- `skills/higgsfield-seedance/FAILURE-MODES.md` § Orphan limbs (1.4.0 → 1.5.0) `[FIELD —
+  RED FLAG]`. The section was scoped to three-plus characters and an order lock. Extends it
+  with the case that scope misses: **a solo close-up can grow a third hand**, where there is
+  no order to lock. Anatomy needs an explicit headcount even at one character, and the
+  counter states count, ownership **and entry point** — count alone still lets a
+  correctly-numbered pair arrive from two directions.
+- `skills/higgsfield-seedance/FAILURE-MODES.md` § **Walking is the hardest stunt** — NEW
+  entry `[FIELD — RED FLAG]`. The repo carried gait as *characterisation*
+  (`higgsfield-acting`) and had no failure mode for the mechanics breaking: gliding with no
+  weight transfer, both feet airborne, the same foot twice, two walkers drifting apart, a
+  figure teleporting up a stairwell or the stair opening bricked into solid wall. The
+  counter writes the cycle as physics (`heel lands first, strict left-right alternation,
+  one foot always on the ground`), gives an abreast pair its own lock, and makes an
+  off-screen mechanism a **named, mandatory object** — the stairwell fails precisely
+  because the mechanism is off screen, so nothing in frame holds the model to it. Also
+  carries the cross-shot case: **camera speed** mismatched between two tracking shots of
+  one walk, invisible per shot, fixed only by writing the relation into both.
+- `skills/higgsfield-seedance-2-5/VFX-PIPELINE.md` § Stage 2 — **a seam inside the repo,
+  settled** `[FIELD — RED FLAG]`. This file said relative scale is "the last thing words can
+  fix" and the fix "is an image, not a sentence". A field build then fixed a handrail with a
+  written ruler. Both are right, and the **size gap decides the instrument**: near-human
+  props take a computed anchor sentence, extreme ratios take the size-ref image. Read
+  without that boundary, the existing line sends people to build a size-ref frame for a
+  handrail. Two mechanisms named: a bare measurement does nothing on its own (the model
+  cannot cash a centimetre into a frame) so it must be **converted to a body landmark**;
+  and the landmark must be **arithmetically true**, because a wrong anchor is not ignored —
+  it is obeyed, and the model resizes the *object* to satisfy the false claim.
+- `skills/higgsfield-cinema/SKILL.md` § Location Reference Sheets (3.3.0 → 3.4.0) `[FIELD —
+  ADILIADA]`. The section stopped a location being *reinvented* but not people **moving
+  around inside it**. Adds deliberately planted visual anchors — the chair, the window, the
+  bead curtain — chosen to be distinctive and immovable (a second matching chair is an
+  ambiguity, not an anchor), so blocking can be written against something nameable. Plus
+  matching plate colour, light and saturation **at the asset stage**, since otherwise every
+  generation inherits a slightly different world and the mismatch only surfaces in the
+  edit, where it becomes the unification problem in `higgsfield-pipeline` § The Edit.
+
+### Known limitations (accepted)
+
+- All five are `[FIELD]` — one studio's practice, **not A/B'd on our material**.
+- The scale reconciliation is a **boundary claim** (near-human vs extreme ratio) drawn from
+  two field reports that each worked in their own regime. Where exactly the boundary sits
+  is not measured; the guidance is to reach for the image when no single body landmark can
+  express the gap.
+
+## v3.34.0 — 2026-08-22
+
+**Eight picks from the four Higgsfield Studio project breakdowns** — RED FLAG, ONEIRIC,
+ADILIADA and ZEPHYR, read from the published project briefs on higgsfield.ai. These are
+the same studio as the Hell Grind brief absorbed in v3.28, and much of what they restate
+(the model has no memory, describe everything every time, an asset is a text+image pair)
+this repo already carries in `higgsfield-seedance/HELL-GRIND.md` and is deliberately not
+duplicated. What follows is what was genuinely absent.
+
+The three YouTube links in the same drop are **the finished films**, not build videos, so
+they carry no prompt craft and were not mined. The craft is in the briefs.
+
+### Added
+
+- `skills/higgsfield-seedance/SKILL.md` § **Bake it into the asset when the prompt will
+  not hold it** (1.12.0 → 1.13.0) `[FIELD — ONEIRIC]`. The general move, and the most
+  useful single idea in this drop: **when a property drifts no matter how well it is
+  written, stop writing it and move it one step earlier — generate it into the asset.**
+  The worked case is anamorphic optics, which drift shot-to-shot when asked for in a video
+  prompt and hold when the location plate is generated with the lens character already in
+  it — *the plate itself becomes the lens*. Carries the image-stage prompt block, the
+  dose ladder, and the rule that follows from it: the optics vocabulary then **never
+  appears in the video prompt at all, not even as a ban**. Also names the cost, which the
+  source does not — a baked property is no longer directable per shot, so bake only what
+  should be constant.
+  **This corrects existing guidance:** `higgsfield-recipes` offers `anamorphic` as a style
+  word to write into a prompt, which is exactly the thing measured not to hold.
+- `skills/higgsfield-seedance/SKILL.md` § **Depth Map** as a reference role `[FIELD —
+  ADILIADA]`. Greyscale, light = near, dark = far; the model reads it as the scene's depth
+  skeleton, fixing composition, volume and proportion. The failure it prevents is a space
+  that **rearranges itself between shots**. A geometry input that carries no style — pair
+  it with the environment reference that owns surfaces and light.
+- `skills/higgsfield-soul/SKILL.md` § **A sheet is not a menu — everything on it is a
+  request** (3.9.0 → 3.10.0) `[FIELD — ZEPHYR]`. The intuitive build is one rich master
+  sheet showing every weapon and state, referenced selectively per shot. **That is not how
+  the model reads it: if it sees a detail, it will try to show it.** A cockpit hatch drawn
+  open was prioritised over the subject's standard look, and most generations came back
+  with the hatch open when it should have been shut or the two states colliding and
+  deforming the design — the main body being larger on the sheet did not help, presence
+  beat proportion. The fix is more sheets, not a richer one, plus the note that **captions
+  on a sheet do almost nothing for video**: a label under a mechanism does not teach the
+  model to operate it, and every mechanism still gets written out as physical action in the
+  shot that uses it.
+- `skills/higgsfield-soul/SKILL.md` § **The Untouched Base** and § **Hold the face, change
+  everything else** `[FIELD — ONEIRIC + ADILIADA]`. A character is built in two passes —
+  a close-up face plate that becomes the anchor everything is checked against, then
+  full-figure wardrobe fitted to the locked face — and assembled **with one hard condition:
+  the original close-up is never run through a model again.** State changes go in point by
+  point with masks, around the base, so it stays the same *pixels*. This is the structural
+  answer to the texture drift this skill already documents in § Two-Tool Refinement
+  Pipeline: the base never takes another pass, so it never softens toward plastic. Scales
+  to alternate versions of one character — a new version is a new look, not a new person —
+  with the corollary that **a new state is a new asset with a new name, never an
+  overwrite.**
+- `skills/higgsfield-seedance/FAILURE-MODES.md` § **A fight generated as separate clips
+  comes back choppy** (1.3.0 → 1.4.0) `[FIELD — RED FLAG]`. Each clip re-guesses pose and
+  tempo, so bodies reset at every join and a pause creeps into every cut — every move
+  present, and the fight reads as a slideshow. Three counters: **frame-chain with the
+  action crossing the cut mid-move** (chaining at a completed beat still reads as a stop),
+  one continuous take for the money move written as a single timeline in seconds, and
+  **slow motion banned by name** because models reach for it in a fight on their own. Plus
+  the rule that every move is **named AND vectored** — a move without its direction is
+  re-invented each take — and the fallback of cutting into the body, where a close-up of
+  feet is far harder to break than a wide shot of two bodies.
+- `skills/shared/negative-constraints.md` § **The words you write are the words you
+  summon** `[FIELD — RED FLAG + ONEIRIC + ADILIADA]`. The publishing studio states this as
+  one of the four laws holding a production together, and two field cases make it concrete.
+  **The colour war:** a film committed to cold teal-green kept being flipped warm by leakage
+  from its own references, and **negative lists ("no yellow") did nothing** — what worked
+  was positive, and note its shape: it does not forbid yellow, it *allocates* it to one
+  named source at a stated size and then hands the model a test it can apply to its own
+  output. **Overriding a reference in prose:** an un-croppable glowing window was handled
+  not with a ban but with a statement of fact — *"that window glowing in the reference is
+  switched off in our film"* — and the model accepted it. A reference is not a contract.
+  The section also names the two documented exceptions where a ban is still correct, so the
+  rule does not read as absolute.
+- `templates/seedance/staging-reference.md` § **Revising a diagram** `[FIELD — ONEIRIC]`.
+  Two rules, the second of which quietly ruins a sequence: name every element **by its
+  assigned colour, never by the character** (colour is the diagram's language, names belong
+  to the video prompt), and **regenerate from the ORIGINAL FRAME, never from the previous
+  diagram** — feed a drawing back into the image model and it copies the drawing's flaws
+  instead of the frame's geometry, compounding every pass. Plus coverage-as-conversation
+  ("give me the MCU on the blue"), and the note that the prompt is written from the *text*
+  description of the frame rather than by looking at the diagram.
+- `skills/higgsfield-pipeline/SKILL.md` § **The Edit — five stages to picture lock**
+  (3.4.1 → 3.5.0) `[FIELD — ONEIRIC + ADILIADA]`. On a generated film the edit is a loop
+  with a declared exit, and the stage that does not exist in conventional post is the one
+  that makes it terminate: **generation supervision**, a QC pass *after* the rough cut where
+  broken shots are re-generated and slop cleared, before the fine cut. **Picture lock has to
+  be enforced precisely because re-generating is cheap** — without a declared stop,
+  supervision never ends and colour and sound never get stable material. Plus the colour
+  consequence: **every generation arrives with its own grade baked in**, so unlike footage
+  from one camera the colourist's first job is *unification*, and the final grade should
+  stop being fought for inside individual prompts.
+
+### Known limitations (accepted)
+
+- All eight are `[FIELD]` — one studio's production practice, documented in their own
+  breakdowns, **not A/B'd on our material**.
+- **A tension worth stating plainly:** these briefs claim the staging diagram raises
+  staging-accurate win rate "dramatically", while our own counterbalanced measurement found
+  it does **not** move blocking (6/12 = chance) though it is safe (0/18 bleed). Both are
+  recorded. `templates/seedance/staging-reference.md` keeps the measured caveat at the top
+  and the field claim is not promoted over it.
+- Deferred rather than dropped, from the same briefs: the tag-naming convention
+  (`@loc_`/`@char_`/`@prop_` with project + scene + version), the Voice Bible pasted
+  verbatim with never a synonym changed, per-shot scale rulers and hand headcounts, the
+  walking and camera-speed locks, and location visual anchors. Each overlaps existing
+  sections and wants a reconciliation pass rather than an append.
+
+## v3.33.0 — 2026-08-22
+
+**Sixteen picks from the "HIGGS" source drop** — nine folders of Higgsfield material
+(project pages, Discord decks, and community skill files) plus one third-party bundle
+that is not Higgsfield's. Technique re-derived in house voice; no source text copied.
+
+Five of the nine folders turned out to be **already absorbed** and are recorded here so
+the next drop does not re-litigate them: CULLY HILL BOYS and `Zephyr/cinedance` are the
+CINEDANCE material taken in v3.28 (the latter is that same file refactored into reference
+files, and its FOV bank carries six anchors where ours carries ten plus a measured
+reliability zone); `AI vs VFX/seedance-clean` is the `prompt-builder-2-5.skill` whose
+prompt-craft layer v3.29 deliberately declined; "How to Create AI Love Stories" shipped as
+v3.32.0; and the Discord copy of `sd25-pe` is **v0.1.0, older than the doctrine this repo
+already carries**. The two Seedance 2.5 decks are near-fully covered by the Dreamina
+doctrine absorbed in v3.29 — one gap survived.
+
+Everything below is tagged `[DEMO — …]` with `[UNPROVEN HERE]` where it is one
+practitioner's method rather than a mechanism measured on our material.
+
+### Added
+
+- **`templates/seedance/staging-reference.md` — NEW.** The front-on, colour-coded outline
+  blocking map, with the **three-layer anti-bleed architecture** (outlines never fills ·
+  the connector block in positive form, never naming the map's graphic style *even as a
+  negation* · staging attached LAST so photo references win the style vote), the
+  letters-in-prompt-space / colours-in-image-space rule, both prompt templates, tag
+  naming, the known-failure table, the QA checklist, and the trajectory / camera-path /
+  movement extensions. **This repo already named front-on-from-the-camera's-side as the
+  correct shape for a staging reference and shipped no method for producing one** —
+  `top-down-map.md` states the shape and lives entirely on the reasoning side. It now
+  cross-links here for the showing side. Carries its measurement up front: **the map does
+  NOT reliably move the blocking** (counterbalanced, 6/12 = chance, after a first pass in
+  which the model's compositional prior dominated 11/12 cells), but it **is safe**
+  (0/18 bleed) — so the anti-bleed architecture is settled and reusable while the blocking
+  claim is not.
+- **`skills/higgsfield-scene-engine/SKILL.md` — NEW sub-skill** (1.0.0), routed from the
+  root dispatcher. A five-element structural audit — Goal · Obstacle · Tactic · Reversal ·
+  Value Shift — run on text **before** any generation. The reason a prompter carries it:
+  a structurally dead scene generates exactly as cleanly as a live one, because the model
+  has no opinion about whether a beat earns its place, so the failure only surfaces once
+  the footage exists. Its keystone is the rule the whole engine turns on — **a reversal
+  with no value shift is inert**: if you cannot name the audience's before-verdict and
+  after-verdict, the turn is dead weight no matter how much plot flipped. Includes the
+  wheel-spin test (a failed tactic must return information), the sequence definition
+  (jeopardy opens → resolves) with ≥1 reversal per resolved sequence, and the
+  minimal/clean/optional three-tier fix format.
+- `skills/higgsfield-acting/SKILL.md` § **The layer above the pillars — one direction,
+  different fuel** (1.0.0 → 1.1.0). The five pillars are per-character and say nothing
+  about what holds an ensemble together, which is why scenes built from them alone can
+  read as several good performances that are not in the same scene. Adds the scene's
+  single shared direction (usually unspoken, belonging to everyone at once, and never the
+  film's own dramaturgic function — characters never play the reveal), the **motive** as
+  each character's distinct fuel along that shared vector, and a table separating
+  direction / motive / objective / tactic. Plus two tests: **name the event from the
+  ENDING** (reading the scene backward from its last line, watching for the double-meaning
+  last line), and **the event must contain every character** including silent ones — a
+  character standing outside the named event means the event is named wrong. Plus **the
+  physical action as the channel**: one terrain, one event, and a distinct camera-readable
+  behaviour per character, which is what turns an acting note into something a video model
+  can render. Plus **contrast pairing** on a named essential axis, with the observation
+  that a seeming trait is often scar tissue over its opposite — direct the history, not
+  the surface.
+- `skills/higgsfield-acting/SKILL.md` § Listening — **a silent listener gets a task, not
+  just markers.** The four reaction markers describe how a reaction reads but give the
+  listener nothing to be doing between them, and a listener with no task is where the dead
+  face returns in a two-shot.
+- `skills/higgsfield-soul/SKILL.md` § **The Reference Plate — the two axes** (3.8.0 →
+  3.9.0). Biological realism **on**, photographic capture behaviour **off**, on every
+  plate — with the trap named: writing *"photographed on a real camera by a real
+  photographer on a real set"* switches on the capture layer, and the capture layer is
+  exactly what poisons a reference, because any baked-in lighting is inherited and
+  amplified by every downstream generation that reads it. Plus the surviving capture
+  phrase, **the background is a FIELD, not a ROOM** (no surface, floor, seam, or contact
+  plane), the **flattering-realism ceiling** (matte is the anti-plastic lever,
+  fine-and-even the flattering one; where they conflict, resolve toward flattering), and
+  **prompt economy** — references carry the identity load, the prompt says what to DO with
+  it, and a sentence re-describing something already visible in an attached reference gets
+  cut. The face lock is the stated exception: it has no reference to lean on, it *is* the
+  reference.
+- `skills/higgsfield-audio/SKILL.md` § **Suppressing music — `NO BGM` is a spec, `no
+  music` is a preference** (3.6.0 → 3.7.0). A production term reads as a hard spec where a
+  bare negation reads as a stylistic preference the model overrides with its prior that
+  generated video wants a bed under it. Leads positive (name the diegetic sources and room
+  tone first, because a suppression clause with nothing positive in it leaves the model to
+  decide what silence sounds like), promotes the clause to the header on a scene that must
+  land silent, and adds the attached-track lock and the unheard-track technique. **The
+  enumeration is flagged, not adopted flat:** listing forbidden musical forms cuts against
+  this repo's own rule that naming a thing under a negation ships the token anyway, so the
+  short form is the default and the long list is an escalation carrying its own priming
+  risk.
+- `vocab.md` § **The night register** and § **Strobe**. "Night" prompted plainly returns
+  *bright-night* — a day plate graded cool. Theatrical night is mostly dark with hard
+  practicals cutting through, and the register splits by **what is allowed to be the light
+  source**: open exterior night runs on practicals only with no ambient moonlight or sky
+  lift, while interior/urban night makes a teal–amber split legal *because the practicals
+  motivate it*. Strobe needs the pulse, a secondary light holding form in the black, and a
+  continuous-motion clause stated together — plus the note that per-beat pulsing is
+  usually what a "choppy output" report is actually describing.
+- `skills/higgsfield-seedance-2-5/SKILL.md` § Material budget — **spend one view on a
+  strong expression, not four resting faces** (1.3.0 → 1.4.0) `[OFFICIAL — Higgsfield
+  Seedance 2.5 deck]`. A set of neutral views teaches the face at rest and nothing else, so
+  the first line of dialogue invents a mouth; one view at a strong expression teaches
+  facial dynamics and teeth structure.
+- `skills/higgsfield-character-design/SKILL.md` § **Ship the bible as a reusable artifact,
+  not a paste** (1.1.0 → 1.2.0). A bible living in a chat transcript is re-explained every
+  session and drifts each time it is retyped. Names the two shapes it takes (human-read
+  canon vs. retrieval-optimised context), the voice lock and movement lock per recurring
+  character, the interview order in which each answer constrains the next, and the rule
+  that an unfinished bible is normal while an invented one is not.
+
+### Changed
+
+- `skills/higgsfield-acting/SKILL.md` § Eye life — **the catchlight seam, reconciled.**
+  The section listed "live catchlights" among the markers of a living eye, which reads as
+  though lighting the eye is a fix. It is not: a catchlight is a *render* property, and a
+  glassy stare with a beautiful catchlight is still a glassy stare. **Dead eyes are fixed
+  by giving the eyes a task**, written as purposeful action aimed at the partner — checking
+  both of their eyes for a sparkle of trust, registering whether a point landed, stealing a
+  look and snapping back. The eye movement IS the doing; catchlights make it legible and
+  never substitute for it.
+- `skills/higgsfield-soul/SKILL.md` § Character Sheet Creation — **the grey rule gains its
+  mechanism.** The rule was stated as "tested" with no reason attached, which makes it look
+  like a stylistic preference a user can trade away. White and black create maximum
+  subject-to-background contrast, and models amplify errors hardest at high-contrast edges —
+  that is where halo, edge breathing and contour instability get baked in. A mid-grey ground
+  lowers that contrast, giving cleaner edge extraction and far less inherited contrast when
+  the still is later read as a reference frame. Since virtually every character plate
+  eventually seeds video work, grey is a standing default rather than a taste call.
+- `skills/higgsfield-seedance-2-5/SKILL.md` § diegetic-only: the recommendation was
+  `(no music)` — **the exact weak form** the new audio section identifies as losing to the
+  model's prior. Now points at `NO BGM` and the positive-first ordering.
+- `skills/higgsfield-seedance/HELL-GRIND.md`: the quoted `SFX only. No music.` prefix
+  stays as that production shipped it, with a `[HOUSE]` note that a **new** prefix should
+  use `NO BGM`. Tagged inline because the file is otherwise stamped `[OFFICIAL]`.
+- `templates/seedance/top-down-map.md`: cross-links to the new staging-reference template
+  as the showing-side companion, with a pointer to its measured caveat.
+- Root `SKILL.md`: routes `higgsfield-scene-engine` in both the routing table and the
+  sub-skill list; `scripts/sub_skill_descriptions.py` gains its entry.
+
+### Known limitations (accepted)
+
+- Every pick except the Seedance 2.5 deck item is re-derived from a third-party corpus and
+  is **not A/B'd on our material**. The `[UNPROVEN HERE]` tags are load-bearing.
+- The `NO BGM` claim is a phrasing claim about how a model weights a production term
+  against a plain negation. It is cheap and low-risk to adopt, and it is **unmeasured** —
+  the settling probe, if it is ever worth firing, is one 480p pair on a scene that must
+  land silent, `no music` vs `NO BGM`, scored on whether a bed appears.
+- The staging reference ships with its measurement attached precisely because the method
+  is attractive and does not do the thing people will reach for it to do.
+- **Not yet mined:** the four Higgsfield project pages (Adiliada, Oneiric, Zephyr, Red
+  Flag) and their three build videos. Two of those folders contain only a URL, so all of
+  that material is still on the web and is a separate pass.
+
+## v3.32.0 — 2026-08-21
+
+**Five picks and one correction from the Higgsfield "AI Love Stories" tutorial**
+(@adilinthewild, 2026-08-20 — the 23-minute build video plus its published
+prompt corpus). Technique re-derived in house voice; no source text copied.
+Everything is tagged `[DEMO — …]` and, where it is one production's figure
+rather than a mechanism, `[UNPROVEN HERE]`.
+
+### Added
+
+- `skills/higgsfield-soul/SKILL.md` § **The Hybrid Sheet — Casting a REAL
+  Person** (3.7.0 → 3.8.0). Every sheet workflow in this skill assumed an
+  *invented* character. Casting a real person is a different problem and the
+  pipeline does not solve it — the sheet comes back as "a lookalike actor, not
+  the actual person": costume and body land, the face is a near-miss that the
+  subject's own family spots instantly. The demonstrated fix is a composite:
+  keep the generated costume and body, **erase the head on the full-body
+  panels**, and paste the person's real photograph into the portrait panel, so
+  the composite contains exactly one face and it came from a camera.
+  Explicitly distinguished from § Face-from-Wide-Shot Workaround, which repairs
+  *plastic AI faces* with generated pixels and is a different job. Carries the
+  consent constraint, because this puts an identifiable real person into a
+  generation pipeline.
+- `skills/higgsfield-soul/SKILL.md` § **Pick the Sheet Model per JOB**. One
+  sheet prompt through three image models does not give three qualities of the
+  same thing — it gives different strengths (Seedream 5.0 Pro won costume
+  texture and cross-panel consistency; GPT Image 2 won curly hair, "the other
+  models couldn't hold them"). The *method* is the finding, not the table: run
+  the prompt through two or three models and compare before locking, because
+  the deciding axis is whatever your character is hardest to render, and that
+  changes per character.
+- `skills/higgsfield-seedance-2-5/SKILL.md` § **Split by JOB, not only by
+  length** (1.2.0 → 1.3.0). Staging solves *too many events in one paragraph*.
+  It does not solve **two incompatible jobs in one generation**, which is a
+  separate cut: an arena scene carrying both a fight and the acting around it
+  held as one prompt and lost both — "the fight gets softer, the faces get
+  flatter". The model spends its attention budget once. Includes the second,
+  sharper case: a 30-second carnival scene that *fit* and was split into 3×15s
+  anyway, because the beat that mattered was rushed. Length was not the
+  constraint; pacing was, and "it generated" is not the bar.
+- `templates/ad-asset-prep.md` § 8 — **choosing between location plates by
+  AFFORDANCE, not beauty**, with the four rejections that teach it (no room for
+  the crowd or the run; clutter that turns to mush; a yellow tint that would
+  leak onto every scene) and the pick that reads as staging arithmetic: a clean
+  action corridor with the mess pushed to the edges. Run the scene's beats
+  against the plate before locking it; a beat with nowhere to happen is not
+  discovered until you are paying for shots. Also adds "pin the sun before you
+  pick". The reported "~70% of final quality is the location" is carried as
+  `[UNPROVEN HERE]` — the selection discipline stands without the number.
+- `skills/higgsfield-audio/SKILL.md` § **Scope an audio reference — say which
+  property rides** (3.5.0 → 3.6.0), plus a third row in the `@Audio1` job
+  table: **audio-as-performance**. Every *image* reference in this stack is
+  scoped in both directions; audio references had no equivalent vocabulary and
+  need one for the same reason — a sound file carries several properties at
+  once and an unscoped reference lends all of them. Demonstrated on a character
+  who had to hum a specific tune: with no reference the model invented a
+  different melody every take; with a voice memo attached and scoped to *the
+  melody only, never the voice or timbre*, it landed. Generalised into the
+  three-part pattern, of which the third part is the one that gets skipped —
+  name what rides, name what must not, and **say where the excluded property
+  comes from instead**, because a reference told only what not to do leaves the
+  model to pick, and it picks the reference.
+
+### Fixed
+
+- `templates/seedance/top-down-map.md` — **states, at the top, that the floor
+  plan is never attached to the generation.** The template always meant this
+  (what ships is the blocking *note*), but it nowhere said so, and the omission
+  became load-bearing the moment this release started talking about drawn
+  staging references: a reader who learns that a diagram can ride as a
+  reference could reasonably attach this one. Top-down is the right shape for
+  *reasoning* about a space and the wrong shape for *showing* one — a staging
+  reference a video model actually sees is drawn front-on from the camera's
+  side, because video models think in frames, not floor plans. Both are true at
+  once; this template lives entirely on the reasoning side.
+- `skills/higgsfield-soul/SKILL.md` § Variety Sheets — **the empty-plate rule
+  was stated here without its condition.** The default still holds (empty
+  plate + variety sheet, so the crowd stays directable), but it **inverts when
+  the crowd IS the location**: a night carnival square kept breaking from an
+  empty plate because every take had to re-invent the throng from prose, and
+  baking the crowd into the location asset fixed it — with the tell being that
+  "the prompt stayed clean and simple". Adds the four-way decision table and
+  the test that settles it: **write the crowd out in prose and see how long it
+  is** — if specifying it costs a paragraph in every shot prompt, that
+  paragraph belongs in the location asset. `templates/ad-asset-prep.md` § 8
+  gains the matching second exception and cross-links to it.
+
+## v3.31.0 — 2026-08-09
+
+**Four approved cherry-picks from the nutllwhy/seedance-tvc-director evaluation** (2026-08-09, MIT). Technique re-derived in house voice — no source text copied. That skill is a commercial-directing router; its *ad* layer (0–3s hook gate, packshot budgets, flavour evidence chains) was deliberately declined as a genre lane we do not run. What survived is the craft underneath it, written from timecoded postmortems of real takes. Everything here is `[HOUSE]` and `[UNPROVEN HERE]`: the source's durations are one practitioner's figures, so they are quoted as directions to lean, never as measured constraints.
+
+### Added
+- `skills/higgsfield-seedance/FAILURE-MODES.md` § **Truncated action — the cut lands before the result**: the shot list reads as full coverage while nothing in the film ever lands, because shots are priced by what they contain rather than by what must finish inside them. Counter is a named completion state that settles before the cut, or the next shot opening on the result already true. Explicitly the picture twin of the dialogue-handle law this repo already carries for sound.
+- `skills/higgsfield-seedance/FAILURE-MODES.md` § **Mimed manipulation — hands move, the object does not**: a manipulation written as its verb ("tears it open cleanly") gives the model a gesture and no mechanism. Counter is the five-part causal chain (initial structure → anchor → force point and direction → visible material feedback → finished state) plus two routing rules: use two states and a sound when the action is only transport, and never invent a structure the reference cannot show.
+- `skills/higgsfield-seedance/FAILURE-MODES.md` § **Orphan limbs in a group shot**: at three-plus characters with no order lock the model re-derives the group each cut, and a hand enters the action from a body that is not in frame. Counter is the headcount + screen-order lock held across cuts, an owner and entry side for every acting hand, a two-hand-actor cap per shot, and the three-shot split for detail + faces + group recap.
+- `skills/higgsfield-seedance-2-5/MODE-PLAYBOOKS.md` § Seamless transitions → **Give the bridge a deadline**: the named transition vocabulary was already safe because every entry names a finish; the failure lives in the freehand wording around it. Un-terminated verbs ("drifts through", "floats across", "gradually becomes") eat the segment after them. Adds the three-state shape with a stated arrival time and four guardrails (ordinary bridge 0.2–0.8s, one hero bridge ~1.2s, no near-empty frame, name when the target is established).
+
+### Changed
+- `skills/higgsfield-seedance-2-5/SKILL.md` § Audio and Text: the speech-lives-in-the-audio-clause rule extended with the trap that makes it fail — writers do not think of *subtext* as speech, so `a look that says "you too?"` written as staging comes back spoken. Anything readable is a voicing request, and "no dialogue" does not undo it. Version 1.2.0; FAILURE-MODES.md 1.3.0.
+
+### Known limitations (accepted)
+- All four are re-derived from a third-party corpus and are **not** A/B'd on our material. The cheapest settling probes, if they are ever worth firing: one 480p pair on a single manipulation shot (verb-only vs. five-part chain), and one on a three-hander reach (order+owner lock present vs. absent).
+- The durations carried in these sections (0.15–0.35s completion hold, 0.2–0.8s bridge, ~2.5s of total transition in a 30s piece) are the source author's practitioner figures. They are labelled as such at every use and no linter enforces them.
+
+## v3.30.0 — 2026-08-09
+
+**Two approved cherry-picks from the HBAI-Ltd/Toonflow-app evaluation** (2026-08-09, Apache-2.0 + commercial rider). Technique re-derived in house voice — no source text copied. Most of that evaluation's picks were rejected against our own measurements; these two survived. The source's anti-clone clause was deliberately NOT adopted: this repo already carries that law in four places (`higgsfield-seedance` § ENGINE-RULES clone row, `PRODUCTION-PATTERNS.md` § clone-army, `HELL-GRIND.md`, `higgsfield-seedance-2-5`), and a fifth copy is the drift the single-home rule exists to prevent.
+
+### Added
+- `skills/shared/negative-constraints.md` § **Whole-Frame Degradation — quality words vs. look choices**: the distinction this repo was contradicting itself on. Tokens like `film grain` and `imperfect focus` are read as instructions about the *rendering*, so they land on the whole frame — but the same words are deliberate craft in three legal uses, and the section names all three with where the repo already does them (look choice in a Style lead, optics-as-content attached to an element and a moment, plate matching in the VFX skills). A five-row table gives the degradation case and what to write instead. Governing line: *content* may be imperfect; *image quality* must be sharp.
+- `skills/shared/negative-constraints.md` § **Depth of field — two substitutes, two intents**: "no blur" is two different requests. `sharp focus throughout, deep depth of field` answers "the whole image is mushy"; `subject in sharp focus, background falling into soft bokeh` answers "the background blur ate my subject". Both spellings were already in the repo, unreconciled, giving an agent two contradictory answers to one question.
+- `skills/higgsfield-seedance/FAILURE-MODES.md` § **Filler-babble on a short dialogue line**: a MEASURED failure ported from OSIDE's registry (sync-budget ladder, 2026-08-09, EN × 4s × 480p × Seedance 2.0 — every take at ≤6 words carried it; 8- and 12-word lines came back 4/4 clean). The risk direction is the **short** line, not the long one. Symptom is scoped to what the rig actually graded (transcripts, so audio only — mouth movement was not graded and is not claimed).
+
+### Changed
+- `skills/higgsfield-prompt/SKILL.md`: Genre Router gains a texture-word note (a look choice belongs in the Style lead; the same word trailing as a quality plea softens the frame), and the Cinema Studio 3.0 positive-alternatives list splits the "no blur" row by intent. Version 3.7.0.
+- `skills/higgsfield-seedance/PRODUCTION-PATTERNS.md` § Prompted Imperfection as Realism: cross-reference making explicit that its flaws are attached to elements or quantified ramps, which is what separates it from the degradation case.
+- `skills/higgsfield-seedance/HELL-GRIND.md`: the dialogue-block silence bullet extended (not duplicated) with the picture half — every other visible face carries a positive at-rest mouth state, since "stays silent" settles only the sound. Tagged `[HOUSE]` inline because the file is otherwise stamped `[OFFICIAL]`. Version 1.2.0 on FAILURE-MODES.md.
+- `templates/seedance/global-style-prefix.md`: note on where texture words belong in the frozen prefix.
+
+### Known limitations (accepted)
+- The Whole-Frame Degradation section is `[UNPROVEN HERE]` — re-derived from a third-party corpus, not A/B'd on our material. The settling probe is named in the section itself: a two-arm 480p pair on one identical shot, bare `film grain, imperfect focus` versus the named-look substitute, compared for subject detail retention. Nothing blocks a prompt and no linter enforces it.
+- The at-rest mouth fact for non-speaking faces is likewise unproven here; only the filler-babble half of that entry is measured. OSIDE's compiler-side implementation of the same idea was built and then **withdrawn** this session — it emitted "the rest of the shot is silent" directly above the SFX and Ambient layers, cancelling its own sound design. Anyone re-attempting it should read that failure first.
+
+## v3.29.0 — 2026-08-09
+
+**Two approved cherry-picks from the Emily2040/seedance-2.0 skill evaluation** (2026-08-09, MIT-licensed). Idea-ports re-derived in house voice — no source text copied. The source's same-seed-experiment clause ("same seed + one prompt change ≈ controlled experiment") was deliberately NOT adopted: it contradicts the measured fact that this surface exposes no seed parameter and every roll is fresh (`higgsfield-seedance` § Drafts Validate the Prompt, Not the Take). Re-roll is documented as "same prompt again, unchanged" with zero seed language.
+
+### Added
+- `skills/higgsfield-troubleshoot/SKILL.md` § **Take Triage — Five Verdicts for a Delivered Take**: every delivered take gets exactly one verdict — keep / fix-in-post / edit-don't-regenerate / re-roll / rewrite — before anything re-fires. Carries three sub-rules:
+  - **Two takes with the same flaw = rewrite, by rule** (stop re-rolling into the same wall) — cut the other way, different flaws per roll = stochastic = batch-and-cull, keeping the verdict consistent with the iterate-vs-batch fork.
+  - **Attempt budget declared before take one** `[heuristic]` — a take budget sized against `production-benchmarks.md` plus a *written* "good enough" bar; half-budget with no progress on the same flaw forces a strategy change (mode switch, shot split, or Retry Ladder rung 4).
+  - **The shot log is the ledger row** — one line per take with the one changed variable in `notes`; no new logging surface invented (5-second rule stands).
+  - One-variable-per-retake cites `higgsfield-prompt` § The Iteration Rule and `DISCIPLINE.md` § Single-Variable Iteration rather than restating them.
+- `skills/higgsfield-troubleshoot/SKILL.md` § **Sequence & Continuation Failure Atlas**: 12-row symptom → likely cause → single-repair-variable table for chained work (continuations, extensions, start-frame-pinned handoffs), each row cross-wired to the existing owner section (`higgsfield-pipeline` § Source-carries-state / § Chain management, `higgsfield-seedance` § Reference Roles / § Single-vs-multi-shot).
+
+### Changed
+- `skills/higgsfield-pipeline/SKILL.md`: § Continuation & Extension Handoff now points to the atlas for symptom-level repair; Step 08+09 routes the keep/post/edit/re-roll/rewrite call to Take Triage. Version 3.4.1.
+- `skills/higgsfield-seedance/FAILURE-MODES.md`: cross-reference to the atlas (this catalog = single-clip render failures; the atlas = the joins). Version 1.1.1.
+- Sub-skill version: troubleshoot 3.2.0.
+
+### Known limitations (accepted)
+- Both additions are `[FIELD — community, Emily2040/seedance-2.0 skill (MIT), re-derived]` — transferable craft judged sound by evaluation, not measured on our routes. The atlas rows' likely-cause column is diagnostic default, not a distribution.
+- The source's allocation-model reference (fidelity-budget allocation across identity/motion/density) did not merge naturally into either section and was deferred, not ported.
+
+## v3.28.0 — 2026-08-09
+
+**Seven approved cherry-picks from the 2026-08-09 third-party evaluation sweep** (liyue-aigc director skills, MiniMax-H3 bundled skills, and a third-party Seedance 2.5 storyboard skill audited by the dialect-warden). All content re-derived in house voice — no source text copied (the xianxia repo carries no license; MiniMax skills carry no per-file attribution). Provider-steering lines and the invalid "Negative Prompt:" field in the sources were deliberately NOT adopted.
+
+### Added
+- `skills/higgsfield-seedance-2-5/SKILL.md` § Reference Roles → **Fidelity — say how much of each material must survive**: four grades per material (full-preserve / partial-preserve / attribute-transfer / loose-guide), with attribute-transfer requiring a named target — the case a bare role line cannot express. Plus two new role rules: **character sheets leak their staging** (backdrop/panel-layout exclusion) and **beat lines name characters, never handles** (name + one visible marker at first appearance; `[OFFICIAL — SD25-PE mapping priority]`).
+- `skills/higgsfield-seedance-2-5/MODE-PLAYBOOKS.md` § Storyboard grids — the **anti-monochrome-bleed sentence**: when the board is monochrome and the film is not, exclude the board's *medium* explicitly or the render comes back gray and sketchy.
+- `skills/higgsfield-shotlist-director/SKILL.md`:
+  - § **Sequence tempo and variety** — whole-sequence delivery checks no per-prompt rule can catch: **tempo budget** (runtime → cut count at ~4–6s average, one 6–8s hero hold, stated durations must sum exactly to the requested runtime) and **monotony audit** (no 3 consecutive cuts sharing shot size AND camera move; vary function and scale, not just duration).
+  - Per-scene prompt law gains an **Off-screen line** — just-departed characters carry exit side + last visible state for one prompt (dropped after two consecutive absences), keeping re-entry direction legal.
+  - `@`-glossary entries now carry a **fidelity grade** (pointer to the 2.5 fidelity section).
+- `skills/higgsfield-camera/SKILL.md` § Micro-moves — the **reverse consistency check**: the stated travel must be able to produce the stated end framing; when move and end frame disagree the prompt is internally impossible.
+- `skills/higgsfield-audio/SKILL.md` § **Cutting to music — assembling separately-generated clips on one track**: one master track law · cuts land on musical punctuation, never inside a sung vowel (ECU mouth-match exception) · unified grain + LUT as a deliberate batch-color-drift mask.
+- `skills/higgsfield-troubleshoot/SKILL.md` § **Retry Ladder** — four terminating rungs; rung 2 treats a second failure as evidence the shot is over-packed (shorten/split + re-lint before re-firing, not a re-roll); rung 4 stops after three paid attempts with named options — silent omission is never one.
+
+### Changed
+- QUICK FACTS routing lines updated in shotlist-director, seedance-2-5, and audio for the new sections.
+- Sub-skill versions: shotlist-director 1.2.0, seedance-2-5 1.1.0, camera 3.5.0, audio 3.5.0, troubleshoot 3.1.0.
+
+- `skills/higgsfield-seedance-2-5/MODE-PLAYBOOKS.md` § Storyboard grids → **Panel-to-timestamp mapping — the optional adherence raiser**. Probe P1 (2026-08-09 A/B, (2.5, Ark), 480p) came back positive: order was followed in BOTH arms, but the mapping landed cuts on the declared stamps and kept each panel's props in its own shot, while the unmapped arm paced itself and leaked a shot-3 prop into shot 1. Shipped `[MEASURED — one pair]` with the vendor non-strict disclaimer and the keyframes pointer kept; same probe day also measured slot order as non-semantic (board-first vs board-last: identical order adherence — SD25-PE confirmed) and the image-reference aspect bound [0.4, 2.5] enforced at create.
+
+### Known limitations (accepted)
+- The seven evaluation-sweep additions are `[EMPIRICAL — third-party skill corpora, re-derived]` except where marked `[OFFICIAL — SD25-PE]` — transferable craft judged sound by evaluation, **not measured on our routes**. The tempo-budget bands and the 3-consecutive-cuts monotony threshold are re-derived defaults to tune, not findings.
+- The panel-to-timestamp A/B is a single pair on one synthetic board — a strong directional read, not a distribution.
+
+## v3.27.0 — 2026-08-09
+
+**Two approved cherry-picks from the dramaclaw evaluation.** Motion-prompt laws earned in dramaclaw's Seedance production corpus (model-agnostic i2v craft, carried as `[EMPIRICAL]` practitioner findings), plus the audio-reference enforcement bounds surfaced by the dialect-warden reconciliation (drift item S2).
+
+### Added
+- `skills/higgsfield-seedance/SKILL.md` § Prompt-Craft Laws → **Motion-prompt laws (dramaclaw production corpus)**, three laws none of which the repo carried before:
+  - **Unidirectional motion only** — a short action finishes early and the model reverses it to fill the clip (walks forward then steps back, leans in then pulls away). Chain 2–3 connected actions in the same direction; a there-and-back is two shots.
+  - **Name the camera endpoint** — a move needs a destination: state what the frame shows when the move finishes, not just the move's name.
+  - **Detail scale follows shot size** — close-ups earn micro-detail, wides earn broad arcs; cross-matching is unrenderable. Cross-linked against the existing snake-cam cherry-pick (composition answer to detail-in-a-wide) so the two don't read as contradicting.
+- `skills/higgsfield-seedance/FAILURE-MODES.md` — new catalog entry **§ Action-reversal fill** (symptom / mechanism / counter face of the unidirectional law) + a matching self-repair checklist bullet.
+- **Seedance 2.0 audio-reference enforcement bounds** in `skills/higgsfield-audio/SKILL.md` (§ Audio by Model → Seedance 2.0) and `skills/higgsfield-models/MODELS-DEEP-REFERENCE.md` (§ Audio — Rules and Failure Modes): per-clip duration **1.8–15.2s** AND **total across all attached clips ≤15.2s** — three individually-legal 6s clips get rejected. The previously-documented caps (15s/clip, 3 files, 10MB) had **no per-clip minimum and no total cap**, so a multi-clip attach that obeyed every documented limit could still 400.
+
+### Changed
+- `skills/higgsfield-seedance/SKILL.md` QUICK FACTS — prompt-craft-laws routing line now names the three motion laws.
+- Sub-skill versions: higgsfield-seedance SKILL 1.12.0, FAILURE-MODES 1.1.0, higgsfield-audio 3.4.0, MODELS-DEEP-REFERENCE 3.2.0.
+
+### Known limitations (accepted)
+- **The motion laws are dramaclaw's field findings, not measured here.** Earned in dramaclaw's production corpus on Seedance; carried as `[EMPIRICAL — dramaclaw production corpus, Seedance]` per this repo's convention — strong heuristics to confirm on your own material, not guaranteed model behavior.
+- **The audio bounds are a third-party measurement on the China Ark lane (2026-08, captured 400 errors) — NOT verified Higgsfield behavior.** Higgsfield's own proxy enforcement is unverified; the files say so and frame the total cap as the first suspect when a multi-clip attach fails, not as platform doctrine. `specs/` stays untouched (generated surfaces carry only snapshot-derived data).
+
+## v3.26.0 — 2026-08-08
+
+**The AI-VFX pipeline.** Higgsfield ran a public challenge — their host rebuilt a VFX artist's Iceland plate footage (character replacement, a cliff jump onto a dragon, a flight through a waterfall) using only Seedance 2.5, then built the same film again with no plate at all. Three sources came out of it: the *AI vs VFX* blog write-up with every production prompt, the 25-minute build video, and `prompt-builder-2-5.skill`, the prompt skill they published alongside. This release absorbs the **production doctrine** in them — the shot-building pipeline and its failure modes. The prompt-craft layer (block scaffold, FOV anchors, distributed style, optical techniques, the 4-mechanism extreme-FOV stack) was already house doctrine in `skills/higgsfield-seedance/SKILL.md` and is deliberately **not** restated.
+
+### Added — `skills/higgsfield-seedance-2-5/VFX-PIPELINE.md`
+`[FIELD — AI-vs-VFX, 2026-08-08]` + `[OFFICIAL — prompt-builder 2.5]`. The production layer under the 2.5 dialect:
+- **Images first, then video** — and its consequence: a bad still cannot be rescued by the video prompt, so the cheap fix is always upstream.
+- **One model per asset class**, not one per project: faces + corrective fixes → Nano Banana 2 · fantasy creatures → Seedream 5.0 · clothing → GPT Image 2 · locations → Soul Cinema (GPT skews yellow; Nano Banana makes locations too clean and symmetrical).
+- Sheet construction: the **plain-grey-background law**, the **two-close-up creature sheet** (mouth open + mouth closed, so the jaw stops reshaping the skull), the **face-lock crop** (crop the heads out of the full-body panels so identity has exactly one source at the only resolution where it resolves), and small fixes as a *model switch plus one line* rather than a re-prompt.
+- **The size-ref frame** — scale between two subjects survives as an asset, not a sentence: merge both sheets plus a known-good frame into one proportion reference, write the ratio in human-height comparisons, attach it to every shot, and carry the asymmetry lock (*if scale is uncertain, render smaller, never larger*) and the no-resize lock.
+- **Locations batch cheap and select by light** — 7 credits buys one GPT Image 2 generation or ~56 Soul Cinema variations, so batch wide and judge; the four field rejection reasons are tabulated. Bad light in the still is the most common cause of a slop video. Plus the reverse-angle recipe with its explicit MATCH-TO-REFERENCE carry-over list (materials, grain size, palette, grade) and its dead-end lock against environment invention.
+- **The `omni_reference` v2v lane.** The field footage-transformation workflow is **not** `video_edit` — it is `omni_reference` with the plate attached as a video reference, which is why `duration` is settable and **must equal the source**, and why the source must be **≥ 4 s** (the `duration` floor `[OFFICIAL — platform]`; pad a shorter clip by freeze-framing its last frame). Includes a four-row lane-routing table and the performance-inheritance clause (the `omni_reference` twin of Timeline Inheritance).
+- **The four-batch rule** — the same defect across all four batches is a prompt or source fault, and further batching is burning credits. The diagnostic is *anchors*: v2v cannot render an action the plate has no anchor for. Fallback is i2v from a location screenshot, plus the **deliberate empty-frame pause** written into the prompt as an engineered stitch point.
+- **The slop catalog** — "make it more natural" is a non-instruction (replace with a physical picture of the movement); the origami/low-poly wing; the CG-double fall (there are only two ways off a cliff, and a stiff soldier pose sliding at constant speed with dead clothing is neither); bad light; warped logos and colour casts; and the four take-selection rejections, which are performance notes rather than technical faults.
+- **Direction patterns**: open mid-action, the cloud-punch opener, emotion with no video reference (what he says, how the voice sounds, what the hands do), the voice lock (2.5 locks voice with appearance in the character sheet, so describe it once in the role sentence), the high-speed kit (180° orbit + speed shake + lens droplets) with its two containment locks, and deliberate background improvisation as a word-budget decision.
+- Cost/effort anchors from the build, quotable as comparisons rather than as a quote.
+
+### Changed
+- `skills/higgsfield-seedance-2-5/SKILL.md` — QUICK FACTS + Related rows for `VFX-PIPELINE.md`, and a Mode Router callout: **video-to-video is not automatically `video_edit`**. This is the routing correction with the most credit exposure in the release — a reader following the old text would send a subject-swap job to a mode that ignores `duration` and bills by the master's full length.
+- `skills/higgsfield-seedance-2-5/MODE-PLAYBOOKS.md` — § Video editing opens with the lane check.
+- `skills/higgsfield-seedance-vfx/SKILL.md` — scoped explicitly to the **2.0** v2v lane (4K, `mode=std`, platform start/end frames, genre hint), with a pointer to the 2.5 lane.
+- `image-models.md` — new § Routing by Asset Class ahead of the per-model reference, with the batching economics and the fix-don't-rebuild rule.
+- `skills/higgsfield-character-design/SKILL.md` — new § Sheet Construction Laws: the sheet as an *artifact* (grey background, two-close-up creature sheets, the face-lock crop, the size-ref frame, fix-don't-rebuild) alongside the existing content-side method.
+- `evals/cases/seedance-2-5.json` — 2 new cases (9 total): `s25-v2v-routes-to-omni-reference` asserts a subject-swap request lands in `omni_reference` with duration matched to the source and a performance-inheritance clause; `trap-s25-four-batch-rule` asserts a repeated-failure report stops the batching and reaches for the i2v fallback rather than recommending more re-rolls.
+- Routing: dispatcher row for replacing a VFX/3D pipeline with generation; sub-skill catalog row; README structure tree.
+
+### Known limitations (accepted)
+- **Not field-rated by O-Side.** This is Higgsfield's own production build, documented from their blog, video and published prompt skill — not measured on this repo's material. The `[FIELD — AI-vs-VFX, 2026-08-08]` label means "observed working in that build", not "verified here".
+- **The ≥4 s source rule is inferred, not published.** The blog states it as a Seedance requirement for v2v; the platform snapshot has no video-reference minimum, only a `duration` floor of 4 s. The file says so, and derives the rule from the floor rather than asserting an undocumented constraint.
+- The cost anchors (40¢ creature sheet, 7 credits → 56 Soul Cinema variations, the $50,000 comparison) are the build's own figures and its own framing; verify live before quoting prices (HARD RULE 3).
+- The prompt-craft content of `prompt-builder-2-5.skill` was audited against the repo and found **already covered** (block scaffold, FOV anchor table, distributed style, observation pattern, snake cam, anti-impact locks, the 4-mechanism extreme-FOV stack, km/h and %/metre quantification). Two small items were judged not worth a surface of their own and are not carried: the sub-0.8s whip-pan-renders-as-hard-cut threshold, and the tele "compressed air column" phrasing.
+
+## v3.25.0 — 2026-08-07
+
+**Seedance 2.5 lands, and Higgsfield open-sourced their feature-film pipeline.** Two sources arrived together: ByteDance's *Dreamina Seedance 2.5 Prompt Guide* + *User Guide* (the model vendor's own doctrine for a model that is now live on Higgsfield), and Higgsfield's **Hell Grind** open-source brief — the production system behind their 95-minute AI feature, including the CINEDANCE prompt skill and its acting system. This release absorbs both, plus the Tier-2 spec refresh that Seedance 2.5's arrival forced.
+
+### Specs (generated from the 2026-08-07 video dump)
+- **Video +2**: `seedance_2_5` (Seedance 2.5 — four modes `t2v`/`omni_reference`/`video_edit`/`video_extension`, 4–30s, 480p/720p, `extension_mode` forward/backward, reference roles image/video/audio, **no start/end-frame role, no genre hint, no lane above 720p**) and `flux_3_video` (FLUX 3 Video, Black Forest Labs — T2V + multi-frame I2V + continuation with synchronized audio, 5–20s, 720p/1080p, the only catalog entry with a native 2:1 ratio).
+- **Video −1**: `explainer_video` left the catalog (it had already dropped out of the CLI list at 2026-08-01). Noted in model-guide.md's utility list rather than silently removed.
+- **Changed**: `grok_video_v15` gained `image_references` + `audio_references` roles — it is no longer I2V-only; the live CLI additionally reports three mutual-exclusion rules on it (references vs `start_image`, audio-refs require an image-ref, 1080p unavailable with references), recorded in model-guide.md. `minimax_h3` gained `batch_size` (1–4).
+- Image and audio snapshots are unchanged and remain at 2026-08-01. CLI baseline re-accepted with `--update-baseline`; evals audited in the same PR (v3.11.3 lesson).
+
+### Added — `skills/higgsfield-seedance-2-5/` (new sub-skill)
+- `SKILL.md` — the omni-reference dialect: the four-mode router, the Higgsfield parameter surface with its three credit-relevant consequences (`video_edit` bills by source duration and ignores duration/aspect ratio; `video_extension` inherits the source ratio; there is no `genre`), reference roles that always pair "what to use" with "what not to use", the material budget (30 images / 10 videos / 10 audio, 50 total) with its stability ranges, the five-step multi-reference workflow, 30-second staging with explicit end states, timestamp pacing as a budget rather than an edit point, bracket syntax (`()` music · `<>` SFX · `{}` dialogue · `【】` subtitles), in-prompt first-last-frame and multi-keyframe control, observable-cue emotional direction, the niche-camera-term translation formula, the seven-slot real-person formula, a 2.0-vs-2.5 routing table, the hard-limits list, and a `[DREAMINA-ONLY]` table of product features Higgsfield does **not** expose (Ultra Long Video 180s, mark-based editing, Clay Renderer).
+- `MODE-PLAYBOOKS.md` — the long templates: video editing (sole editing master, Timeline Inheritance, background-by-silhouette, audio-category editing, written-scope editing), forward/backward extension with the boundary-frame contract, storyboard grids, coarse-vs-fine blockouts, one-click video, seamless transitions plus the 11-entry named transition vocabulary.
+- `templates/seedance/omni-reference-2-5.md` — paste-ready multi-reference brief with a filled example.
+- `evals/cases/seedance-2-5.json` — 7 cases including two stale-spec traps (`video_extension` without `extension_mode`; 1080p on a 720p-capped model).
+
+### Added — `skills/higgsfield-seedance/HELL-GRIND.md`
+`[OFFICIAL — Higgsfield "Hell Grind" open-source brief]`. Deliberately scoped to what the repo did **not** already have — the CINEDANCE prompt doctrine was already harvested as § Official Prompt Architecture and is not restated:
+- **Asset construction**: the descriptor+reference pair; the three-panel character sheet with a **headless front figure** (so wide shots cannot source the face from a blurry thumbnail); boring-on-purpose sheets; point changes made in NBP/Seedream then **mask-composited back onto the original**, because an image never runs through a model twice in full.
+- **Location sheets**: 3/4 not frontal, an anchor object to stage against, one light logic, and two reverse-angle recipes (corner generation; or a walk-through video screenshot + texture pass).
+- **The GEO SPATIAL LAYOUT block** — a per-scene floor plan with no people in it, pasted unchanged into every shot of that scene. Distinguished from the existing per-shot Spatial Layout Block.
+- **The position-fixing first second** — a ~1.0s populated wide with no action, the "hm" trick, and the previous-line-tail seam trick. Reconciled explicitly with the Non-Empty Opening Frame pattern (it withholds *action*, never *people*).
+- The `EXACT N CHARACTERS — NO DUPLICATES` header and counted furniture bans; the CHARACTER ACTING / STYLE / QUALITY blocks; the closing technical tag tail; wording rules (present tense, ≤3 sentences per beat, 3,000–4,000-word production prompts, positive-form actions, the ban dictionary); dialogue construction with the anti-ad-lib block and mix notes; INNER (unspoken), phased blinking, and the one-micro-event-per-1–2s rule; the surgical one-line iteration loop and the **10–15 rule** (if a shot has not converged, simplify the shot, not the words); crowds as one asset with an explicit count, threshold transitions, and the giant SCALE LAW with its named failure condition.
+
+### Added — `skills/higgsfield-acting/` (new sub-skill)
+The performance craft layer, distinct from FACS's muscle codes: acting as behavior under pressure; the five pillars (objective / obstacle+stakes / tactics / beats / subtext); listening markers; body parameters, business and the interrupted-action accent, proxemics as drama, status and status breaks; the **150–220-word acting master profile** with fixed block order, tics-with-triggers, named gaits, and the mandatory "However, when X…" mask-crack; mandatory eye life; scene adaptation that transforms rather than deletes; the locked voice prompt; states-not-transitions; ensemble wave reactions; a 15-symptom atlas of bad acting with prompt-level fixes; the 0–5 performance scale with the two-truths rule; a pre-send checklist and a worked master-profile-plus-adaptation example.
+
+### Changed
+- **Age contradiction resolved.** `skills/higgsfield-seedance/SKILL.md` § Tag naming carried the official skill's `age + role/build` template while engine rule 1 forbids age words in either language. The Hell Grind brief supplies the mechanism — the content filter tightens sharply the moment it reads a minor — so the `@TAG:` line now reads role/build first with an explicit no-age note, and the same override is stated in the 2.5 skill's real-person formula (whose source guide labels slot 1 `[Age/Race]`).
+- `scripts/seedance_lint.py`: `extension_mode` is now a first-class setting (header pattern + `--extension-mode` flag), and two cross-parameter rules that `sync_specs.py` cannot extract from prose are encoded — `extension_mode` required for and only for `video_extension` (FAIL), and `video_edit` ignoring duration/aspect ratio (WARN). Both key off the model's own parameter list rather than a hard-coded id, so they disappear if the platform drops the parameter.
+- `evals/run_evals.py`: the two new rules joined `ENUM_RULES` so trap cases can assert on them.
+- Routing: dispatcher rows for Seedance 2.5, the 2.0-vs-2.5 tiebreaker, character performance, and the film pipeline; sub-skill catalog and `sub_skill_descriptions.py` updated; model-guide.md gained Seedance 2.5 + FLUX 3 rows, an existing-video branch and a >15s branch in the decision flowchart, and the 2026-08-07 delta note.
+- README: version + specs badge, feature list (three new bullets), structure tree, template count, footer.
+
+### Known limitations (accepted)
+- **Seedance 2.5 and FLUX 3 Video are not field-rated.** No star ratings in model-guide.md until real generations back them; the 2.5 doctrine is vendor-official prompt grammar plus the platform's own parameter surface, not O-Side production experience.
+- The `[DREAMINA-ONLY]` features (Ultra Long Video 180s, mark-based frame annotation, Clay Renderer) have no Higgsfield equivalent; the documented workarounds (30s + extension chains, written edit scopes, blockout prompting) are structural substitutes, not the same capability.
+- Hell Grind's numbers (3,000–4,000-word prompts, the 10–15 rule, three-or-four voices per character) are that production's calibration, not measured on this repo's material.
+
+
+## v3.24.0 — 2026-08-01
+
+**Tier-2 spec refresh — 2026-08-01 snapshots.** CLI re-authenticated; `refresh_specs.py` flagged real drift since 2026-07-05, so all three catalogs were re-dumped from `models_explore`, specs regenerated, evals audited, and the CLI baseline re-accepted. Lands 4 days before the old snapshots would have crossed the 30-day trust line (which v3.23.0 made a `--strict` failure).
+
+### Specs (generated from the 2026-08-01 dumps)
+- **Video +3**: `minimax_h3` (MiniMax H3 — multimodal keyframes + image/video/audio refs, 5–15s, 2K, 21:9), `happy_horse_video` (T2V/start-frame, 3–15s, 720p/1080p), `sync_so` (Sync Lipsync 3, pipeline tool). Nothing removed.
+- **Image +1**: `seedream_v5_pro` — the v3.22.0 "verify live before citing enums" flag is now resolved: in-snapshot with `resolution` 1k/1.5k/2k (default 2k) and 21:9. `seedream_v5_lite` gained 21:9.
+- **Audio +1**: `qwen_audio_tts` (Qwen Audio 3.0 TTS Flash — expressive `instruction` direction, preset/cloned voices, 13 language hints); documented in higgsfield-audio's catalog table.
+- CLI-surface deltas recorded in `cli_baseline.json` (accepted with `--update-baseline`): `nano_banana_2` and `explainer_video` left the **CLI** list but remain in the models_explore catalog; `grok_video_v15` gained 1080p; Topaz's CLI param surface was reshaped.
+
+### Changed
+- Snapshot-date stamps refreshed everywhere they are load-bearing: README badge, image-models.md header + Soul Cast / GPT Image notes, higgsfield-audio catalog section (incl. heading anchor), model-guide sourcing note, and the eval golden responses that cite a snapshot date (facts re-verified against the new dump).
+- model-guide.md: "new in catalog — not yet field-rated" note for MiniMax H3 + Happy Horse (no invented star ratings), Sync Lipsync 3 added to the out-of-scope utility list.
+
+### Known limitations (accepted)
+- MiniMax H3 and Happy Horse Video have specs coverage but no prompt doctrine or comparison-table rows yet — pending real generations.
+- Sora 2 remains UI-only (absent from the API/MCP catalog).
+
+
+## v3.23.0 — 2026-08-01
+
+**Council remediation wave.** A three-model council audit (Codex gpt-5.6-sol + Gemini 3.1 Pro + Opus, 2026-08-01) of v3.22.1 found that the harvest wave changed the doctrine while the enforcement layer — linter, validator, evals, dispatcher, templates — still implemented the old one. All verified findings fixed.
+
+### Fixed — doctrine reaches the enforcement layer
+- **Regime-aware pre-flight linter** (`seedance_lint.py`): the 220-word FAIL / 180-word WARN now govern the short-form regime only. Block-scaffold production prompts are auto-detected (4+ canonical block labels, or 2+ shot markers) and exempt per HARD RULE 8; `--regime auto|short|block` forces it. Previously the mandated shotlist workflow (218–2,059-word copy-blocks piped through the linter) could never pass its own preflight — and `tests/test_lint_rules.py` codified the bug.
+- **"shot" false positive killed**: the violence-verb rule matched `\bshot\b` bare — failing "two-shot", "wide shot", and "one shot per scene" in a film-prompting tool. Now fires only on verb/violence constructions ("was shot", "shot him").
+- **Style Prefix doctrine reconciled as regime scoping**: connected shotlists ship the compiled prefix **verbatim** (the field-proven Style-Prefix-plus-SHOT shape observed across the harvested corpus); standalone block prompts distribute style into home blocks. seedance § Distributed style, shotlist-director § Per-scene prompt law, and `templates/seedance/global-style-prefix.md` now each state their regime and cross-link the other. The field-calibration bullet no longer claims "only the distributed form ships" — the corpus says otherwise.
+- **Negative-phrasing law scoped to its real target**: `negative:` lists / bare negation lists are banned; short lock tails inside declarations ("no 3D render", "no flicker" — the law's own canonical example) are fine and field-proven. Template note + seedance law scope updated.
+- **The mandatory prompt skill finally carries the regime carve-out** (`higgsfield-prompt`, the file HARD RULE 2 makes mandatory on every prompt request): QUICK FACTS 200-word + Seedance 30–100w lines, § Keep it under 200 words, and § Intent over Precision all scoped; likewise troubleshoot's blur table + diagnostic tree, MODELS-DEEP-REFERENCE's Kling prompt note, and seedance's 50–80w sweet spot.
+- **Fast Path Seedance runtime exception** (root dispatcher): Seedance 2.0 never gets a silently defaulted 8s — no-duration Fast Path requests route to Kling 3.0; Seedance-by-name states the assumed runtime as the first adjustable.
+- **Aspect-ratio enum leaks closed**: Full Path no longer offers 2.35:1 as an output ratio; `Aspect:` headers in templates 04/05/06 and prompt-examples now carry legal enums (Kling/Sora → 16:9, Seedance → native 21:9) with anamorphic kept in the Style line where HARD RULE 7 puts it.
+- **Model data corrected against specs**: Kling 2.6 HAS native audio (`sound`, default on) — models sub-skill table + decision tree fixed; Seedance 2.0 10s → 4–15s, Seedance 1.5 Pro → 4/8/12s; discrete duration enums no longer written as ranges (Veo 3.1/Lite/Fast 4/6/8s, Wan 2.6 5/10/15s, Hailuo 6/10s, Kling 2.6 5/10s) in model-guide + models sub-skill.
+- **Worked example de-milimetred**: two-character Seedance template now speaks FOV 63° with anamorphic as optical character, per the FOV-anchor law.
+- **Iteration anchor**: seedance § Field calibration "50–100" → the corrected 65–100 generations per kept shot.
+
+### Added — gates that catch this class of drift
+- **`validate.py`**: spec-snapshot staleness now FAILS `--strict` (release must not ship specs the HARD RULES disown) and the age gate covers image + audio spec files (previously ageless); duration cross-check gains name-index overrides (Kling 3.0/2.6, Wan 2.6, Veo 3.1 Lite, Seedance 1.5 Pro +) raising coverage 12 → 16 rows, a ≥14-row coverage floor, and range-vs-enum tightening ("4–8s" against [4,6,8] now fails); **rule-8 restatement scan** over every sub-skill, template, and the PDF generator — any unqualified 200-word-cap copy fails validation (it immediately caught two copies the council itself missed); dispatcher parity now requires a routing-TABLE row, not a prose mention.
+- **Evals**: new `word_count` assertion type — the `prompt-under-200-words` case now actually asserts the cap; new `harvest.json` suite (6 cases): block-scaffold cap exemption end-to-end, FOV-degrees-not-mm, CAMERA-3rd position, environment-invention lock, 15s-envelope beat tiling, character-height lock. 43 → 49 cases.
+- **`seedance_lint.py` structural**: beat-timeline shape checks (gaps, overlaps, late start, envelope undershoot — previously only overshoot); declared-shots-with-no-structure WARN; snapshot-age INFO on enum verdicts past the 30-day trust line.
+- **`sync_specs.py`**: refuses to generate from a snapshot with no items or none of the requested type (a truncated dump could previously write empty specs and exit 0).
+- **`build_index.py`**: GitHub-style duplicate-heading suffixes (`#continuation` / `#continuation-1`) in INDEX.md.
+
+### Changed
+- **USER-GUIDE PDF content refresh**: image-model table gains GPT Image 2 (text/logo) + Seedream 5.0 Pro (anime/manga sheets); short-form length guidance regime-scoped; release-history FAQ no longer ends at v3.8.1.
+
+### Known limitations (accepted)
+- `specs/` snapshots remain dated 2026-07-05 — they cross the 30-day trust line on 2026-08-05 and `--strict` will then fail by design until a Tier-2 refresh; the `higgsfield` CLI session must be re-authenticated first (`higgsfield auth login`).
+- Sora 2 aspect ratios are undocumented (UI-only model) — its example headers use 16:9 as the conservative legal value.
+
+
+## v3.22.1 — 2026-07-26
+
+**Post-release audit fix pass.** A two-agent audit of v3.22.0 (cross-reference integrity + repo hygiene) found no broken references but six substantive contradictions between new and pre-existing rules, plus stale downstream copies of the old 200-word rule. All fixed.
+
+### Fixed
+- **The ~2,500-character "practical limit" scoped as ZH-derived** (seedance 1.11.1 § Shot density): it contradicted the same file's new Field-calibration medians (1,433–2,059w). EN block prompts have no character analogue; ZH keeps the 1,800-char hard cap. Section now cross-links the fuller shotlist-director density heuristic.
+- **Runtime-default contradiction resolved** (shotlist-director 1.1.1): auto-enrichment no longer silently defaults to 8s — inside a shotlist the 15s envelope law governs; standalone prompts keep seedance's "always ask for runtime, never default."
+- **Duration ladder vs 15s target reconciled** (shotlist-director): 15s is the default envelope, not a straitjacket — a scene that fills only 4–8s ships as a deliberately shorter clip rather than padded dead air.
+- **Cut-density norms scoped by register** (shotlist-director): "1–3 cuts per 15s" is the live-action narrative norm; stylized recipes (3D-animated 6/15s, product montage) are denser by design, cross-linked to style § Style Recipes.
+- **mm-vs-FOV leak closed** (shotlist-director + camera 3.4.1): auto-enrichment lens defaults now speak FOV degrees for Seedance block prompts (63°/47°/29°); the camera lens table carries FOV equivalents per row and flags 45mm-macro as having no FOV anchor.
+- **FACS micro-beat recipes capped** (facs 1.1.1): recipes declared menus, not checklists — pick 2–4 tells per beat; the 3–4-expression cap's logic applies to physical beats.
+- **HARD RULE 8 word band corrected** (root 3.22.1): "500–2,000+" → the actual harvest ladder "218–2,059-word medians".
+- **Iteration-anchor arithmetic corrected** (production-benchmarks): 65–100 generations per kept shot (matches the 1.0–1.5% band; was 50–100), and the "16 finals" figure re-scoped to the most-iterated scene, not per-scene.
+- **Grey-sheet hex reconciled** (ad-asset-prep): `#7f7f7f` creature / `#8a8a8a` human both proven — the rule is pin ONE exact hex per project; added back-links for populated-plate reuse and the canonical Soul ghost-mannequin recipe.
+- **Motion caveat provenance split** (motion 3.2.1): catalog stats (~100 presets → ~1,900 variants) attributed to the live catalog pull, not the project harvest.
+- **Stale 200-word copies given the regime carve-out**: troubleshoot 3.0.1 (fix bullet + pre-gen checklist item), audio 3.3.2, `scripts/generate_user_guide.py` tip (the v3.22.0 PDF had shipped with the old unqualified rule), and the eval-case description in `evals/cases/prompt.json`.
+
+
+## v3.22.0 — 2026-07-26
+
+**The harvest wave.** Absorbs the 13-project community-corpus harvest (2026-07-18: 13 shared Higgsfield projects, 9 creators, ~4,000 production prompts pulled with full params) plus the previously-unported assets from Higgsfield's own skill family (shotlist-builder, seedance-2-pro-director, cinematic-prompt-builder). Chinese-source material re-authored in English.
+
+### Added
+- **higgsfield-seedance 1.11.0**:
+  - *Field calibration — the 13-project production corpus* `[FIELD]`: word-length ladder by register (218w → 2,059w medians — the 50–80w sweet spot is confirmed single-shot-only), register contraction for stylized work, Style Prefix as per-project compiled constant, video briefs hand-authored (`enhance_prompt` off on video / on for images), observed platform-layer Seedance params (`multi_shot_mode: custom`, `speedramp`, `bitrate_mode`).
+  - *Three "helpful-instinct" drift sources* with standing locks in POSITIVE LOCKS: environment invention (**the #1 drift source, above character drift** — "the set contains only what the reference shows"), character-height equalization (heights written into every 2+ character prompt), scale drift on wides.
+  - Measurable-language additions: masses/sizes in real units for PHYSICS ("50–70 g — it falls gently"), causal prop interaction ("a button press is contact, 2–3 mm travel, click, spring-back — screen lights only AFTER the click").
+  - Extension prompting: *feed the tail, not just the frame* — the final 3–4 seconds as `@video` reference carries motion through the join.
+  - *Build-safe construction* `[OFFICIAL — cinematic-prompt-builder]` in the Rewrite Playbook: evacuated-city / energy-standoff / contained-fight / uninhabited-terrain substitutions, containment-doubles-as-physics, the safe benchmark scene.
+  - PRODUCTION-PATTERNS gains a `[FIELD]` section: selective motion blur as artifact concealment, HEX-array color lock, generate-forward-reverse-in-edit, populated-plate reuse, off-screen transformation staging.
+- **higgsfield-camera 3.4.0** `[OFFICIAL — shotlist-builder]`: lens+aperture by shot purpose (85/100mm F1.4 ECU … 45mm macro F2.8) with focus-lock + distortion-forbid clauses, shot-duration-by-type table (0.3–0.5s flash establish → 8–15s full-arc CU), exact-distance micro-move rule (10–15 cm over 7s).
+- **higgsfield-facs 1.1.0** `[OFFICIAL — shotlist-builder]`: *Physical Micro-Beats — the Body Beyond the Face* (7 register recipes: throat/breath/skin/posture, incl. suppressed-emotion-as-resistance), anti-AI-video defaults (no tears unless scripted, 0.3–0.5s group-reaction stagger, listeners-in-bokeh are not statues), *every line gets three beats* (pre/during/post-line), the anti-AI test.
+- **higgsfield-shotlist-director 1.1.0** `[OFFICIAL — shotlist-builder + pro-director]`: *Prompt density* — group-when-ALL-5 / split-when-ANY-5 heuristic ("don't fragment grief"), complexity budget + duration ladder, err-toward-more-prompts, auto-enrichment defaults for thin briefs.
+- **higgsfield-style 3.1.0**: *Register Poles* `[FIELD]` (film vs broadcast-TV vs stop-motion-on-twos vs anime-cel — the style-anchor slot swaps vocabulary by register; one saturated accent reserved for the story) + *Style Recipes* `[OFFICIAL — cinematic-prompt-builder]` (8 proven shapes: live-action epic, 3D animated 6-shots/15s, game cutscene + pinned HUD, gameplay, FPV oner, product packshot, VFX composite INPUT LOCK, kaiju containment).
+- **image-models.md**: Seedream 5.0 Pro (`seedream_v5_pro`) `[FIELD]` — anime/manga sheet + manga-page dialects, art-era anchoring; flagged as absent from the 2026-07-05 spec snapshot (verify live).
+- **production-benchmarks.md**: *Community-corpus anchors* — 13,626 generations for a 2–3-min solo short, TESTS = 61% of the project, 50–100 generations per kept shot (consistent with Hell Grind's 1.0–1.5%), the five-bucket folder discipline, best-second splice culture.
+- **templates/ad-asset-prep.md**: exact-hex grey sheet spec (#8a8a8a) `[FIELD]`, sibling-face derivation ("spitting image, translated onto…"), ghost-mannequin outfit panel, reverse-angle plates as first-class elements (the 180°-line mechanism), master-plate exposure normalization.
+- **templates/seedance/global-style-prefix.md**: *Field specimens* — the one-axis-per-clause anatomy across the corpus, per-world camera-grammar maps, the reserved-accent discipline, register-aware prefixes; audio policy documented as a project choice, not a law.
+- **higgsfield-motion 3.2.0**: scope caveat `[FIELD]` — none of the 13 harvested film productions used a motion preset; presets are the viral-effects product (~100 unique names → ~1,900 per-model variants), film work free-prompts its camera.
+
+### Changed
+- **HARD RULE 8 regime carve-out** (root SKILL.md): the 200-word cap now explicitly governs the short-form MCSLA regime only; block-scaffold production prompts replace the cap with structural lint (harvest medians 500–2,000+ words by register).
+- **Camera-block-at-bottom claim RESOLVED** (was "test day pending" since v3.21.0): rejected on field evidence — across ~4,000 harvested production prompts the CAMERA block sits mid-document, never at the bottom. CAMERA-3rd stands.
+
+
+## v3.21.0 — 2026-07-14
+
+### Added
+- **higgsfield-seedance 1.10.0 — two new Prompt-Craft Laws** (2026-07-14):
+  - *Ambiguous verbs — the homograph trap* (Peter's field find, covered by no
+    known prompt guide): if a verb/noun has a plausible second reading
+    ("tearing" = rip vs cry), the model may take it — replace with the phrasing
+    only one thing can look like; ships with a seed homograph list.
+  - *Community v3 cherry-picks* (Joey drop, audited vs this skill): camera on
+    the shadow side + stated operator axis, detail-on-wide "snake cam",
+    intimate wide, prompt-reset heuristic, canonical-over-plate,
+    contrast-curve-stated-three-ways. Their camera-block-at-bottom claim is
+    flagged, not adopted (contradicts CAMERA-3rd; test day pending).
+
+
+## v3.20.1 — 2026-07-06
+
+### Changed
+- **Sora 2 UI presence confirmed** (user screenshot of the live model picker, 2026-07-06): the v3.20.0 "verify in the live UI" caveat is upgraded to fact. It is a **4-variant family** — Sora 2 (720p) / Sora 2 Pro (1080p) / Sora 2 Max / Sora 2 Pro Max (both 1080p, "BY HIGGSFIELD" enhanced tiers), all 4–12s, multi-shot with sound generation — present in the UI but still absent from the API/MCP catalog (UI generations only). model-guide.md row now carries the variant lineup and real duration/resolution; root SKILL.md and `higgsfield-assist` (3.1.1) caveats updated to the confirmed wording.
+
+
+## v3.20.0 — 2026-07-06
+
+**Audio specs pipeline + catalog-reality refresh.** The specs layer now covers all three output types end-to-end, the dispatcher gained a Load Map, and the two stalest model surfaces (higgsfield-assist, the Sora 2 / "Seedance Pro" mentions) were reconciled with the live catalog.
+
+### Added
+- **Audio specs pipeline**: `scripts/sync_specs.py --type audio` generates `specs/audio-model-specs.{yaml,json}` + `specs/AUDIO-MODEL-SPECS.md` from the dated audio snapshot (5 models incl. `seed_audio`); `scripts/refresh_specs.py` default is now `all` (video+image+audio — `both` kept as the pre-audio alias), audio captured into `specs/cli_baseline.json`, tripwire green across all three types. Typed-spec markdown footers now point at their own machine twins (was: everything pointed at the video files). `higgsfield-audio` 3.3.1 cites the generated audio specs.
+- **Load Map** (root SKILL.md § Load Map — how much to read): a situation → cumulative-load table so multi-skill loads are deterministic instead of vibes — Fast Path loads two files, everything else adds only what its routing row names.
+
+### Changed
+- **Sora 2 is UI-only** — absent from the API catalog and a live `models_explore` search (verified 2026-07-05). Kept everywhere but annotated: root SKILL.md "What Is Higgsfield?", model-guide.md (video-table row, decision flowchart demoted to parenthetical, camera-control + motion-preset † footnotes, credit table), higgsfield-assist. Root Fast Path default swapped Sora 2 → Seedance 2.0 (action/scale/references).
+- **"Seedance Pro" is a legacy UI label** — not in the catalog; annotated in model-guide + assist as superseded by Seedance 1.5 Pro (`seedance1_5`) and Seedance 2.0 Fast/Mini (annotate-don't-delete, per the GPT Image precedent).
+- **`higgsfield-assist` 3.0.0 → 3.1.0** (first refresh since 2026-04-06): credit-cost tier roster rebuilt against the 2026-07-05 catalog; "Kling 3.0 for anything needing audio" corrected — audio is native across Seedance 2.0/Mini/1.5 Pro (`generate_audio`), Kling 3.0/2.6 (`sound`), Veo 3.1 Lite: pick by scene fit, then toggle; plans table now carries a dated verify-live caveat; audio-toggle credit-saving tip added. Kling 2.6 audio cell in model-guide fixed to match the live spec (`sound` param, default on).
+- **CS3.5 shot-counter TODO closed** (`higgsfield-cinema`): API checked 2026-07-05 — `multi_prompt` exposes no maximum and no constraint rule, so the observed cap of 4 is UI behavior the API doesn't document; treat 4 as the working limit, verify live before promising more.
+- CLAUDE.md: specs/ line + sync command now cover all three types.
+
+
+## v3.19.1 — 2026-07-06
+
+Housekeeping wave: activate the weekly spec-drift schedule, absorb the CLI 1.1.5 release, de-clutter the repo root, and archive the changelog backlog. No prompting-content changes.
+
+### Changed
+- **Spec-drift schedule is LIVE**: `HIGGSFIELD_CREDENTIALS` repo secret added; a manual `workflow_dispatch` run verified the full path end-to-end (install → version guard → tripwire → issue-on-drift). The run surfaced CLI **1.1.5**, which *restores* the per-param `enum` lists that 1.0.1 dropped (and keeps `job_type` + CEL rules) — the tripwire regains full enum visibility with no parser change. Local CLI upgraded, baseline re-captured with 1.1.5, `LAST_VERIFIED_CLI` bumped 1.0.1 → 1.1.5, drift issue #78 closed as a cross-version artifact.
+- **Root scripts consolidated into `scripts/`**: all 9 Python tools (`validate.py`, `build_index.py`, `sync_specs.py`, `refresh_specs.py`, `higgsfield_memory.py`, `seedance_lint.py`, `generate_user_guide.py`, `validate_user_guide.py`, `sub_skill_descriptions.py`) moved via `git mv`; internal `__file__`-derived roots, test/eval importers, CI workflows, slash commands, CLAUDE.md, README, DISCIPLINE.md, and 14 skill files updated. Commands are now `python3 scripts/validate.py` etc. Root .md/.py clutter roughly halved.
+- **CHANGELOG archived**: entries v3.0.0–v3.14.1 (69 releases, ~375 KB) rolled verbatim into `docs/archive/CHANGELOG-v3.0-v3.14.md`; root CHANGELOG keeps the current era (v3.15.0+) plus a pointer.
+
+
+## v3.19.0 — 2026-07-05
+
+**Seedance 4K Masterclass + Seed Audio 1.0** — content wave from six sources gathered 2026-07-05 (plan: `workspace/output/V3.19-PLAN.md`): Higgsfield's own downloadable `prompt-writter.skill`, the official Seedance-4K film tutorial (video + blog, 25 verbatim prompts archived in `workspace/input/`), spec-verified Seed Audio 1.0 research, a cross-surface video-extension workflow, selected field imports from the community seedance-2.0 repo (v6.6.0), and a character-audition system prompt. Every model claim checked against the fresh 2026-07-05 specs snapshots (shipped in v3.18.1). Provenance tiers used throughout: [OFFICIAL] / [DEMO] / [EMPIRICAL] / [FIELD].
+
+### `higgsfield-seedance` 1.8.2 → 1.9.0
+- **§ Official Prompt Architecture — the Block Scaffold** [OFFICIAL — Higgsfield prompt-writter.skill]: the 17-block scaffold (SCENE CONTEXT → POSITIVE LOCKS), distributed-style doctrine (no style prefix), FOV-in-degrees anchor table + CAMERA-3rd-position rule, measurable-language rules (positive-only, km/h, %/meters, human-height scale, left/right-from-camera, Kelvin WB, no director/equipment names), POSITIVE LOCKS, the cut-format ladder + 6-cut vocabulary, tag naming + minimal-reference-text, context isolation, and 4 special protocols (extreme-FOV 4-mechanism stack, whip-pan ≥0.8s, anti-impact locks, observation pattern). Reconciled as a "two regimes" doctrine with the existing six-slot short form; official no-director-names rule noted as overriding the empirical director-substitute trick in block prompts.
+- **NEW reference `PRODUCTION-PATTERNS.md`** [DEMO — Seedance-4K film tutorial]: reference-role vocabulary ("100% matches the reference" / "STYLE REFERENCE ONLY, model extends the world" / "VARIETY reference" + the clone-army fix), coordinate blocking (x%/y%, % of frame width, locked screen direction), non-empty opening frame, per-segment LENS LOCK + timed SMASH/MATCH cuts, red-arrow prop annotation, video-reference 1:1 lock + SCREEN REALISM block + duration-match rule, prompted-imperfection realism, 60:30:10 grade, offscreen voice-only characters, specify-what-plays-on-screens, in-prompt scene transitions.
+- **§ Extension Prompting — Video-Reference Continuation** [EMPIRICAL]: "The scene continues." / "Show me what happens before" openers, occluded-identity `@ImageN` binding, match-source-resolution-AND-duration, chain-degradation + B-roll chain-break, camera-angle-change endings; [FIELD] source-carries-state + references-outrank-text + chain cap ~2 (hard 3) with re-anchor-from-ORIGINAL-references.
+
+### `higgsfield-audio` 3.2.2 → 3.3.0
+- **§ Scene-Audio Generation — Seed Audio 1.0**: what it is (one-pass whole-scene audio, released 2026-06-23), decision table vs `text2speech_v2` vs Seedance `generate_audio`, verified surface [OFFICIAL — 2026-07-05 audio snapshot] (params, ≤3 audio refs ≤30s XOR 1 image ref, `@Audio1..3` tokens), script-format prompting clearly labeled [EMPIRICAL — community, NOT official] with a worked example.
+- Standalone Audio catalog reconciled with the live 5-model catalog (incl. NEW `cozy_voice` engine; game-pipeline-only tools flagged), date-stamped 2026-07-05.
+- [FIELD] per-language dialogue-sync budget table (EN ~16–20 reliable-sync words per ~15s, Mandarin strongest, RU weak) + voice-reference lip-sync path (rights-sensitive) under Lip-Sync Rules; Supercomputer voice-over pointer [DEMO].
+
+### `higgsfield-pipeline` 3.3.0 → 3.4.0
+- **§ Continuation & Extension Handoff**: extend-a-clip workflow, chain management (depth caps + scheduled re-anchoring), source-carries-state rule (stills can't carry motion/camera/audio phase), clean-join planning (angle-change endings, last-channel-on-TV transition trick, post-edit seam note).
+
+### `higgsfield-soul` 3.6.1 → 3.7.0 + asset-prep surfaces
+- Two-image character floor (face + full body) + grey-sheet rule [DEMO]; **§ Split-Panel Outfit-Change Sheet** (ghost-mannequin + identity panel); **§ Variety Sheets — Crowds Without Clones**.
+- `templates/ad-asset-prep.md`: grey-background canonical home, **§ Location plates (3/4 angle, empty by default)**, **§ Which model makes the sheet** (GPT Image 2 4K → Nano Banana Pro on flatness → Soul Cinema for locations/characters); Elements registration.
+- `skills/higgsfield-gpt-image-2/reference-sheet-workflow.md`: **§ Views the video will need** (front/side/back + BOTTOM/undercarriage for flip shots), **§ Red-arrow annotation**.
+
+### `higgsfield-character-design` 1.0.0 → 1.1.0
+- **§ Screen Test / Audition** [EMPIRICAL]: casting read → role options → playable audition lines → voice triggers (≤3 qualities) → final audition prompt (<3500 chars) with divergence rule and a worked mini-example; cross-linked to FACS (direct the takes), Soul (lock the winner), and ad-asset-prep's generate-many → test-in-motion → lock-the-winner loop.
+
+### `higgsfield-models` 3.1.1 → 3.2.0 + guides
+- New model rows [spec-verbatim]: **Gemini Omni Flash** (video), **Soul Cast**, **Soul Location**, **Nano Banana 2 Lite**, **OpenAI Hazel** (image) across model-guide.md, image-models.md, and higgsfield-models (dual-maintained tables kept in sync); recraft id rename + Seedream 4.5 quality tiers reconciled; GPT Image (original) noted as gone from the 2026-07-05 catalog; utility jobs scoped out with a one-liner.
+
+### Root + examples + evals
+- `prompt-examples.md`: **§ Seedance-4K Film Tutorial — Worked Examples** — five annotated verbatim excerpts [DEMO] (prompted imperfection, coordinate blocking + LENS LOCKs, 1:1 video reference + SCREEN REALISM, red-arrow lock, VARIETY-reference before/after).
+- Root SKILL.md: four new routing rows (standalone audio / Seed Audio → audio; extend-continue a clip → seedance + pipeline; asset prep / reference sheets → ad-asset-prep + gpt-image-2 + soul; character audition → character-design). Root version → 3.19.0.
+- Evals: +3 cases (Seed Audio scene script, standalone-vs-in-video audio choice, extension continuation) — 43 total.
+
+## v3.18.1 — 2026-07-05
+
+Repair wave: un-blind the spec-drift tripwire after the Higgsfield CLI 1.0.1 output-shape change, refresh the specs snapshots (Tier 2, 13 days early — the shape change forced it), and clear the stale-docs debt found by a full repo audit. No new prompting content (that ships in v3.19.0).
+
+### Fixed
+- **`refresh_specs.py` crashed on CLI 1.0.1** (`KeyError: 'job_set_type'` — upstream renamed the id key to `job_type` and dropped per-param `enum` lists). Now accepts both key generations via `_model_id()`, and any future output-shape change raises a typed `ShapeError` → **new exit code 4** ("fix the parser") kept distinct from exit 1 ("re-auth") — previously a crash masqueraded as auth expiry in `spec-drift.yml`. The workflow gained a dedicated exit-4 step and a `LAST_VERIFIED_CLI` version guard (warns, never fails, on unverified upstream releases). Fixture-based regression tests added from recorded CLI 1.0.1 JSON (`tests/fixtures/cli_1_0_1_*.json`); 25 tests in `test_refresh.py`.
+- **New CEL-rules comparison channel**: CLI 1.0.1 ships machine-readable constraint rules (e.g. Seedance's 9-image/3-video/3-audio/12-total reference caps, `mode='fast'` forbids 1080p/4k) — exactly the cross-constraint prose the tripwire was historically blind to. `cli_view()` now captures them; added rules = DRIFT, removed = notice; the channel only compares when both sides carry it (pre-1.0.1 baselines stay silent).
+- **`sync_specs.py` lost the duration envelope**: 2026-07 snapshots moved `duration_range` into a `duration` *parameter* (min/max), which silently dropped `spec["duration"]` and broke `seedance_lint`'s `duration-out-of-range` rule — caught by the `trap-seedance-overlong-duration` eval (the v3.11.2 stale-eval trap working as designed). The envelope is now derived from the duration parameter; param `min`/`max` are preserved in generated specs.
+- **`model-guide.md` Seedance 2.0 Mini row**: "UI label; not a distinct API id" is no longer true — `seedance_2_0_mini` is a distinct catalog id (4–15s, 480p/720p, full image/video/audio reference surface, native audio).
+- **Broken link** `templates/ad-asset-prep.md` → `../docs/production-benchmarks.md` (file lives at repo root). `validate.py` now sweeps `templates/**/*.md` path-style refs (new `[ TEMPLATE PATHS ]` section) so this class can't recur.
+- **Stale docs**: `photodump-presets.md` image-snapshot TODO (the snapshot has existed since 2026-06-22); CLAUDE.md counts (30 sub-skills, full templates/ inventory), specs/ description, missing release-gate commands (`--strict` + pytest + evals), release-ceremony pointer (tag the merge commit; PDF is an untracked artifact), and stale `/project:*` slash names (now `/validate`, `/release`). `release.md` step 1 now runs all three gates, not just strict validate. Dropped `Edit(mnt/**)` from `.claude/settings.json` — it invited exactly the mistake the mnt rule forbids.
+
+### Changed
+- **Specs snapshots refreshed** (video + image, 2026-06-22 → **2026-07-05**) and a **first audio snapshot captured** (`models_explore_snapshot_audio_2026-07-05.json`: `seed_audio` = **Seed Audio 1.0**, `sonilo_music`, `mirelo_text_to_audio`, `inworld_text_to_speech`, `text2speech_v2` with a new `cozy_voice` engine) — machine-readable ground truth for the v3.19.0 Seed Audio content; the audio sync pipeline is a follow-up.
+- Snapshot deltas absorbed: video +`seedance_2_0_mini`/`gemini_omni`/`explainer_video` + utility jobs; image +`nano_banana_2_lite`/`soul_cast`/`openai_hazel`/`recraft_v4_1` (renamed from `recraft-v4-1`) + utility jobs; `seedance_2_0` media roles renamed to `image_references`/`video_references`/`audio_references` (+ kept `start_image`/`end_image`); id renames recorded as spec **aliases** via `HISTORICAL_IDS` (`seedance_1_5`→`seedance1_5`, `recraft-v4-1`→`recraft_v4_1`, dropped `video_standard` dup) so ledger rows and user inputs written under old ids keep resolving.
+- CLI baseline re-accepted at 2026-07-05 (tripwire green end-to-end: 0 fresh / 3 change / 1 pull-failed / 4 shape-changed all exercised).
+- Root SKILL.md: Shared Resources table now lists all 8 `templates/seedance/` files and surfaces `templates/ad-asset-prep.md` + `templates/character-design/`; added a consistency tie-break row (`higgsfield-soul` = lock identity in-platform vs `higgsfield-character-design` = develop the character first).
+
+### Deferred to v3.19.0
+- Guide rows/content for the new catalog models (gemini_omni, nano_banana_2_lite, openai_hazel, soul_cast, autosprite, ms_image), Seed Audio 1.0 prompting guidance, and the Seedance 4K masterclass material — content wave, planned at `workspace/output/V3.19-PLAN.md`.
+
+## v3.18.0 — 2026-06-30
+
+Video-to-video **footage transformation** for Seedance 2.0 — take a clip the user already shot, **preserve** the real subject + camera move, and **change one thing** (add a VFX element, swap the world, drop in a photoreal creature, relight to match, sync a timed zoom to a line). New **30th sub-skill** `higgsfield-seedance-vfx`. Sourced from a hand-authored practitioner skill + the Higgsfield "Seedance 2.0 in 4K" VFX tutorial (`higgsfield.ai/blog/vfx_4k`, `youtube.com/watch?v=Yte-UGhYkPQ`), which demonstrates this exact skill; model-checked against the live `seedance_2_0` spec — `media_roles` include `video` (v2v input is real), `4k` is a legal resolution, plus `audio`/`start_image`/`end_image`, duration 4–15s. One goal-driven release.
+
+### New sub-skill — `higgsfield-seedance-vfx` (1.0.0)
+A video-to-video layer on top of `higgsfield-seedance` (reuses its grammar + preflight linter; only the starting point changes — a real source clip whose subject and camera move must survive). Distinct from the parent's in-clip **Transformation prompt mode** (a morph generated from scratch). Sections:
+- **Preserve, then change one thing** — lock identity/face/wardrobe/performance/framing/lens/camera, change only the named element, repeat the fragile guardrail at the end.
+- **Run it in 4K** — Seedance 2.0 `mode=std` 4K (faces/lip-sync hold at 4K, warp at 1080p); harmonized with the repo's existing caps (fast → 720p; Cinema Studio → 1080p). The `4k` enum is model-verified; "detail holds at 4K" is flagged as a practitioner claim.
+- **Prompt anatomy** — `@source` declaration, optional `@creature`/texture reference, specs line (NON-IP guardrail, match-source-runtime, `SFX` vs `SFX and source dialogue only`), continuous-shot action, behavioral SFX.
+- **Three levels** — L1 swap the world · L2 change an element in-frame · L3 full handheld cinematic (difficulty scales with camera motion).
+- **Two modes** (add an element · replace the environment) + the **lighting-integration recipe** (color matching alone reads as pasted-in: match key direction, bounce, optics/haze, edges/grounding).
+- **Photoreal creature integration** — biological-accuracy vocabulary (wrinkled/cracked/asymmetric/matte, never smooth/glossy/inflated), telephoto-scale illusion, real contact shadow, reference-image-beats-description.
+- **Timed camera moves synced to dialogue** — dual semantic + numeric anchoring, reveal pull-back with 100%-match landing, lip-sync preservation. **Prepended-intro budget** arithmetic (`total − intro = surviving window`).
+- Two reference files — `references/dialogue-timing.md` (measure `T`, convert timecodes, phrase both anchors) and `references/first-frame.md` (generate the transformed start still, hand back as `start_image`).
+
+### Wiring + template
+- Routed from root `SKILL.md` (routing table + Sub-Skills table), `sub_skill_descriptions.py`, and `INDEX.md`. Roster **29 → 30**. Root version 3.17.0 → **3.18.0**.
+- New `templates/seedance/footage-vfx-transform.md` — fill-in skeleton + four worked patterns (environment swap, head-on-fire, creature-with-reveal-pull-back, full handheld cinematic).
+
+### Cross-links (patch bumps)
+- `higgsfield-seedance` § Seedance 2.0 Prompt Modes / Transformation → distinguishes the in-clip morph from v2v footage transform; also added to Related Skills. (seedance 1.8.1→1.8.2)
+- `higgsfield-audio` § Related skills → the timed-zoom-to-dialogue + source-dialogue-preservation cases. (audio 3.2.1→3.2.2)
+- `higgsfield-camera` § Related skills → preserve a real handheld/driving move frame-for-frame + add a camera move you never filmed. (camera 3.3.0→3.3.1)
+- `vocab.md` § Lighting Vocabulary / Scene-physics → the integration recipe for compositing a preserved subject or creature into a new plate.
+
+## v3.17.0 — 2026-06-27
+
+FACS (Facial Action Coding System) facial-expression control for Seedance 2.0 — directing a face by **muscle** (Action Unit codes like `AU12` lip-corner puller, `AU6` cheek raiser) instead of emotion labels. New **29th sub-skill** `higgsfield-facs`. Sourced from a practitioner brain-dump (AU-grid generation prompt + codes-in-prompt technique + worked examples); model-checked against the live `seedance_2_0` spec, which exposes **no FACS/expression field** — so the technique is flagged **[EMPIRICAL]** end to end (same provenance class as v3.16.0's Prompt-Craft Laws). One goal-driven release.
+
+### New sub-skill — `higgsfield-facs` (1.0.0)
+A consolidated facial-control layer on top of `higgsfield-seedance`. Sections:
+- **What FACS is** + the provenance split (the AU vocabulary is standard science; Seedance's *interpretation* of codes is empirical, high-success-rate but **not a guarantee**) — and where it sits among the repo's three facial tools (named expression → behavior channel → Action Unit).
+- **The plan-first workflow** — plan 3–4 expressions → generate a FACS sheet for *only those* → write the codes; explicitly counters the "generate the full 49-AU sheet then cherry-pick" anti-pattern.
+- **Step 1 — generate the FACS reference sheet** — the parameterized image prompt (GPT Image 2 / Nano Banana Pro), the iterate-on-unreadable-captions note, and the **LLM-mislabels-AUs** caveat (the circulating sheet's `AU82` vs standard `AU38` nostril dilator; cross-check melindaozel.com/facs-cheat-sheet).
+- **Step 2 — codes in the Seedance prompt** — codes-only vs codes+anatomical-description (test both), **3–4 expressions max** per generation, character photo optional (identity consistency only), beat-synced structure.
+- **AU Code Reference** — the full grouped table (Forehead&Brow / Eye&Eyelid / Nose&Cheek / Lip&Mouth / Head Movement / Eye Direction / Special) with the non-standard-numbering caveat.
+- **Emotion → AU recipes** — standard EMFACS prototypes (Duchenne AU6+AU12, sadness AU1+AU4+AU15, fear, anger, surprise, disgust, contempt) so the agent can answer "which code for anger?".
+- **Dialogue & monologue facial acting** — the payoff: AU-per-beat schedule combined with the `[AUDIO: Xs]` lip-sync block; the performed-safety-over-visible-terror mixed-emotion pattern.
+- Three worked examples (14-beat sweep, emotion arc, fear-masked-as-reassurance dialogue) + QUICK FACTS.
+
+### Wiring + template
+- Routed from root `SKILL.md` (routing table + Sub-Skills table), `sub_skill_descriptions.py`, and `INDEX.md`. Roster **28 → 29**. Root version 3.16.0 → **3.17.0**.
+- New `templates/seedance/facs-expression-beats.md` — beat-synced AU schedule skeleton.
+
+### Cross-links (patch bumps)
+- `higgsfield-soul` § Micro-Expressions → FACS as the muscle-level layer beneath the 19 named expressions. (soul 3.6.0→3.6.1)
+- `higgsfield-seedance` § Voice Rewrite §3 ("physics not emotion") → FACS as its muscle-level extreme. (seedance 1.8.0→1.8.1)
+- `higgsfield-audio` § Lip-Sync Rules → FACS drives the expressive muscles around the phonemes. (audio 3.2.0→3.2.1)
+- `vocab.md` § Emotion as Visible Behavior — Channels → AUs named as the anatomical sibling of the behavioral channels.
+
+## v3.16.0 — 2026-06-27
+
+Prompter updates from the Higgsfield "cinematic headphones ad" tutorial breakdown + a batch of Seedance 2.0 prompt/audio practitioner tips, model-checked against the live `seedance_2_0` spec. Four goals.
+
+### Goal 1 — Audio as a conditioning input (model-verified)
+The live spec confirms `seedance_2_0` accepts an `audio` reference media role and that `generate_audio` (native output) is *independent of audio reference medias* — i.e. uploaded audio conditions the generation, separate from generated sound. New `higgsfield-audio` § **Audio as a Conditioning Input** documents the two jobs of `@Audio1` (output track vs visual driver), **beat sync** (the 3-sentence audio→visual mapping + reference stacking + the temporal-compatibility constraint), the **`[AUDIO: Xs]` script block** (dialogue lip-sync + SFX from text alone, multilingual), and the **first-15s extraction trap** (pick a build→drop window, ≥256kbps). Cross-linked from `higgsfield-seedance` § Reference Roles. (audio 3.1.0→3.2.0, seedance 1.7.0→1.8.0)
+
+### Goal 2 — Seedance prompt-craft laws (empirical)
+New `higgsfield-seedance` § **Prompt-Craft Laws**: the left-to-right **attention model** (50–80-word sweet spot, front-load the load-bearing element, reconciled with the six-slot order and the >180-word filter ceiling), **"name the thing"** (replace "cinematic"/generic adjectives with a director/lighting/lens — the positive form of anti-slop), the **"fast" degradation keyword**, and **no negative prompts in the body** (scoped to Seedance, cross-linked to `shared/negative-constraints.md`). All flagged empirical, not model-documented. Anti-slop table in `higgsfield-prompt` extended with the named-referent substitute. (prompt 3.5.0→3.6.0)
+
+### Goal 3 — Connected shotlist gap (P0)
+New sub-skill **`higgsfield-shotlist-director`** — turns a brief/script into one editable HTML shotlist (global Style Prefix → `@`-glossary → named per-scene prompts in `Style → Characters → Scene → CUT 1..N`), with edit-once-propagates + per-scene-override semantics. Built to outclass the tutorial's downloadable skill by wiring in the preflight linter, reference-role lanes, Elements `@`-auto-attach, failure-mode awareness, and acceptance-rate logging. New `templates/seedance/global-style-prefix.md` (fill-in-the-blanks prefix + per-scene override example). Routed from root SKILL.md + `sub_skill_descriptions.py`.
+
+### Goal 4 — Ad-asset prep + scene-craft patterns (P1–P3)
+- New `templates/ad-asset-prep.md` — product sheet, grey-bg character sheet, **erase-duplicate-face**, **outfit 10-ideas→mix/recolor**, **multi-state variants**, prop sheets, and the **"design for win rate"** framing cross-linked to the acceptance-rate discipline.
+- `higgsfield-soul` § Two-Tool Refinement Pipeline gains the **anti-"slop" layer-mask composite** worked example. (soul 3.5.0→3.6.0)
+- `higgsfield-gpt-image-2/static-ads-workflow.md` gains **Mode C — Edit an existing still** (location editing, "keep everything else the same"). (gpt-image-2 1.1.0→1.2.0)
+- `templates/10-dance-music-performance.md` gains **beat-by-beat choreography** + the **`@music_track`-drives-motion** pattern.
+- `vocab.md` § Cut & Continuity gains **anchor-gesture cut ("cut on action")** + **multi-take micro-slice assembly**.
+- `templates/seedance/top-down-map.md` gains **prop-scale-relative-to-a-landmark**.
+- `CUT 1..N` labeling is demonstrated throughout the new shotlist-director skill.
+
+## v3.15.2 — 2026-06-22
+
+Privacy hygiene: **untracked `.planning/`** from the public repo. The nine `.planning/v3.7.x–v3.8.0/` build-execution notes were internal per-version planning artifacts that don't belong in a public skill library and were the source of the home-path PII scrubbed in v3.15.1. They are now git-ignored — kept on the maintainer's disk, removed from tracking.
+
+- **Dangling provenance links cleaned up:** six shipped files (the two `higgsfield-gpt-image-2` docs, the two `higgsfield-marketing-studio` docs, `assets/fonts/README.md`, and a `docs/archive/` note) cited `.planning/` paths as verification trails — 18 path references. Those were rewritten to keep the provenance prose ("the v3.7.16 Phase 0 verification notes (internal build notes)") without the now-dead links, so `validate.py`'s relative-path check passes. CI caught these (a local run masked them — the untracked files still exist on disk locally but not in a fresh checkout).
+- Their prior contents remain in git history; a history rewrite was intentionally not done, as the only exposure was a macOS username + folder names, never credentials. `validate.py --strict` clean, 110 tests pass, evals 40/40.
+
+## v3.15.1 — 2026-06-22
+
+Post-series hygiene: activation docs, a privacy scrub, and a clean Problems panel.
+
+- **README § Maintenance** documents the two one-time activation steps the series left dormant: adding the `HIGGSFIELD_CREDENTIALS` secret to turn on the scheduled spec-drift check, and letting `log-route` routing data accumulate before pruning the long tail. Notes that credentials live only in the GitHub secret, never committed.
+- **Privacy scrub:** removed absolute home-path PII (`/Users/<user>/...`, 5 occurrences) from `.planning/v3.7.16/PHASE-0-VERIFICATION.md` → `~`. Security pass otherwise clean: no tokens/credentials in the tree or git history, `specs/cli_baseline.json` is public model schema only, `workspace/` content is gitignored.
+- **markdownlint hygiene:** extended `.markdownlint.json` to opt out of the remaining cosmetic rules firing on long historical docs (MD012/MD031/MD038/MD040/MD041), consistent with the existing MD013/MD022/MD032/MD060 opt-outs. No code/CI behavior change; `validate.py --strict` and the eval suite are unaffected.
+
+## v3.15.0 — 2026-06-22
+
+Finale of the framework-improvement series — the two remaining closers: Wave C's **scheduling wrapper** and **item 6's routing-telemetry surface**.
+
+### Wave C scheduling — `.github/workflows/spec-drift.yml`
+A weekly scheduled run of the now-trustworthy `refresh_specs.py` tripwire (Mondays, ~3 weeks ahead of the 30-day staleness WARN). Installs the CLI, restores credentials from a `HIGGSFIELD_CREDENTIALS` secret, and branches on the three exit states:
+- **0 fresh** → success, nothing.
+- **3 drift** → opens (or comments on) a GitHub issue with the report + the Tier-2 next steps.
+- **1 pull-failed** → **fails the job loudly.** This is the auth-refresh story: the CLI access_token expires (its refresh_token extends but eventually lapses → "Session expired"), and rather than fragile auto-rotation, expiry surfaces as a red workflow + GitHub notification — re-run `higgsfield auth login` and update the secret. Setup + the auth story are documented in the workflow header. Detect-only; it never writes specs or merges.
+
+### Item 6 — routing telemetry (`log-route` / `routing`)
+The surface that makes "find the load-bearing skills, prune the long tail" answerable from **data instead of a guess**. HARD RULE #1 already makes the agent name its routes on every response's first line; this persists that declaration. New `db/routing-log.json` (append-only) + `log-route --skills a,b,c` (validated against the canonical 27-skill roster, so a typo can't fragment the counts) + `routing` (ranks sub-skills by opens, lists the never-opened tail). `validate.py` gains a `[ ROUTING ]` schema check (reusing `validate_route_entry`). Logged in `higgsfield-recall`.
+- **Honest framing baked in:** this is *instrumentation, not a verdict* — the pruning DECISION waits until enough requests accumulate to trust the distribution; a small sample is not evidence a skill is dead. (And item 6 was never unblocked by item 3's `prompt_method` — it needed this separate routing surface, which now exists.)
+- 8 new pytest cases (roster validation, aggregation, never-opened tail, seed-file validity). The 12 + 4 Wave C `refresh_specs` cases unchanged.
+
+---
+
+Older entries (v3.0.0 – v3.14.1) are archived verbatim in `docs/archive/CHANGELOG-v3.0-v3.14.md`.

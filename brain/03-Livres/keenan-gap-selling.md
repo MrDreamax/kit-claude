@@ -91,7 +91,7 @@ Objections vers angle Gap (application) :
 
 ## 4. Pour le DM et le call
 
-### 4.1 Sequence DM setter apres "Commente STRAT" (application)
+### 4.1 Sequence DM setter apres "Commente [MOT-CLÉ]" (application)
 Regle Keenan inbound : une seule question au depart sur "qu'est-ce qui t'a pousse a commenter ?" [K3 08:06]
 1. DM 1 : "Hey [prenom], merci pour ton commentaire. Qu'est-ce qui t'a donne envie de recevoir le guide ?"
 2. DM 2 (si reponse vague) : "Qu'est-ce qui se cache derriere cette envie ? Si tu veux m'ecrire, c'est qu'il y a un truc que tu cherches a changer, tu veux me dire quoi ?"

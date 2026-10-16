@@ -1,0 +1,19 @@
+{
+ "kind": "qa",
+ "jour": "",
+ "pilier": "Blocage",
+ "cta": "GUIDE",
+ "sujet": "Les proches qui jugent tes vidéos",
+ "screen": "Tes proches jugent tes vidéos ?",
+ "hook": "Ton entourage trouve tes vidéos « pas sérieuses » ? Un client m'a dit exactement ça la semaine dernière. Il a failli tout arrêter.",
+ "points": [
+  "Son frère lui a dit : « tu fais l'influenceur maintenant ? » Première question : <b>son frère achète son offre ?</b> Non.",
+  "Le seul avis qui compte, c'est celui de ton <b>client idéal</b>. Il commente, il t'écrit, il réserve. Ou il ne fait rien. Ça, c'est un vrai retour.",
+  "Et trop lisse, c'est un piège aussi. Tu impressionnes, mais tu mets de la distance. On t'admire de loin, on n'ose pas t'écrire.",
+  "Le bon dosage : assez d'expertise pour qu'on te fasse confiance, assez de spontané pour qu'on se sente proche."
+ ],
+ "end": "Tes proches t'aiment. <span>Ton client idéal te paie.</span>",
+ "ctatext": "Tu ne sais pas encore qui est ton client idéal ? Commente GUIDE, je t'envoie mon doc pour le trouver.",
+ "warn": "<b>EXEMPLE FICTIF</b> pour montrer le format. Un vrai script part d'une vraie phrase d'un de tes clients (call, DM, commentaire), avec son accord et sans son nom.",
+ "src": "Exemple fictif. Hook : sujet en 2 s, « tu », contraste (Kallaway [2byPP_9F0-Q 01:39, 08:45, 11:01]). Fin qui boucle l'histoire (Kallaway [jtmstMt4WLc 10:37])."
+}

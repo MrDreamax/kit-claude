@@ -1,0 +1,104 @@
+{
+ "duree": "18-22 min",
+ "total": "20:00",
+ "titres": [
+  "Pourquoi ce coach ne signe pas de clients (audit)",
+  "J'audite le compte d'un coach à <span class='fill'>[X]</span> abonnés",
+  "4 fuites qui empêchent ce coach de vendre"
+ ],
+ "miniature": "ton visage à gauche, son profil flouté à droite, un cercle rouge à la main sur la ligne qui cloche, 3 mots : « Personne ne réserve ». Pas d'image IA.",
+ "intro": [
+  "Voici le compte de <span class='fill'>[prénom]</span>, coach <span class='fill'>[niche]</span>, <span class='fill'>[X]</span> abonnés. Il poste toutes les semaines. Et presque personne ne réserve d'appel.",
+  "Dans cette vidéo, je te montre trois choses : ce qui fait fuir en trois secondes, ce qui bloque la vente, et ce que je changerais demain.",
+  "<span class='fill'>[ta preuve vraie : années, clients accompagnés, résultat]</span>. Ces erreurs, je les vois sur presque tous les comptes.",
+  "Mais le vrai problème de <span class='fill'>[prénom]</span> n'est pas celui qu'il croit."
+ ],
+ "blocs": [
+  {
+   "t": "0:30",
+   "nom": "Le contexte du compte",
+   "montre": "le profil en plein écran",
+   "dit": [
+    "Qui il aide, son offre, son objectif : <span class='fill'>[à lire sur le compte]</span>",
+    "J'annonce les 4 points sans les détailler : première impression, offre, contenu, chemin vers l'appel",
+    "Il a dit oui pour cet audit"
+   ]
+  },
+  {
+   "t": "1:30",
+   "nom": "Bloc 1 · La première impression",
+   "montre": "photo, nom, bio, lien, publications épinglées",
+   "dit": [
+    "D'abord ce qui va bien : <span class='fill'>[un vrai point fort]</span>",
+    "J'ouvre sur le 2e plus gros souci. À l'écran, puis : « tu vois ce qui cloche ? »",
+    "Pourquoi ça fait fuir, puis la correction en une phrase",
+    "Mini-payoff vers 2:45 : la bio réécrite en direct"
+   ],
+   "rehook": "Ça, c'est ce que tout le monde voit. Mais la vraie fuite est deux clics plus loin."
+  },
+  {
+   "t": "4:45",
+   "nom": "Bloc 2 · L'offre et la promesse",
+   "montre": "la publication épinglée ou la story à la une « offre »",
+   "dit": [
+    "Test : on comprend en 5 secondes ce qu'il vend, et à qui ?",
+    "Preuve à l'écran, raison, correction",
+    "Petite histoire d'un autre coach accompagné : <span class='fill'>[un vrai cas client, sans nom, chiffre vrai et autorisé]</span>"
+   ],
+   "cta": "Rapidement : si tu veux savoir où ton compte perd des clients, réserve un appel avec moi. On regarde ton compte ensemble. Le lien est sous la vidéo. <span class='fill'>[lien court à créer]</span>",
+   "rehook": "Et le plus gros morceau n'est pas encore arrivé : ses vidéos."
+  },
+  {
+   "t": "8:30",
+   "nom": "Bloc 3 · Le contenu",
+   "montre": "son meilleur reel puis son pire, côte à côte",
+   "dit": [
+    "Les deux hooks lus à voix haute. Qu'est-ce qui change ?",
+    "Ce que l'écart dit de sa cible",
+    "La règle qu'il peut appliquer dès demain"
+   ],
+   "rehook": "Pourtant, son contenu n'est pas le problème numéro un. Regarde ce qui manque sur son compte."
+  },
+  {
+   "t": "11:45",
+   "nom": "Bloc 4 · Les preuves et le chemin vers l'appel",
+   "montre": "ses à la une, ses CTA, son lien en bio",
+   "dit": [
+    "Où sont ses résultats clients ? <span class='fill'>[ce que tu vois]</span>",
+    "Quel mot-clé, quel lien, quelle page après le commentaire ?",
+    "Chaque constat : je montre, j'explique, je corrige"
+   ],
+   "rehook": "Voici les trois choses que je changerais en premier, dans l'ordre."
+  },
+  {
+   "t": "15:00",
+   "nom": "Le plan · 3 leviers dans l'ordre",
+   "montre": "les 3 leviers écrits au tableau ou en slide",
+   "dit": [
+    "Levier 1, 2, 3 : <span class='fill'>[les 3 leviers d'audit-insta]</span>",
+    "Pour chacun, l'effet attendu en fourchette, et je dis « c'est une estimation »",
+    "Aucun gain promis"
+   ],
+   "cta": "Je t'ai montré trois choses sur ce compte. Il y en a deux autres que je ne peux pas montrer ici, parce qu'elles dépendent de ses chiffres. Si tu veux que je fasse pareil sur ton compte, réserve un appel, le lien est juste en dessous."
+  },
+  {
+   "t": "18:45",
+   "nom": "Fin haute",
+   "montre": "la réaction du coach (visio ou message vocal)",
+   "dit": [
+    "Ce qu'il va changer en premier, dans ses mots",
+    "Le teaser du prochain audit"
+   ]
+  }
+ ],
+ "fin": "Ses vidéos attirent du monde. <span>Son compte doit les guider jusqu'à l'appel.</span>",
+ "ctafinal": "Réserve un appel, le lien est sous la vidéo.",
+ "clips": [
+  "Bloc 1 : « tu vois ce qui cloche ? » sur la bio (reel Audit en live, CTA AUDIT)",
+  "Bloc 3 : meilleur reel contre pire reel (comparaison en T)",
+  "Le plan des 3 leviers (Tableau blanc)",
+  "L'histoire de l'autre coach (Questions-réponses)"
+ ],
+ "warn": "<b>Avant de tourner :</b> accord écrit du coach, ou compte flouté. Lance l’audit Insta sur son @ la veille pour remplir le jaune. Lien d'appel court à créer.",
+ "src": "Squelette de 20 min et règles R1-R15 : 02-Formations/experts-scripts-youtube-long.md §8-9. Intro : Colin et Samir [z0N1iaitiCc 04:22, 07:02, 09:11]. Re-hooks : Kallaway [0f6_pRAIJjI 13:51]. Montrer avant d'expliquer : Blackman [S6Uq8cniC1Y 20:52]. CTA entre deux cas : Hormozi [jqo0lVveh98 06:07, 34:18]. Fin « lien, boucle, promesse » : Blackman [QRgL4xouzVA 40:50]. Plan priorisé : Hormozi [sBJppqCeFGI 37:47]."
+}

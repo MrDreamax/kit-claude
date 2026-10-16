@@ -32,12 +32,12 @@ Hook
 
 Corps
 - Regarde ce que ta cible achète VRAIMENT : formations, outils, emails de coachs. Les commentaires et les DM sont ta "liste SRDS". Écris le reel sur ce qu'ils achètent, pas sur ce qu'ils disent vouloir.
-- Pas de sondage : si une idée de reel marche (vues + STRAT), refais-la en mieux.
+- Pas de sondage : si une idée de reel marche (vues + [MOT-CLÉ]), refais-la en mieux.
 - Une guidance claire : dis où regarder ("regarde le chiffre à gauche", "écoute la 3e phrase").
 
 CTA
 - Cache le CTA jusqu'au moment où l'envie est là (lettre 14) : pas de "commente" dans les 5 premières secondes.
-- Rends l'étape facile : un seul mot, STRAT.
+- Rends l'étape facile : un seul mot-clé.
 
 Exemples de hooks (application, à tester)
 1. "Thérapeute avec 5 000 abonnés qui ne signe personne ? Je te parle à toi."
