@@ -56,17 +56,22 @@ Cite l'ID source dans les « Sources » du script (ex. Kallaway [ID mm:ss]). Jam
 7. **Lot** : varie les débuts de hooks (jamais 2 hooks qui commencent pareil), les formats et les jobs.
 
 ## 3b. Reprendre un reel viral : la fiche de tournage
-Quand le script part d'une vidéo d'inspiration (skill `veille-reels` ou lien collé) : 1 fiche par vidéo, dans cet ordre, rien d'autre.
+Quand le script part d'une vidéo d'inspiration (skill `veille-reels` ou lien collé) : 1 fiche par vidéo, exactement dans cette forme, rien d'autre.
 ```
-Vidéo inspiration : <lien de la vidéo>
-Indication tournage : <cadre, position, décor, ce qu'on filme>
-Indication montage : <texte écran, B-rolls, effets ; « comme sur la vidéo » si c'est identique>
-────────────
-Script :
+**Vidéo inspiration :** <lien de la vidéo>
+
+**Indication tournage :** <cadre, position, décor, ce qu'on filme>
+
+**Indication montage :** <texte écran, B-rolls, effets ; « comme sur la vidéo » si c'est identique>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+**Script :**
 <le script d'un seul bloc, prêt à dire>
 ```
+- **Mise en forme obligatoire** : les 4 titres (Vidéo inspiration, Indication tournage, Indication montage, Script) en **gras**. Une ligne vide entre chaque indication, jamais collées. Avant le script, une grande ligne de séparation pleine (40 caractères ━), avec une ligne vide au-dessus et en dessous.
 - On garde le sujet et le format de la vidéo, jamais les phrases de l'autre créateur : pas de traduction mot à mot, le script est réécrit dans la voix de voix-contenu.md, avec ton CTA.
-- Plusieurs vidéos = plusieurs fiches à la suite, séparées par une ligne.
+- Plusieurs vidéos = plusieurs fiches à la suite, séparées par la même grande ligne.
 
 ## 4. Mode LONG (YouTube 15-25 min, audit de compte par défaut)
 Base : 02-Formations/experts-scripts-youtube-long.md, §8 (squelette de 20 min minuté et sourcé : pour 15 min, 3 blocs et 3 re-hooks ; pour 25 min, 5 blocs et 5 re-hooks) et §9 (checklist R1 à R15). Lis-la en entier avant d'écrire. Elle passe avant ce résumé. Exemple rendu : ~/.claude/skills/scripteur/exemples/echantillon-long.json (`total` = durée visée en m:ss, sert aux contrôles). Autre format qu'un audit (tuto, histoire) : même squelette, les blocs changent de nom.
