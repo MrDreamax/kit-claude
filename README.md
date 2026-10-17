@@ -89,7 +89,7 @@ Tu installes ce kit pour la personne qui t'a collé ce lien. Fais tout toi-même
    **Windows sans bash** (PowerShell seul) : télécharge `$KIT_URL/archive/refs/heads/main.zip`, dézippe-le, puis reproduis à la main ce que fait `install.sh` (mêmes règles : sauvegarde avant de remplacer, ne jamais écraser les fichiers perso du Brain, garder le bloc PROFIL du CLAUDE.md existant). Le Brain va dans `%USERPROFILE%\Documents\Brain`.
 2. **Vérifie** : `~/.claude/CLAUDE.md` existe, `~/.claude/agents/` contient 15 fichiers, `~/.claude/skills/` contient les 31 skills (bienvenue, team, livre, veille-youtube, audit-croyances, drift, import-chatgpt, logiciels, ma-marque, scripteur, supermonteur, carrousel, slides, publieur, veille-reels, audit-insta, calls-vers-contenu, usine-pubs, directeur-artistique, anti-ia, higgsfield, chasseur-preuves, producteur, decliner, webmaster, setter, preparateur-coaching, attache-presse, recruteur, cfo, drh), `~/Documents/Brain/index.md` et `~/Documents/Brain/_outils/marque.py` existent. Si un point manque : trouve la cause, corrige, revérifie.
 3. **Nettoie** : supprime `~/.claude/kit-tmp`.
-4. **Accueil** : lis `~/.claude/skills/bienvenue/SKILL.md` et suis-le maintenant, dans ce même chat (questionnaire, profil, import ChatGPT, réglage de sa marque s'il crée du contenu, logiciels gratuits, routine du dimanche, mode d'emploi).
+4. **Accueil** : lis `~/.claude/skills/bienvenue/SKILL.md` et suis-le maintenant, dans ce même chat (questionnaire, profil, import ChatGPT, logiciels gratuits, réglage de sa marque s'il crée du contenu, routine du dimanche, mode d'emploi).
 5. À la fin, dis à la personne d'ouvrir un **nouveau chat** : le master prompt, les agents et les skills y seront tous actifs.
 
 ---

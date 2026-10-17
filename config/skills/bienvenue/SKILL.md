@@ -44,13 +44,14 @@ e) Enregistre aussi l'essentiel dans ta mémoire.
 - Réponse « Oui, rapatrie » : lance le skill `import-chatgpt` maintenant (lis `~/.claude/skills/import-chatgpt/SKILL.md` et suis-le).
 - « Plus tard » : dis en une ligne « Quand tu veux, écris : importe ChatGPT. »
 
-## 5. Ton contenu (si « Créer du contenu » est coché, ou s'il dit qu'il fait des vidéos)
-Dis en 1 ligne : « Tu crées du contenu : je règle tes skills contenu sur ta voix, ta cible et tes couleurs (10 minutes). Maintenant ou plus tard ? » (bouton : Maintenant (Recommandé) · Plus tard).
-- Maintenant : lance le skill `ma-marque` (lis `~/.claude/skills/ma-marque/SKILL.md` et suis-le), puis reviens à l'étape 6.
-- Plus tard : « Quand tu veux, écris : ma marque. »
-
-## 6. Les logiciels gratuits
+## 5. Les logiciels gratuits
 Lance le skill `logiciels` (lis `~/.claude/skills/logiciels/SKILL.md` et suis-le) : il propose en un clic Obsidian, Wispr Flow, Chrome + Claude in Chrome, et installe les outils invisibles dont les skills ont besoin.
+Avant l'étape 6 exprès : le script d'essai de `ma-marque` a besoin du pack contenu (Chrome + PyMuPDF).
+
+## 6. Ton contenu (si « Créer du contenu » est coché, ou s'il dit qu'il fait des vidéos)
+Dis en 1 ligne : « Tu crées du contenu : je règle tes skills contenu sur ta voix, ta cible et tes couleurs (10 minutes). Maintenant ou plus tard ? » (bouton : Maintenant (Recommandé) · Plus tard).
+- Maintenant : si le pack contenu a été refusé à l'étape 5, installe d'abord Chrome et PyMuPDF (skill `logiciels`, partie Pack contenu), sinon le script d'essai plante. Puis lance le skill `ma-marque` (lis `~/.claude/skills/ma-marque/SKILL.md` et suis-le), puis reviens à l'étape 7.
+- Plus tard : « Quand tu veux, écris : ma marque. »
 
 ## 7. La routine du dimanche
 Si l'outil de tâches planifiées de l'app est disponible (`create_scheduled_task`) : crée la tâche `audit-du-dimanche`, chaque dimanche à 10h (heure locale), avec ce prompt :
