@@ -8,9 +8,17 @@ description: Accueil du kit Claude. Questionnaire de départ (questions cliquabl
 Ton but : qu'à la fin, Claude parle à cette personne comme un assistant qui la connaît depuis des mois. Ton ton : chaleureux, simple, zéro jargon. La personne est peut-être totalement débutante.
 
 ## 1. Dire bonjour (2 lignes max)
-« Le kit est installé. Je te pose 5 questions rapides pour m'adapter à toi, ensuite tu n'auras plus jamais à te présenter. »
+« Le kit est installé. Quelques questions pour m'adapter à toi, ensuite tu n'auras plus jamais à te présenter. »
 
 Si `~/.claude/kit-claude.txt` existe et qu'un ancien CLAUDE.md a été sauvegardé (chemin dans `~/.claude/backups/kit-*/.claude/CLAUDE.md`) : lis-le, garde ses préférences utiles pour l'étape 3, et dis-le en une ligne.
+
+Puis AskUserQuestion, une question : « Comment tu veux répondre ? »
+- **Tout sur une page (Recommandé)** : une page s'ouvre, tu cliques, tu écris 6 phrases, tu copies, tu colles ici. 15 minutes.
+- **Ici, une question à la fois** : je te pose les questions dans le chat.
+
+**Tout sur une page** : ouvre `open ~/.claude/skills/bienvenue/questionnaire.html` (Mac) ou `start "" "%USERPROFILE%\.claude\skills\bienvenue\questionnaire.html"` (Windows). Dis en une ligne : « Réponds sur la page, clique Copier mes réponses en bas, puis colle-les ici. » Attends le collage.
+Quand le texte collé arrive (il commence par « Configure mon kit Claude avec ces réponses ») : fais les étapes 3 à 8 dans l'ordre avec ces réponses, sans reposer une seule question qui y est (une réponse « (pas répondu) » = choix recommandé pour les clics, « À REMPLIR » pour le texte). Étape 5 : le choix des logiciels est déjà fait, saute l'étape 2 de `logiciels`. Étape 6 : si « Créer du contenu » est coché, lance `ma-marque` en mode express (ses étapes 1 à 4 sont déjà répondues). Ce qui reste à faire à la main (coller la réponse de ChatGPT, donner le logo, ses codes couleurs) : demande-le au moment où tu en as besoin.
+**Ici** : continue à l'étape 2.
 
 ## 2. Les questions (AskUserQuestion, option recommandée en premier)
 Un seul appel avec ces 4 questions :

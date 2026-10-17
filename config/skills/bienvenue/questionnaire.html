@@ -1,0 +1,168 @@
+<title>Setup Claude en 1 page</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout : une colonne façon formulaire d'onboarding, 5 blocs numérotés (vrai ordre du kit), barre de progression collante */
+:root{
+  --bg:#FFFFFF; --panel:#F4F7FD; --ink:#0B1220; --mute:#5A6478; --line:#DCE3F0;
+  --blue:#1E4FD8; --blue-ink:#FFFFFF; --tint:#E7EEFC; --ok:#0F7A4B;
+  --display:"Sora",system-ui,sans-serif; --body:"Figtree",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0A0F1A; --panel:#111827; --ink:#EEF2FA; --mute:#9AA4B8; --line:#243049;
+  --blue:#5B8BFF; --blue-ink:#0A0F1A; --tint:#16213A; --ok:#3CCB8A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A0F1A; --panel:#111827; --ink:#EEF2FA; --mute:#9AA4B8; --line:#243049;
+  --blue:#5B8BFF; --blue-ink:#0A0F1A; --tint:#16213A; --ok:#3CCB8A; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);margin:0}
+.wrap{max-width:760px;margin:0 auto;padding-block:40px 120px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font:600 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+h1{font:800 clamp(30px,6vw,46px)/1.08 var(--display);margin:10px 0 14px;text-wrap:balance;letter-spacing:-.02em}
+h1 span{color:var(--blue)}
+.lead{color:var(--mute);font-size:17px;max-width:60ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.meta b{font:600 13px var(--body);background:var(--tint);color:var(--ink);padding:6px 12px;border-radius:999px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-top:28px;padding-block:12px;display:flex;align-items:center;gap:14px}
+.track{flex:1;height:8px;background:var(--tint);border-radius:99px;overflow:hidden}
+.fill{height:100%;width:0;background:var(--blue);transition:width .25s}
+.count{font:600 14px var(--body);font-variant-numeric:tabular-nums;color:var(--mute);white-space:nowrap}
+section{margin-top:44px}
+.sh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.num{font:800 15px var(--display);color:var(--blue-ink);background:var(--blue);width:30px;height:30px;border-radius:8px;display:grid;place-items:center;flex:none}
+h2{font:700 23px/1.2 var(--display);margin:0;letter-spacing:-.01em}
+.time{font:500 13px var(--body);color:var(--mute)}
+.why{color:var(--mute);margin:6px 0 0 42px;font-size:15px}
+.q{margin-top:22px;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+.q.done{border-color:var(--blue)}
+.ql{font:600 16px var(--body);margin:0 0 4px}
+.qh{font-size:13px;color:var(--mute);margin:0 0 12px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{font:500 15px var(--body);color:var(--ink);background:var(--panel);border:1.5px solid var(--line);border-radius:10px;padding:9px 14px;cursor:pointer;text-align:left}
+.opt:hover{border-color:var(--blue)}
+.opt:focus-visible,textarea:focus-visible,.btn:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.opt[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--blue-ink)}
+.opt small{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-left:6px;opacity:.75}
+textarea{width:100%;min-height:78px;font:15px/1.5 var(--body);color:var(--ink);background:var(--panel);border:1.5px solid var(--line);border-radius:10px;padding:12px;resize:vertical}
+.info{margin-top:22px;padding:16px 18px;border-radius:14px;background:var(--tint);font-size:15px}
+.end{margin-top:48px;padding:26px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}
+.end h2{margin-bottom:8px}
+.end p{color:var(--mute);margin:0 0 16px}
+.btn{font:700 16px var(--display);background:var(--blue);color:var(--blue-ink);border:0;border-radius:12px;padding:14px 22px;cursor:pointer}
+.msg{margin-left:12px;font-weight:600;color:var(--ok)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:28px}
+.nav #pg{font:600 14px var(--body);color:var(--mute);font-variant-numeric:tabular-nums}
+.ghost{font:600 15px var(--body);background:none;color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;cursor:pointer}
+.ghost:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+#out{display:none;margin-top:14px;font:13px/1.5 ui-monospace,Menlo,monospace;min-height:220px}
+@media (max-width:520px){.why{margin-left:0}.q{padding:14px}}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">Kit Claude · Configuration</div>
+  <h1>Ton Claude configuré <span>en 1 page.</span></h1>
+  <p class="lead">Toutes les questions que Claude pose à l'installation, d'un seul coup. Tu cliques, tu écris 6 phrases, tu copies, tu colles dans Claude. Il remplit ton profil, ta voix, ta cible et tes couleurs.</p>
+  <div class="meta"><b>≈ 15 minutes</b><b id="nq">28 questions</b><b>6 phrases à écrire</b></div>
+
+  <div class="bar" role="status"><div class="track"><div class="fill" id="fill"></div></div><span class="count" id="count">0 / 0</span></div>
+
+  <div id="form"></div>
+
+  <div class="info"><b>Le dimanche, automatique.</b> Claude prépare chaque dimanche à 10 h une page avec tout ce qu'il croit sur toi. Tu coches vrai, à changer ou faux. Il se corrige.</div>
+
+  <div class="end">
+    <h2>C'est fini ? Copie, colle.</h2>
+    <p>Colle le texte dans un chat Claude avec le kit installé. Il écrit tout et te montre ton premier script de reel à tes couleurs.</p>
+    <button class="btn" id="copy" type="button">Copier mes réponses</button><span class="msg" id="msg"></span>
+    <textarea id="out" readonly aria-label="Tes réponses"></textarea>
+  </div>
+</div>
+
+<script>
+const R='Recommandé';
+const BLOCS=[
+ {t:'Qui tu es',time:'3 min',why:'Claude ne te demandera plus jamais de te présenter.',qs:[
+  {id:'usage',l:'Tu vas surtout utiliser Claude pour quoi ?',m:1,o:['Mon business','Créer du contenu','Ma vie perso','Mes études']},
+  {id:'niveau',l:'Ton niveau avec l\'IA ?',o:['Débutant total','J\'utilise déjà ChatGPT','À l\'aise']},
+  {id:'ton',l:'Comment Claude te parle ?',o:[['Ultra court, juste l\'essentiel',1],'Court avec un peu d\'explication','Détaillé, j\'aime comprendre']},
+  {id:'gpt',l:'Tu viens de ChatGPT ?',o:[['Oui, rapatrie ce qu\'il sait de moi',1],'Oui, mais plus tard','Non']},
+  {id:'moi',l:'Ton prénom, ce que tu fais, et ton objectif n°1 pour les 3 prochains mois.',x:'Ex. Karim. Je vends une formation pour lancer un business en ligne. Objectif : 30 clients par mois.'}]},
+ {t:'Ta cible et ton offre',time:'3 min',why:'Chaque script parle à ton client idéal, avec ses mots à lui.',qs:[
+  {id:'vend',l:'Tu vends quoi ?',o:['Un accompagnement / coaching','Une formation en ligne','Un service (agence, freelance)','Des produits','Rien encore, je construis mon audience']},
+  {id:'age',l:'Ton client idéal a quel âge ?',m:1,o:['18-25','25-35','35-50','50+']},
+  {id:'achat',l:'Ce qui le fait acheter chez toi ?',m:1,o:['Les résultats de mes clients','Mon expertise / mon parcours','Ma personnalité','Le prix / l\'accessibilité']},
+  {id:'cta',l:'Ton appel à l\'action principal ?',o:[['Commenter un mot-clé pour recevoir un cadeau',1],'Réserver un appel','Lien en bio','Je ne sais pas encore']},
+  {id:'cible',l:'Qui tu aides, à faire quoi ? Et le problème n°1 de ton client, avec ses mots à lui.',x:'Ex. J\'aide les salariés à lancer un revenu en ligne. Son problème : « je ne sais pas quoi vendre ».'},
+  {id:'freebie',l:'Ton cadeau gratuit existe déjà ? Son nom et ce qu\'on reçoit.',x:'Ex. GUIDE : un PDF de 10 pages pour trouver son idée de business. Rien encore ? Écris « non ».'}]},
+ {t:'Ta voix',time:'3 min',why:'Le contenu sonne comme toi, pas comme une IA. Rien n\'est inventé.',qs:[
+  {id:'tonv',l:'Ton ton en vidéo ?',o:[['Posé, prof',1],'Énergique, motivant','Drôle, léger','Cash, direct']},
+  {id:'tu',l:'Tu ou vous ?',o:['Tu','Vous']},
+  {id:'jamais',l:'Jamais dans tes vidéos ?',m:1,o:['Gros mots, argot','Critiquer un concurrent','Ma vie intime','Politique, religion']},
+  {id:'formats',l:'Ce que tu aimes tourner ?',m:1,o:['Face caméra posé','Questions-réponses','Tableau blanc','Voix off sur des images','Audit en live']},
+  {id:'preuves',l:'Tes preuves vraies, 1 ou 2 histoires perso, et une phrase que tu dis tout le temps.',x:'Ex. 4 ans dans le e-commerce, 120 élèves, un élève à 8 000 €/mois. Histoire : j\'ai quitté mon CDI en 2022.'}]},
+ {t:'Tes réseaux et ton rythme',time:'2 min',why:'Un rythme que tu tiens vraiment, puis on monte.',qs:[
+  {id:'reseaux',l:'Tes réseaux ?',m:1,o:['Instagram','TikTok','YouTube Shorts','YouTube long','LinkedIn','Facebook']},
+  {id:'volume',l:'Combien de vidéos par semaine, pour de vrai ?',o:[['3',1],'5','7','14 et plus']},
+  {id:'tournage',l:'Comment tu tournes ?',o:[['1 session par semaine, tout d\'un coup',1],'Un peu chaque jour','Je ne tourne pas encore']},
+  {id:'bloque',l:'Ce qui te bloque le plus ?',m:1,o:['Me lancer à me filmer','Trouver des idées','Le montage','Publier régulièrement']},
+  {id:'compte',l:'Ton @ principal, et 2 ou 3 créateurs de ta niche que tu trouves bons.',x:'Ex. @karim.business. J\'aime bien Alex Hormozi et Iman Gadzhi.'}]},
+ {t:'Tes couleurs',time:'2 min',why:'Tes PDF, carrousels et slides sortent à ta marque.',qs:[
+  {id:'couleurs',l:'Tes couleurs ?',o:['J\'ai déjà mes couleurs',['Choisis pour moi selon mon style',1],'Noir et blanc sobre']},
+  {id:'style',l:'Ton style en un mot ?',o:['Sobre, premium','Chaleureux, naturel','Moderne, tech','Coloré, fun']},
+  {id:'logo',l:'Tu as un logo ?',o:['Oui, je te donne le fichier','Non, mon nom suffit']},
+  {id:'pied',l:'Ce qui s\'affiche en bas de tes PDF et visuels ?',o:['Mon prénom et nom','Le nom de ma marque','Rien']}]},
+ {t:'Tes logiciels gratuits',time:'2 min',why:'Claude les installe et les règle pour toi.',qs:[
+  {id:'essentiels',l:'Les essentiels : j\'installe lesquels ?',m:1,o:[['Obsidian : voir ton cerveau',1],['Wispr Flow : dicter au lieu de taper',1],'Chrome + Claude in Chrome','Outil YouTube (yt-dlp)']},
+  {id:'pack',l:'Le pack contenu (scripts, montage, carrousels) ?',o:[['Oui, installe-le',1],'Pas maintenant']},
+  {id:'bonus',l:'Des bonus ?',m:1,o:['Fathom : tes visios transcrites','Canva','Rien d\'autre']}]}
+];
+const A={};let all=[];
+const f=document.getElementById('form');
+BLOCS.forEach((b,i)=>{
+ const s=document.createElement('section');
+ s.innerHTML=`<div class="sh"><span class="num">${i+1}</span><h2>${b.t}</h2><span class="time">${b.time}</span></div><p class="why">${b.why}</p>`;
+ b.qs.forEach(q=>{
+  all.push(q);
+  const d=document.createElement('div');d.className='q';d.id='q-'+q.id;
+  d.innerHTML=`<p class="ql">${q.l}</p>`+(q.m?'<p class="qh">Plusieurs choix possibles</p>':(q.x?'':'<p class="qh">Un seul choix</p>'));
+  if(q.x){const t=document.createElement('textarea');t.id='t-'+q.id;t.placeholder=q.x;t.setAttribute('aria-label',q.l);
+   t.addEventListener('input',()=>{A[q.id]=t.value.trim();upd()});d.appendChild(t);}
+  else{const o=document.createElement('div');o.className='opts';A[q.id]=[];
+   q.o.forEach(v=>{const lab=Array.isArray(v)?v[0]:v,rec=Array.isArray(v);
+    const btn=document.createElement('button');btn.type='button';btn.className='opt';btn.id='o-'+q.id+'-'+o.children.length;
+    btn.setAttribute('aria-pressed','false');btn.innerHTML=lab+(rec?`<small>${R}</small>`:'');
+    btn.onclick=()=>{let cur=A[q.id];
+     if(q.m){cur=cur.includes(lab)?cur.filter(x=>x!==lab):[...cur,lab];}else{cur=cur[0]===lab?[]:[lab];}
+     A[q.id]=cur;o.querySelectorAll('.opt').forEach(x=>{const l=x.childNodes[0].textContent;x.setAttribute('aria-pressed',cur.includes(l))});upd();};
+    o.appendChild(btn);});
+   d.appendChild(o);}
+  s.appendChild(d);});
+ f.appendChild(s);});
+document.getElementById('nq').textContent=all.length+' questions';
+function ok(q){const v=A[q.id];return Array.isArray(v)?v.length>0:!!v}
+function upd(){let n=0;all.forEach(q=>{const k=ok(q);if(k)n++;document.getElementById('q-'+q.id).classList.toggle('done',k)});
+ document.getElementById('count').textContent=n+' / '+all.length;document.getElementById('fill').style.width=(100*n/all.length)+'%';}
+function texte(){let s='Configure mon kit Claude avec ces réponses (skills bienvenue, logiciels puis ma-marque). Ne me repose pas ces questions.\n';
+ BLOCS.forEach((b,i)=>{s+=`\n${i+1}. ${b.t.toUpperCase()}\n`;b.qs.forEach(q=>{const v=A[q.id];
+  s+=`- ${q.l} ${Array.isArray(v)?(v.join(' · ')||'(pas répondu)'):(v||'(pas répondu)')}\n`;})});return s;}
+upd();
+// Une page à la fois, avec Passer / Retour
+const pages=[...f.querySelectorAll('section')],fin=[document.querySelector('.info'),document.querySelector('.end')];let cur=0;
+const nav=document.createElement('div');nav.className='nav';
+nav.innerHTML='<button type="button" class="ghost" id="prev">← Retour</button><span id="pg"></span><button type="button" class="btn" id="next">Passer →</button>';
+f.after(nav);
+function show(){pages.forEach((p,i)=>p.hidden=i!==cur);fin.forEach(e=>e.hidden=cur<pages.length);
+ document.getElementById('prev').hidden=cur===0;document.getElementById('next').hidden=cur>=pages.length;
+ document.getElementById('pg').textContent=cur<pages.length?`Page ${cur+1} / ${pages.length}`:'Terminé';
+ window.scrollTo({top:0});}
+document.getElementById('next').onclick=()=>{cur++;show()};
+document.getElementById('prev').onclick=()=>{cur--;show()};
+show();
+document.getElementById('copy').onclick=()=>{const out=document.getElementById('out'),msg=document.getElementById('msg'),t=texte();
+ out.value=t;out.style.display='block';
+ const fb=()=>{out.focus();out.select();msg.textContent='Sélectionné : fais Cmd+C.'};
+ try{navigator.clipboard.writeText(t).then(()=>{msg.textContent='Copié. Colle-le dans Claude.'},fb)}catch(e){fb()}};
+</script>

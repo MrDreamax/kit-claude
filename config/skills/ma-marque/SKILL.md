@@ -10,6 +10,7 @@ But : qu'après ça, le Scripteur, le Carrousel, les Slides, le Monteur et le Pu
 Ton : simple, chaleureux, zéro jargon. Questions cliquables (AskUserQuestion, 4 questions max par appel, option recommandée en premier). Une seule question en texte libre par étape, quand un clic ne suffit pas.
 
 ## 0. Avant de commencer
+- Mode express (lancé par `bienvenue` avec les réponses de la page questionnaire) : les étapes 1 à 4 sont déjà répondues dans ce texte. Ne repose rien, va à l'étape 5 (demande juste le fichier du logo ou les codes couleurs si la personne a coché qu'elle les a).
 - Lis ~/Documents/Brain/00-Moi/profil.md (prénom, métier, objectif) : ne repose pas ce qui y est déjà.
 - Lis les 4 fichiers à remplir. S'ils sont déjà remplis (pas de « À REMPLIR ») : montre un résumé en 5 lignes et demande quelle partie changer (multiSelect : Ma voix · Ma cible et mon offre · Mes réseaux et mon rythme · Ma DA). Ne refais que ça.
 - Dis en 1 ligne : « 4 petites séries de questions, 10 minutes, et tes skills contenu sont réglés sur toi. »

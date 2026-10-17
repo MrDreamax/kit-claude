@@ -25,7 +25,7 @@ Tu viens de ChatGPT ? Il rapatrie ce que ChatGPT sait de toi.
 Installe le kit Claude qui est ici : https://github.com/MrDreamax/kit-claude
 ```
 
-Claude fait tout le reste. Il te demandera ton accord avant de lancer l'installation (clique « Autoriser »), puis te pose 5 questions pour s'adapter à toi.
+Claude fait tout le reste. Il te demandera ton accord avant de lancer l'installation (clique « Autoriser »), puis t'ouvre une page avec toutes ses questions (15 minutes) : tu cliques, tu copies, tu colles. Tu préfères le chat ? Il te les pose une à une.
 
 ---
 
