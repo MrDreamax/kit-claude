@@ -77,5 +77,19 @@
 - `higgsfield` : prompts pour les vidéos et images IA (compte Higgsfield).
 - Mes fichiers de travail (rushes, B-rolls, photos, PDF, montages) : `~/Documents/Contenu/`.
 
+### Les skills business (preuves, production, vente, équipe, finance)
+Tous suivent mes règles : brouillons seulement, rien d'envoyé, rien de publié, aucun paiement touché, jamais de suppression. Chacun a son carnet dans `00-Moi/regles-agents/`.
+- `chasseur-preuves` : « qui a un gain ? » → gains de mes clients vérifiés dans la transcription, interview de 15 min, étude de cas, hooks de reels et de pubs preuve.
+- `producteur` : « où en est la prod ? » → reels écrits / tournés / montés / validés / programmés, 14 jours d'avance, feuille de tournage.
+- `decliner` : « décline cette vidéo » → une vidéo longue devient reels + carrousel + fiches de publication.
+- `webmaster` : « page d'offre », « candidature », « VSL », « flow ManyChat » → fichiers prêts, rien mis en ligne sans moi.
+- `setter` : « qui a commenté ? » → commentaires triés (chaud / tiède / froid) + brouillons de réponse. J'envoie.
+- `preparateur-coaching` : « prépare mon call de groupe » → page de préparation, puis récap et gains à exploiter.
+- `attache-presse` : « podcasts », « kit média » → émissions à viser, pitchs en brouillon, préparation d'interview.
+- `recruteur` : « recrute un closer » → annonce, tri, entretien, 14 premiers jours. Payé au résultat, jamais de fixe ; statut à faire valider par un juriste.
+- `cfo` : « fais le point marge » → cash net, pub, marge réelle, 5 chiffres (Stripe lu en lecture seule).
+- `drh` : « bulletin des agents » → qui travaille, qui coûte pour rien, quoi archiver (je décide).
+- Agent `stagiaire` (petit modèle) : tâches mécaniques en volume (transcrire, compter, ranger, vérifier), toujours contrôlé par celui qui l'appelle.
+
 ## Mise à jour du kit
 - Si je dis « mets à jour mon kit » : refais l'installation depuis le lien indiqué dans `~/.claude/kit-claude.txt` (même procédure que la première fois). Elle ne touche jamais à « Qui je suis », ni à mes fichiers perso du Brain (00-Moi, 01-Projets, hot, log, décisions, audits).

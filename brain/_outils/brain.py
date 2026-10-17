@@ -23,7 +23,9 @@ SUJETS = ["closing", "pub-meta", "contenu", "montage", "audio", "da", "youtube",
 ENTREES = ["hot.md", "index.md", "log.md", "README.md"]
 GROS_KO = 20
 # fichiers que les routines créent elles-mêmes la première fois (pas une panne s'ils manquent)
-A_LA_DEMANDE = {"07-Clients/calls-hors-clients.md", "00-Moi/import-chatgpt.md"}
+A_LA_DEMANDE = {"07-Clients/calls-hors-clients.md", "00-Moi/import-chatgpt.md",
+                "07-Clients/00-resultats.md", "07-Clients/00-calls-groupe.md", "01-Projets/charges.md",
+                "06-Contenu/declinaisons.md", "06-Contenu/presse-emissions.md", "06-Contenu/manychat.md"}
 
 
 # ---------- lecture ----------

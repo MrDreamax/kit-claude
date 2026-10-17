@@ -47,3 +47,14 @@ Un carnet par agent. Chaque correction que tu fais devient une règle définitiv
 | audit-insta.md | L'Auditeur Insta | skill audit-insta |
 | veille-reels.md | La Vigie | skill veille-reels |
 | ma-marque.md | Ma marque | skill ma-marque : voix, cible, DA |
+| chasseur-preuves.md | Le Chasseur de preuves | skill chasseur-preuves : gains clients vérifiés, interviews, études de cas |
+| producteur.md | Le Producteur | skill producteur : chaîne écrit, tourné, monté, validé, programmé et feuille de tournage |
+| decliner.md | Le Déclineur | skill decliner : 1 vidéo longue devient reels, carrousel et fiches de publication |
+| webmaster.md | Le Webmaster funnel | skill webmaster : page d'offre, candidature, VSL, flows ManyChat |
+| setter.md | Le Setter IA | skill setter : commentaires qualifiés et brouillons de réponses (l'humain envoie) |
+| preparateur-coaching.md | Le Préparateur de coaching | skill preparateur-coaching : préparer et récapituler les calls de groupe |
+| attache-presse.md | L'Attaché de presse | skill attache-presse : podcasts, pitchs, interviews, partenariats, kit média |
+| recruteur.md | Le Recruteur | skill recruteur : closer au résultat, juriste, assistant (annonce, tri, entretien) |
+| cfo.md | Le CFO | skill cfo : marge réelle, 5 chiffres de la semaine, alertes |
+| drh.md | Le DRH | skill drh : bulletin des agents, formation, revue des coûts |
+| stagiaire.md | Les Stagiaires IA | agent stagiaire (petit modèle) : tâches mécaniques en volume, toujours vérifiées |
