@@ -55,6 +55,19 @@ Cite l'ID source dans les « Sources » du script (ex. Kallaway [ID mm:ss]). Jam
 6. **Corps du script** : passe la mini-checklist C1 à C8 de 02-Formations/experts-scripts-youtube-long.md §10 (hook de soutien qui contredit ce que pense le spectateur, une idée par phrase, 2 phrases de décor max, une phrase d'enjeu, au moins un « mais », payoff qui tient le hook puis fin immédiate, CTA lié au sujet).
 7. **Lot** : varie les débuts de hooks (jamais 2 hooks qui commencent pareil), les formats et les jobs.
 
+## 3b. Reprendre un reel viral : la fiche de tournage
+Quand le script part d'une vidéo d'inspiration (skill `veille-reels` ou lien collé) : 1 fiche par vidéo, dans cet ordre, rien d'autre.
+```
+Vidéo inspiration : <lien de la vidéo>
+Indication tournage : <cadre, position, décor, ce qu'on filme>
+Indication montage : <texte écran, B-rolls, effets ; « comme sur la vidéo » si c'est identique>
+────────────
+Script :
+<le script d'un seul bloc, prêt à dire>
+```
+- On garde le sujet et le format de la vidéo, jamais les phrases de l'autre créateur : pas de traduction mot à mot, le script est réécrit dans la voix de voix-contenu.md, avec ton CTA.
+- Plusieurs vidéos = plusieurs fiches à la suite, séparées par une ligne.
+
 ## 4. Mode LONG (YouTube 15-25 min, audit de compte par défaut)
 Base : 02-Formations/experts-scripts-youtube-long.md, §8 (squelette de 20 min minuté et sourcé : pour 15 min, 3 blocs et 3 re-hooks ; pour 25 min, 5 blocs et 5 re-hooks) et §9 (checklist R1 à R15). Lis-la en entier avant d'écrire. Elle passe avant ce résumé. Exemple rendu : ~/.claude/skills/scripteur/exemples/echantillon-long.json (`total` = durée visée en m:ss, sert aux contrôles). Autre format qu'un audit (tuto, histoire) : même squelette, les blocs changent de nom.
 1. **Titre et miniature** : 3 titres (le 1er = le choix), 1 idée de miniature. Règles : experts-youtube-long-repurposing.md §1.4.
