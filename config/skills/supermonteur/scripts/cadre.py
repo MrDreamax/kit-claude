@@ -1,11 +1,11 @@
 """Recadrage fixe d'une face cam filmée trop large, vers le cadre serré des reels qui marchent :
 yeux à 35 % de la hauteur, visage = 33 % de la largeur (mesuré sur des reels pros). Un monteur humain ne recadre pas : la différence vient du tournage.
   python3 cadre.py rush.mp4 --apply [--eyes 35] [--face 33] [--max 1.5]   -> clip.mp4 (étape 1 du SKILL) + cadre.json
-AUTOMATIQUE. Rush déjà serrée (yeux <= 40 % et visage >= 28 % de la largeur) = simple mise au format.
-Mesure les yeux et la largeur du visage sur la rush (médiane de 16 images), calcule UN cadre fixe (pas de mouvement : ton posé),
+AUTOMATIQUE. Rush déjà serré (yeux <= 40 % et visage >= 28 % de la largeur) = simple mise au format.
+Mesure les yeux et la largeur du visage sur le rush (médiane de 16 images), calcule UN cadre fixe (pas de mouvement : ton posé),
 recadré dans la source puis réduit en 1080x1920 : net tant que la source est assez grande (4K = jusqu'à x 2).
 Zoom plafonné à 1,10 si la source fait 1080 de large (au-delà on agrandit des pixels = flou ; experts cadrage : 4K conseillée).
-Experts : Kellan (yeux au tiers haut, visage centré), voir Brain 02-Formations/experts-cadrage-9-16.md. À utiliser seulement sur une rush filmée large.
+Experts : Kellan (yeux au tiers haut, visage centré), voir Brain 02-Formations/experts-cadrage-9-16.md. À utiliser seulement sur un rush filmé large.
 """
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

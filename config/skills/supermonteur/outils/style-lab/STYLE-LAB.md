@@ -3,13 +3,13 @@
 Facultatif. À lancer une fois, si tu veux choisir au visuel tes polices, ta couleur, ta musique et ton rythme au lieu des réglages par défaut (Montserrat + Instrument Serif, blanc, accent = couleur de ta marque, rythme posé). Tu votes sur de vrais rendus de TOI ; ça écrit ta DA de montage dans `~/Documents/Brain/00-Moi/montage.json` (bloc `da`), que tous les montages suivants lisent. Une mise à jour du kit ne l'écrase jamais.
 Durée : ~25 min dont ~10 min de rendu (jusqu'à 8 variantes).
 Coût : 0 si tu sautes la section « ambiance » (4 images de toi, ~1 crédit Higgsfield, compte Higgsfield requis). Musique : tes morceaux Epidemic ou libres de droits (1 à 4), jamais de musique non licenciée.
-5 sections, 1 seule variable par carte : **Ton ambiance** (facultatif, 4 images de toi), **Tes polices** (4 couples), **Ta couleur** (2 tirées de ta rush + ta marque + un bleu sobre), **Ta musique** (1 à 4 morceaux), **Ton rythme** (posé / nerveux).
+5 sections, 1 seule variable par carte : **Ton ambiance** (facultatif, 4 images de toi), **Tes polices** (4 couples), **Ta couleur** (2 tirées de ton rush + ta marque + un bleu sobre), **Ta musique** (1 à 4 morceaux), **Ton rythme** (posé / nerveux).
 Le reste est réglé par le skill et ne se vote pas : sous-titres au niveau du col, mot fort seul à l'écran, zones mortes Instagram, musique émotionnelle, zéro néon / chrome.
 
 ## 1. Matière (dossier `~/Documents/Contenu/montages/style-lab/`)
-1. Une rush de toi en face cam. Étapes 1-3 de `SKILL.md` (cadrage, transcription, dérush) → `clip.mp4` + `words.json`.
+1. Un rush de toi en face cam. Étapes 1-3 de `SKILL.md` (cadrage, transcription, dérush) → `clip.mp4` + `words.json`.
 2. Lire `words.json` : choisir un passage de **8-12 s** qui finit sur une phrase entière, avec **1 mot fort** et **1 punchline** de 2-3 lignes (tes mots, dits dans le passage). Noter les corrections de Whisper (`fixes`).
-3. **Ambiance** (facultatif, Higgsfield branché) : 3 images nettes de ton visage tirées de la rush → `media_upload` + `curl PUT` + `media_confirm` → `generate_image_batch`, `gpt_image_2_5`, 9:16, les 3 réfs en `medias`, 4 prompts (Premium sombre, Cinéma chaud, Clair épuré, Énergique coloré). Chaque prompt finit par « Photorealistic, natural skin texture, keep identity exactly. No text, no logos, no floating objects, no neon, no glow. » **Vérifier que c'est bien ton visage sur les 4** (planche), sinon refaire avec d'autres réfs AVANT de te les montrer. Télécharger, réduire en JPG 720 px.
+3. **Ambiance** (facultatif, Higgsfield branché) : 3 images nettes de ton visage tirées du rush → `media_upload` + `curl PUT` + `media_confirm` → `generate_image_batch`, `gpt_image_2_5`, 9:16, les 3 réfs en `medias`, 4 prompts (Premium sombre, Cinéma chaud, Clair épuré, Énergique coloré). Chaque prompt finit par « Photorealistic, natural skin texture, keep identity exactly. No text, no logos, no floating objects, no neon, no glow. » **Vérifier que c'est bien ton visage sur les 4** (planche), sinon refaire avec d'autres réfs AVANT de te les montrer. Télécharger, réduire en JPG 720 px.
 4. **Musique** (facultatif) : 1 morceau par émotion (motivation qui monte, dark cinématique, cordes cinéma, émotion piano), sans voix, coupé à la durée du passage. Avec Epidemic : `SearchRecordings` → `EditRecording` (`forceDuration`, WAV) → `DownloadRecordingEdit` → `~/Documents/Contenu/medias/musique/epidemic/` + 1 ligne dans `_LICENCE.txt`. Sans Epidemic : tes morceaux libres de droits dans `musique/libre/` (voir SKILL.md, section Musique). Aucun morceau = la section musique saute.
 5. **Ta marque** : si `marque.json` a une couleur principale choisie par toi (nom rempli), la passer en `--brand`. Sinon demande ta couleur en 1 ligne (code couleur, ou la tirer de ton logo / profil). Aucune → la carte devient « Noir et blanc ».
 
@@ -39,4 +39,4 @@ Sortie : `round/round.json` (sections + cartes + ce que chaque carte règle) et,
 ## Plan B (la page ne garde rien : elle affiche « Cette page ne joint pas Claude »)
 Montrer `round/planche-<section>.jpg` une par une et poser 1 QCM par section dans le chat (les vidéos avec son : donner le chemin de `full.mp4`), puis `lock` avec un `--pick` par section (sans `--vote`).
 
-Crédit : adapté du modèle gratuit Style Lab de Shaan Johari (@viashaan, https://instagram.com/viashaan).
+Créé par Cyril MrDreamax (byStratosphere, https://instagram.com/mrdreamax.business).

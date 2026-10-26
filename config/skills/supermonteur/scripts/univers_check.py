@@ -1,7 +1,7 @@
-"""Univers du reel = celui de la RUSH (Bruce Block, The Visual Story : 7 composantes ; Roger Deakins : lumière justifiée).
+"""Univers du reel = celui du RUSH (Bruce Block, The Visual Story : 7 composantes ; Roger Deakins : lumière justifiée).
   python3 univers_check.py fiche clip.mp4          -> univers.json + univers.jpg : la fiche univers AVANT tout visuel
   python3 univers_check.py check plan.json         -> test « 5 sur 7 » de chaque ajout (inserts + b-rolls) + univers-check.jpg
-Les 7 composantes : espace, ligne, forme, couleur, ton, mouvement, rythme. Un ajout doit en partager au moins 5 avec la rush ;
+Les 7 composantes : espace, ligne, forme, couleur, ton, mouvement, rythme. Un ajout doit en partager au moins 5 avec le rush ;
 il peut contraster sur UNE seule, exprès (l'accent). Mesurées ici : couleur, ton, mouvement, rythme.
 Espace, ligne, forme : à juger À L'ŒIL sur univers-check.jpg (rush à gauche, ajout à droite), puis compléter le score.
 Seuils [H] (experts : principe sourcé, chiffres à tester) : couleur = 80 % des pixels à moins de 30 (Delta E) de la palette de la
@@ -31,7 +31,7 @@ def shakes(path, ss=0, du=None):
 
 
 def coverage(S, R):
-    """% des pixels de l'ajout proches (Delta E <= 30) d'une couleur de la rush, ou neutres (gris, noir, blanc)."""
+    """% des pixels de l'ajout proches (Delta E <= 30) d'une couleur du rush, ou neutres (gris, noir, blanc)."""
     pal = np.array([c[2] for c in R["palette"]])
     lab = np.array([c[2] for c in S["palette"]]); share = np.array([c[1] for c in S["palette"]])
     near = (np.sqrt(((lab[:, None] - pal[None]) ** 2).sum(2)).min(1) <= 30) | (np.hypot(lab[:, 1], lab[:, 2]) < 10)
@@ -86,10 +86,10 @@ def check(plan_p):
         verdict = "KO (même avec 3/3 à l'œil)" if need > 3 else f"il faut {need}/3 à l'œil (espace, ligne, forme)" if need else "OK dès maintenant"
         if not ok["ton"]: verdict += " · ton : passer d'abord match_look.py --fix"
         rows.append(f"{i + 1}. {kind} {os.path.basename(src)} {a:.1f}-{b:.1f} s : auto {n}/4 "
-                    f"[{' '.join(('✓ ' if v else '✗ ') + k for k, v in ok.items())}] · couleur {cov} % proche de la rush · {verdict}")
+                    f"[{' '.join(('✓ ' if v else '✗ ') + k for k, v in ok.items())}] · couleur {cov} % proche du rush · {verdict}")
         tiles.append((cam, (a + b) / 2, src, frm + (b - a) / 2 if not img else None, i))
-    print(f"Univers de la rush : palette {' '.join(h for h, _, _ in R['palette'])} · P1 {R['p1']} · P99 {R['p99']}\n" + "\n".join(rows))
-    # planche : une ligne par ajout, rush (même instant) à gauche, ajout à droite, sur fond de la couleur dominante de la rush
+    print(f"Univers du rush : palette {' '.join(h for h, _, _ in R['palette'])} · P1 {R['p1']} · P99 {R['p99']}\n" + "\n".join(rows))
+    # planche : une ligne par ajout, rush (même instant) à gauche, ajout à droite, sur fond de la couleur dominante du rush
     os.makedirs("univers-tmp", exist_ok=True); parts = []
     bg = R["palette"][0][0].replace("#", "0x")
     for cam_, t, src, ts, i in tiles:
@@ -108,7 +108,7 @@ def check(plan_p):
     for x in os.listdir("univers-tmp"): os.remove(os.path.join("univers-tmp", x))
     os.rmdir("univers-tmp")
     print("À l'œil : univers-check.jpg (gauche = rush au même instant, droite = ajout). Pour chaque ajout : espace, ligne, forme "
-          "partagés avec la rush ? Puis le test Deakins : d'où vient sa lumière ? est-il dans CETTE pièce ? sert-il la phrase ? Un non = retiré.")
+          "partagés avec le rush ? Puis le test Deakins : d'où vient sa lumière ? est-il dans CETTE pièce ? sert-il la phrase ? Un non = retiré.")
 
 
 if __name__ == "__main__":

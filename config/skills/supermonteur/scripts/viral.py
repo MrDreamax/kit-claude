@@ -63,7 +63,7 @@ def layout(plan_path):
     print(f"haut de tête {head}px · sous-titres {int(suby0)}px -> cam descendue de {S}px, zone tableau 270-{zone}px"
           f"{' (T COMPACT, plan serré)' if zone < 690 else ''}, sous-titres à {suby}px")
     if zone < 420:
-        print("ATTENTION : zone < 420 px, le tableau ne tiendra pas. Retourner la rush avec de la place au-dessus de la tête.")
+        print("ATTENTION : zone < 420 px, le tableau ne tiendra pas. Retourner le rush avec de la place au-dessus de la tête.")
     out = "clip_viral.mp4"
     if S == 0:
         shutil.copyfile(src, out)
@@ -78,7 +78,7 @@ def layout(plan_path):
               f"[a]crop=1080:{band}:0:0,scale=1080:{S + FADE},boxblur=28:2,eq=brightness=-0.05,pad=1080:1920:0:0:black[bg];"
               f"[b]format=rgba[c];[1:v]format=gray,scale=1080:1920[m];[c][m]alphamerge[fg];"
               f"[bg][fg]overlay=0:{S}:shortest=1,format=yuv420p[v]")
-        # masque à la cadence de la rush + durée exacte (masque à 25 i/s par défaut sur une rush à 30 i/s
+        # masque à la cadence du rush + durée exacte (masque à 25 i/s par défaut sur un rush à 30 i/s
         # = alphamerge qui s'arrête 1,6 s avant la fin, image noire à la fin du reel)
         fps, dur = subprocess.check_output(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
                                             "stream=r_frame_rate:format=duration", "-of", "default=nw=1:nk=1", src]).decode().split()[:2]

@@ -13,7 +13,7 @@ plan.json -> "source": {"cam": "cam.mp4", "layout": "greenscreen", "items": [
      {"src": "src/ecran.mp4", "start": 16.0, "end": 23.7, "from": 3.0}]}            # enregistrement d'écran / vidéo à commenter
   Une capture se fait avec une largeur de 1080 px (page mobile x2). Entre deux items = face cam.
   DÉMO FILMÉE (écran filmé au téléphone, pas de visage pendant la démo) : {"src": "@cam", "start", "end", "zoom": [cx, cy, z]}
-     = zoom sur la zone utile de l'écran (cx, cy en px de la cam 1080x1920, z = 1,3 à 2,2), lu dans "cam_hd" (la rush 4K dérushée
+     = zoom sur la zone utile de l'écran (cx, cy en px de la cam 1080x1920, z = 1,3 à 2,2), lu dans "cam_hd" (le rush 4K dérushée
      avec le même drop.json) pour rester net. Une coupe par étape (« tu cliques sur Ajouter » = zoom sur Ajouter).
   "solo": true = la source seule en plein écran, sans personne (carte « Le prompt » pendant un écran qui charge).
   REACT : {"src": "web/clip.mp4", "start", "end", "fit": true, "credit": "Source - Nom de la chaîne (YouTube)", "pre": "delogo=..."}

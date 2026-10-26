@@ -96,6 +96,6 @@ Tu installes ce kit pour la personne qui t'a collé ce lien. Fais tout toi-même
 
 ## Crédits
 - Le skill `higgsfield` vient du projet [higgsfield-ai-prompt-skill](https://github.com/OSideMedia/higgsfield-ai-prompt-skill) d'O-Side Media (licence MIT, voir `config/skills/higgsfield/LICENSE`).
-- Les pages Cut Notes et Style Lab du skill `supermonteur` (retours image par image, choix du style de montage) sont adaptées des modèles gratuits de Shaan Johari ([@viashaan](https://instagram.com/viashaan)). Crédit en bas de chaque page.
+- Les pages Cut Notes et Style Lab du skill `supermonteur` (retours image par image, choix du style de montage) ont été créées par Cyril MrDreamax (byStratosphere, [@mrdreamax.business](https://instagram.com/mrdreamax.business)).
 - Les 7 cerveaux de conseillers (`Brain/08-Conseillers`) viennent du projet [Roast Room](https://github.com/nateherkai/roast-room) (licence MIT, voir `brain/08-Conseillers/LICENSE-roast-room.txt`). Ce sont des simulations compilées depuis le travail public de chaque expert, pas les vraies personnes.
 - Les fiches experts et les fiches livres sont des synthèses sourcées (vidéos, livres, docs officielles), avec la source de chaque idée. Les textes intégraux inclus sont du domaine public (Claude Hopkins).

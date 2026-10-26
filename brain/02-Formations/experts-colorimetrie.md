@@ -11,10 +11,10 @@ Niveaux : [P] primaire (l'expert le dit lui-même, vidéo ou guide officiel) · 
 
 ## L'idée en 5 lignes
 1. Ordre des 3 coloristes : balance du blanc d'abord, expo + contraste ensuite, la peau en dernier. Jamais l'inverse.
-2. Si ta rush a déjà le look voulu (par exemple studio sombre, mur bleu, peau chaude), on le protège. On ne le refait pas. Petits gestes seulement (caméra 8 bits : les bandes arrivent vite).
+2. Si ton rush a déjà le look voulu (par exemple studio sombre, mur bleu, peau chaude), on le protège. On ne le refait pas. Petits gestes seulement (caméra 8 bits : les bandes arrivent vite).
 3. Contraste : fort au milieu, doux dans les noirs et les blancs. Pas de noirs relevés (testé : ça fait un voile gris moche sur la réf).
 4. Peau = l'ancre. Elle reste chaude et naturelle. Le bleu LED reste dans le décor, jamais sur le visage.
-5. Le vrai gain : caler chaque insert (illustration, b-roll) sur les mesures de la rush. C'est ça qui évite l'effet « autre univers ».
+5. Le vrai gain : caler chaque insert (illustration, b-roll) sur les mesures du rush. C'est ça qui évite l'effet « autre univers ».
 
 ## Les experts retenus
 - **Cullen Kelly** : coloriste et "image scientist" à Los Angeles. Crédits : court-métrage nommé aux Oscars 2021 (Feeling Through), clients Netflix, HBO, Hulu, Apple ; enseigne pour Blackmagic et Mixing Light [S, bios SMPTE/Post Magazine/FIDM]. Lu : 3 vidéos, en entier.
@@ -71,7 +71,7 @@ Fichier test : un reel de référence de monteur (720x1280, 8 bits). ffmpeg 6.0 
 
 ## Comment l'appliquer
 
-1. **Mesurer avant de toucher.** Sur 10 images de la rush, calcule P1, P50, P95, P99 (luma 0-255), luma de la joue, moyenne R,G,B, % de pixels néon. Réf monteur [M] : P1 2, P50 26, P95 173, P99 199, néon 0,04 %. Rien à corriger si ta rush est dans ±10 de ces valeurs. Source : Darren [01:51]-[02:22] (lire les scopes) + mesure. [P+M]
+1. **Mesurer avant de toucher.** Sur 10 images du rush, calcule P1, P50, P95, P99 (luma 0-255), luma de la joue, moyenne R,G,B, % de pixels néon. Réf monteur [M] : P1 2, P50 26, P95 173, P99 199, néon 0,04 %. Rien à corriger si ton rush est dans ±10 de ces valeurs. Source : Darren [01:51]-[02:22] (lire les scopes) + mesure. [P+M]
 2. **Une seule passe de grade, légère, dans la commande ffmpeg qui cale la vidéo en 1080x1920.** Chaîne testée : `scale=1080:1920:flags=lanczos,fps=30,format=yuv420p10le,lutyuv=y='64+876*((val-64)/876-0.12*sin(2*PI*(val-64)/876)/(2*PI))',colorbalance=rs=-0.015:bs=0.02,eq=saturation=1.03,format=yuv420p`. Paramètres : amplitude du S a = 0,12 (plage 0,08 à 0,18), saturation 1,03 (plage 0,97 à 1,06), ombres : rouge -0,01 à -0,02, bleu +0,01 à +0,03. Source : Cullen B1-B2 [P] ; valeurs [H] testées [M].
 3. **Pas de filtre de contraste global qui pivote à 50 %** (`contrast(1.05)` en CSS, `eq=contrast`) : il écrase tout sous 6/255 (essai [M] : P10 5,8 -> 0). Garde une saturation légère ou passe-la dans la chaîne du point 2. Source : Darren B4 [P] + calcul [M].
 4. **Noirs et blancs : P1 entre 1 et 8, P99 ≤ 235 (légal 16-235). Jamais de lift ni de gamma au-dessus de 1,03** (voile gris testé avec 1,08). Source : Darren [01:51]-[02:22], [05:34]-[05:50] [P] ; valeurs [H].
@@ -80,8 +80,8 @@ Fichier test : un reel de référence de monteur (720x1280, 8 bits). ffmpeg 6.0 
 7. **Garde le bleu des LED et du mur.** Ne corrige pas la teinte du mur (écart de teinte ≤ 10 degrés avant/après grade). Ombres seulement un peu froides : noir pur ne doit pas dépasser B - R = 8/255 (test : rs -0,03 / bs +0,05 donne B - R = 16, trop). Source : D1-D2 [P] ; seuil [H].
 8. **Zéro néon : moins de 0,5 % des pixels avec saturation > 0,9 ET luminosité > 0,8.** Réf monteur [M] : 0,04 %, max 0,12 %. Si dépassé sur un INSERT ou un b-roll : `vibrance=intensity=-0.3` (touche aussi la peau : jamais sur la cam). Seuil mesuré [M+H]. Aucun expert ne chiffre le néon.
 9. **Footage 8 bits : petits gestes.** Chaque réglage ≤ 15 % de variation (a ≤ 0,15, saturation ±6 %, ±300 K). Travailler en 10 bits (`format=yuv420p10le` avant les filtres, retour `yuv420p` à la fin). Pas de masque de couleur (pas de key sur la peau). Si des bandes se voient sur le mur bleu : `noise=alls=1:allf=t` (grain fin) ou `deband`. Source : E1-E3 [P] ; valeurs [H].
-10. **Cale les inserts SUR la rush, jamais la rush sur les inserts.** Mesure P1, P50, P99 et R/B moyen d'un insert (pixels non transparents) et compare à la rush. Tolérances : écart de P50 ≤ 10/255, de P1 ≤ 4, de P99 ≤ 25, de R/B ≤ 0,15. Hors tolérance : corrige l'insert (`eq=brightness`, `colorbalance`), jamais la cam. Aligne aussi la saturation des b-rolls sur celle de la cam (mêmes valeurs). Dans un prompt de génération vidéo, décris la lumière de la rush. Source : cohérence (voir experts-direction-artistique-video, Deakins) ; chiffres [H].
-11. **Un seul look par reel, appliqué à toute la rush.** Écart de luma médiane entre deux plans de cam du même reel ≤ 5/255 ; au-delà, c'est un problème de tournage (lumière), pas de montage. Source : A4 Cullen [P] ; seuil [H].
+10. **Cale les inserts SUR le rush, jamais le rush sur les inserts.** Mesure P1, P50, P99 et R/B moyen d'un insert (pixels non transparents) et compare au rush. Tolérances : écart de P50 ≤ 10/255, de P1 ≤ 4, de P99 ≤ 25, de R/B ≤ 0,15. Hors tolérance : corrige l'insert (`eq=brightness`, `colorbalance`), jamais la cam. Aligne aussi la saturation des b-rolls sur celle de la cam (mêmes valeurs). Dans un prompt de génération vidéo, décris la lumière du rush. Source : cohérence (voir experts-direction-artistique-video, Deakins) ; chiffres [H].
+11. **Un seul look par reel, appliqué à tout le rush.** Écart de luma médiane entre deux plans de cam du même reel ≤ 5/255 ; au-delà, c'est un problème de tournage (lumière), pas de montage. Source : A4 Cullen [P] ; seuil [H].
 12. **LUT : jamais sur la cam. Si besoin sur les inserts générés pour les rapprocher : `lut3d` mélangé à 30 % max** (`split` + `blend=all_expr='A*0.7+B*0.3'`). Source : Waqas "ne pas retirer l'ADN" [P, 11:32-12:03] ; 30 % [H].
 13. **Checklist « image » (0 / 0,5 / 1) :** P1 dans [1,8], P99 ≤ 235, néon < 0,5 %, joue dans la fenêtre ±8, écart insert/cam ≤ 10 en P50. 4 critères sur 5 = 1 ; 3 = 0,5. Source : B4, C4, points 8 et 10 ; seuils [H].
 
@@ -90,11 +90,11 @@ Fichier test : un reel de référence de monteur (720x1280, 8 bits). ffmpeg 6.0 
 - **Hypothèse du Brain "noirs un peu relevés, look cinéma" (experts-montage-high-prod S33, [H])** : mes essais montrent un voile. Je la corrige : noirs tenus, jamais relevés.
 - **Visage clair au hook (MrBeast, déjà au Brain)** contre **une réf monteur sombre (visage 27 % de luma, notée 7,5/10)**. Les deux ne vont pas ensemble. Test A/B à faire : visage médian à 27 % contre 35 %.
 - **Les 3 coloristes travaillent en log + gestion de couleur (ACES) ou en caméra cinéma.** Un tournage en H.264 Rec.709 8 bits ne s'y prête pas : ces conseils ne s'appliquent pas tels quels, d'où le point 9 (petits gestes). Darren le dit lui-même pour le 8 bits [08:35].
-- **"Teal et orange"** (Darren, [08:30]) : si ta rush l'a déjà (mur bleu, peau chaude), n'en rajoute pas : point 7.
+- **"Teal et orange"** (Darren, [08:30]) : si ton rush l'a déjà (mur bleu, peau chaude), n'en rajoute pas : point 7.
 
 ## Ce que je n'ai pas trouvé
 - **Livre de Van Hurkman : non lu.** Pearson ne donne qu'un chapitre d'exemple (primaires, pas les couleurs mémoire). Le tableau de la peau vient de Larry Jordan [S].
-- **Aucun coloriste ne donne de valeurs ffmpeg.** Toutes les valeurs ffmpeg sont ma traduction [H], testées sur 1 image/clip de la réf monteur. Pas testées sur ta rush du jour : à valider en A/B.
+- **Aucun coloriste ne donne de valeurs ffmpeg.** Toutes les valeurs ffmpeg sont ma traduction [H], testées sur 1 image/clip de la réf monteur. Pas testées sur ton rush du jour : à valider en A/B.
 - **Aucune source ne chiffre un "look sombre bleuté sans néon"** ni la saturation maximale d'une LED. Le seuil néon 0,5 % est ma mesure sur la réf.
 - Vidéos de Cullen non lues : "Why using temp & tint is terrible" (VuyomLeOqGc), "Pro white balance techniques" (GD_TCaxbIN0). Waqas "3 steps" lu à 43 % seulement.
 - Pas de source sur la couleur des sous-titres blancs selon la luma du fond.

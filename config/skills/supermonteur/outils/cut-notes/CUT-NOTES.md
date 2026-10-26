@@ -1,6 +1,6 @@
 # Cut Notes : retours image par image
 
-Page de revue : tu regardes ton reel, tu tapes un commentaire, la note s'accroche à l'image exacte. Claude lit les notes et corrige. Page inspirée du modèle de Shaan Johari (@viashaan).
+Page de revue : tu regardes ton reel, tu tapes un commentaire, la note s'accroche à l'image exacte. Claude lit les notes et corrige. Outil créé par Cyril MrDreamax (byStratosphere, @mrdreamax.business).
 Fichiers : `cut-notes.html` (la page, aucun envoi hors Google Fonts), `review_copy.sh` (copie légère pour la page).
 Il faut les artifacts de Claude (claude.ai). Sans artifact : plan B en bas.
 

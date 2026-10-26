@@ -10,7 +10,7 @@ Détail, sources et minutages : Brain `02-Formations/experts-<domaine>.md` (mont
 ### Montage et rythme
 1. À chaque coupe, décider dans cet ordre : émotion > histoire > rythme > regard. Un blanc de 0,6-0,9 s avant la phrase clé n'est jamais resserré (c'est LE silence). Murch [P]
 2. Structure en 4 temps : hook 0-7 s, contexte jusqu'à ~60 %, réponse ~15 %, CTA ≤ 10 s. Musique, zooms et preuves suivent ces phases. Heras [P]
-3. Dans les 2,4 premières secondes : la promesse dite + 1 événement (mot géant, impact, zoom lent). Si la promesse arrive plus tard dans la rush : le dire à l'utilisateur (c'est le script). Heras [P], Meta [P]
+3. Dans les 2,4 premières secondes : la promesse dite + 1 événement (mot géant, impact, zoom lent). Si la promesse arrive plus tard dans le rush : le dire à l'utilisateur (c'est le script). Heras [P], Meta [P]
 4. Face cam posée : 1 changement (zoom lent, b-roll, carton) toutes les 8 à 15 s après le hook. Rafale de b-rolls (4 max, ~1 s) seulement sur une énumération. Reels pros : 9,6-14,5 s [M]
 5. Débit cible 165-195 mots/min, alerte au-dessus de 240 : trop rapide pour un public de 35-50 ans. Reels pros en studio : 158-192 [M]
 6. Chaque élément du plan (b-roll, insert, carton, mot géant, chiffre, preuve) a un champ `why` : le mot déclencheur + ce qu'il montre. Pas de `why` = pas d'élément. Heras, Block [P]
@@ -20,11 +20,11 @@ Détail, sources et minutages : Brain `02-Formations/experts-<domaine>.md` (mont
 10. Une seule montée par reel : la punchline (riser + silence + impact au même endroit). Événements visuels par tranche de 10 s : ≤ 2, ≤ 3, ≤ 4 au pic, ≤ 2 à la fin. Block [P], plafonds [H]
 
 ### Direction artistique, couleur, cadrage
-11. **Fiche univers AVANT tout visuel**, tirée de la RUSH : les 7 composantes de Bruce Block (espace, ligne, forme, couleur, ton, mouvement, rythme) + la source de lumière (côté, couleur, dureté). Elle remplit `plan.colors` et la lumière des prompts Higgsfield. Block, Deakins [P]
-12. Test "5 sur 7" sur chaque ajout : il partage au moins 5 composantes avec la rush. Il peut contraster sur UNE seule, exprès (l'accent). Sinon on jette. Block [P], seuil [H]
+11. **Fiche univers AVANT tout visuel**, tirée du RUSH : les 7 composantes de Bruce Block (espace, ligne, forme, couleur, ton, mouvement, rythme) + la source de lumière (côté, couleur, dureté). Elle remplit `plan.colors` et la lumière des prompts Higgsfield. Block, Deakins [P]
+12. Test "5 sur 7" sur chaque ajout : il partage au moins 5 composantes avec le rush. Il peut contraster sur UNE seule, exprès (l'accent). Sinon on jette. Block [P], seuil [H]
 13. Test "sortir de la vidéo" sur chaque ajout : d'où vient sa lumière ? Est-il dans CETTE pièce ? Sert-il la phrase ? Un seul non = retiré. Deakins [P]
-14. Palette : 3 teintes dominantes max (prises sur la rush) + 1 accent. Ombre portée d'un insert du côté opposé à la source de lumière. Deakins [P]
-15. Caler les inserts SUR la rush (luminosité, couleur, netteté, grain), jamais la rush sur les inserts. Jamais de LUT sur la cam. Waqas Qazi [P], tolérances [H]
+14. Palette : 3 teintes dominantes max (prises sur le rush) + 1 accent. Ombre portée d'un insert du côté opposé à la source de lumière. Deakins [P]
+15. Caler les inserts SUR le rush (luminosité, couleur, netteté, grain), jamais le rush sur les inserts. Jamais de LUT sur la cam. Waqas Qazi [P], tolérances [H]
 16. Pas d'étalonnage créatif : noirs tenus (jamais relevés : ça fait un voile gris, testé [M]), garder la couleur des lumières de la pièce (LED comprises), zéro néon. Darren Mostyn, Cullen Kelly [P]
 17. Cadre : yeux entre 33 et 36 % de la hauteur, visage centré (47-53 % de la largeur). Reels pros : 35,1 % et 49,7 % [M]
 
@@ -70,7 +70,7 @@ Le style est VERROUILLÉ : Montserrat 700 majuscules blanc 52 px (ou la police d
 - `mix.py` : plafond -2 dBTP suréchantillonné ; chaque morceau mesuré et recalé sur sa cible sous la voix ; creux -4 dB à 1,2 kHz ; musique -5 dB pendant ~1 s sous impact / sub drop / plein écran / CTA ; sidechain 30 / 450 ms (la musique remonte en douceur entre les phrases) ; fondus à puissance constante.
 - `build.mjs` : pas de `contrast()` sur la cam ni les B-rolls ; pastilles en `power3.out` (pas de rebond) ; sorties douces `power2.in` (inserts et chiffres 0,25 s ; listes, preuves, CTA 0,3 s) seulement s'il reste >= 1,5 s de face cam derrière ; zoom : 5 s mini entre deux zooms dans le hook (0-7 s), 8 s ensuite ; GSAP `autoRound:false` sur les tracés (sinon le tracé saute de vide à plein) ; chiffres géants qui comptent 1,2-2 s en grossissant de 55 % à 100 % ; cartons liste en cascade `power4.out` 0,2 s ; blocs `ring` et `bars`.
 - `config.json` : whoosh de B-roll et d'insert coupés ; musique à -29 LUFS ; voix à -14.
-- Outils de mesure : `lookstats.py` (look + cadre), `match_look.py` (cale chaque ajout sur la rush, couleur réelle jamais touchée), `univers_check.py` (fiche univers + test 5 sur 7 + planche), `score.py` (débit, car/s, image cam, yeux).
+- Outils de mesure : `lookstats.py` (look + cadre), `match_look.py` (cale chaque ajout sur le rush, couleur réelle jamais touchée), `univers_check.py` (fiche univers + test 5 sur 7 + planche), `score.py` (débit, car/s, image cam, yeux).
 - Écartés : cotes du viseur REC de montage « surveillance », tout rebond, glitch, flash, néon, sous-titres multicolores.
-- Cadrage : une rush filmée large (yeux ~47 %, visage ~25 %) est recadrée depuis la 4K par `cadre.py` (x 1,34 : yeux 47 % -> 36 %, visage 25 % -> 33 %) ; une rush déjà serrée (yeux ~34 %, visage ~33 %) n'est pas touchée. Un monteur humain ne recadre PAS : la différence vient du tournage.
+- Cadrage : un rush filmé large (yeux ~47 %, visage ~25 %) est recadré depuis la 4K par `cadre.py` (x 1,34 : yeux 47 % -> 36 %, visage 25 % -> 33 %) ; un rush déjà serré (yeux ~34 %, visage ~33 %) n'est pas touchée. Un monteur humain ne recadre PAS : la différence vient du tournage.
 - Débit à surveiller : au-dessus de 240 mots/min ou 20 car/s de sous-titres, c'est le dérush qui est trop serré.

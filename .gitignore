@@ -1,3 +1,10 @@
 .DS_Store
 __pycache__/
 *.pyc
+
+# secrets (09-SOP/securite-apps.md)
+.env
+.env.local
+.env.*.local
+*.pem
+.claude/settings.local.json

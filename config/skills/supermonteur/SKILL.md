@@ -1,11 +1,11 @@
 ---
 name: supermonteur
-description: Le Monteur. Monte ta rush en reel 9:16 Instagram prêt à poster, au niveau d'un vrai monteur (dérush, sous-titres + mot fort en serif, musique émotionnelle, zones mortes Instagram), avec TES couleurs et TA police. 8 styles, un fichier chacun - face caméra en 3 degrés (sous-titres, minimaliste, high prod), à plusieurs (podcast, visio, split screen), voix off, green screen, montage viral (comparaison en T, mauvais / bien / excellent, tier list), B-roll + texte. Tu peux donner 1 à 3 reels de référence que tu aimes : il en tire la recette (rythme, niveau de musique), jamais le contenu. Use when "monte-moi cette rush", "monte ce reel", "monte cette vidéo", "sous-titre cette vidéo", "sous-titres", "montage", "face cam", "podcast", "visio", "voix off", "green screen", "tier list", "comparaison en T", "à faire / à ne pas faire", "mauvais bien excellent", "B-roll + texte", "texte sur b-roll", "lis la légende", "monteur", "supermonteur".
+description: Le Monteur. Monte ton rush en reel 9:16 Instagram prêt à poster, au niveau d'un vrai monteur (dérush, sous-titres + mot fort en serif, musique émotionnelle, zones mortes Instagram), avec TES couleurs et TA police. 8 styles, un fichier chacun - face caméra en 3 degrés (sous-titres, minimaliste, high prod), à plusieurs (podcast, visio, split screen), voix off, green screen, montage viral (comparaison en T, mauvais / bien / excellent, tier list), B-roll + texte. Tu peux donner 1 à 3 reels de référence que tu aimes : il en tire la recette (rythme, niveau de musique), jamais le contenu. Use when "monte-moi ce rush", "monte ce reel", "monte cette vidéo", "sous-titre cette vidéo", "sous-titres", "montage", "face cam", "podcast", "visio", "voix off", "green screen", "tier list", "comparaison en T", "à faire / à ne pas faire", "mauvais bien excellent", "B-roll + texte", "texte sur b-roll", "lis la légende", "monteur", "supermonteur".
 ---
 
-# Le Monteur : une rush → un reel premium prêt à poster
+# Le Monteur : un rush → un reel premium prêt à poster
 
-Chaque montage doit tenir la comparaison avec le reel d'un vrai monteur. Tu donnes la rush, Claude fait le reste : dérush, sous-titres, musique, B-rolls, contrôles. Tu valides un plan court avant, tu regardes le résultat après.
+Chaque montage doit tenir la comparaison avec le reel d'un vrai monteur. Tu donnes le rush, Claude fait le reste : dérush, sous-titres, musique, B-rolls, contrôles. Tu valides un plan court avant, tu regardes le résultat après.
 
 ```bash
 export PATH="$HOME/.local/bin:$HOME/.local/node/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
@@ -41,18 +41,18 @@ Annoncer la durée au lancement et à la fin (~5 min pour 40 s de vidéo).
 
 ## 0. BRIEF AVANT TOUT MONTAGE (obligatoire, en boutons QCM via AskUserQuestion, option recommandée en 1er)
 Toujours premium. Ne monter qu'après les réponses.
-1. **Style** : proposer les 4 styles qui collent à la rush (4 boutons max, le reste via « Autre ») parmi Face caméra / À plusieurs / Voix off / Green screen / Montage viral / B-roll + texte. Le montage viral se décide au script (la vidéo doit être écrite pour).
+1. **Style** : proposer les 4 styles qui collent au rush (4 boutons max, le reste via « Autre ») parmi Face caméra / À plusieurs / Voix off / Green screen / Montage viral / B-roll + texte. Le montage viral se décide au script (la vidéo doit être écrite pour).
 2. **Degré** (face caméra) : option recommandée = celle qui colle à la vidéo.
    - **Sous-titres** → dérush + sous-titres + musique, rien d'autre. Conseil court, volume (beaucoup de reels par semaine).
    - **Minimaliste** → cartons typo mot par mot, icônes au trait, captures + cercle à la main. Explication avec chiffres, preuves, captures.
    - **High prod** → chiffres géants, B-rolls, preuves, CTA. Reel phare. + question **Style** : Sobre / Dynamique.
 3. **Référence** (facultatif, 1 bouton) : « Tu as 1 à 3 reels que tu aimes ? » Voir « Références de style » plus bas.
 4. **Musique** (la première fois seulement, la réponse va dans le carnet) : « Tu as un compte Epidemic Sound ? » Oui (recommandé) / Non, musique libre de droits / Non, sans musique (je l'ajoute dans l'appli Instagram). Voir la section Musique.
-- **Format** : 9:16 seulement, ne pas poser la question. Une rush en 16:9 (hors podcast / visio) : le dire ; si la personne est au centre, recadrage centré `ffmpeg -i rush.mp4 -vf "crop=ih*9/16:ih,scale=1080:1920:flags=lanczos,fps=30" ...` après avoir regardé une image ; sinon redemander une rush en vertical.
+- **Format** : 9:16 seulement, ne pas poser la question. Un rush en 16:9 (hors podcast / visio) : le dire ; si la personne est au centre, recadrage centré `ffmpeg -i rush.mp4 -vf "crop=ih*9/16:ih,scale=1080:1920:flags=lanczos,fps=30" ...` après avoir regardé une image ; sinon redemander un rush en vertical.
 - **Images générées** : Higgsfield (si `"higgsfield": true` dans tes réglages, c'est-à-dire un compte Higgsfield branché à Claude ; au 1er montage, vérifie que ses outils sont bien disponibles, puis écris `{"higgsfield": true}` dans `montage.json`), sans demander, SEULEMENT là où le style en prévoit (high prod, green screen, icônes de tier list). Jamais en sous-titres, minimaliste, à plusieurs, voix off ; B-roll + texte : jamais avec un visage. Sans Higgsfield : tes B-rolls, tes photos, Pexels, ou Gemini sur ta clé (`gemini_image.py`, facultatif) ; jamais d'IA qu'on ne peut pas assumer.
 
 ## LE PROCESS
-1. **Univers = la RUSH.** Regarder la rush d'abord : décor, lumière, couleurs, tenue. Tout ce qu'on ajoute doit sembler filmé dans CETTE pièce (`plan.colors` pour coller). La charte de marque (`da.md`) sert au TOURNAGE et au branding, jamais plaquée au montage sur une rush d'un autre univers.
+1. **Univers = le RUSH.** Regarder le rush d'abord : décor, lumière, couleurs, tenue. Tout ce qu'on ajoute doit sembler filmé dans CETTE pièce (`plan.colors` pour coller). La charte de marque (`da.md`) sert au TOURNAGE et au branding, jamais plaquée au montage sur un rush d'un autre univers.
 2. **Illustrations DANS la scène, accrochées aux gestes** (tracking `track.py`) : badge au bout du doigt quand la personne pointe, logos à côté de la tête sur « réseaux », mot derrière la tête. Objets réels = vraie forme et vraie couleur, détourés, éclairés comme la scène. Jamais une scène séparée.
 3. **B-rolls = TES vrais plans, BRUTS, STABLES, courts** (1-2,5 s, `broll.py steady` / `"from": "auto"`), jamais de filtre. Peu de temps hors de son plan (~8 s sur 39 s). Preuves = vrais objets (vraie capture de commentaires, vrai profil).
 4. **Sous-titres** (verrouillés) : police de la DA (`fonts.sub`, `subSize`, `subTrack` si fournis ; par défaut Montserrat 700, 52 px, espacement 0,5 px) ; **mot fort = serif italique blanc 132 px, SEUL à l'écran** (la phrase s'efface, il arrive seul quand il est dit, jamais de mot normal à côté), groupe de 1 à 3 mots possible ; entrée fondu + petite montée ; hauteur **au niveau du col, jamais sur le cou ni le menton** (`subzone.py` : menton + 0,41 x visage).
@@ -94,22 +94,22 @@ Un dossier par reel, tout se lance depuis ce dossier.
 ```bash
 python3 $S/cadre.py <rush ORIGINALE, 4K> --apply     # ~45 s -> clip.mp4
 ```
-Rush filmée large (yeux sous 40 % ou visage < 28 % de la largeur) → recadrage fixe depuis la 4K : yeux à 35 %, visage à 33 %. Déjà serrée → simple mise au format. Toujours partir de la rush ORIGINALE 4K (zoom > 1,10 sur du 1080 = flou ; le script plafonne alors à 1,10). Plan large de scène (conférence, écran géant derrière) : cadrer à la main (`zoompan`) et vérifier `subzone.py` sur le clip recadré. Rush iPhone HDR (HEVC 10 bits, couleurs délavées) : la convertir d'abord en SDR (sur Mac : `avconvert`).
+Rush filmé large (yeux sous 40 % ou visage < 28 % de la largeur) → recadrage fixe depuis la 4K : yeux à 35 %, visage à 33 %. Déjà serrée → simple mise au format. Toujours partir du rush ORIGINALE 4K (zoom > 1,10 sur du 1080 = flou ; le script plafonne alors à 1,10). Plan large de scène (conférence, écran géant derrière) : cadrer à la main (`zoompan`) et vérifier `subzone.py` sur le clip recadré. Rush iPhone HDR (HEVC 10 bits, couleurs délavées) : la convertir d'abord en SDR (sur Mac : `avconvert`).
 
 **2. Transcrire** (Whisper local, gratuit ; chaque mot est recalé sur l'énergie de la voix, utile en salle qui résonne)
 ```bash
 python3 $S/transcribe.py clip.mp4 words.json
 ```
 
-**3. Dérusher** (sauf rush déjà dérushée)
+**3. Dérusher** (sauf rush déjà dérushé)
 Lire la transcription. Repérer les répétitions et phrases ratées : on garde la **dernière** prise. Les noter en plages d'indices de mots dans `drop.json` (`[[12,18]]`, ou `[]`).
 ```bash
 python3 $S/derush.py clip.mp4 words.json cut.mp4 --drop drop.json
 python3 $S/transcribe.py cut.mp4 words.json && mv cut.mp4 clip.mp4      # on retravaille sur la version coupée
 ```
-**Entrée / sortie** : le dérush garde 0,15 s avant le 1er mot et 0,6 s après le dernier (`--lead` / `--tail`). Il écrit aussi `cut.words.json` = la transcription de la RUSH recalée sur la version coupée (souvent meilleure qu'une transcription refaite sur le montage coupé) : on peut la prendre au lieu de retranscrire.
+**Entrée / sortie** : le dérush garde 0,15 s avant le 1er mot et 0,6 s après le dernier (`--lead` / `--tail`). Il écrit aussi `cut.words.json` = la transcription du RUSH recalée sur la version coupée (souvent meilleure qu'une transcription refaite sur le montage coupé) : on peut la prendre au lieu de retranscrire.
 Le script ne coupe que dans les blancs entre deux mots : fin de phrase = blanc + respiration supprimés ; milieu de phrase = blanc resserré à 0.15 s. Chaque coupe : micro-fondu son de 0,03 s (anti-clic) et plages calées sur la grille des images (image et son exactement de la même durée, la bouche ne se décale jamais).
-**LE silence** (s'il y en a un) : repérer la punchline AVANT le dérush et ajouter `--pause <indice du mot punchline>` : la vraie pause avant ce mot est gardée (jusqu'à 0,9 s). Pas de pause dans la rush = pas de silence (le dire : marquer un temps avant la phrase choc au tournage).
+**LE silence** (s'il y en a un) : repérer la punchline AVANT le dérush et ajouter `--pause <indice du mot punchline>` : la vraie pause avant ce mot est gardée (jusqu'à 0,9 s). Pas de pause dans le rush = pas de silence (le dire : marquer un temps avant la phrase choc au tournage).
 
 **4. Écrire `plan.json`** en lisant la transcription (c'est là que se joue la qualité). Champs communs (le fichier du style ajoute les siens) :
 ```json
@@ -121,7 +121,7 @@ Le script ne coupe que dans les blancs entre deux mots : fin de phrase = blanc +
   "silences": [{"to": 8.30}]
 }
 ```
-(EXEMPLE FICTIF : mots, titres et chemins viennent de la rush et de tes dossiers.)
+(EXEMPLE FICTIF : mots, titres et chemins viennent du rush et de tes dossiers.)
 - **fixes** : relire TOUTE la transcription et corriger les erreurs de Whisper (`{"boulettes": "bullet"}`). Obligatoire : une faute dans un sous-titre = reel raté.
 - **keywords** : 6-10 mots forts, ou groupes de 2-3 mots (`"badge bleu"`) → serif italique blanc 132 px, affichés SEULS à l'écran (les petits mots devant restent dans le bloc d'avant). Jamais en couleur.
 - **title** : `{"l1": "Le badge bleu", "l2": "une arnaque ?", "start": 0, "end": 4}` = titre-question pendant le hook (petites MAJUSCULES + serif italique, voile sombre, fondu ; `top` pour le placer, ex. 1300 = en bas quand la tête touche le haut du cadre). **Vidéo AVEC titre = ni mot fort ni mot géant ; vidéo SANS titre = mots forts + mots géants derrière la tête.** Avec un titre, `keywords` et `bigwords` sont ignorés sur toute la vidéo (le moteur le dit). Proposer le titre dans le plan de chaque reel (formulé avec les mots de la personne, `voix-contenu.md`).

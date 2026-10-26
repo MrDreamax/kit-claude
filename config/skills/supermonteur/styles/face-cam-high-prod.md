@@ -2,9 +2,9 @@
 
 Lu après `SKILL.md`. Tout l'arsenal : chiffres géants, mots géants, listes, preuves, B-rolls, images, CTA. On peut couvrir la tête : B-rolls et/ou motion design plein écran pendant que la personne parle. La tête n'a pas besoin d'être à l'écran tout le temps.
 Brief en plus : **Style** Sobre / Dynamique (plans plus courts, plus de B-rolls et zooms).
-Étalon : un reel de référence que l'utilisateur t'a donné (voir « Références de style » dans `SKILL.md`), ou la version d'un monteur humain si elle existe pour cette rush ; sinon les règles d'experts. Le but : faire mieux que la référence, jamais la copier.
+Étalon : un reel de référence que l'utilisateur t'a donné (voir « Références de style » dans `SKILL.md`), ou la version d'un monteur humain si elle existe pour ce rush ; sinon les règles d'experts. Le but : faire mieux que la référence, jamais la copier.
 
-## 1 bis. Fiche univers (après l'étape 1 de SKILL.md ; Bruce Block, Deakins : l'univers du reel = celui de la rush)
+## 1 bis. Fiche univers (après l'étape 1 de SKILL.md ; Bruce Block, Deakins : l'univers du reel = celui du rush)
 ```bash
 python3 $S/univers_check.py fiche clip.mp4      # univers.json + univers.jpg : palette, couleur de la lumière, noirs / hautes lumières, cadre
 ```
@@ -58,7 +58,7 @@ python3 $S/gemini_image.py "<prompt + broll.prompt_higgsfield de la DA>" ins/x.p
 ```
 Pas de clé → le script affiche le lien et la commande du trousseau Mac (la clé est copiée dans le presse-papier, jamais collée dans le chat). Détourage d'un PNG Gemini : `remove_background` Higgsfield ou `rembg` local.
 
-## 5 ter. Caler les ajouts sur la rush, puis test « 5 sur 7 » (avant tout rendu)
+## 5 ter. Caler les ajouts sur le rush, puis test « 5 sur 7 » (avant tout rendu)
 ```bash
 python3 $S/match_look.py clip.mp4 ins/*.png broll/*.mp4 --w 400 --fix   # objet : exposition baissée s'il brille plus que la pièce, couleur JAMAIS touchée ; b-roll : brut, seulement blancs brûlés / voile gris
 python3 $S/univers_check.py check plan.json                             # couleur, ton, mouvement, rythme mesurés + univers-check.jpg

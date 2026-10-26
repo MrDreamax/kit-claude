@@ -29,7 +29,7 @@ const DA = plan.da ? JSON.parse(readFileSync(plan.da, "utf8"))
 DA.fonts = Object.assign({ sans: "Montserrat.ttf", serif: "InstrumentSerif-Italic.ttf" }, DA.fonts || {}, plan.fonts || {});
 DA.colors = Object.assign({ text: "#FFFFFF", accent: "#2563EB", list: ["#111827", "#090D15", "#050709"], halo: "0,0,0", glow: "0,0,0" }, DA.colors || {});
 const C = DA.colors;
-// la DA du MONTAGE suit l'univers de la RUSH (4/10 quand la charte a été plaquée sur une rush d'un autre univers) : plan.colors écrase la DA
+// la DA du MONTAGE suit l'univers du RUSH (4/10 quand la charte a été plaquée sur un rush d'un autre univers) : plan.colors écrase la DA
 Object.assign(C, plan.colors || {});
 mkdirSync("fonts", { recursive: true });
 // police des sous-titres à part si la DA en donne une (DA.fonts.sub ; Montserrat par défaut, Oswald testé et écarté) ; le reste (cartons, chiffres, CTA) garde DA.fonts.sans
@@ -83,7 +83,7 @@ const covered = t => FULL.some(l => t >= l.start - 0.02 && t < l.end);
 // sortie douce seulement s'il reste >= 1,5 s de face cam derrière ; sinon coupe franche enchaînée au plein écran suivant (anti-flash)
 const FS = [...lists, ...proofs, ...cards, ...(cta ? [cta] : []), ...(plan.brolls || [])];
 const SOFT = (b, d) => Math.min(dur, ...FS.filter(x => x.start >= b - 0.02).map(x => x.start)) - b >= 1.5 ? d : 0;
-// sous-titres dans la zone la plus lisible (sombre + unie, ex. t-shirt noir), calculée sur la rush
+// sous-titres dans la zone la plus lisible (sombre + unie, ex. t-shirt noir), calculée sur le rush
 let SUBY = plan.subY;
 if (SUBY == null) { try { SUBY = +execFileSync("python3", [join(SKILL, "scripts", "subzone.py"), plan.cam]).toString().trim(); } catch { SUBY = 1150; } console.log(`sous-titres à y=${SUBY}px`); }
 // zones mortes Insta : encre d'un sous-titre 52 px = de +8 à +53 px sous son haut ; mot fort serif 132 px = de +16 à +143 px
@@ -767,7 +767,7 @@ if (plan.title) {
 //            card = carton typo plein écran, le texte se construit mot par mot, calé sur la voix (MAJUSCULES + serif italique) ;
 //            icon = icône au trait fin au-dessus de la tête (barrée d'une croix sur « non ») ;
 //            shot = capture en carte arrondie qui flotte, un cercle se dessine à la main autour de LA chose dite.
-//            Ça apparaît net (≤ 0,3 s, expo, sans rebond), ça disparaît net. Couleurs = celles de la rush (C, plan.colors). ----------
+//            Ça apparaît net (≤ 0,3 s, expo, sans rebond), ça disparaît net. Couleurs = celles du rush (C, plan.colors). ----------
 const MINI_ICONS = {
   eye: `<path d="M3 24s7.5-13 21-13 21 13 21 13-7.5 13-21 13S3 24 3 24z"/><circle cx="24" cy="24" r="6.5"/>`,
   calendar: `<rect x="6" y="9" width="36" height="33" rx="4"/><path d="M6 18h36M15 5v8M33 5v8"/><path d="M14 26h4M22 26h4M30 26h4M14 33h4M22 33h4"/>`,
@@ -800,7 +800,7 @@ const fitPx = (text, file, base, maxW, upper) => {   // taille qui tient dans ma
 (plan.mini || []).forEach((m, i) => {
   const id = `mi${i}`, S = m.start, E = m.end;
   if (m.type === "card") {
-    // fond : "grad" = dégradé doux aux couleurs de la rush (C.grad), "flat" = uni sombre, ou une couleur "#hex"
+    // fond : "grad" = dégradé doux aux couleurs du rush (C.grad), "flat" = uni sombre, ou une couleur "#hex"
     // 4 coins comme la réf (sombre en haut à gauche, couleur vive en haut à droite, clair en bas) ; défaut = nuit + bleu de ta marque
     const G = C.grad || gradFromAccent(ACC);
     const bg = m.bg && m.bg.startsWith("#") ? m.bg : m.bg === "flat" ? C.list[2] :

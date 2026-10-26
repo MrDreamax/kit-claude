@@ -1,7 +1,7 @@
 """Dérush : coupe les silences, les respirations et les répétitions, sans jamais couper un mot ni une phrase en deux.
   python3 derush.py clip.mp4 words.json cut.mp4 [--drop drop.json] [--pause 57]
 --pause i = indice (dans words.json source) du mot PUNCHLINE qui aura LE silence du reel : on GARDE la vraie pause avant lui
-(jusqu'à 0,9 s) au lieu de la resserrer. Sans pause dans la rush, pas de silence possible (le dire à l'utilisateur : marquer un temps avant la phrase choc au tournage).
+(jusqu'à 0,9 s) au lieu de la resserrer. Sans pause dans le rush, pas de silence possible (le dire à l'utilisateur : marquer un temps avant la phrase choc au tournage).
 drop.json = [[i, j], ...] plages d'indices de mots à supprimer (répétitions, phrases ratées : on garde la DERNIÈRE prise).
 On ne coupe que dans les blancs entre deux mots :
   - fin de phrase (ponctuation) : blanc + respiration supprimés, on garde 0.06 s avant le mot suivant
@@ -72,7 +72,7 @@ subprocess.check_call(["ffmpeg", "-y", "-v", "error", "-i", src,
     "-af", f"asetnsamples=n=64,volume='{fade}':eval=frame,aselect='{expr}',asetpts=N/SR/TB",
     "-c:v", "libx264", "-crf", "16", "-preset", "fast", "-c:a", "aac", "-b:a", "192k", out])
 json.dump(segs, open(out.rsplit(".", 1)[0] + ".segments.json", "w"))
-# Mots recalés sur la version coupée : <out>.words.json = la transcription de la rush (souvent meilleure que celle
+# Mots recalés sur la version coupée : <out>.words.json = la transcription du rush (souvent meilleure que celle
 # refaite sur le montage coupé, qui a perdu son contexte) avec les temps de la version coupée.
 off, moved = 0.0, []
 for a, b in segs:

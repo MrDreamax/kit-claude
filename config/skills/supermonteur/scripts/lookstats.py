@@ -1,10 +1,10 @@
-"""Mesure le « look » d'une rush, d'un b-roll ou d'une image (experts colorimétrie : mesurer AVANT de toucher).
+"""Mesure le « look » d'un rush, d'un b-roll ou d'une image (experts colorimétrie : mesurer AVANT de toucher).
   python3 lookstats.py clip.mp4 [--json look.json] [--face]
 Sort : noirs (P1), médiane (P50), hautes lumières (P95, P99) de la luminance 0-255, couleur de la lumière (rouge/bleu des
 hautes lumières), % de pixels « néon », netteté, palette de 5 couleurs ; avec --face : joue, yeux et visage dans le cadre.
 Bornes (Darren Mostyn, Cullen Kelly ; seuils à tester) : P1 entre 1 et 8 (noirs ni bouchés ni relevés), P99 <= 235, néon < 0,5 %.
 Elles valent pour la CAM et les visuels ajoutés, pas pour un final (vignettage, cartons et vrais logos faussent P1 et néon).
-Cadre : une rush FILMÉE serré = yeux ~35 %, visage ~33 % de la largeur ; une rush filmée large = yeux ~48 %, visage ~25 %. Un monteur humain NE recadre PAS : la différence vient du tournage.
+Cadre : un rush FILMÉ serré = yeux ~35 %, visage ~33 % de la largeur ; un rush filmé large = yeux ~48 %, visage ~25 %. Un monteur humain NE recadre PAS : la différence vient du tournage.
 Utilisé aussi comme module par match_look.py, univers_check.py et score.py.
 """
 import json, os, subprocess, sys
@@ -12,7 +12,7 @@ import numpy as np
 
 SK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG = (".png", ".jpg", ".jpeg", ".webp")
-REF = {"yeux_y": 35.3, "visage_x": 49.1, "visage_largeur": 33.4}   # repère : rush filmée serré, mesurée sur des reels pros
+REF = {"yeux_y": 35.3, "visage_x": 49.1, "visage_largeur": 33.4}   # repère : rush filmé serré, mesurée sur des reels pros
 
 
 def _size(path):

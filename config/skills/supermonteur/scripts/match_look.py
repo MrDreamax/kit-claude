@@ -1,14 +1,14 @@
-"""Cale chaque visuel ajouté (insert PNG, image, b-roll) SUR la rush, jamais l'inverse (Deakins, Waqas Qazi).
+"""Cale chaque visuel ajouté (insert PNG, image, b-roll) SUR le rush, jamais l'inverse (Deakins, Waqas Qazi).
   python3 match_look.py clip.mp4 ins/badge.png broll/x.mp4 ...        -> mesure et dit ce qui ne colle pas
   python3 match_look.py clip.mp4 ins/badge.png ... --fix [--color] [--force] [--w 400]   -> écrit <nom>.cale.<ext> à côté
   --w = largeur de l'objet à l'écran en px (comme "w" dans plan.inserts, défaut 400) : la netteté se compare à taille d'écran.
 Deux cas :
-- OBJET (PNG détouré) : il est éclairé par la pièce. S'il est plus lumineux que la rush (P99 rush + 15), on baisse son EXPOSITION
+- OBJET (PNG détouré) : il est éclairé par la pièce. S'il est plus lumineux que le rush (P99 rush + 15), on baisse son EXPOSITION
   (même facteur sur les 3 couleurs). Sa VRAIE couleur ne bouge pas (règle : un objet réel garde sa couleur).
 - PLAN (b-roll, image pleine) : raccord seulement. Blancs brûlés (P99 > 235) ramenés, noirs relevés (voile gris) redescendus.
-  Ses plans restent BRUTS (règle : jamais de filtre créatif). --force = caler aussi noirs et blancs sur la rush.
-Objet trop net par rapport à la rush (x 1,6, mesuré à sa taille d'écran) -> flou de 0,6 px à l'écran. Plan : info seulement. --color = couleur de la lumière rapprochée à moitié
-de celle de la rush (seulement pour un visuel GÉNÉRÉ, jamais un objet réel ni ses vrais plans).
+  Ses plans restent BRUTS (règle : jamais de filtre créatif). --force = caler aussi noirs et blancs sur le rush.
+Objet trop net par rapport au rush (x 1,6, mesuré à sa taille d'écran) -> flou de 0,6 px à l'écran. Plan : info seulement. --color = couleur de la lumière rapprochée à moitié
+de celle du rush (seulement pour un visuel GÉNÉRÉ, jamais un objet réel ni ses vrais plans).
 Néon et différence de médiane : affichés pour info (un néon se corrige en refaisant le visuel, pas en filtrant).
 """
 import os, subprocess, sys
@@ -36,7 +36,7 @@ def chain(lo, hi, lo2, hi2, gain, gains, sigma):
 for p in items:
     S = stats(frames(p, 6 if not p.lower().endswith(IMG) else 1))
     obj = S["transparent"] > 2
-    # netteté comparée à TAILLE D'ÉCRAN (la rush est mesurée à 1/4 : 270x480) : objet = --w px de large, plan = plein écran 1080x1920
+    # netteté comparée à TAILLE D'ÉCRAN (le rush est mesuré à 1/4 : 270x480) : objet = --w px de large, plan = plein écran 1080x1920
     w, h, _ = _size(p)
     scr = (WSCR / w if obj else max(1080 / w, 1920 / h))          # px à l'écran (1080) par px du fichier
     sh = sharp(frames(p, 6 if not p.lower().endswith(IMG) else 1, long_side=max(8, int(max(w, h) * scr * 0.25))))
@@ -54,8 +54,8 @@ for p in items:
     sigma = 0
     if ratio > 1.6:
         if obj or FORCE:
-            sigma = 0.6 / scr; why.append(f"trop net (x {ratio:.1f} par rapport à la rush) : flou {sigma:.1f} px")
-        else: notes.append(f"plus net que la rush (x {ratio:.1f}) : gardé brut")
+            sigma = 0.6 / scr; why.append(f"trop net (x {ratio:.1f} par rapport au rush) : flou {sigma:.1f} px")
+        else: notes.append(f"plus net que le rush (x {ratio:.1f}) : gardé brut")
     gains = (1, 1, 1)
     dl = S["rb_lumiere"] - R["rb_lumiere"]
     if abs(dl) > 0.15:
@@ -66,7 +66,7 @@ for p in items:
     if S["neon"] >= 0.5: notes.append(f"néon {S['neon']} % : visuel généré = cheap, à refaire ; vrai logo = normal")
     notes.append(f"P50 {S['p50']} (rush {R['p50']})")
     kind = "objet" if obj else "plan"
-    print(f"{'OK  ' if not why else 'CALE'} {kind:5} {os.path.basename(p)} : " + (" ; ".join(why) if why else "colle à la rush") + " · " + " · ".join(notes))
+    print(f"{'OK  ' if not why else 'CALE'} {kind:5} {os.path.basename(p)} : " + (" ; ".join(why) if why else "colle au rush") + " · " + " · ".join(notes))
     if not why or not FIX: continue
     base, ext = os.path.splitext(p)
     out = f"{base}.cale{ext if ext.lower() in IMG else '.mp4'}"
