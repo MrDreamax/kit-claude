@@ -55,7 +55,7 @@ Seulement des images qu'il accepte : ses interdits (shooting, look, période) so
 2. **`regles-experts.md`** (12 domaines d'experts sourcés). Partie A = à appliquer dans chaque plan ; parties B et C = seulement avec l'accord de l'utilisateur. Si un expert contredit `feedback.md`, l'utilisateur gagne.
 3. Chez un client (`config.json` → `client` rempli) : **`mode-client.md`** puis `retours-client.md` (SES retours passent avant tout).
 4. Après le brief : **UNIQUEMENT le fichier du style choisi** (ne pas lire les autres).
-5. Étape 8 : `note-10.md` (9/10 minimum, juge L'Œil Gemini). Modifier un script ou rendu cassé : `moteur.md`.
+5. Étape 8 : `note-10.md` (9/10 minimum, juge = sous-agent Claude séparé, qui n'a pas monté). Modifier un script ou rendu cassé : `moteur.md`.
 
 
 **LES 5 STYLES, LES SEULS (dicté par l'utilisateur ; renommés le même jour).** On ne propose rien d'autre, toujours sous CES noms. **Les 5 ont TOUJOURS une musique**. Même quand la demande ne parle pas de musique (« juste les sous-titres », « monte-la simplement ») : musique quand même. Sans musique SEULEMENT si la personne écrit « sans musique ».
@@ -94,7 +94,7 @@ La qualité ne baisse jamais. On coupe seulement le temps perdu :
 9. **Durée annoncée = durée mesurée**, jamais devinée. Le moteur l'écrit dans `_chrono.log` du dossier du reel (départ, fin, secondes).
 10. **Rush déjà monté avec les mêmes réglages (`GET /api/reels`) = montrer la version existante**, remonter seulement si quelque chose change.
 11. **Jamais de recherche large sur tout le disque** (lent) ; jamais une commande lente collée au lancement du montage.
-12. **Gardien bloqué 2 fois sur le même défaut = corriger le dérush à la racine**, pas relancer. Juge Gemini en panne (402) = juge Claude séparé, et le dire tout de suite.
+12. **Gardien bloqué 2 fois sur le même défaut = corriger le dérush à la racine**, pas relancer.
 13. **Fin trop courte (< 2 s)** : poser `plages.json` et la tester en TEXTE (`derush.py --plan` puis `gardien.py --avant`) avant tout rendu, jamais d'essais de plages à l'aveugle ; avec `plages.json`, serrer ne repasse plus. Juge briefé dès le 1er tour avec ce qui est voulu (mot jaune = s'allume avec son sous-titre, blancs naturels d'une prise, musique douce). Sous-titres : 1 image tête penchée avant le rendu, `subY` sur le col si le texte frôle le menton.
 14. **Avant de monter : ce rush est-il déjà en cours ailleurs ?** `GET /api/reels` (même `rush`, statut `montage`) + `pgrep -f "express.py|monte.sh"`. Oui = reprendre la version existante, ne rien relancer en parallèle (deux montages sur le même dossier s'écrasent).
 15. **Coupes à la main = `monter.redecoupe(D)` puis `express.py .` (~20 s).** `POST /api/monter` refait son propre dérush + serrer et ignore `plages.json`.

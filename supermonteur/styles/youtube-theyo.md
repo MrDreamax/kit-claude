@@ -3,7 +3,7 @@
 Vidéo longue YouTube, pas un reel. Fiche source : Brain `02-Formations/theyo-9-pratiques-ia-et-montage-auto.md`. Échantillon de référence : `~/Documents/Montage/MONTAGES/echantillon-youtube-theyo/` (index.html à copier, sons.json, final.mp4).
 
 ## Autonomie
-l’utilisateur donne le rush, je rends une vidéo notée 9/10 minimum, avec 1 seul tour de retours visé. Pas de 3 versions à voter : le style est fixé ici. Je ne pose qu'une question si le sujet ou le rush est ambigu. Avant le rendu complet : 1 échantillon de 30 s du hook, puis je continue si Gemini et les mesures sont d'accord.
+l’utilisateur donne le rush, je rends une vidéo notée 9/10 minimum, avec 1 seul tour de retours visé. Pas de 3 versions à voter : le style est fixé ici. Je ne pose qu'une question si le sujet ou le rush est ambigu. Avant le rendu complet : 1 échantillon de 30 s du hook, puis je continue si le juge et les mesures sont d'accord.
 
 ## La recette, mesurée
 - **Format** : 1920 x 1080, 30 i/s, -14 LUFS, pic sous -1 dB.
@@ -40,8 +40,8 @@ Ses vrais plans d'abord, Pexels ensuite. Aucune image ni vidéo générée par I
 3. Écrire `index.html` (GSAP + HyperFrames), un fichier par chapitre si la vidéo dépasse 3 min. `npx --yes hyperframes@0.8.149 lint` : 0 erreur.
 4. Rendu : `HF_SEGMENTED_CAPTURE=true HF_SEGMENT_FRAMES=600 HF_SEGMENT_BROWSER_RECYCLE=1 npx --yes hyperframes@0.8.149 render . -q high` (29 s de vidéo = 1 min sur le Mac 8 Go).
 5. `mix_youtube.py`.
-6. L'Œil : `python3 $S/oeil_gemini.py final.mp4 --sortie oeil-gemini.json`, grille `note-10-youtube.md`, puis correction, 3 tours max.
-7. Mes contrôles à moi, toujours : planche d'images, lint, pic et volume. Gemini ne voit pas tout (il a mis 10/10 avec une erreur de lint et un pic à +1 dB).
+6. Le juge : sous-agent Claude séparé, grille `note-10-youtube.md`, puis correction, 3 tours max.
+7. Mes contrôles à moi, toujours : planche d'images, lint, pic et volume.
 
 ## Pièges déjà payés
 - GSAP `xPercent` sur un élément en `transform` CSS écrase le centrage : séparer scène 3D, pivot et contenu.

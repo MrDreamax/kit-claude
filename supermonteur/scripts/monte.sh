@@ -81,5 +81,5 @@ python3 "$S/gardien.py" . > gardien.log 2>&1; G=$?
 grep -E "❌|GARDIEN" gardien.log
 ffmpeg -v error -y -i final.mp4 -vf "fps=1,scale=144:-1,tile=10x7" -frames:v 1 planche.jpg
 [ $G -eq 0 ] || stop "le Gardien final bloque : NE PAS LIVRER"
-nohup python3 "$S/oeil_gemini.py" final.mp4 --sortie oeil-gemini.json > oeil-gemini.log 2>&1 &   # Gemini juge à côté, ne bloque pas la livraison
+# Juge = sous-agent Claude séparé (Gemini retiré)
 echo "✅ final.mp4 ($(ffprobe -v error -show_entries format=duration -of csv=p=0 final.mp4 | cut -c1-5) s) en $(( ($(date +%s) - T0) / 60 )) min $(( ($(date +%s) - T0) % 60 )) s · planche.jpg"

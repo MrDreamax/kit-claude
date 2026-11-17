@@ -18,7 +18,7 @@ Rush horizontal publié en format court. Référence : reel SooWei Goh https://w
 2. `python3 $S/horizontal.py derush <rush>` en arrière-plan : `cut.mp4`, `cut.segments.json`, `cut.words.json`. Relire le texte imprimé.
 3. Écrire `horizontal.json` : `titre`, `jaune`, `teaser` si moment fort (`de` et `a` = mots exacts de la transcription, `lignes` = ses sous-titres), `musique`, `debut`, `ecart` (15), `lignes`, `brolls`. B-roll `de` / `a` = texte d'une ligne ou `{"coupe": n, "decale": 0.3}` : une coupe de dérush se cache en la DÉPASSANT de 0,3 s (un bord posé pile dessus est refusé par le Gardien).
 4. S'il y a un teaser : `python3 $S/horizontal.py teaser` une fois. Puis `python3 $S/horizontal.py` (~1 min) puis `cp cut.mp4 clip.mp4 ; cp cut.words.json words.json ; python3 $S/gardien.py .`
-5. Planche d'images, note par un sous-agent juge contre la référence. `oeil_gemini.py` : sur la grille YouTube il a mis 3/10, verdict faux, ne pas s'en servir sauf `--prompt` avec ce cahier des charges.
+5. Planche d'images, note par un sous-agent juge contre la référence.
 6. Copier `final.mp4` dans `versions/`, QuickTime, `SendUserFile`, `renommer_rush.py`.
 
 7. Retour tournage : à la livraison, 3 points max sur le décor, la manière de filmer ou le sujet, chacun avec l'action à faire au prochain tournage.

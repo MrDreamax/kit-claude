@@ -236,7 +236,7 @@ G = run(["python3", f"{S}/gardien.py", "."], "gardien.log")
 print("\n".join(l for l in open("gardien.log").read().splitlines() if "❌" in l or "GARDIEN" in l))
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", "final.mp4", "-vf", "fps=1,scale=144:-1,tile=10x7", "-frames:v", "1", "planche.jpg"])
 if G: stop("le Gardien final bloque : NE PAS LIVRER")
-subprocess.Popen(["python3", f"{S}/oeil_gemini.py", "final.mp4", "--sortie", "oeil-gemini.json"], stdout=open("oeil-gemini.log", "w"), stderr=subprocess.STDOUT, start_new_session=True)   # Gemini juge à côté, ne bloque pas la livraison
+# Juge = sous-agent Claude séparé (Gemini retiré)
 fd = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", "final.mp4"]))
 t = time.time() - T0
 open("renders/express.empreinte", "w").write(EMP)

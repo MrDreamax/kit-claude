@@ -18,7 +18,7 @@ for r in rows:   # ordre du carnet = ordre des montages
     if r["reel"] not in reels: reels.append(r["reel"])
 limite = (datetime.date.today() - datetime.timedelta(days=7)).isoformat()   # « arrête d'utiliser tout le temps Survivor » : aussi 7 jours
 recents = {os.path.basename(r["musique"]) for r in rows if r["reel"] in reels[-3:] or r["date"] >= limite}   # même morceau rangé dans 2 dossiers = même musique
-A = os.path.expanduser("~/Documents/Brain/00-Moi/reglages/musiques-ambiance.json")   # fiche de chaque morceau, écouté par Gemini
+A = os.path.expanduser("~/Documents/Brain/00-Moi/reglages/musiques-ambiance.json")   # fiche de chaque morceau
 AMB = json.load(open(A)) if os.path.exists(A) else {}
 der = {}
 for r in rows: der[os.path.basename(r["musique"])] = (r["date"], os.path.basename(r["reel"]))

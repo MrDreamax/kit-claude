@@ -4,7 +4,7 @@ L'écran de montage de l’utilisateur. Lancer : `bash ~/Documents/SuperApps/sup
 
 Ne réécrit pas le moteur : tout passe par le skill `~/.claude/skills/supermonteur/` (transcribe, derush, build.mjs, monte.sh, Gardien).
 
-**L'Œil.** Après chaque montage, `oeil-gemini.json` arrive dans le dossier du reel (~1 min après le final) : note et défauts vus par Gemini. Je le lis avant de corriger, mais il conseille seulement sur un reel, l’utilisateur gagne toujours. Voir `note-10.md` du skill.
+**Le juge.** Après chaque montage, un sous-agent Claude séparé, qui n'a pas monté, note la vidéo /10. Il conseille seulement, l’utilisateur gagne toujours. Voir `note-10.md` du skill.
 
 ## Le parcours
 1. **Écran 0 « Quel style pour ce reel ? »** : l’utilisateur glisse sa vidéo (ou Claude ouvre `POST /api/nouveau {"rush": "<chemin>"}`). `monter.py regarder` transcrit, lance `devine_format.py` et entoure le style conseillé. Il coche ses cases, « Monter le reel ».
