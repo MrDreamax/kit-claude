@@ -25,6 +25,7 @@ Réponds court, en mots simples. Le script se livre dans le chat, en entier, jam
 5. Plusieurs scripts demandés : varie les accroches (jamais 2 qui commencent pareil).
 6. Interdit : chiffre, résultat client ou histoire inventés (ce qui manque = [à compléter]), « POV », « arrête de scroller », « personne ne te dit ça », tiret cadratin, ton de pub.
 7. Relis à voix haute dans ta tête : une phrase qui ne sonne pas parlée = réécris-la.
+8. Jamais de secondes ni de minutage dans un script livré (pas de « 0-10 s », pas de blocs chronométrés, pas de consignes de montage) : juste le texte à dire. Le minutage se règle au tournage.
 
 ## 2. Transcrire une vidéo
 `python3 ~/.claude/skills/scripteur/scripts/transcrire.py "<fichier ou lien>"` (ajoute `--langue en` si tu connais la langue).
