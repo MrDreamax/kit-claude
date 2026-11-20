@@ -95,6 +95,7 @@ Guide pas à pas de chaque outil : `~/Documents/Brain/GUIDE.md` (ou dis « montr
 - Agent `expert-scraper` (Le Limier) : « trouve-moi les meilleurs experts sur [sujet] ». Agent `stagiaire` : tâches mécaniques en volume.
 - `tuto-vers-agent` : un lien YouTube + « fais-en un agent ». `audit-croyances` : chaque dimanche, je coche ce que tu crois sur moi.
 - En coulisse (lancés par les autres) : `anti-ia` (enlève le ton IA), `apple-design` (pages belles et fluides).
+- Super Studio (la vitrine) : « ouvre Super Studio » → lance `bash ~/Documents/SuperApps/super/lancer.sh` puis ouvre http://localhost:8800 dans le navigateur de Claude (jamais Chrome). 4 robots (Scripteur, Monteur, Carrousel, Publieur) ; clic sur un robot = son historique, lu dans le Brain (06-Contenu/scripts.md, carrousels.md, publications.md) et dans les montages.
 - Mes fichiers de travail : `~/Documents/Contenu/` et `~/Documents/Montage/`.
 
 ## Mise à jour
