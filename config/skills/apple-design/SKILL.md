@@ -1,6 +1,6 @@
 ---
 name: apple-design
-description: Le Designer Apple. Fait des interfaces web qui se sentent « vivantes » comme chez Apple - animations à ressort, glisser / balayer / tiroirs fluides, élan au lâcher, matières translucides et profondeur, typo (interlettrage, interligne), mouvement réduit, et les 8 principes de design Apple. Sert à construire ou relire une page web, une app, un artifact, un formulaire, un deck HTML, une page de vente. Use when "design Apple", "façon Apple", "style Apple", "apple design", "plus fluide", "plus premium", "animation", "ça fait cheap", "rends ça plus pro", "glisser", "swipe", "tiroir", "bottom sheet", "ressort", "spring", "flou / verre", "glassmorphism", "typo", "relis le design de cette page".
+description: Le Designer Apple. Fait des interfaces web qui se sentent « vivantes » comme chez Apple - animations à ressort, glisser / balayer / tiroirs fluides, élan au lâcher, matières translucides et profondeur, typo (interlettrage, interligne), mouvement réduit, les 8 principes de design Apple, et les 19 principes UX et animation (aussi pour le motion design vidéo). Sert à construire ou relire une page web, une app, un artifact, un formulaire, un deck HTML, une page de vente. Use when "design Apple", "façon Apple", "style Apple", "apple design", "plus fluide", "plus premium", "animation", "ça fait cheap", "rends ça plus pro", "glisser", "swipe", "tiroir", "bottom sheet", "ressort", "spring", "flou / verre", "glassmorphism", "typo", "relis le design de cette page", "motion design", "animation de site", "rends l'animation smooth".
 ---
 
 ## Règle n°1 : maquette d'abord
@@ -172,6 +172,30 @@ Règles pratiques :
 - Chaque écran répond : où suis-je, où aller, qu'y a-t-il, comment sortir.
 - Un réglage près de ce qu'il change. Besoin d'une étiquette pour l'expliquer = mal placé.
 - Étiquettes précises (« Progrès », « Bibliothèque ») plutôt que « Accueil ».
+
+## 16 bis. Les 19 principes UX et animation (sites ET motion design vidéo)
+À appliquer dès qu'on anime quelque chose : page web, app, artifact, deck, ou motion design d'une vidéo.
+1. **Exagération** : grossir un peu le retour pour marquer le moment (un clic qui « pop »).
+2. **Partir du point d'origine** : ça s'ouvre depuis l'endroit cliqué, pas depuis le centre.
+3. **Décalage** : les éléments arrivent l'un après l'autre (30 à 60 ms d'écart), jamais tous ensemble.
+4. **Écraser et étirer** : ça s'écrase un peu à l'impact, ça s'étire en mouvement.
+5. **Élastique** : tirer au-delà du bord étire, et ça revient en ressort au lâcher (voir 9).
+6. **Seuil de Doherty** : réponse en moins de 400 ms, sinon montrer que ça charge.
+7. **Anticipation** : un petit recul ou une charge juste avant le mouvement.
+8. **Loi de Fitts** : ce qu'on clique souvent = gros et proche.
+9. **Lent au début, lent à la fin** : jamais de mouvement linéaire, ça fait robot.
+10. **Loi de Hick** : plus de choix = décision plus lente. Couper les options.
+11. **Suite du mouvement** : les détails bougent encore un instant après l'arrêt du bloc principal.
+12. **Arcs** : bouger en courbe, pas en ligne droite.
+13. **Effet Von Restorff** : celui qui est différent se remarque. Une seule chose mise en avant par écran (jamais de faux badge « Le plus populaire », voir anti-vibecode).
+14. **Durée** : animations d'interface sous 300 ms.
+15. **Interruptible** : on peut changer d'avis en plein mouvement (voir 3).
+16. **Action secondaire** : un petit détail qui soutient l'action principale (une coche qui brille après l'envoi).
+17. **Volume** : donner de la profondeur aux choses plates (ombre, lumière, réaction au doigt).
+18. **Fréquence d'usage** : plus on s'en sert souvent, moins on l'anime.
+19. **Règle pic-fin** : on se souvient du meilleur moment et de la fin. Soigner les deux.
+
+En motion design vidéo : 1, 3, 4, 7, 9, 11, 12, 16, 17 et 19 comptent le plus ; 6, 8, 10, 14 et 18 sont pour les interfaces.
 
 ## 17. Méthode
 - Prototype cliquable plutôt que maquettes figées.
