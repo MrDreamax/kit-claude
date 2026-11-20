@@ -13,7 +13,7 @@ Fait : copie de revue 720p (review.mp4, < 15 Mo), page cut-notes.html dans le do
 que sous ~/Documents/Montage), numéro de round (+1 à chaque passage), robot Monteur de la vitrine
 « J'attends tes notes ».
 Affiche une ligne JSON : {html, review, fps, nom, round, url}. Puis Claude, dans le même tour :
-  1. url vide -> Artifact publish html (capabilities {"db": {}, "user": {}, "assets": {}}, icône video),
+  1. url vide -> Artifact publish html (capabilities {"db": {}, "user": {}, "assets": {}, "comments": {}}, icône video),
                   écrire l'URL dans <dossier>/cut-notes.url
      url remplie -> on garde le MÊME artifact (1 artifact par vidéo)
   2. Artifact publish url + file_path review + asset: true -> id/url de l'asset

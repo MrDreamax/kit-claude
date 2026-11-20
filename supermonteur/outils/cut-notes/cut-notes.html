@@ -80,6 +80,10 @@
   /* Bouton « J'ai fini » discret, à droite. */
   .notes-foot { justify-items: end; }
   .notes-foot .btn { font-size: 13px; padding: 6px 14px; }
+  .notes-foot .btn.sent { background: #1F9D55; border-color: #1F9D55; }
+  .notes-foot .btn:disabled { cursor: default; }
+  #doneText.done-ok { color: #1F9D55; font-weight: 600; }
+  #doneText.done-warn { color: #B4540A; font-weight: 600; }
   .notes-foot p { text-align: right; }
 
   /* Écran étroit (panneau Claude, petite fenêtre) : on resserre tout. */
@@ -278,7 +282,7 @@
       <ol class="notes" id="list"></ol>
       <div class="notes-foot" id="doneFoot" hidden>
         <button class="btn primary" id="doneBtn" type="button">J'ai fini mes notes</button>
-        <p id="doneText">Quand tu as fini, clique ici, puis « Corriger » dans le chat Claude. Rien à changer ? Clique « C'est parfait » dans le chat.</p>
+        <p id="doneText">Quand tu as fini, clique ici : tes notes partent direct à Claude. Rien à changer ? Clique « C'est parfait » dans le chat.</p>
       </div>
     </aside>
     </div>
@@ -564,14 +568,33 @@
   });
 
   // ---- "I'm done" (only when Claude set this up with a database) ----
+  // « J'ai fini mes notes » : envoie les notes ouvertes à Claude (comments.sendToClaude), bouton vert si c'est parti,
+  // sinon message clair. Jamais un clic muet.
   $("doneBtn").addEventListener("click", async () => {
-    if (!db) return;
+    const btn = $("doneBtn"), txt = $("doneText");
+    if (btn.disabled) return;
+    if (!db) { txt.textContent = "Cette page n'est pas reliée à Claude. Clique « Copier pour Claude » et colle dans le chat."; txt.className = "done-warn"; return; }
+    btn.disabled = true; btn.textContent = "Envoi…";
     if (input.value.trim()) await addNote();
-    const shown = visible();
+    const open = visible().filter((n) => !isClosed(n)).sort((a, b) => a.t - b.t);
+    try { await db.doc("review/status").set({ state: "done", round, open: open.length, at: new Date().toISOString() }); } catch (e) { showProblem(e); }
+    if (!open.length) { btn.disabled = false; btn.textContent = "J'ai fini mes notes"; txt.textContent = "Aucune note ouverte. Tout est bon ? Clique « C'est parfait » dans le chat Claude."; txt.className = "done-warn"; return; }
+    const msg = `Cut Notes : j'ai fini mes notes du tour ${round} (${fileName}). Corrige ces ${open.length} note${open.length > 1 ? "s" : ""} :\n` +
+      open.map((n, i) => `${i + 1}. ${tc(n.t)} (${n.t.toFixed(2)} s) : ${n.text.replace(/\n+/g, " ")}`).join("\n");
+    let sent = false, why = "";
     try {
-      await db.doc("review/status").set({ state: "done", round, open: shown.filter((n) => !isClosed(n)).length, at: new Date().toISOString() });
-      $("doneText").textContent = `Tour ${round} terminé. Clique maintenant « Corriger » dans le chat Claude : il corrige tes notes.`;
-    } catch (e) { showProblem(e); }
+      const cm = await claude.use("comments");
+      const can = cm && typeof cm.canSendToClaude === "function" ? await cm.canSendToClaude().catch(() => "off") : "off";
+      if (can === "available") { await cm.sendToClaude({ anchor: await cm.anchorFor(btn), text: msg }); sent = true; }
+      else why = can === "no_session" ? "Le chat Claude n'est pas ouvert." : "";
+    } catch (e) { why = e && e.code === "not_granted" ? "Tu as refusé l'envoi à Claude." : ""; }
+    if (sent) {
+      btn.textContent = "✓ Envoyé à Claude"; btn.classList.add("sent");
+      txt.textContent = `Tour ${round} envoyé. Claude corrige tes notes, la nouvelle version arrive ici toute seule.`; txt.className = "done-ok";
+    } else {
+      btn.disabled = false; btn.textContent = "J'ai fini mes notes";
+      txt.textContent = `Notes gardées (tour ${round}). ${why} Clique « Corriger » dans le chat Claude : il les lit.`.replace(/\s+/g, " "); txt.className = "done-warn";
+    }
   });
 
   // ---- export for Claude (works in both modes) ----
@@ -620,7 +643,7 @@
     db.doc("review/current").onSnapshot((snap) => {
       const c = snap.exists ? snap.data() : null;
       if (!c) return;
-      if (typeof c.round === "number" && c.round !== round) { round = c.round; $("doneText").textContent = `Quand tu as fini, clique ici, puis « Corriger » dans le chat Claude. Rien à changer ? Clique « C'est parfait » dans le chat.`; }
+      if (typeof c.round === "number" && c.round !== round) { round = c.round; const b = $("doneBtn"); b.disabled = false; b.textContent = "J'ai fini mes notes"; b.classList.remove("sent"); $("doneText").className = ""; $("doneText").textContent = `Quand tu as fini, clique ici : tes notes partent direct à Claude. Rien à changer ? Clique « C'est parfait » dans le chat.`; }
       if (c.fps && Number(c.fps) !== fps) { fps = Number(c.fps); fpsSel.value = String(c.fps); }
       if (c.name) fileName = String(c.name);
       $("modePill").textContent = `Tour ${round} · tes notes partent direct à Claude`;

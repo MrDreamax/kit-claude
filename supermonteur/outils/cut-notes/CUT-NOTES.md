@@ -28,3 +28,7 @@ Fichiers : `cut-notes.html` (page, relue ligne par ligne : aucun envoi hors Goog
 - Les notes décrivent un ressenti (« j'ai décroché ici ») : c'est à moi de trouver la correction.
 - Notes et vidéos de revue restent dans le compte Claude de l'utilisateur (artifact privé).
 - Sans artifact : ouvrir `cut-notes.html` dans un navigateur, glisser la vidéo, bouton « Copy for Claude », coller dans le chat.
+
+
+## Bouton « J'ai fini mes notes »
+Il envoie les notes ouvertes à Claude (comments.sendToClaude) : la session qui regarde l'artifact les reçoit et corrige tout de suite, puis répond dans le fil. Publier avec capabilities {"db": {}, "user": {}, "assets": {}, "comments": {}}. Envoi impossible (chat fermé, refus) = message orange clair, notes gardées, « Corriger » dans le chat.
