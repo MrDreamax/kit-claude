@@ -3,7 +3,7 @@
 Lu quand on monte à la main, qu'on répare ou qu'un fichier de style cite une étape. Musique : `musique.md`. B-rolls : `brolls.md`. Cahier des charges : `cahier-des-charges.md`.
 
 ## Ordre rapide, texte complet des 2 premiers points
-2. **Dérush** (ordre rapide, section 2) → durée exacte et seconde de la punchline connues. **Derush Lab RETIRÉ** : le dérush part direct au montage, dans SuperMonteur comme dans un chat. Ne plus lancer cockpit.py --lab avant de monter.
+2. **Dérush** (ordre rapide, section 2) → durée exacte et seconde de la punchline connues. **Derush Lab RETIRÉ** : le dérush part direct au montage. Ne plus lancer cockpit.py --lab avant de monter.
 
 2. **Face caméra = le style Dynamique** : mix à équilibrer de split screen (face cam + animation), face cam seule, cartons plein écran en dégradé propre, animations plein écran, avec ses sous-titres. Aucune question de degré ; ne plus dire « high prod » ni « degré sous-titres ». « Minimaliste » = le nom du style 2 (choisi par l'utilisateur, l'interditest levé). Les variantes se tranchent en maquettes (round 1 = aspect global, round 2 = détails).
 3. **DA** : seulement chez un nouveau client (DA existante `da/<prenom>.json` / nouvelle DA). L'utilisateur = sa DA (`~/Documents/Brain/00-Moi/reglages/da-montage.json`), ne pas demander.
@@ -90,12 +90,12 @@ Regarder `check.jpg` : un seul bloc de sous-titre à la fois, tête devant chaqu
 **Livraison** : la vraie vidéo seulement. JAMAIS de « copie légère pour le téléphone » ; si l'envoi refuse un fichier > 30 Mo, dire en une ligne qu'il est dans l'app du Mac.
 
 ## Rush renommé après le montage
-Dès que le titre du reel est fixé (v1 montée), renommer le rush pour le retrouver : `python3 ~/Documents/SuperApps/supermonteur/renommer_rush.py <dossier du montage>` (ou `--rush <chemin>` si le rush n'est cité nulle part) -> `2026-10-28 Titre du reel - RUSH.MP4`, sur place (carte de la caméra ou SSD), sans copie ; les fiches des montages qui citaient l'ancien chemin sont mises à jour. SuperMonteur le fait seul après la v1. Jamais sur un B-roll, une musique ou un fichier du montage.
+Dès que le titre du reel est fixé (v1 montée), renommer le rush pour le retrouver : `python3 ~/Documents/SuperApps/supermonteur/renommer_rush.py <dossier du montage>` (ou `--rush <chemin>` si le rush n'est cité nulle part) -> `2026-10-28 Titre du reel - RUSH.MP4`, sur place (carte de la caméra ou SSD), sans copie ; les fiches des montages qui citaient l'ancien chemin sont mises à jour. Le moteur le fait seul après la v1. Jamais sur un B-roll, une musique ou un fichier du montage.
 
 
 **9. Boucle feedback (après chaque reel)**
 Source : Christian Peverelli, montage automatisé avec Claude Code (règles accumulées par retours).
-1. Retours = **l'écran Retours de SuperMonteur** (`apps/supermonteur/CLAUDE.md`, retours accrochés à l'image). Hors appli : ses retours dans le chat.
+1. Retours = **Cut Notes** (s'ouvre seul après chaque version, notes accrochées à l'image). Sinon : ses retours dans le chat.
 2. Corriger le reel (retouches ciblées). **Parcours « le mix » (choix de l'utilisateur)** : style choisi UNE fois au début (3 aperçus de 5 s, mémorisé) → 1 seule version complète → correction en 2 passes max : sur le point qui cloche SEULEMENT, 3 cartes à cliquer (3 musiques, 3 accroches…), jamais 3 versions complètes du reel (Titanic : 87 min).
 3. Chaque retour ou note (« 6/10, musique trop forte ») = **une ligne datée dans `feedback.md`** (règle générale + historique des notes), et une ligne dans le carnet Brain `00-Moi/regles-agents/supermonteur.md`. Si la règle change une règle de ce skill, corriger le fichier concerné (SKILL.md ou le fichier du style) pour qu'il n'y ait jamais deux versions. Une erreur corrigée ne revient jamais.
 4. **Note mesurable = un contrôle de plus dans `gardien.py`** (date + note d'origine), puis le relancer sur la dernière vidéo validée : elle doit rester ✅. C'est ça qui empêche une erreur de revenir, pas le carnet.

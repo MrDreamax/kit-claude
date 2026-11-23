@@ -2,7 +2,7 @@
 
 # DEVINER LE FORMAT : « monte cette vidéo » = je devine, il confirme
 
-**SuperMonteur devine et il confirme sur son 1er écran. Aucune question de style ni de cases dans le chat**. Les sections 3 et 3 bis ne servent que si SuperMonteur est impossible à ouvrir, et pour un client.
+**Rush sans consigne = les 2 boutons du chat (Minimaliste recommandé / S'inspirer d'un montage), comme dans SKILL.md. Les sections 3 et 3 bis ne servent que si la personne veut un autre style. Il n'y a plus d'écran de choix.**
 
 Règle de .
 Il ne nomme jamais le format. Ne jamais lui demander « quel style ? » à froid : je regarde, je devine, je propose.
@@ -24,7 +24,6 @@ Toujours OUVRIR `devine.jpg` (Read) : le script rate ce qui se voit et ne s'ente
 - Rien de tout ça = face caméra simple.
 
 ## 3. Demander : UNE question, en boutons (AskUserQuestion)
-**Ces 2 questions (style + cases) sont sur le 1er écran de SuperMonteur « Quel style pour ce reel ? » (5 cartes, mon conseil entouré « Conseillé », cases dessous, « Monter le reel »). Les boutons du chat ci-dessous sont le secours.**
 Question = ma devinette, dans ses mots : « Tu veux un montage tier list ? », « Style minimaliste (titre + sous-titres) ? », « Style dynamique ? ». Options = seulement les 5 styles, sous leur nom.
 Options (4 max, la devinette en 1er avec « (Recommandé) ») : la devinette + les 2-3 autres plausibles pour CE rush. Chaque option dit en clair ce qu'il verra (« le tableau S/A/B/C se remplit au-dessus de ta tête »). Le reste passe par « Autre ».
 Une question pour le style, puis la question des cases (3 bis). L'ambiance et la musique se règlent ensuite comme d'habitude (cockpit).
