@@ -405,6 +405,14 @@ dmin = plan.get("duree_min", 60.0)
 if dur_v and dmin:
     check(dur_v > dmin, "Plus d'1 minute", f"{dur_v:.1f} s" + ("" if dur_v > dmin else f" : il faut plus de {dmin:.0f} s (prolonger le dernier plan face cam : derush.py --tail)"), "Titanic TikTok")
 
+# 11 bis. Fin basse : la dernière phrase finit sur un point ET la voix descend (fin_basse.py). Bloquant, toutes les vidéos.
+_fv = voix
+_fw = P("cut.words.json") if _fv and _fv.endswith("cut.mp4") else P(plan.get("words", "words.json"))
+if _fv and _fw:
+    _r = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "fin_basse.py"), _fv, _fw], capture_output=True, text=True)
+    _l = [x for x in (_r.stdout or "").splitlines() if x.strip()]
+    check(_r.returncode == 0, "Fin basse", (_l[-2] + " · " if len(_l) > 1 else "") + ("voix qui descend sur une phrase finie" if _r.returncode == 0 else "fin qui monte ou phrase pas finie -> fin_basse.py <rush> <words> --candidats --de --a, puis finir sur une fin BASSE"), "fin basse")
+
 # 12. La musique va jusqu'au bout (Titanic : mix.py coupe la vidéo là où la musique s'arrête, 61,5 s prévus -> 60,7 s)
 if isinstance(mus, list) and mus and dur_v and not final:
     m1 = max(m.get("end", dur_v) for m in mus)
